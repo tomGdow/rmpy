@@ -1,0 +1,212 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[lambda]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        lambda
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>lambda</dt>
+          <dd>Small anonymous functions can be created with the lambda keyword.</dd> 
+          <dd>Lambda functions can be used wherever function objects are required.</dd> 
+          <dd>They are syntactically restricted to a single expression.</dd> 
+          <dd>Semantically, they are just syntactic sugar for a normal function definition.</dd> 
+          <dd>Like nested function definitions, lambda functions can reference 
+          variables from the containing scope:</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+
+          lambda variable, ... : expression
+
+          variable, …       //   Optional
+          expression        //   Required
+
+          OR
+
+          lambda arguments : expression
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (map)</summary>
+            <pre>
+    f = lambda x: x*x
+    lst = range(4)
+    sqlst = map(f, lst)
+    list(sqlst) // [0, 1, 4, 9]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (filter)</summary>
+            <pre>
+    l=range(1,10)
+    list(l)      //  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    ml = map(lambda x: x%2 == 0, l)
+    list(ml)    // [False, True, False, True, False, True, False, True, False]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (String memory address)</summary>
+            <pre>
+    str=&quot;thomas&quot;
+    print(lambda str :str)
+    &lt;function &lt;lambda&gt; at 0x000001E62A88BDC0&gt;
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4 (lambda within function definition)</summary>
+            <pre>
+    def mult(n):
+      return lambda x : x*n
+
+    mult5 = mult(5)
+    mult5(100)    //   500
+    mult5
+    &lt;function mult.&lt;locals&gt;.&lt;lambda&gt; at 0x000001E62A8A5670&gt;
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5 (sort strings with key function)</summary>
+            <pre>
+
+    ids=['id1', 'id2', 'id30', 'id3', 'id22', 'id100']                      
+
+    print(sorted(ids))  // ['id1', 'id100', 'id2', 'id22', 'id3', 'id30']
+
+    list(map(lambda x: int(x[2:]), ids)) //  [1, 2, 30, 3, 22, 100]
+    [
+    print(sorted(ids, key=lambda x : int(x[2:]))) 
+                                 // ['id1', 'id2', 'id3', 'id22', 'id30', 'id100']
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 6 (List Comprehensions as Alternative to Lambda)</summary>
+            <pre>
+
+    list(map(lambda x : x.capitalize(), ['dog', 'cat', 'mouse']))
+    // ['Dog', 'Cat', 'Mouse']
+
+    [x.capitalize() for x in ['dog', 'cat', 'mouse']]
+    // ['Dog', 'Cat', 'Mouse']
+
+    list(filter(lambda x: x%2==0, range(10)))
+    // [0, 2, 4, 6, 8]
+    [x for x in range(10) if x%2==0]
+    // [0, 2, 4, 6, 8]
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Historical Note</dt>
+            <dd>Functional languages get their origin in mathematical logic and 
+            lambda calculus</dd> 
+            <dd>Imperative programming languages embrace the state-based model of 
+            computation invented by Alan Turing</dd>
+            <dd>The two models of computation, lambda calculus and Turing machines,
+            can be translated into each another.</dd> 
+            <dd>This equivalence is known as the Church-Turing hypothesis.</dd>
+            <dt>dis and lambda</dt> 
+            <dd>
+            <pre>
+    import dis
+    add = lambda x,y: x+y
+    type(add)
+    &lt;class 'function'&gt;
+    dis.dis(add)
+    1           0 LOAD_FAST                0 (x)
+                2 LOAD_FAST                1 (y)
+                4 BINARY_ADD
+                6 RETURN_VALUE
+            </pre>
+            </dd>
+            <dt>key functions and lambda</dt>
+            <dd>Key functions in Python are higher-order functions that take a 
+            parameter key as a named argument.</dd> 
+            <dd>key receives a function that can be a lambda.</dd> 
+            <dd>This function directly influences the algorithm driven by the key function itself.</dd> 
+            <dt>Lambda and Python</dt>
+            <dd>Guido van Rossum does not like lambda (or reduce or map or filter)
+            (see ref below)</dd>
+
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">
+              Python Tutorial: lambda expressions
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.geeksforgeeks.org/python-lambda/">
+              GeeksForGeeks: Python lambda
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://pythonspot.com/python-lambda/">
+              Python Tutorials: Python lambda  (pythonspot)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://python-reference.readthedocs.io/en/latest/docs/operators/lambda.html">
+              Python Reference (The Right Way): lambda
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.w3schools.com/python/python_lambda.asp">
+              Python Lambda (W3Schools)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.artima.com/weblogs/viewpost.jsp?thread=98196">
+              The fate of reduce() in Python 3000 by Guido van van Rossum
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

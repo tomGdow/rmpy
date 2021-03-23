@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[gen compreh]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        generator comprehension (expression)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>generator comprehension (expression)</dt>
+
+          <dd>An expression that returns an iterator.</dd>
+          <dd>It looks like a normal expression followed by a for clause defining
+          a loop variable, range, and an optional if clause.</dd>
+          <dd>The combined expression generates values for an enclosing function:</dd>
+          <pre>
+
+    sum(i*i for i in range(10))
+    g = (i*i for i in range(10))
+    g // &lt;generator object &lt;genexpr&gt; at 0x000001C360674510&gt;
+
+    next(g) // 0                                                               
+    next(g) // 1                                                               
+    next(g) // 4
+    next(g) // 9
+    next(g) // 16 
+    next(g) // 25
+    next(g) // 36
+    next(g) // 49
+    next(g) // 64
+    next(g) // 81
+    next(g)
+    ---------------------------------------------------------------------------
+    StopIteration                             Traceback (most recent call last)
+
+          </pre>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>List comprehension vs generator comprehension</summary>
+            <pre>
+
+          // List Comprehension 
+
+          my_list = [1, 3, 5, 9, 2, 6]
+
+          my_filtered_list= [item for item in my_list if item &gt;3]
+
+          print(my_filtered_list) // [5, 9, 6]
+
+
+          // Generator Comprehension
+
+          my_generator_list =(item for item in my_list if item &gt;3)
+
+          my_generator_list
+
+          &lt;generator object &lt;genexpr&gt; at 0x000001C36068B660&gt;
+
+          next(my_generator_list) // 5
+          next(my_generator_list) // 9
+          next(my_generator_list) // 6
+          next(my_generator_list)
+
+          ---------------------------------------------------------------------------
+          StopIteration                             Traceback (most recent call last)
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/364802/499167">
+              How exactly does a generator comprehension work?
+            </a>
+            </p>
+            </dd>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/glossary.html#term-generator">
+              Python Glossary: generator expression
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/classes.html#generator-expressions">
+              Python tutorial: generator expressions
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

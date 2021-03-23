@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[repr]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        repr()  
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>repr()</code></dt>
+
+          <dd>Return a string containing a printable representation of an object.</dd> 
+          <dd>For many types, this function makes an attempt to return a string 
+          that would yield an object with the same value when passed to <code>eval()</code></dd> 
+          <dd>Otherwise the representation is a string enclosed in angle brackets
+          that contains the name of the type of the object together with
+          additional information often including the name and address of the object.</dd>
+
+          <dd>
+          <code>object.__repr__(self)</code> is called by the <code>repr()</code>
+          built-in function to compute the "official" string representation of an object
+          </dd> 
+          <dd>
+          <pre>
+
+    repr(10)          //    '10'
+    repr(10.5)        //    '10.5'
+    repr(True)        //    'True'
+    repr(4+2)         //    '6'
+    type(True)        //    &lt;class 'bool'&gt;
+    type(repr(True))  //    &lt;class 'str'&gt;
+    r"x={4*10}"       //    'x={4*10}'
+    fr"x={4*10}"      //    'x=40'
+          
+          </pre>
+          </dd>   
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#repr">
+              (Python docs) repr(object)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/datamodel.html#object.__repr__">
+              (python docs) object.__repr__(self)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

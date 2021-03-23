@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>[f-string]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {color:black;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        f-strings (string literal interpolation)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>f-string syntax</dt>
+          <dd>
+          <pre>
+
+          f ' &lt;text&gt; { &lt;expression&gt; &lt;optional !s, !r, or !a&gt; &lt;optional : format specifier&gt; } &lt;text&gt; ... '   :
+
+          </pre> 
+          </dd>          
+          <dt>f-strings</dt>
+          <dd><code>f-strings</code> are string literals that are prefixed by the
+          letter '<code>f</code>' or '<code>F</code>'.</dd> 
+          <dd>'<code>f</code>' may be combined with '<code>r</code>' or
+          '<code>R</code>', in either order, to produce raw <code>f-string</code> 
+          literals</dd>
+          <dd>'<code>f</code>' may not be combined with '<code>b</code>'</dd> 
+
+
+          <dd><code>f-strings</code> use the same rules as normal strings, raw
+          strings, binary strings, and triple quoted strings.</dd> 
+          <dd>That is, the string must end with the same character that it
+          started with: if it starts with a single quote it must end with a
+          single quote, etc.</dd>
+
+
+          <dd>The parts of the <code>f-string</code> outside of braces are literal
+          strings.</dd> 
+          <dd>For non-raw <code>f-strings</code>, this includes converting
+          backlash escapes such as '<code>\n</code>', '\"', "\'",
+          '<code>\xhh</code>', '<code>\uxxxx</code>', '<code>\Uxxxxxxxx</code>',
+          and named unicode characters '<code>\N{name}</code>' into their
+          associated Unicode characters</dd>
+          <dd><code>F-strings</code> provide a way to embed expressions inside
+          string literals, using a minimal syntax.</dd>
+          <dd>An <code>f-string</code> is an expression evaluated at run time, not a constant value</dd>
+          <dd>Python reads program text as Unicode code points</dd>
+          
+<dd>Backslashes may not appear anywhere within expressions.</dd> 
+<dd>Comments, using the '<code>#</code>' character, are not allowed inside an expression</dd>
+
+<dd>While scanning the string for expressions, any doubled braces '<code>{{</code>' or '<code>}}</code>' inside literal portions of an <code>f-string</code> are replaced by the corresponding single brace.</dd> 
+<dd>Doubled literal opening braces do not signify the start of an expression.</dd> 
+
+
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Unicode Named Characters</summary>
+          <dl>
+            <dt>List of Named Characters</dt>
+            <dd>0020	SPACE</dd>
+            <dd>0021	EXCLAMATION MARK</dd>
+            <dd>0022	QUOTATION MARK</dd>
+            <dd>0023	NUMBER SIGN</dd>
+            <dd>0024	DOLLAR SIGN</dd>
+            <dd>0025	PERCENT SIGN</dd>
+            <dd>0026	AMPERSAND</dd>
+            <dd>0027	APOSTROPHE</dd>  
+            <dd>0028	LEFT PARENTHESIS</dd>
+            <dd>0029	RIGHT PARENTHESIS</dd>
+            <dd>002A	ASTERISK</dd>
+            <dd>002B	PLUS SIGN</dd>
+            <dd>002C	COMMA</dd>
+            <dd>002D	HYPHEN-MINUS</dd>
+            <dd>002E	FULL STOP</dd>
+            <dd>002F	SOLIDUS</dd>
+            <dd>0030	DIGIT ZERO</dd>
+            <dd>0031	DIGIT ONE</dd>
+            <dd>0032	DIGIT TWO</dd>
+            <dd>0033	DIGIT THREE</dd>
+            <dd>0034	DIGIT FOUR</dd>
+            <dd>0035	DIGIT FIVE</dd>
+            <dd>0036	DIGIT SIX</dd>
+            <dd>0037	DIGIT SEVEN</dd>
+            <dd>0038	DIGIT EIGHT</dd>
+            <dd>0039	DIGIT NINE</dd>
+            <dd>003A	COLON</dd>
+            <dd>003B	SEMICOLON</dd>
+            <dd>003C	LESS-THAN SIGN</dd>
+            <dd>003D	EQUALS SIGN</dd>
+            <dd>003E	GREATER-THAN SIGN</dd>
+            <dd>003F	QUESTION MARK</dd>
+            <dd>0040	COMMERCIAL AT</dd>
+            <dd>0041	LATIN CAPITAL LETTER A</dd>
+            <dd>0042	LATIN CAPITAL LETTER B</dd>
+            <dd>0043	LATIN CAPITAL LETTER C</dd>
+            <dd>0044	LATIN CAPITAL LETTER D</dd>
+            <dd>0045	LATIN CAPITAL LETTER E</dd>
+            <dd>0046	LATIN CAPITAL LETTER F</dd>
+            <dd>004B	LATIN CAPITAL LETTER K</dd>
+            <dd>004C	LATIN CAPITAL LETTER L</dd>
+            <dd>004D	LATIN CAPITAL LETTER M</dd>
+            <dd>004E	LATIN CAPITAL LETTER N</dd>
+            <dd>0052	LATIN CAPITAL LETTER R</dd>
+            <dd>0053	LATIN CAPITAL LETTER S</dd>
+            <dd>0054	LATIN CAPITAL LETTER T</dd>
+            <dd>0055	LATIN CAPITAL LETTER U</dd>
+            <dd>0056	LATIN CAPITAL LETTER V</dd>
+            <dd>0057	LATIN CAPITAL LETTER W</dd>
+            <dd>0058	LATIN CAPITAL LETTER X</dd>
+            <dd>0059	LATIN CAPITAL LETTER Y</dd>
+            <dd>005A	LATIN CAPITAL LETTER Z</dd>
+            <dd>005B	LEFT SQUARE BRACKET</dd>
+            <dd>005C	REVERSE SOLIDUS</dd>
+            <dd>005D	RIGHT SQUARE BRACKET</dd>
+            <dd>005E	CIRCUMFLEX ACCENT</dd>
+            <dd>005F	LOW LINE</dd>
+            <dd>0060	GRAVE ACCENT</dd>
+            <dd>0061	LATIN SMALL LETTER A</dd>
+            <dd>0062	LATIN SMALL LETTER B</dd>
+            <dd>0063	LATIN SMALL LETTER C</dd>
+            <dd>0064	LATIN SMALL LETTER D</dd>
+            <dd>0065	LATIN SMALL LETTER E</dd>
+            <dd>0066	LATIN SMALL LETTER F</dd>
+            <dd>0067	LATIN SMALL LETTER G</dd>
+            <dd>0068	LATIN SMALL LETTER H</dd>
+            <dd>0069	LATIN SMALL LETTER I</dd>
+            <dd>006A	LATIN SMALL LETTER J</dd>
+            <dd>006B	LATIN SMALL LETTER K</dd>
+            <dd>006C	LATIN SMALL LETTER L</dd>
+            <dd>006D	LATIN SMALL LETTER M</dd>
+            <dd>006E	LATIN SMALL LETTER N</dd>
+            <dd>006F	LATIN SMALL LETTER O</dd>
+            <dd>0070	LATIN SMALL LETTER P</dd>
+            <dd>0071	LATIN SMALL LETTER Q</dd>
+            <dd>0072	LATIN SMALL LETTER R</dd>
+            <dd>0073	LATIN SMALL LETTER S</dd>
+            <dd>0074	LATIN SMALL LETTER T</dd>
+            <dd>0075	LATIN SMALL LETTER U</dd>
+            <dd>0076	LATIN SMALL LETTER V</dd>
+            <dd>0077	LATIN SMALL LETTER W</dd>
+            <dd>0078	LATIN SMALL LETTER X</dd>
+            <dd>0079	LATIN SMALL LETTER Y</dd>
+            <dd>007A	LATIN SMALL LETTER Z</dd>
+            <dd>007B	LEFT CURLY BRACKET</dd>
+            <dd>007C	VERTICAL LINE</dd>
+            <dd>007D	RIGHT CURLY BRACKET</dd>
+            <dd>007E	TILDE	</dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://www.compart.com/en/unicode/U+0041#UNC_DB">
+              Unicode Character A (Searchable)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt">
+              unicode-dot-org UnicodeData.txt (ftp)
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://unicode-table.com/en/blocks/">
+              Unicode Character Table
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.unicode.org/Public/11.0.0/ucd/NameAliases.txt">
+              Unicode Named Aliases
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+
+
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1
+              <code>!r</code>
+              <code>!a</code>
+              <code>!s</code>
+            </summary>
+            <pre>
+
+    name="thomas"
+    (1) F"hello {name}"      //    'hello thomas'
+    (2) F"hello{name!r}"     //    "hello'thomas'"
+    (3) F"hello{name!a}"     //    "hello'thomas'"
+    (4) F"hello{name!s}"     //    'hellothomas'
+    (5) F"hello{str(name)}"  //    'hellothomas'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: Floats</summary>
+            <pre>
+
+    print(f"hello {20.08999:20.3f} is a number")
+    print(f"hello {20.08999:+20.3f} is a number")
+    print(f"hello {20.08999:.3f} is a number")
+    print(f"hello {20.08999:+020.3f} is a number")
+
+    // hello               20.090 is a number
+    // hello              +20.090 is a number
+    // hello 20.090 is a number
+    // hello +000000000000020.090 is a number
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: Integers</summary>
+            <pre>
+
+    print(f"hello {20:3}")
+    print(f"hello {20:4}")
+    print(f"hello {20:03}")
+
+    // hello  20
+    // hello   20
+    // hello 020
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4: Other bases</summary>
+            <pre>
+
+    f"{8:o} is a number"
+    f"{8:#o} is a number"
+    //   '10 is a number'
+    // '0o10 is a number'
+
+    f"{16:x} is a number"
+    f"{16:#x} is a number"
+    f"{16:#X} is a number"
+    //   '10 is a number'
+    // '0x10 is a number'
+    // '0X10 is a number'
+
+    f"{0o10:d}"     '8'
+    f"{0o10:#x}"    '0x8'
+
+    print(f"{16:#010x}")    0x00000010
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>
+              Example 5. Floats: <code>e</code> vs <code>f</code> vs <code>g</code>
+            </summary>
+            <pre>
+
+    f"{0.084:e} is a number"
+    f"{0.084:f} is a number"
+    f"{0.084:g} is a number"
+    // '8.400000e-02 is a number'
+    // '0.084000 is a number'
+    // '0.084 is a number'
+
+    f"{0.00000084:e} is a number"
+    f"{0.00000084:f} is a number"
+    f"{0.00000084:g} is a number"
+    // '8.400000e-07 is a number'
+    // '0.000001 is a number'
+    // '8.4e-07 is a number'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 6: Character</summary>
+            <pre>
+
+    f"{48:c}{65:c}{97:c} should be 0Aa {ord('0')}-{ord('A')}-{ord('a')}"
+
+    // '0Aa should be 0Aa 48-65-97'
+
+    f" \u0030\u0041\u0061 is\
+    \N{DIGIT ZERO}\N{LATIN CAPITAL LETTER A}\N{LATIN SMALL LETTER A} or\
+    {0x30:d}-{0x41:d}-{0x61:d}"
+
+    // ' 0Aa is 0Aa or 48-65-97'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 7: Unicode</summary>
+            <pre>
+
+    f"\u23F1" // Stopwatch
+    &#9201;
+    f"\N{Pilcrow sign}"
+    '¶'
+    f"\N{Greek Capital Letter Sigma}"
+    'Σ'
+    f"\N{HOURGLASS with flowing sand}"
+    '⏳'
+    f"\N{Brain}"
+    '🧠'
+    f"\N{Statue of Liberty}"
+    '🗽'
+    f"\N{Floppy Disk}"
+    '💾'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 8</summary>
+            <pre></pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Types of String formatting</dt>
+            <dd>
+            <p>"Python supports multiple ways to format text strings"
+            (from PEP 498)</p>
+            </dd> 
+            <dd>  
+            <a href ="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting">
+              &percnt;-formatting
+            </a>
+            </dd>
+
+            <dd>  
+            <p>
+            <a href ="https://docs.python.org/3/library/string.html#formatstrings">
+              str.format()</a>
+            </p>
+            </dd>   
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/string.html#template-strings">
+              template strings
+            </a>
+            </p>
+            </dd>
+
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://www.python.org/dev/peps/pep-0498/">
+              PEP 498 -- Literal String Interpolation
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://realpython.com/python-f-strings/">
+              (Reap Python) Python 3's f-Strings: An Improved String Formatting Syntax
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://stackoverflow.com/questions/57150426/what-is-printf">
+              What is print(f“…”)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.python.org/dev/peps/pep-0498/#how-to-denote-f-strings">
+              How to denote f-strings
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://cis.bentley.edu/sandbox/wp-content/uploads/Documentation-on-f-strings.pdf">
+              Guide to f-string Formatting in Python (Jacqueline Masloff, PhD) (pdf)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/">
+              Geeks for Geeks: f-strings in Python
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/lexical_analysis.html">
+              Lexical Analysis
+            </a>
+            </p>
+            </dd>
+
+
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

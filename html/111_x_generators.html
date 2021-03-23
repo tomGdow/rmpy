@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[generators]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        generators
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>generators (python glossary)</dt>
+          <dd>A function which returns a generator iterator.</dd> 
+          <dd>It looks like a normal function except that it contains 
+          <code>yield</code> expressions</dd>
+          <dd>
+          <p>yield produces a series of values usable</p>
+          <ol>
+            <li>in a <code>for-loop</code></li>
+            <li>or that can be retrieved one at a time with the
+              <code>next()</code> function
+            </li>
+          </ol> 
+          </dd> 
+          <dt>generators (David Beazley)</dt>
+          <dd>A generator is a function that produces a sequence of results instead
+          of a single value</dd>
+          <dd>Instead of returning a value, you generate a series of values
+          (using the yield statement)</dd>
+          <dd>Typically, you hook it up to a for-loop</dd>
+          <dd>Calling a generator function creates an generator object.</dd>  
+          <dd>However, it does not start running the function.</dd>
+          <dd>The function only executes on next()</dd>
+          <dd>yield produces a value, but suspends the function</dd>
+          <dd>Function resumes on next call to next()</dd>
+          <dd>When the generator returns, iteration stops</dd>
+
+          <dt>generator iterator</dt>
+          <dd>An object created by a generator function.</dd>
+
+          <dd>Each yield temporarily suspends processing, remembering the location
+          execution state (including local variables and pending try-statements)</dd>
+          <dd>When the generator iterator resumes, it picks up where it left off 
+          (in contrast to functions which start fresh on every invocation)</dd>
+
+
+          <dt>Illustrative Example</dt>
+          <dd>
+          <pre>
+    def countdown(n):
+        print("counting down from {n}")
+        while n &gt; 0:
+            yield n
+            n -=1
+
+    for i in countdown(5):
+        print(i, end='')   // 54321
+
+    x = countdown(10)
+    x // &lt;generator object countdown at 0x0000027DEE16CF20&gt;
+      // no output produced!
+
+    next(x)  // counting down from {n} // 10
+    next(x)  // 9
+    next(x)  // 8
+          </pre>
+          </dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>fibonacci (McGrath, Easy Steps)</summary>
+            <pre>
+      def fib ():
+          a = b = 1
+          while True:
+              yield a
+              a, b = b, b+a
+
+      f = fib()
+      for x in f:
+          if x &gt; 100:
+              break
+          print(x, end=' ')
+
+      // 1 1 2 3 5 8 13 21 34 55 89
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>yield</dt>
+            <dd>
+            <p>Since Python 2.5, can use <code>yield</code> as <em>expression</em> 
+            (David Beazley)</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+
+            <dd>
+            <p>
+            <a href ="http://www.dabeaz.com/coroutines/">
+              David Beazley: A Curious Course on Coroutines and Concurrency
+            </a>
+            </p>
+            </dd>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="http://www.dabeaz.com/coroutines/Coroutines.pdf">
+              PDF of David Beazley: A Curious Course on Coroutines and Concurrency
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/classes.html#generators">
+              Python Tutorial: generators
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/glossary.html#term-generator">
+              Generators (Python Glossary)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/csv.html">
+              csv — CSV File Reading and Writing
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

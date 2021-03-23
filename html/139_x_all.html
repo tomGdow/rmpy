@@ -1,0 +1,94 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[all]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        all (built-in)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>all(iterable)</code></dt>
+
+          <dd>Return <code>True</code> if all elements of the iterable are true (or if the iterable is empty).</dd>
+          <dd>Equivalent to:</dd>
+
+          <dd> <pre>
+
+    def all(iterable):
+      for element in iterable:
+        if not element:
+          return False
+      return True
+
+          </pre></dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>my_all (coding challenge)</summary>
+            <pre>
+
+    def my_all (iter):
+
+      ''' Return True if all elements of the iterable are true (or if the iterable
+          is empty). '''
+
+      for i in iter:
+        if i:
+          continue;
+        else:
+          return False;
+      return True
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/functions.html#all">
+              all (built-in)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

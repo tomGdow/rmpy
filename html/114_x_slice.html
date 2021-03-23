@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[slice]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        slice notation
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>slice notation</dt> 
+          <dd>
+          <pre>
+
+          a[start:stop]  # items start through stop-1
+          a[start:]      # items start through the rest of the array
+          a[:stop]       # items from the beginning through stop-1
+          a[:]           # a copy of the whole array
+
+          a[start:stop:step] # start through not past stop, by step
+
+          start # IS included  (and may be negative)
+          stop  # NOT included (and may be negative)
+
+          NEGATIVE indexing starts at -1
+          POSITIVE indexing starts at 0 
+          
+          STEP    negative: go backwards (key) 
+                  MUST go in direction of STOP, otherwise empty set/tuple
+ 
+          If START = STOP, get empty set! 
+
+          a[start:stop:step] is equivalent to a[slice(start, stop, step)]
+         
+          Index from rear:    -6  -5  -4  -3  -2  -1    
+          Index from front:    0   1   2   3   4   5    
+                             +---+---+---+---+---+---+  
+                             | p | y | t | h | o | n |   
+                             +---+---+---+---+---+---+
+
+          str = "python"
+          arr = ['p', 'y', 't', 'h', 'o', 'n']
+          tup =(1,2,3,4,5) 
+
+          str[1:]        //   'ython'
+          arr[1:]        //   ['y', 't', 'h', 'o', 'n']
+
+          str[:5]        //   'pytho'
+          arr[:5]        //   ['p', 'y', 't', 'h', 'o']
+
+          str[:-2]       //   'pyth'
+          arr[:-2]       //   ['p', 'y', 't', 'h']
+
+          str[1:2]       //    'y'
+          arr[1:2]       //   ['y']
+
+          arr[2:1:-1]    //   ['t']
+          str[2:1:-1]    //    't'
+
+          str[2:1]       //     ''
+          arr[2:1]       //     [] 
+
+          arr[1:-1]      //     ['y', 't', 'h', 'o']
+          str[1:-1]      //     'ytho'
+
+
+          arr[::-1]      //     ['n', 'o', 'h', 't', 'y', 'p']
+          str[::-1]      //     'nohtyp'
+         
+         arr[::]        //     ['p', 'y', 't', 'h', 'o', 'n']
+         str[:]         //     'python'
+                      
+         str[-4:-6:-1]  //     'ty'      // start -4, end -5, backwards
+         arr[-4:-6:-1]  //     ['t', 'y']
+
+         str[-4:-6]     //     '' 
+         arr[-4:-6]     //     []
+
+         str[-6:-4]     //     'py'
+         arr[-6:-4]     //     ['p', 'y']
+
+         arr[2:2]       //     []
+         str[3:3]       //     ''
+
+         tup[-2:-4:-1]  //     (4, 3)
+
+         str[8]         //    !! IndexError: string index out of range
+         str[0:8]       //    'python'
+
+         MNEMONIC
+
+         txt[x:y]
+
+         y is the yth term  // The STOP figure is the ordinal-th term
+         x+1 is the xth term // The START figure +1 is the ordinal-th term
+
+         yth is y
+         xth is x+1
+         
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/509211/499167">
+              SO: Understanding slice notation
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://wiki.python.org/moin/MovingToPythonFromOtherLanguages">
+              MovingToPythonFromOtherLanguages
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[leap year]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        leap year
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>leap year</dt>
+          <dd>
+          Kernighan and Richie: A year is a leap year if it is
+          divisible by 4 but not by 100, except that years divisible by 400 are 
+          leap years.
+          </dd>
+          <dt>Method One</dt>
+          <dd>
+          <pre>
+    def isleap(arg):
+      if(arg%4):
+        return "Not a Leap Year"
+      else:
+        if(arg%100):
+          return "Leap Year"
+        else:
+          if(arg%400):
+            return "Not a Leap Year"
+          else:
+            return "Leap Year"
+
+          </pre>
+          </dd>
+          <dt>Method Two</dt>
+          <dd>
+          <pre>
+if(y%4) ==0:
+  if(y%100) ==0:
+    if(y%400)==0:
+      print("The entered year is a leap year")
+    else:
+      print("The entered year is not a leap year")
+  else:
+    print("The entered year is a leap year")
+else:
+  print("The entered year is not a leap year")
+          </pre>
+          </dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Leap Year List</summary>
+            <pre>
+    leapYears= [1804,1808,1812,1816,1820,1824,1824,1832,1836,1840, 1844,
+    1848, 1852, 1856, 1860, 1864, 1868, 1872, 1876, 1880, 1884, 
+    1888, 1892, 1896, 1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936,
+    1940, 1944, 1948, 1952, 1956, 1960, 1964, 1968, 1972, 1976, 1980, 1984,
+    1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 
+    2040, 2044, 2048, 2052, 2056, 2060, 2064, 2068, 2072, 2076, 2080, 2084,
+    2088, 2092, 2096]
+
+    print(list(map(isleap, leapYears[-20:-1])))
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Kernighan and Richie Version (C-Language)</summary>
+            <pre>
+    if ((year % 4 == 0 &amp;&amp; year % 100 != 0) ¦¦ year % 400 == 0)
+        printf("%d is a leap year\n", year);
+        else
+            printf("%d is not a leap year\n", year);
+
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Source</dt>
+            <dd>
+            <p>Method Two is from practice-labs.com (Practice Lab)` (</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

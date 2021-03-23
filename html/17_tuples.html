@@ -1,0 +1,147 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tuples</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Tuples
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Tuples</dt>
+          <dd>Tuples are immutable sequences</dd>
+          <dd>Typically used to store collections of heterogeneous data </dd>
+          <dd>(such as the <b>2-tuples</b> produced by the <code>enumerate()</code> built-in).</dd> 
+          <dd>Tuples are also used for cases where an immutable sequence of</dd> 
+          <dd>homogeneous data is needed (such as allowing storage in a set or dict instance).</dd>
+          <dd>Tuples may be constructed in a number of ways:</dd>
+          <dd>  
+          <ul>   
+            <li>Using a pair of parentheses to denote the empty tuple: ()</li>
+            <li>Using a trailing comma for a singleton tuple: a, or (a,)</li>
+            <li>Separating items with commas: a, b, c or (a, b, c)</li>
+            <li>Using the tuple() built-in: <code>tuple() </code>or <code>tuple(iterable)</code></li>
+          </ul> 
+          </dd> 
+          <dd><code>tuple('abc')</code> returns <code>('a', 'b', 'c')</code></dd>
+          <dd><code>tuple( [1, 2, 3] )</code> returns <code>(1, 2, 3).</code></dd> 
+          <dd>If no argument is given, the constructor creates a new empty tuple, <code>()</code>.</dd>
+          <dd>Note that it is actually the comma which makes a tuple, not the parentheses.</dd>
+          <dd>The parentheses are optional, except in the empty tuple case, 
+          or when they are needed to avoid syntactic ambiguity.</dd>
+          <dd><code>f(a, b, c)</code> is a function call with three arguments</dd>
+          <dd><code>f((a, b, c))</code> is a function call with a 3-tuple as
+          the sole argument.</dd>
+          <dd>A tuple consists of a number of values separated by commas</dd>
+          <dd>Output of tuples is always enclosed in parentheses</dd>
+          <dd>They may be input with or without surrounding parentheses, 
+          although often parentheses are necessary</dd>
+          <dd>It is not possible to assign to the individual items of a tuple</dd>
+          <dd>It is possible to create tuples which contain mutable objects,
+          such as lists</dd>
+          <dd>Tuples are immutable, and usually contain a heterogeneous 
+          sequence of elements</dd> 
+          <dd>elements accessed via unpacking or indexing (or even by attribute in the case of named tuples)</dd>
+          <dd>A SPECIAL PROBLEM  is the construction of tuples containing 
+          0 or 1 items:</dd>
+          <dd>Empty tuples are constructed by an empty pair of parentheses;</dd> 
+          <dd>A tuple with one item is constructed <b>by following a value with a comma</b></dd> 
+          <dd>(it is not sufficient to enclose a single value in parentheses).</dd> 
+
+          <dd>&quot;Note that multiple assignment is really just a combination of 
+          tuple packing</dd> 
+          <dd>and sequence unpacking.&quot; (Python doc, data structures)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+    tup=&quot;Thomas&quot;, &quot;Gerard&quot;,&quot;Someone&quot;  // TUPLE packing
+    type(tup) //tuple
+    w,x,y= &quot;thomas&quot;,&quot;Gerry&quot;, &quot;Domeone&quot;  // SEQUENCE unpacking
+    tup=&quot;Red&quot;,&quot;Green&quot;,&quot;Red&quot;,&quot;Green&quot;
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    thistuple = (&quot;apple&quot;)
+    print(type(thistuple))
+    &lt;class 'str'&gt;            // note
+    thistuple = (&quot;apple&quot;,)   // note the comma
+    print(type(thistuple))
+    &lt;class 'tuple'&gt;
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    Tuples are immutable, but MAY CONTAIN IMMUTABLE OBJECTS!
+    v = ([1, 2, 3], [3, 2, 1])
+    v[0]=[1,2,3] // TypeError: 'tuple' object does not support item assignment
+    v[0][0]=100
+    v // ([100, 2, 3], [3, 2, 1])
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    empty = ()
+    type(empty) // str
+
+    fakesingleton =(&quot;Apple&quot;)
+    type(fakesingleton) // str // !!
+
+    singleton=(&quot;Apple&quot;,)  // Note comma !!
+    type(singleton) // tuple 
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">
+              Data Structures (Tuples)</a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#tuples">
+              Built-in Types (Python Docs)</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+
+</html>

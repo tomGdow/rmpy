@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>[Precedence]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico">
+    <style>
+.table-template {
+  table-layout: fixed;
+  margin: auto;
+  empty-cells: hide;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  caption-side: bottom;
+}
+
+        .table-template td {
+          border: 1px solid lightblue;
+          padding: 0.2em 1em 0.2em 1em;
+        }
+
+        .table-template caption {
+          font-size: 1rem;
+          background-color: lightcyan;
+          padding: 0.5rem 0;
+          margin: 0.5rem 0;
+          counter-increment: table-counter;
+        }
+
+        .table-template caption span:before {
+          content: '('counter(table-counter) ')';
+        }
+
+
+        .table-template tr:hover {
+          background-color: #f5f5f5;
+        }
+
+        .table-template tfoot {
+          margin-top: 4rem;
+        }
+
+        .table-template tfoot {
+          border: 10px solid white;
+        }
+
+        .table-template tfoot tr {
+          background-color: antiquewhite;
+        }
+
+        .table-template tbody tr {
+          counter-increment: item-counter;
+        }
+
+        .table-template tbody td:first-of-type::before {
+          content: counter(item-counter);
+        }
+
+        .table-template td[rowspan="9"] {
+          vertical-align: top;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>precedence</header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>precedence</dt>
+          <dd>
+          </dd>
+        </dl>
+        <table class="table-template">
+          <caption>Table <span></span> Python Precedence</caption>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td><code>( )</code></td>
+              <td>parentheses</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>**</code></td>
+              <td>exponentiation</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>+x -x ~x</code></td>
+              <td>unary</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>* / // % @</code></td>
+              <td>
+                <p>
+                multiply/divide/modulus
+                </p>
+                <p>
+                (<code>@</code> is matrix multiplication)
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>+ - </code></td>
+              <td>add/subtract</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>&laquo; &raquo;</code></td>
+              <td>bitwise SHIFT</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>&amp; </code></td>
+              <td>bitwise AND</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>&circ;</code></td>
+              <td>bitwise XOR</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <p>in, not in, is, is not</p>
+                <p>
+                <code>&lt; &lt;= > &gt;= != ==</code>
+                </p>
+              </td>
+              <td>comparison</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>= += -=</code></td>
+              <td>[ASSIGNMENT and COMPOUND ASSIGNMENT here?]</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>not</code></td>
+              <td>boolean NOT</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>and</code></td>
+              <td>boolean AND</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>or</code></td>
+              <td>boolean OR</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>&lambda;</code></td>
+              <td>lambda</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><code>:=</code></td>
+              <td>assignment expression</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>BODMAS RULE</dt>
+            <dd>B Brackets first</dd>
+            <dd>O Orders (i.e. Powers and Square Roots, etc.)</dd>
+            <dd>DM Division and Multiplication (left-to-right)</dd>
+            <dd>AS Addition and Subtraction (left-to-right)</dd>
+            <dd><a href ="https://www.mathsisfun.com/operation-order-bodmas.html">BODMAS (Math is Fun)</a></dd>
+            <dt>DM&gt;AS</dt>
+            <dd>
+            <p>division/multiplication higher precedence than add subtract
+            </p>
+            <p>
+            <code>*/&gt;+- </code> (triangle with star inside, better)
+            </p>
+            <p>
+            <code>*&RightTriangle;+- </code>
+            </p>
+            <p>
+            <code>
+              4+3*8 // 28
+            </code>
+            </p>
+            <p>
+            <code>
+              3*8+4 // 28
+            </code>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

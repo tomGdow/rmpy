@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[buzzfizz]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        buzzfizz (code challenge)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Code Challenge</dt>
+
+          <dd>Write a program that prints the numbers from 1 to 100.</dd> 
+          <dd>But for multiples of three (if the number d:ivides evenly by 3)
+          print "Fizz" instead of the number and for the multiples of five print "Buzz".</dd> 
+          <dd>For numbers which are multiples of both three and five print "FizzBuzz".</dd>
+
+          <dt>Attempt 1 (buzzfizz) </dt>
+          <dd>
+          <pre>
+
+    for i in range(1,101):
+      if not i % 3 and not i % 5:
+        print("buzzfizz")
+      elif not i % 5:
+        print("buzz")
+      elif not i % 3:
+        print("fizz")
+      else:
+        print(i)
+
+          </pre>
+          </dd>
+
+          <dt>Attempt 2 (ternary operator)</dt>
+          <dd>
+          <pre>
+
+    for i in range(1,101):
+      print("buzzfizz") if not i%3 and not i%5 \
+                        else print("buzz") if not i%5 \
+                          else print("fizz") if not i%3 \
+                            else print(i)
+
+          </pre>
+          </dd>
+          <dt>Attempt 3 (Nested If)</dt>
+          <dd>
+          <pre>
+
+
+    for i in range(1,101):
+      if not i % 5:
+        if not i % 3:
+          print('buzzfizz')
+        else:
+          print('buzz')
+      elif not i % 3:
+        print('fizz')
+      else:
+        print(i)
+
+          </pre>
+          </dd>
+          <dt>Attempt 4 (Nested if without 'not' operator</dt>
+          <dd>
+          <pre>
+
+    for i in range(1,101):
+      if(i%5) or (i%3):
+        if(i%5):
+          if (i%3):
+            print(i)
+          else:
+            print("fizz")
+        else:
+          print("buzz") 
+      else:
+        print("buzzfizz")
+
+          </pre></dd>
+          <dt>Attempt 5 (Improved Nested If)</dt>
+          <dd>
+          <pre>
+
+    for i in range(1,101):
+
+      if(i%5):
+        if (i%3):
+          print(i)
+        else:
+          print('fizz')
+      else:
+        if(i%3):
+          print("buzz")
+        else:
+          print('buzzfizz')
+
+          </pre>
+          </dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Output</summary>
+            <pre>
+    1
+    2
+    fizz
+    4
+    buzz
+    fizz
+    7
+    8
+    fizz
+    buzz
+    11
+    fizz
+    13
+    14
+    buzzfizz
+    16
+    17
+    fizz
+    19
+    buzz
+    fizz
+    22
+    23
+    fizz
+    buzz
+    26
+    fizz
+    28
+    29
+    buzzfizz
+    31
+    32
+    fizz
+    34
+    buzz
+    fizz
+    37
+    38
+    fizz
+    buzz
+    41
+    fizz
+    43
+    44
+    buzzfizz
+    46
+    47
+    fizz
+    49
+    buzz
+    fizz
+    52
+    53
+    fizz
+    buzz
+    56
+    fizz
+    58
+    59
+    buzzfizz
+    61
+    62
+    fizz
+    64
+    buzz
+    fizz
+    67
+    68
+    fizz
+    buzz
+    71
+    fizz
+    73
+    74
+    buzzfizz
+    76
+    77
+    fizz
+    79
+    buzz
+    fizz
+    82
+    83
+    fizz
+    buzz
+    86
+    fizz
+    88
+    89
+    buzzfizz
+    91
+    92
+    fizz
+    94
+    buzz
+    fizz
+    97
+    98
+    fizz
+    buzz
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Challenge</dt>
+            <dd>
+            <p>ecollege Python 98-381 code challenge</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

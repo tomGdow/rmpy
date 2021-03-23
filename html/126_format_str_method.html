@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[format]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        str.format()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>str.format(*args, **kwargs)</code></dt>
+          <dd>Perform a string formatting operation.</dd> 
+          <dd>The string on which this method is called can contain literal text 
+          or replacement fields delimited by braces <code>{}</code>.</dd> 
+          <dd>Each replacement field contains either the numeric index of a 
+          positional argument, or the name of a keyword argument.</dd> 
+          <dd>Returns a copy of the string where each replacement field is replaced
+          with the string value of the corresponding argument</dd>
+          <dd>
+          <pre>
+
+    &quot;tho{0}a{1}&quot;.format(*[&quot;m&quot;, &quot;s&quot;])       //     'thomas'
+    &quot;The sum of 1 +2 is {}&quot;.format(1+2)    //     'The sum of 1 +2 is 3'
+
+          </pre>
+          </dd>
+          <dt>Using a Single Formatter </dt>
+          <dd>
+          <pre>
+
+  (1) print(&quot;{}, a computer science  format for geeks&quot;.format(&quot;Geeks for Geeks&quot;))
+      //   Geeks for Geeks, a computer science  format for geeks
+
+  (2) str=&quot;This article is written in {}&quot;
+      print(str.format(&quot;Python&quot;))    //   This article is written in Python
+
+  (3) &quot;Hello, I am {} years old&quot;.format(18) // 'Hello, I am 18 years old'
+          </pre>
+          </dd>
+          <dt>Multiple formatters</dt>
+          <dd> <pre>
+
+  (1) my_string=&quot;This is {} {} {} {}&quot;
+      print(my_string.format(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;))
+      //    This is one two three four
+
+  (2) print(&quot;Every {} should know the use of {} {} programming and\
+      {}&quot;.format(&quot;programmer&quot;, &quot;Open&quot;, &quot;Source&quot;, &quot;Operating Systems&quot;))
+      // Every programmer should know the use of Open Source \
+      programming and Operating Systems
+
+  (3) print(&quot;Every {3} should know the use of {2} {1} programming and\
+      {0}&quot;.format(&quot;programmer&quot;, &quot;Open&quot;, &quot;Source&quot;, &quot;Operating Systems&quot;))
+      // Every Operating Systems should know the use of Source Open\
+      programming and programmer
+
+  (4) my_string_two=&quot;{gfg} is a {0} science portal for {1}&quot;
+      my_string_two.format(&quot;computer&quot;, &quot;geeks&quot;, gfg=&quot;GeeksforGeeks&quot;)
+      // 'GeeksforGeeks is a computer science portal for geeks'
+
+          </pre></dd>
+          <dt>Type Specifying</dt>
+
+          <dd>More parameters can be included within the curly braces.</dd> 
+          <dd>Use the format code syntax <code>{field_name:conversion}</code></dd>   
+          <dd>Where <code>field_name</code> specifies the index number of the
+          argument to the <code>str.format()</code> method</dd>
+          <dd>And <code>conversion</code> refers to the conversion code of the data type.</dd>
+          <dd>  
+          <pre>
+  (1) print(&quot;The temperature today is {0:d} degrees outside!&quot;.format(35.567))
+      //  ValueError: Unknown format code 'd' for object of type 'float'
+
+      print(&quot;The temperature today is {0:f} degrees outside!&quot;.format(35.567))
+      // The temperature today is 35.567000 degrees outside!
+
+      print(&quot;The temperature today is {0:.2f} degrees outside!&quot;.format(35.567))
+      // The temperature today is 35.57 degrees outside!
+
+  (2) print("My average for this {0} was {1:.0f}%".format("semester",78.234876))
+      //  My average for this semester was 78%
+
+  (3) print("The {0} form of 8 is {1:b}".format("binary", 8))
+      // The binary form of 8 is 1000
+
+          </pre>
+          </dd>                                 
+          <dt>Padding Substitutions or Generating Spaces</dt>
+          <dd>By default, strings are left-justified within the field,</dd>
+          <dd>By default, numbers are right-justified.</dd> 
+          <dd>We can modify this by placing an alignment code just following the colon.</dd> 
+
+          <dd><code>&lt;  left-align text in the field</code></dd>
+          <dd><code>^ center text in the field</code></dd>
+          <dd><code>&gt;  right-align text in the field</code></dd>
+          <dd><code>'='   Forces the padding to be placed after the sign (if any) but before the digits</code></dd>
+          <dd>
+          <pre>
+
+  (1) print("{0:^16} was founded in {1:&lt;16}!".format("GeeksforGeeks", 2009))
+      print("{0:&lt;16} was founded in {1:&gt;16}!".format("GeeksforGeeks", 2009))
+      print("{0:&gt;16} was founded in {1:^16}!".format("GeeksforGeeks", 2009))
+
+       GeeksforGeeks   was founded in 2009            !
+      GeeksforGeeks    was founded in             2009!
+         GeeksforGeeks was founded in       2009      !
+
+  (2) print("{:*^20s}".format("Geeks"))
+        // *******Geeks********
+          </pre>
+          </dd>
+          <dt>More good examples</dt>
+          <dd>
+          <pre>
+  (1) print("{:+f}, {:+f}".format(3.14, -3.14))  //  +3.140000, -3.140000
+
+  (2) print("{:,}".format(123456789))   //  123,456,789
+                                      //  use comma as thousands separator
+
+          </pre>
+          </dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str.format">
+              str.format (String Methods)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/string.html#formatstrings">
+              Format String Syntax
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.geeksforgeeks.org/python-format-function/">
+              Geeks for Geeks: format() function in Python
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+
+</html>

@@ -1,0 +1,95 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[getrefcount]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        getrefcount()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>getrefcount()</dt>
+          <dd>The number of references to an object</dd> 
+          <dd>When the reference count of an object drops to zero, it is deallocated</dd> 
+          <dd>Reference counting is generally not visible to Python code</dd>
+          <dd>but it is a key element of the CPython implementation.</dd> 
+          <dd>The <code>sys</code> module defines a <code>getrefcount()</code></dd>
+          <dd>function that programmers can call to return the reference count for a particular object.</dd>
+          <dd>
+          <code>from sys import getrefcount</code>
+          <dd>
+          <dd>Alternatively</dd>
+          <pre>
+  import sys
+  sys.getrefcount('a')
+          </pre>
+          </dd>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    from sys import getrefcount
+
+    print("--- Before  assignment ---")
+    print(f"References to value_1: {getrefcount('value_1')}")
+    print(f"References to value_2: {getrefcount('value_2')}")
+    x = "value_1"
+    print("--- After   assignment ---")
+    print(f"References to value_1: {getrefcount('value_1')}")
+    print(f"References to value_2: {getrefcount('value_2')}")
+    x = "value_2"
+    print("--- After reassignment ---")
+    print(f"References to value_1: {getrefcount('value_1')}")
+    print(f"References to value_2: {getrefcount('value_2')}")
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://realpython.com/python-pass-by-reference/">
+              Pass by Reference in Python: Background and Best Practices
+            </a>
+            </p>
+<p><a href ="https://docs.python.org/3/glossary.html#term-reference-count">Python Docs (Glossary)</a></p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

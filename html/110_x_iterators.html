@@ -1,0 +1,113 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[iterators]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        iterators
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>iterators</dt>
+
+          <dd>An iterator is an object that contains a countable number of values</dd>
+          <dd>An iterator is an object that can be iterated upon, meaning that
+          you can traverse through all the values.</dd>
+
+          <dd>Technically, in Python, an iterator is an object which implements 
+          the <em>iterator protocol</em>, which consist of the methods <code>__iter__()</code>
+          and <code>__next__()</code></dd>
+          <dd><code>Lists</code>, <code>tuples</code>, <code>dictionaries</code>,
+          and <code>sets</code> are all iterable objects.</dd> 
+          <dd>They are <i>iterable</i> containers which you can get an iterator from.</dd>
+          <dd>All these objects have a <code>iter()</code> and <code>next()</code> methods:</dd>
+          <dd>The use of iterators pervades and unifies Python.</dd>
+          <dd>Behind the scenes, the <code>for</code> statement calls <code>iter()</code> on the container object.</dd>
+          <dd>The function returns an iterator object that defines the method
+          <code>__next__()</code> which accesses elements in the container one at a time.</dd> 
+          <dd>When there are no more elements, <code>__next__()</code> raises a<code> StopIteration</code>
+          exception which tells the for loop to terminate.</dd> 
+          <dd>You can call the <code>__next__()</code> method using the<code> next()</code> built-in function</dd> 
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+      str = &quot;tom&quot;
+      for x in str:
+          print(x, end=&quot; &quot;)
+      // t o m
+
+       it = iter(str)
+       next(it)      //  't'
+       next(it)      //  'o'
+       next (it)     //  'm'
+       next(it)
+       Traceback (most recent call last):
+       File &quot;&lt;pyshell id=&quot;62&quot;&gt;&quot;, line 1, in &lt;module&gt;
+       next(it)
+       StopIteration
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+
+            </p></dd><dd>
+            <p>
+            <a href="https://www.w3schools.com/python/python_iterators.asp">
+              W3Schools: Python Iterators
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/classes.html#iterators">
+              Python Tutorial: Iterators</a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+
+</html>

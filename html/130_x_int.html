@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[int]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        int(x)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>int([x], base=10)</code></dt>
+
+          <dd>Return an <code>integer object</code> constructed from a number or string <code>x</code></dd>   
+          <dd>Return 0 if no arguments are given.</dd>
+          <dd><code>x.__trunc__()</code></dd> 
+          <dd>For floating point numbers, this truncates towards zero.</dd>
+          <dd> 
+          <pre> 
+      int(10.2)        //     10
+      int(&quot;10.3&quot;)      //     ValueError: invalid literal
+      int(&quot;10&quot;)        //     10
+      int('010', 8)    //     8
+      int('1000',2)    //     8
+      int(1000,2)      //     TypeError   !! Note
+      int(-10.9)       //    -10
+          </pre>  
+          </dd><dd>  
+          </dd></dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>hex, binary, octal</dt>
+            <dt> 
+            <pre> 
+  0o10      //    8
+  0b1000    //    8
+  0xa       //   10
+  type(0xa) // &lt;class 'int'&gt;
+            </pre> 
+            </dd>   
+            <dt>long type</dt>
+            <dd>Python 3 no longer has long type (incorporated into
+            <code>int</code></dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/functions.html#int">
+              int() (built-in)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

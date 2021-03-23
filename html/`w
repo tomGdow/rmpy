@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[any]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        any (built-in)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>any(iterable)</dt>
+
+           <dd>Return True if any element of the iterable is true.</dd> 
+           <dd>If the iterable is empty, return False.</dd> 
+           <dd>Equivalent to:</dd>
+           
+           <dd>
+           <pre>
+
+  def any(iterable):
+    for element in iterable:
+      if element:
+        return True
+    return False
+
+           </pre>
+           </dd> 
+
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (my_any code challenge)</summary>
+            <pre>
+
+    def my_any (iter):
+
+      ''' Return True if any element of the iterable is true. If the iterable is
+          empty, return False. '''
+
+      for i in iter:
+        if i:
+          return True;
+        else:
+          continue;
+      return False
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

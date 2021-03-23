@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[casting]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        casting
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>int(x, base=10)</code></dt>
+          <dd>Return an integer object constructed from 
+          <ol>
+            <li>a number <code>x</code></li>
+            <li>a string <code>'x'</code></li>
+          </ol>
+          </dd>
+          <dd>Returns 0 if no arguments are given</dd>
+          <dd>For floating point numbers, this truncates towards zero.</dd>
+          <dd>If <code>x</code> is not a number or if base is given, then x must 
+          be a <code>string</code>, <code>bytes</code>, or <code>bytearray</code>
+          instance representing an integer literal in radix base.</dd>
+          <dd>Optionally, the literal can be preceded by + or - (with no space 
+          in between) and surrounded by whitespace.</dd>
+
+          <dt><code>str(object='')</code></dt>
+          <dd>Also <code>str(object=b'', encoding='utf-8', errors='strict')</code></dd>
+          <dd>Return a string version of object.</dd> 
+          <dd>If object is not provided, returns the empty string.</dd> 
+          <dd>Otherwise, the behaviour of <code>str()</code> depends on whether
+          encoding or errors is given</dd>
+          <dd>There are MANY string methods</dd>
+
+          <dt><code>hex(x)</code></dt>
+          <dd>Convert an integer number to a lowercase hexadecimal string 
+          prefixed with <code>0x</code>
+          <pre>
+
+          hex(255)    //  '0xff'
+          hex(-42)    //  '-0x2a'
+
+          </pre></dd>    
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary><code>int()</code></summary>
+            <pre>
+
+     int('10', base=2)      //     2
+     int('1000', base=2)    //     8
+     int('100')             //     100
+     int('100', base=2)     //     4
+     int(100, base=2)       //     TypeError: int() can't convert non-string with explicit base  //Note
+     int(22.4)              //     22
+     int(22)                //     22
+     int('100.2')           //     ValueError: invalid literal for int() with base 10: '100.2'
+     int(+20)               //     20
+     int('+30')             //     30
+     int()                  //     0             // Note
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>hex()</code></summary>
+            <pre>
+    for x in range(17):
+        print(f&quot;({x} -&gt; {hex(x)})&quot;)
+
+    (0 -&gt; 0x0)
+    (1 -&gt; 0x1)
+    (2 -&gt; 0x2)
+    (3 -&gt; 0x3)
+    (4 -&gt; 0x4)
+    (5 -&gt; 0x5)
+    (6 -&gt; 0x6)
+    (7 -&gt; 0x7)
+    (8 -&gt; 0x8)
+    (9 -&gt; 0x9)
+    (10 -&gt; 0xa)
+    (11 -&gt; 0xb)
+    (12 -&gt; 0xc)
+    (13 -&gt; 0xd)
+    (14 -&gt; 0xe)
+    (15 -&gt; 0xf)
+    (16 -&gt; 0x10)
+
+    hex(22.5)    // TypeError: 'float' object cannot be interpreted as an integer
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>str()</code></summary>
+            <pre>
+            str.captialize('thomas')     //      'Thomas'
+            &quot;thomas&quot;.capitalize()        //      'Thomas'
+
+            &quot;The sum of 1 +2 is {0}&quot;.format(1+2) // 'The sum of 1 +2 is 3'
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            </p>
+            <a href="https://docs.python.org/3/library/functions.html#int">
+              built-in functions: int()
+            </a>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/functions.html#hex">
+              built-in functions: hex()
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str">
+              str
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

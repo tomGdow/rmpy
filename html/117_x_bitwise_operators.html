@@ -1,0 +1,191 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[bitwise operators]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        bitwise operators
+      </header>
+
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>x &lt;&lt; y</code></dt>
+
+          <dd>Returns <code>x</code> with the bits shifted to the left by y places (and new bits
+          on the right-hand-side are zeros).</dd> 
+          <dd>This is the same as multiplying <code>x</code> by 2**y.</dd> 
+          <dd><code>8&lt;&lt;2 is 32</code></dd>
+          <dd>
+          <pre>
+        8&lt;&lt;2          //   32
+        8 * 2**2      //   32
+          </pre>
+          </dd>
+
+          <dd><code>x &gt;&gt; y</code></dd>
+
+          <dd>Returns <code>x</code> with the bits shifted to the right by <code>y</code> places.</dd> 
+          <dd>This is the same as <code>//'ing x</code>&nbsp; by <code>2**y.</code></dd>
+          <dd>
+          <pre>
+        18&gt;&gt;3            //   2
+        18  // (2**3)    //   2
+          </pre>
+          </dd>
+
+          <dt><code>x &amp; y</code></dt>
+          <dd>Does a &quot;bitwise and&quot;.</dd> 
+          <dd>Each bit of the output is 1 if the corresponding bit of x AND of y 
+          is 1, otherwise it's 0.</dd> 
+
+          <dt><code>x | y</code></dt>
+          <dd>Does a &quot;bitwise or&quot;.</dd> 
+          <dd>Each bit of the output is 0 if the corresponding bit of x AND of y 
+          is 0, otherwise it's 1.</dd>
+
+          <dt><code>~ x</code></dt> 
+          <dd>Returns the complement of x - the number you get by switching each 
+          1 for a 0 and each 0 for a 1.</dd> 
+          <dd>This is the same as<code> -x - 1</code>.</dd> 
+          <dd>
+          <pre>
+    ~18    //    -19
+    -18-1  //    -19
+          </pre>
+          </dd>
+
+          <dt><code>x ^ y (XOR)</code></dt>
+          <dd>Does a &quot;bitwise exclusive or&quot;.</dd> 
+          <dd>Each bit of the output is the same as the corresponding bit in x if
+          that bit in y is 0,</dd> 
+          <dd>and it's the complement of the bit in x if that bit in y is 1.</dd> 
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>XOR and switch two variables</summary>
+            <pre>
+
+        a=30
+        b=5
+        a^=b
+        b^=a
+        a^=b
+        print('a is', a) // 5
+        print('b is', b) // 30
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>bitwise vs logical operators</dt>
+            <dd> <p>BITWISE operators compare binary numbers</p></dd>
+            <dd> <p>LOGICAL operators compare BOOLEAN Values</p></dd>  
+
+            <dt>Bitwise operators in python</dt>
+            <dd>Python doesn't use 8-bit numbers.</dd> 
+            <dd>It USED to use however as many bits were native to your machine, 
+            but since that was non-portable, 
+            it has recently switched to using an INFINITE number of bits.</dd> 
+            <dd>Thus the number -5 is treated by bitwise operators as if it were
+            written <code>&quot;...1111111111111111111011&quot;</code> </dd>
+
+            <dt>Two's Complement Binary For Negative Integers</dt>
+
+
+            <dd>A two's complement binary is the same as the classical binary
+            &nbsp;representation for positive integers but is slightly different for
+            negative numbers</dd>
+
+            <dd>Negative numbers are represented by performing the two's complement
+            operation on their absolute value</dd>
+
+            <dd>Negative numbers are written with a leading one instead of a leading zero</dd>
+
+            <dd>So if you are using only 8 bits for your twos-complement numbers, 
+            then you treat patterns from &quot;00000000&quot; to &quot;01111111&quot; 
+            as the whole numbers from 0 to 127, and reserve &quot;1xxxxxxx&quot; 
+            for writing negative numbers. </dd>
+
+            <dd>
+            <ol>
+
+              <li>
+                <p>SUBTRACT ONE FROM POSITIVE INTEGER, INVERT BITS</p> 
+                <p>A negative number, -x, is written using the bit pattern for (x-1)
+                with all of the bits complemented (switched from 1 to 0 or 0 to 1)</p>
+              </li>
+              <li>INVERT BITS, ADD ONE</li>
+            </ol>
+
+            </dd>
+            <dd>
+
+            </dd>
+
+            <dd>So <code>-1 is complement(1 - 1) = complement(0) = &quot;11111111&quot;,</code></dd> 
+            <dd>
+            OR <code>-1 is Complement(1) +1 = &quot;11111110&quot;+1   = &quot;11111111&quot;</code>
+            </dd>
+            <dd><code>-10 is complement(10 - 1) = complement(9) = 
+              complement(&quot;00001001&quot;) = &quot;11110110&quot;</code></dd>
+            <dd>OR <code>-10 is complement(10) +1 = &quot;11110101&quot;+1  
+              = &quot;11110110&quot;</code></dd>
+            <dd>This means that negative numbers go all the way down to -128
+            (&quot;10000000&quot;).</dd> 
+            <dd>The two's complement of an <code>N-bit</code> number is defined 
+            as its complement with respect to <code>2^N</code>; the sum of a number
+            and its two's complement is <code>2^N</code>.</dd>
+            <dd>Two's complement is the most common method of representing signed 
+            integers on computers</dd>
+
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://wiki.python.org/moin/BitwiseOperators">
+              Python: bitwise opertors
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://en.wikipedia.org/wiki/Two's_complement">
+              Wikipedia: Two's complement
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+</html>

@@ -1,0 +1,135 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[STRING]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        string
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>string/str</dt>
+          <dd>String values must be enclosed within quotes</dd>
+          <dd>In python, the string data types are immutable. </dd>
+          <dd>Which means a string value cannot be updated</dd>
+          <dd>but sometimes string <em>is</em> mutable (see below!)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Some String Methods</summary>
+          <dl>
+            <dt><code>str.find(sub[, start[, end]])</code></dt>
+            <dd>Return the lowest index in the string where substring sub is found 
+within the slice s[start:end].</dd> 
+            <dd>Optional arguments start and end are interpreted as in slice notation.</dd> 
+            <dd>Return -1 if sub is not found (contrast with <code>str.index()</code>) </dd>
+            <dt>raw string</dt>
+            <dd><code>r"thomas\t\n"</code></dd>      
+          </dl>
+        </details>
+      </div>
+
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+     "thomas".index('o')    //    2
+     "thomas".find('o')     //    2
+     "thomas".find('z')     //   -1
+     "thomas".index('z')    //    ValueError: substring not found
+     r"thomas\t\n"          //    'thomas\\t\\n'
+     "thomas".isalpha()     //    True
+     "thomas1".isalpha()    //    False
+     "123".isdigit()        //    True
+
+            </pre>
+          </details><!--inner-->
+        <details><!--inner-->
+          <summary>Not always immutable example 2</summary>
+          <pre>
+    a="Hello"
+    id(a)     //  2619781261936
+    a+="!"
+    id(a)    //   2619741244400    // Same-1
+    a+="!"
+    id(a)    //   2619741244400    // Same-2
+          </pre>
+        </details><!--inner-->
+        <details><!--inner-->
+          <summary>Not always immutable example 3</summary>
+          <pre>
+            id(tom)    //   1562971712240
+            tom+="th"
+            id(tom)    //   1562970986736  // change
+            tom+="er"
+            id(tom)    //   1562970986736  // no change !!
+            tom+="e"
+            id(tom)    //   1562970986736  // no change !!
+            tom        //   'hellothere'
+          </pre>
+        </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Python strings are immutable, but only sometimes</dt>
+            <dd>
+            <p>See Ref below!</p>                                   
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://www.tutorialspoint.com/python_text_processing/python_string_immutability.htm">
+              Python - String Immutability</a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://web.eecs.utk.edu/~azh/blog/pythonstringsaremutable.html">
+              Austin Z. Henley: Python strings are immutable, but only sometimes
+            </a>
+            </p>
+            </dd>
+
+            <dd>                                                     
+            <p> 
+            <a href ="https://docs.python.org/3/library/stdtypes.html#str">
+              str
+            </a>
+            </p>  
+            </dd>
+
+            <dd>                                                     
+            <p> 
+            <a href ="https://docs.python.org/3/library/stdtypes.html#string-methods">
+              string methods
+            </a>
+            </p>  
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

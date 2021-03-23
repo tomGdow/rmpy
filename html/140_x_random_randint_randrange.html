@@ -1,0 +1,126 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[random]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        random
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>random</dt>
+          <dd>The <code>random</code> module implements pseudo-random number
+          generators for various distributions.</dd>
+          <dd>For integers, there is uniform selection from a range.</dd> 
+          <dd>For sequences, there is uniform selection of a random element,
+          a function to generate a random permutation of a list in-place, and a
+          function for random sampling without replacement.</dd>
+          <dd>Python uses the Mersenne Twister as the core generator.</dd>
+          <dt><code>random.random()</code></dt>
+
+          <dd>Almost all module functions depend on the basic function <code>random()</code>, 
+          which generates a random float uniformly in the semi-open range [0.0, 1.0).</dd> 
+
+          <dt><code>random.randint(a, b)</code></dt>
+          <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b.</code></dd> 
+          <dd>Alias for <code>randrange(a, b+1).</code></dd>
+          <dt><code>random.randrange(start, stop[, step])</code></dt>
+          <dd>Return a randomly selected element from <code>range(start, stop, step).</code></dd> 
+          <dd>This is equivalent to <code>choice(range(start, stop, step))</code>,
+          but doesn’t actually build a range object.</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Sample Exam Question</summary>
+            <dt>Kindle book</dt>
+            <dd>You are writing code that generates a random integer with a minimum
+            value of 5 and a maximum value of 11.</dd> 
+            <dd>Which two functions should you use?</dd>
+
+            <dd>
+            <pre>
+
+    import random
+    rint =[]
+    rang=[]
+    for i in range(1,1000):
+      rint.append(random.randint(5,11))
+
+    for i in range(1,1000):
+      rang.append(random.randrange(5,12,1))
+
+
+    [min(rint), max(rang)]    //   [5, 11]
+    [min(rang), max(rang)]    //   [5, 11]
+
+            </pre>
+            </dd> 
+
+            <dd>(Introduction to Programming Using Python (98-381) Exam Questions and answers)</dd> 
+
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Interval (mathematics)</dt>
+            <dd>An open interval does not include its endpoints, and is indicated
+            with parentheses</dd>
+            <dd>For example, (0,1) means greater than 0 and less than 1.</dd> 
+
+            <dd>A closed interval is an interval which includes all its limit points,
+            and is denoted with square brackets.</dd> 
+            <dd>For example, [0,1] means greater than or equal to 0 and less than
+            or equal to 1.</dd>
+            <dd>A half-open interval includes only one of its endpoints, and is
+            denoted by mixing the notations for open and closed intervals</dd>
+            <dd>For example, (0,1] means greater than 0 and less than or equal to 1,
+            while [0,1) means greater than or equal to 0 and less than 1.</dd> 
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/random.html">
+              random
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)#Terminology">
+              Wikipedia: Interval (mathematics)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

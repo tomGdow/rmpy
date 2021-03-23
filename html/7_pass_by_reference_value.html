@@ -1,0 +1,135 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[ref-or-val]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Pass by Object Reference
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>pass by object reference</dt>
+          <dd>Hamlet was not written by Shakespeare; it was merely written by a man named Shakespeare</dd>
+          <dd>Python is “pass-by-object-reference”</dd>
+
+          <dd>Python’s argument passing model is neither “Pass by Value” nor “Pass by Reference” but it is “Pass by Object Reference”.</dd>
+          <dd>Or "pass by assignment"</dd>
+          <dd><code>a = ["X", "Y"]</code></dd>
+          <dd>Here “a” is a variable that points to a list containing the element “X” and “Y”</dd>
+          <dd>But “a” itself is not the list.</dd>
+          <dd>Consider “a” to be a bucket that contains the object “X” and “Y”.</dd>
+          <dd>Functions in python receive the reference of the same object in the memory as referred by the caller.</dd>
+          <dd>The function does not receive the variable(the bucket) that the caller is storing the same object in</dd> 
+          <dd>Like in pass-by-value, the function provides its own bucket and creates an entirely new variable for itself</dd>
+          <dd>The same object in the memory is referred by both the caller and the function</dd>
+          <dd>So when the append function adds an extra element to the list, the caller object gets updated too.</dd>
+          <dd>They have different names but are the same thing.</dd> 
+          <dd>Both the variables contain the same object</dd>
+          <dd>This is the meaning behind 
+          <a href ="https://www.geeksforgeeks.org/pass-by-reference-vs-value-in-python/">pass by object reference</a>
+          </dd> 
+
+
+          <dd>JS is pass by value but in the case of objects (including arrays), the value passed is a reference to the object </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1: Reassign vs Append test</summary>
+            <pre>
+  def reassign(list):
+    list = [0,1]
+    print('REASIGN: id of list', id(list))
+
+  def append(list):
+    list.append(1)
+    print('APPEND: id of list', id(list))
+
+  list = [0]
+  print('EXT: id of list',id(list))
+  print(f"list is {list}")
+
+  print('--reassign--')
+  reassign(list)
+  print('EXT: id of list after reassign->',id(list))
+  print(f"list is {list}")
+  
+  print('--append--')
+  append(list)
+  print('EXT: id of list after append->',id(list))
+  print(f"list is {list}")
+
+  // Output
+
+  EXT: id of list 2183981266944
+  list is [0]
+  --reassign--
+  REASIGN: id of list 2181865611968
+  EXT: id of list after reassign-> 2183981266944
+  list is [0]
+  --append--
+  APPEND: id of list 2183981266944
+  EXT: id of list after append-> 2183981266944
+  list is [0, 1]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href ="https://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/">
+              Is Python pass-by-reference or pass-by-value?</a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href =" https://realpython.com/python-pass-by-reference/">
+              Pass by Reference in Python: Background and Best Practices</a>
+            </p>
+            </dd>
+
+
+            <dd><p><a href ="https://www.geeksforgeeks.org/pass-by-reference-vs-value-in-python/">Pass by reference vs value in Python</a></p></dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

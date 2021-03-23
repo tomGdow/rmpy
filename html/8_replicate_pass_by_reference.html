@@ -1,0 +1,78 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Replicate PBR]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Replicate Pass By Reference
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>replicate pass by reference</dt>
+          <dd>best practice is to return and reassign</dd>           
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    def square(n):
+        return n * n
+    x = 4
+    x = square(x)
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    def greet(name, counter):
+        return f"Hi, {name}!", counter + 1
+    counter = 0
+    greeting, counter = greet("Alice", counter)
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+
+            <a href ="https://realpython.com/python-pass-by-reference/">Pass by Reference in Python: Background and Best Practices</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

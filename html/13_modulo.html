@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[MOD]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Modulo
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Modulo</dt>
+          <dd>Unlike JS, in Python, % takes the sign of Divisor!</dd>
+          <dd>Python uses 
+          <code>floor division</code> 
+          to calculate the modulo, according to 
+          <a href ="https://realpython.com/python-modulo-operator/">
+            the following formula</a>
+          </dd>
+          <dd>
+          $$
+          remainder = dividend - (divisor * floor(\frac{dividend}{divisor}))
+          $$
+          </dd>
+          <dd>Other languages, such as JS, use the following formula,
+          where 
+          <code>trunc</code> 
+          is truncated division which always rounds towards zero
+          </dd>
+          <dd>
+          $$
+          remainder = dividend - (divisor *trunc(\frac{dividend}{divisor}))
+          $$
+          </dd>
+          <dd><p>For Negative Divisor OR Negative Dividend</p>
+          <ol> 
+            <li><p>Calculate the remainder by following formula</p>
+              $$
+              remainder = | |dividend| - (|divisor| * ceiling(\frac{|dividend|}{|divisor|})) |
+              $$
+            </li>
+            <li>Replace sign with sign of the divisor</li>
+          </ol> 
+          </dd> 
+          <dd>If both divisor and dividend are negative, calculate using absolute values,
+          and make sign of remainder equal to divisor</dd> 
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <dl>
+              <dt>Negative divisor (worked example)</dt>
+              <dd>for <code>10 % (-3)</code></dd>
+              <dd>
+              $$
+              remainder = 10- ((-3) * floor(\frac{10}{(-3)}))
+              $$
+              $$
+              remainder = 10- ((-3) * (-4))
+              $$
+              $$
+              remainder = 10-12 = -2 
+              $$
+              </dd>
+
+            </dl>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    10  %  (-3)  //  -2
+   -10  %    3   //   2
+    10  %   -3   //  -2
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (Division by zero)</summary>
+            <pre>
+    &gt;&gt;&gt; 10%0                                                                
+    Traceback (most recent call last):
+    File "&lt;pyshell#12&gt;", line 1, in &lt;module&gt;
+      10%0
+    ZeroDivisionError: integer division or modulo by zero
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4 </summary>
+            <pre>
+    33  % -12   //  -3
+   -33  %  12   //   3
+    33  %  12   //   9
+   -33  % -12   //  -9
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Dividend/Divisor</dt>
+            <dd><p><code>20 / 5 = 4</code></p></dd>
+            <dd><p>What is being divided is called the <code>dividend</code>,</p></dd> 
+            <dd><p>which is divided by the <code>divisor</code>,</p></dd> 
+            <dd><p>and the result is called the quotient</p></dd> 
+            <dd><p>In the example, 20 is the dividend, 5 is the divisor, 
+            and 4 is the quotient.</p></dd> 
+            <dt>Additional Formula</dt>
+            <dd><code>N = D * ( N // D) + (N % D)</code></dd> 
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://realpython.com/python-modulo-operator/">
+              Python Modulo in Practice: How to Use the ./13_modulo.html Operator</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

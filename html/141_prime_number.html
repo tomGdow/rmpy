@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[isprime]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        prime number
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>isprime()</code></dt>
+          <dd>
+          <pre>
+
+    num = int(input("Enter a number: "))
+    isPrime=True
+
+    if num == 0 or num == 1:
+      isPrime = False       
+    else:
+      for i in range(2,num):
+    if num % i == 0:
+      isPrime = False
+      break
+    if isPrime:
+      print(f"{num} is prime")
+    else:
+      print(f"{num} in not prime")
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Primes between 2 and 100</summary>
+            <dl>
+              <dt>Eloic Dumps sample question</dt>
+
+              <dd>You are building a Python program that displays all of the prime
+              numbers from 2 to 100.</dd> 
+              <dd>How should you complete the code?</dd> 
+              <dd>To answer, drag the appropriate code segments to the correct location.</dd> 
+              <dd>Each code segment may be used once, more than once, or not at all.</dd> 
+              <dd>You may need to drag the split bar between panes or scroll to view content.</dd>
+
+              <pre> 
+    p=2
+    while p&lt;=100:
+      is_prime=True
+      for i in range(2, p):
+        if p%i == 0:
+          is_prime=False
+            break
+    if is_prime == True:
+      print(p)
+      p=p+1
+              </pre>  
+              </dd>   
+              <dd>Dumps, Eloic. Latest Introduction to Programming Using Python
+              (98-381) Exam Questions and answers: microsoft 98-381 workbook.
+              Kindle Edition.</dd> 
+              <dd>  
+            </dl>
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>ecollege practice lab</summary>
+
+            <pre>
+#Accept a number as input
+x=0
+for y in [1,2,3]:
+  z=int(input("Enter a number:"))
+  if(z==0):
+    y=y+1
+    continue
+  else:
+    x=z
+    break
+
+if x&gt;1:
+  if x==2:
+    print("The entered number is the only even prime number")
+  else:
+    for c in range(2,x):
+      if(x%c==0):
+        print("The entered number is not a prime number")
+        break
+      else:
+        print("The entered number is a prime number")
+        break
+else:
+  print(f"The entered number({0}) is not a prime number")
+
+            </pre>
+
+
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

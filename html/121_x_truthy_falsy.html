@@ -1,0 +1,163 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[Truthy and Fasly]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+
+dd > ul > li {
+  margin-left: 10px;
+}
+
+ul {
+  list-style-type: none
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Truthy and Falsy
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Falsy</dt>
+          <dd><b>Collections</b>
+          <ul>
+            <li>Empty lists <code>[]</code></li>
+            <li>Empty tuples <code>()</code></li>
+            <li>Empty dictionaries <code>{}</code></li>
+            <li>Empty sets <code>set()</code></li>
+            <li>Empty strings <code>&quot;&quot;</code></li>
+            <li>Empty ranges<code> range(0)</code></li>
+          </ul>
+          </dd>
+          <dd><b>Numbers</b>
+          <ul>
+            <li>Zero of any numeric type.</li>
+            <li>Integer: 0</li> 
+            <li>Float: 0.0</li>
+            <li>Complex: 0j</li>
+          </ul>
+          </dd>
+
+          <dd><b>Constants</b> 
+          <ul>
+            <li>None</li>
+            <li>False</li>
+          </ul>
+          </dd>
+          <dd><b>Others</b>
+          <ul>  
+            <li>Decimal(0)</li>
+            <li>Fraction(0, 1)</li>
+            <li> objects for which <code>obj.__bool__()</code> returns <code>False</code></li>
+            <li>objects for which <code>obj.__len__()</code> returns <code>0</code></li>
+            <ul>  
+          </ul></ul></dd>   
+
+          <dt>truthy</dt>
+
+          <dd>Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets).</dd>
+          <dd>Numeric values that are not zero.</dd>
+          <dd>True</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+      my_falsy_list =[set(), [], tuple(), (), '', None, False, range(0), 0, 0.0, 0j]
+
+      for x in my_falsy_list:
+          print(f&quot;{x}\t\tbool({x})\t-&gt;\t{bool(x)}&quot;)
+
+
+      set()       bool(set())     -&gt;  False
+      []          bool([])        -&gt;  False
+      ()          bool(())        -&gt;  False
+      ()          bool(())        -&gt;  False
+                  bool()          -&gt;  False
+      None        bool(None)      -&gt;  False
+      False       bool(False)     -&gt;  False
+      range(0, 0) bool(range(0, 0)) -&gt;  False
+      0           bool(0)        -&gt;  False
+      0.0         bool(0.0)      -&gt;  False
+      0j          bool(0j)       -&gt;  False
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>truthy</dt>
+            <dd>
+            <p>By default, an object is considered true unless its class defines 
+            either a <code>__bool__()</code> method that returns False or a <code>__len__()</code></p>
+            </dd>
+            <dt>W3Schools</dt>
+            <dd>Almost any value is evaluated to True if it has some sort of content.</dd>
+            <dd>Any string is True, except empty strings.</dd>
+            <dd>Any number is True, except 0.</dd>
+            <dd>Any list, tuple, set, and dictionary are True, except empty ones.</dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://www.freecodecamp.org/news/truthy-and-falsy-values-in-python/">
+              Truthy and Falsy Values in Python: A Detailed Introduction (Estefania Cassingena Navone)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#truth-value-testing">
+              Built-in types: Truth Value Testing
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://stackoverflow.com/q/39983695/499167">
+              SO: What is Truthy and Falsy? How is it different from True and False?
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.w3schools.com/python/python_booleans.asp">
+              W3Schools: https://www.w3schools.com/python/python_booleans.asp
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+</html>

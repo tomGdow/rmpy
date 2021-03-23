@@ -1,0 +1,106 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[is/is not]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        is is_not operators 
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>is is_not operators</dt>
+          <dd>The operators is and is not test for object identity:</dd> 
+          <dd>x is y is true if and only if x and y are the same object.</dd>
+          <dd>So, A is B is the same as id(A) == id(B)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+  &gt;&gt;&gt; a =[10,20,30]
+  &gt;&gt;&gt; b = [10,20,30]
+  &gt;&gt;&gt; a is b
+  False
+  &gt;&gt;&gt; a == b
+  True
+  &gt;&gt;&gt; c = a
+  &gt;&gt;&gt; c
+  [10, 20, 30]
+  &gt;&gt;&gt; c is a
+  True
+  &gt;&gt;&gt; id(a)
+  1716773964992
+  &gt;&gt;&gt; id(b)
+  1716747401024
+  &gt;&gt;&gt; id(c)
+  1716773964992
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+  &gt;&gt;&gt; x = 'a' 
+  &gt;&gt;&gt; x += 'bc'
+  &gt;&gt;&gt; y = 'abc'
+  &gt;&gt;&gt; x == y // True
+  &gt;&gt;&gt; x is y // False
+
+  &gt;&gt;&gt; z = 'abc'
+  &gt;&gt;&gt; w = 'abc'
+  &gt;&gt;&gt; z is w // True
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href =" https://stackoverflow.com/questions/13650293/understanding-pythons-is-operator">
+              stackoverflow
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <a href ="https://www.youtube.com/watch?v=pDCSuFk2Tmw&list=PLXHQlCIVOq0A_YVtNWReO2xb28-g0bhhu&index=15">
+              15. Microsoft Python Practical Test 1 (US Data Tech)
+            </a>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

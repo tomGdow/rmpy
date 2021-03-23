@@ -1,0 +1,113 @@
+﻿<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <title>[List Comp]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head><body>
+    <div class="container">
+      <header>
+        List Comprehension
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>List Comprehensions</dt>
+          <dd>List comprehensions provide a concise way to create lists</dd>
+          <dd>A list comprehension consists of:</dd>
+          <dd><ul>  
+            <li>brackets <code>// [ ]</code></li>
+            <li>containing an expression</li> 
+            <li>followed by a <code>for</code> clause</li>
+            <li>then zero or more <code>for</code> or <code>if</code> clauses</li>
+          </ul></dd> 
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          [expr (for x in)+ (if)* ]
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    [ [x,y] for x in [1,2,3] for y in [3,1,2] if x !=y ]
+
+    // [[1, 3], [1, 2], [2, 3], [2, 1], [3, 1], [3, 2]]
+
+
+    [(x,y) for x in [1,2,3] for y in [3,1,2] if x !=y]
+
+    // [(1, 3), (1, 2), (2, 3), (2, 1), (3, 1), (3, 2)]
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    [x.capitalize() for x in ['dog', 'cat', 'mouse']]
+    // ['Dog', 'Cat', 'Mouse']
+
+    [x for x in range(10) if x%2==0]
+    // [0, 2, 4, 6, 8]
+            </pre>
+            <p>(see lambda expressions)</p>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions (Python Tutorial)</a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.w3schools.com/python/python_lists_comprehension.asp">
+              W3Schools: List comprehension
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://en.wikipedia.org/wiki/List_comprehension">
+              Wikipedia: List comprehension
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://realpython.com/courses/using-list-comprehensions-effectively/">
+              Real Python: Using List Comprehensions Effectively
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

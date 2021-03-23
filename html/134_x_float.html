@@ -1,0 +1,86 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[float]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        float
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>float</dt>
+          <dd>Return a floating point number constructed from a number or string <code>x</code>.</dd>                                  
+          <dd>If the argument is a string, it should contain a decimal number, optionally preceded by a sign, and optionally embedded in whitespace.</dd> 
+          <dd>The optional sign may be '<code>+</code>' or '<code>-</code>'; a '<code>+</code>' sign has no effect on the value produced.</dd>
+          <dd>The argument may also be a string representing a <code>NaN</code> (not-a-number), or a positive or negative infinity.</dd> 
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Some Float Methods</summary>
+          <dl>
+            <dt><code>float. as_integer_ratio()</code></dt>
+            <dd>Returns a pair of integers whose ratio is exactly equal to the original
+            float and with a positive denominator.</dd>
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+    float.fromhex('A')       //     10.0
+    float('inf')             //     inf
+    import math
+    tom = float('inf')
+    math.isinf(tom)          //     True
+    negtom = float('-inf')
+    math.isinf(negtom)
+    True
+    pnan = float('nan')
+    math.isnan(pnan)         //     True
+    nnan=float('nan')
+    pnan == nnan             //     False    // Note!! 
+    float(18.3)              //     18.3
+    float(&quot;18.3&quot;)            //     18.3
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

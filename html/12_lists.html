@@ -1,0 +1,188 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Lists]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Lists
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Lists</dt>
+          <dd>lists are mutable sequences</dd>
+          <dd>typically used to store collections of homogeneous items 
+(where the precise degree of similarity will vary by application).</dd>
+          <dd><code>list =[1,2,3]</code></dd>
+          <dd>Lists may be constructed in several ways</dd>
+          <dd>
+          <ul>
+            <li>Using a pair of square brackets to denote the empty list: []</li>
+            <li>Using square brackets, separating items with commas: [a], [a, b, c]</li>
+            <li>Using a list comprehension: [x for x in iterable]</li>
+            <li>Using the type constructor: list() or list(iterable)</li>
+            <li> <code>list('abc')</code> returns <code>['a', 'b', 'c']</code> </li>
+            <li> <code>list( (1, 2, 3) )</code> returns <code>[1, 2, 3]</code> </li>
+          </ul>
+          </dd>
+          <dd>Lists might contain items of different types, but usually the items
+ all have the same type.</dd>
+          <dd>mutable!</dd>
+          <dd>
+          <a href ="https://docs.python.org/3/tutorial/introduction.html#lists">
+            Python Docs on Lists</a>
+          </dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>List Methods</summary>
+          <dl>
+            <dt>useful methods</dt>
+            <dd>list.append(x)</dd>
+            <dd>list.extend(L)</dd>
+            <dd>list.insert(i,x)</dd>
+            <dd>list.remove(x)  // removes x</dd>
+            <dd>list.index(x)</dd>
+            <dd>list.pop()   // pops and returns it</dd> 
+            <dd>list.pop(i)  // pops and returns it</dd>
+            <dd>list.count(x)</dd>
+            <dd>list.sort()   // IN PLACE  // ! Mutates</dd>
+            <dd>list.reverse() // IN PLACE // ! Mutates</dd>
+            <dd>len(list)  // NOT list.len()!!</dd> 
+            <dd>x = ["apple", "banana", "cherry"]</dd>
+            <dd>del x[0]</dd>  
+            <dd>del(x[0:1]) // same thing</dd>
+            <dd>del(x[0:2]</dd>
+            <dd>list.sort(reverse=True)</dd>
+            <dd>new_list=sorted(courses)  // Sort but NOT in place.  Function vs Method !!</dd>
+            <dd>min(nums)</dd>
+            <dd>max(nums)</dd>
+            <dd>sums(num)</dd>
+            <dd>my_courses.index('Physics') //2</dd> 
+            <dd>my_coursed.index('Art')  // Not there // index error !!!!</dd>
+            <dd>'Art' in my_courses     // False</dd>
+            <dd>'Physics in my_courses // True</dd>
+            <dd>str_courses = ' - '.join(my_courses)</dd>
+            <dd>new_list= str_courses.split(' - ')</dd>
+            <dd>type(new_list)</dd>
+            <dd>
+            <pre>
+  x="Hello"
+  x[::-1]  // "olleH"
+
+            </pre>
+            </dd>
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+  &gt;&gt;&gt; squares = [1, 4, 9, 16, 25]
+  &gt;&gt;&gt; squares[0]
+  1
+  &gt;&gt;&gt; squares[-3:]
+  [9, 16, 25]
+  &gt;&gt;&gt; squares[:]  // shallow copy // !Note
+  [1, 4, 9, 16, 25]
+  &gt;&gt;&gt; squares + [36,49,64,81]
+  [1, 4, 9, 16, 25, 36, 49, 64, 81]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+  &gt;&gt;&gt; cubes = [1, 8, 27, 65, 125]
+  &gt;&gt;&gt; cubes[3] = 64       // lists are MUTABLE
+  &gt;&gt;&gt; cubes.append(216)
+
+  &gt;&gt;&gt; cubes.append(7 ** 3)
+  &gt;&gt;&gt; cubes
+  [1, 8, 27, 64, 125, 216, 343]
+
+            </pre>
+          </details><!--inner-->    
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+
+  &gt;&gt;&gt; letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+  &gt;&gt;&gt; letters[2:5]
+  ['c', 'd', 'e']
+  &gt;&gt;&gt; letters[2:5]=['C', 'D', 'E']
+  &gt;&gt;&gt; letters
+  ['a', 'b', 'C', 'D', 'E', 'f', 'g']
+  &gt;&gt;&gt; letters[2:5]=[]        // remove them
+  &gt;&gt;&gt; letters
+  ['a', 'b', 'f', 'g']
+  &gt;&gt;&gt; len(letters)
+  4
+            </pre>
+          </details><!--inner-->    
+          <details><!--inner-->
+            <summary>Example 4 (for in ... enumerate)</summary>
+            <pre>
+    for item in my_courses:  // note colon
+        print(item)          // note indent
+
+    for index, item in enumerate(my_courses):
+        print(item) 
+
+    // 0 History
+    // 1 Math
+    // 2 Physics
+    // 3 CompSci
+
+    for index, item in enumerate(my_courses,start=100):
+        print(index,item)
+
+    // 100 History
+    // 101 Math
+    // 102 Physics
+    // 103 CompSci
+            </pre>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>sort (method) vs sorted (function)</dt>
+            <dd>
+            <p>Note that <code>list.sort</code> sorts in place (method)
+            but <code>new_list = sorted(list)</code> (function) does not 
+            </p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/introduction.html#lists">
+              Python Docs on Lists</a>
+            </p>
+            </dd>
+
+            <dd><p><a href ="https://docs.python.org/3/library/stdtypes.html#lists">Lists (Python docs)</a></p></dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

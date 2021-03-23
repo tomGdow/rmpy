@@ -1,0 +1,99 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Identifiers]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Identifiers
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Identifiers</dt>
+          <dd>A Python identifier is a name used to identify a variable, function, class, module or other object.</dd>
+          <dd>An identifier starts with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9)</dd>
+          <dd>Python does not allow punctuation characters such as - @, $, and % within identifiers.</dd> 
+          <dd>Python is a case sensitive programming language.</dd>
+
+          <dd>Cannot start with number, <code>123tom</code> is error, but <code>tom123</code> OK</dd>
+          <dd>underscore OK</dd>
+          <dd>cannot have special characters such as $ sign OR a minus sign</dd>
+          <dd><code>_123tom</code> OK</dd>
+          <dd><code>_tom</code> Ok</dd>
+          <dd>alphabet symbols, upper or lowercase OK</dd>
+          <dd><code>_Ram =10</code> but PRIVATE</dd>
+          <dd>identifier cannot start with digit</dd>
+          <dd>cannot use reserved keyword as identifier // note</dd>
+          <dd>Best practice in Python is to use camelCase for variables (J.Manibog)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <dl>
+            <dt>Identifier Conventions</dt>
+            <dd>Class names start with an uppercase letter. All other identifiers start with a lowercase letter.</dd>
+            <dd>Starting an identifier with a single leading underscore indicates that the identifier is private.</dd>
+            <dd>Starting an identifier with two leading underscores indicates a strongly private identifier.</dd>
+            <dd>If the identifier also ends with two trailing underscores, the identifier is a language-defined special name.</dd>
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Valid Examples</dt>
+            <dd><code>ab10c // contains only letters and numbers</code></dd>
+            <dd><code>abc_DE // contains all the valid characters</code></dd>
+            <dd><code>_ // surprisingly but Yes, underscore is a valid identifier</code></dd>
+            <dd><code>_abc // identifier can start with an underscore</code></dd>
+            <dd><code> myfirst_name = "John"</code></dd>
+            <dt>Invalid Examples</dt>
+            <dd><code>99 // identifier can’t be only digits</code></dd>
+            <dd><code>9abc // identifier can’t start with number</code></dd>
+            <dd><code>x+y // the only special character allowed is an underscore</code></dd>
+            <dd><code>for // it’s a reserved keyword</code></dd>
+            <dd><code> 2my-first_name = "John"   //  W3Schools</code></dd>
+            <dd><code> my-first_name = "John"</code></dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://www.tutorialspoint.com/what-are-python-identifiers">
+              What are Python Identifiers?
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href ="https://www.askpython.com/python/python-identifiers-rules-best-practices">
+              Python Identifiers – Rules, Examples, Best Practices</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

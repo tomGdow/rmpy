@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[conditional expression]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {color: black;}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        conditional expression
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>conditional expressions</dt>
+          <dd>Conditional expressions (sometimes called a ternary operator) have &nbsp;the lowest priority of all python operations.</dd>
+
+          <dd> <pre>x if C else y</pre></dd>
+          <dd>
+          <ol>
+            <li>First evaluates <b>the condition, C</b> rather than <code>x</code>.</li> 
+            <li>If C is true, <code>x is evaluated</code> and its value is returned</li>
+            <li>Otherwise, <code>y</code> is evaluated and its value is returned.</li>
+          </ol>
+          </dd>
+          <dd>                  
+          <pre>
+
+    c = 100 if (100&lt;10) else 45
+    c                //      45
+          </pre>
+          </dd>
+          <dt>Stack Overflow view</dt>
+          <dd>
+          <pre>a if condition else b</pre>
+          </dd>
+          <dd>First <code>condition</code> is evaluated</dd>                                                                       <dd>Then exactly one of either <code>a</code> or <code>b</code> is
+          evaluated and returned based on the Boolean value of <code>condition</code>.</dd> 
+          <dd>If <code>condition</code> evaluates to <code>True</code>, then
+          <code>a</code> is evaluated and returned but <code>b</code> is ignored</dd>
+          <dd>Or else when <code>b</code> is evaluated and returned but
+          <code>a</code> is ignored.</dd>
+          <dd>Note that conditionals are an expression, not a statement
+          (so  <code>x = a if True else b</code> is allowed)</dd>
+          <dd>This allows short-circuiting because when condition is true only <code>a</code> 
+          is evaluated and <code>b</code> is not evaluated at all, but when condition is false
+          only <code>b</code> is evaluated and <code>a</code> is not evaluated at all.</dd>
+          <dd>Frowned upon by some Pythonistas as the order of the arguments
+          is different from those of the classic <code>condition ? a : b</code>
+          ternary operator from many other languages (such as C, C++, Go, Perl,
+          Ruby, Java, Javascript, etc.)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://stackoverflow.com/q/394809/499167">
+              SO: Does Python have a ternary conditional operator?</a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.python.org/dev/peps/pep-0308/">
+              PEP 308 -- Conditional Expressions
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/reference/expressions.html#conditional-expressions">
+              conditional-expressions
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+
+</html>

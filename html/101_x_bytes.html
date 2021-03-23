@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>bytes</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        bytes literal
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>bytes literal</dt>
+          <dd>A prefix of 'b' or 'B' indicates that the literal should become a bytes literal in Python 3</dd>
+          <dd>bytes = b'...' literals = a sequence of octets (integers between 0 and 255)</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+    &gt;&gt;&gt; myby = b"0Aa"
+    &gt;&gt;&gt; for x in myby:
+    print(x)
+
+    48
+    65
+    97
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+    &gt;&gt;&gt; myby_alt=bytes('0Aa','ascii')
+    &gt;&gt;&gt; myby_alt
+    b'0Aa'
+    &gt;&gt;&gt; myby_alt is myby
+    False
+    &gt;&gt;&gt; myby == myby_alt
+    True
+    &gt;&gt;&gt; for x in myby_alt:
+    print(x)
+
+    48
+    65
+    97
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd><p>
+            <a href ="https://stackoverflow.com/q/6269765/499167">
+              SO: What does the 'b' character do in front of a string literal?
+            </a>
+            </p></dd>
+
+            <dd><p>
+            <a href ="https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals">
+              String and Bytes literals
+            </a>
+            </p></dd>
+
+            <dd><p>
+            <a href ="https://www.python.org/dev/peps/pep-3112/">
+              PEP 3112 -- Bytes literals in Python 3000
+            </a>
+            </p></dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

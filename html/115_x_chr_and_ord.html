@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[ord and chr]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        ord() and chr()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>ord(c)</code></dt>
+          <dd>Return the integer ordinal of a one-character string.</dd>
+          <dd>Given a string representing one Unicode character, return an integer
+          representing the Unicode code point of that character.</dd> 
+          <dd>For example, <code>ord('a')</code>  returns the integer 97</dd>
+          <dd>This is the inverse of <code>chr().</code></dd>                              
+          <dt><code>chr()</code></dt>
+          <dd> Return the string representing a character whose Unicode code 
+          point is the integer <code>i</code></dd>   
+          <dd>For example, <code>chr(97)</code> returns the string 'a'</dd>
+          <dd>This is the inverse of <code>ord()</code></dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1: ord()</summary>
+            <pre>
+
+    for x in '0Aa':
+        print(f"({x},{ord(x)})", end =' ')
+
+    //    (0,48) (A,65) (a,97) 
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: chr()</summary>
+            <pre>
+
+    for x in (48, 65, 97):
+        print(f"{x} -&gt; {chr(x)}", end=' ')
+
+    //    48 -&gt; 0 65 -&gt; A 97 -&gt; a 
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#ord">
+              built-in functions: ord
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#chr">
+              built-in functions: chr
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/50314440/499167">
+              SO: What does the name of the ord() function stand for?
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

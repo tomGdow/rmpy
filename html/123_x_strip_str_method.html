@@ -1,0 +1,110 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[strip]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        str.strip([chars])
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>str.strip([chars])</code></dt>
+          <dd>Return a copy of the string with the leading and trailing characters removed.</dd> 
+          <dd>The <code>chars</code> argument is a string specifying the set of characters to be removed.</dd> 
+          <dd>If omitted or <code>None</code>, the <code>chars</code> argument defaults to removing whitespace.</dd> 
+          <dd>The <code>chars</code> argument is not a prefix or suffix; rather, all
+          combinations of its values are stripped:</dd>
+
+          <dd><code>strip() </code>returns a copy of the string in which all chars have been 
+          stripped from the beginning and the end of the string (default whitespace characters)</dd>
+
+          <dt><code>str.rstrip([chars])</code></dt>
+          <dt><code> str.lstrip([chars])</code></dt>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    'www.example.com'.strip('cmowz.')    //   'example'
+    txt.strip(',.rtg')                   //   'banana'
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+    '    specious    '.strip()              //     'specious'
+    '   spacious   '.rstrip()               //     '   spacious'
+    '   spacious   '.lstrip()               //     'spacious   '
+    'mississippi'.rstrip('ipz')             //     'mississ'
+    'Monty Python'.rstrip(' Python')        //     'M'
+    'Monty Python'.removesuffix(' Python')  //     'Monty'
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str.strip">
+              str.strip (String Methods)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.tutorialspoint.com/python/string_strip.htm">
+              Python String strip() Method (TutorialPoint)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.w3schools.com/python/ref_string_strip.asp">
+              W3Schools: Python String strip() Method
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

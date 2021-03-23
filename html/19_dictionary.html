@@ -1,0 +1,293 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[Dictionary]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        Dictionary
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Dictionary</dt>
+          <dd><code>{'a':1, 'b':2}</code></dd>
+          <dd>Think of a dictionary as a set of key: value pairs</dd>
+          <dd>The keys must be unique (within one dictionary).</dd>
+          <dd>A dictionary’s keys are <i>almost</i> arbitrary values</dd>
+          <dd>Values that are not hashable may not be used as keys.</dd>
+          <dd>That is values containing lists, dictionaries or other mutable types&nbsp; (compared by value rather than by object identity) cannot be used as keys</dd> 
+          <dd>Dictionaries are sometimes found in other languages as associative
+          memories or associative arrays</dd>
+          <dd>Unlike sequences, which are indexed by a range of numbers, dictionaries
+          are indexed by keys, which can be <b>any immutable type</b></dd>
+          <dd>Strings and numbers can always be keys.</dd>
+          <dd>Tuples <b>can be used as keys</b> if they contain only strings, numbers, or
+          tuples</dd> 
+          <dd>If a tuple contains any mutable object either directly or indirectly,
+          it cannot be used as a key</dd>
+          <dd><b>You can’t use lists as keys</b></dd> 
+          <dd>(Lists can be modified in place using index assignments, slice&nbsp;assignments, or methods like <code>append()</code> and <code>extend())</code></dd>
+
+          <dd>Performing <code>list(d)</code> on a dictionary returns a list of all
+          the keys used in the dictionary,<b> in insertion order</b> (if you want it sorted,
+          just use <code>sorted(d)</code> instead)</dd>
+          <dd>To check whether a single key is in the dictionary, use the <code>in</code> keyword.</dd>
+          <dd>In dictionaries, later values will always override earlier ones:</dd>
+          <dd><code>Dictionary</code> higher priority than <code>Set</code></dd> 
+          <dd><code>type({})</code> give <code>dictionary</code> // Note</dd>
+          <dd>Dictionaries can be created by several means:</dd>
+          <dd>
+          <ol>  
+            <li>
+              <p>Use a comma-separated list of key: value pairs within braces</p> 
+              <pre>
+    {'jack': 4098, 'sjoerd': 4127}
+    {4098: 'jack', 4127: 'sjoerd'}
+              </pre>
+            </li>
+            <li>
+              <p>Use a dict comprehension:</p>
+              <pre>
+    {x: x ** 2 for x in range(10)} // {2: 4, 4: 16, 6: 36} 
+              </pre>
+            </li> 
+            <li>  
+              <p>Use the type constructor:</p> 
+              <pre> 
+    dict([('foo', 100), ('bar', 200)]) // {'foo': 100, 'bar': 200}
+
+    dict(foo=100, bar=200) // {'foo': 100, 'bar': 200}   // No inverted commas on key!
+
+    BUT note: 
+
+    dict('foo'=1, 'bar'=2)   // with inverted commas on key
+
+    !!SyntaxError: expression cannot contain assignment, perhaps you meant &quot;==&quot;?
+              </pre>
+            </li>
+          </ol> 
+          </dd> 
+        </dl>
+      </main>
+      <div class="syntax">
+        <details><!--begin-outer-details-->
+          <summary>Dictionary Methods</summary>                                                                           
+          <details><!--inner-->
+            <summary><code>dict.get(key, default) (get method)</code></summary>
+            <dl>
+              <dt><code>get(key[, default])</code></dt>
+              <dd>Return the value for key if key is in the dictionary, else default.</dd> 
+              <dd>If default is not given, it defaults to None, 
+              so that this method never raises a KeyError.</dd>
+              <dd>
+              <pre>
+
+        mydict = {1: 'one', 2: 'two'}
+        mydict.get(1)                   //     'one'
+        mydict.get(3, 'not there')      //     'not there'
+        mydict.get(3)                   //      No output
+
+              </pre>
+              </dd>
+            </dl>
+
+            
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary><code>dict.pop(key, default)</code></summary>
+            <dl>
+              <dt><code>dict.pop(key[, default])</code></dt>
+              <dd>If key is in the dictionary, remove it and return its value, else 
+return default.</dd> 
+              <dd>If default is not given and key is not in the dictionary, a 
+KeyError is raised.</dd>
+              <dd>
+              <pre> 
+    mydict = {1: 'one', 2: 'two'}
+    mydict.pop(3) KeyError:           //     3
+    mydict.pop(3,100)                 //     100
+              </pre>  
+
+              </dd>
+            </dl>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary><code>dict.clear()</code></summary>
+            <p>Remove all items from the dictionary.</p>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary><code>del dict[key] </code></summary>
+                <p>Remove <code>dict[key]</code> from <code>dict.</code></p> 
+                <p>Raises a <code>KeyError</code> if key is not in the map.</p>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Four ways to add to dictionary</summary>
+            (see 
+            <a href="https://www.askpython.com/python/dictionary/python-add-to-dictionary">
+              Python Add to Dictionary
+            </a>)
+            <ol>  
+              <li>
+                <p>Use <code>update()</code> method:</p>
+                <pre> 
+  cp={'ireland': 'dublin', 'england': 'london'}
+  cp.update({'scotland':'glascow'})
+                </pre>  
+              </li>
+              <li>Use <code>_setitem_() Method</code>
+                <pre> cp.__setitem__('spain', 'madrid') </pre>  
+              </li>
+              <li>Use subscript notation
+                <pre>cp['france']='paris'</pre>
+              </li>
+              <li>Use the <code>**</code> operator 
+                <pre> new_cp = {**cp, **{'wales':'cardiff'}} </pre>
+              </li>
+            </ol> 
+
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Merge dictionaries with **kwargs (arg expansion)</summary>
+            <pre>
+    dict_one = {'a':&quot;thomas&quot;, 'b': 'gerard'}
+    dict_two = {'a':'Mick', 'c': 'pros'}
+    merged = {**dict_one, **dict_two}
+    merged
+    {'a': 'Mick', 'b': 'gerard', 'c': 'pros'}
+            </pre>
+            <p> 
+            (see 
+            <a href="https://towardsdatascience.com/unpacking-operators-in-python-306ae44cd480">
+              Using the * and ** unpacking operators in python
+            </a>)
+            </p></details><!--inner-->
+            <details><!--inner-->
+              <summary>Get all-keys, all-values</summary>
+              <ol> 
+                <li>
+                  <p><code>list(d)&nbsp;</code>gives list of keys</p>
+                  <pre>
+    mydict={'a':1, 'b':2, 'c':3}
+    list(mydict) // ['a', 'b', 'c']            // keys
+    mydict       // {'a': 1, 'b': 2, 'c': 3}  // no mutation
+                  </pre>
+                </li>
+                <li><code>mydict.values()</code> and <code>list()</code>
+                  <pre>
+    mydict.values())        // dict_values([1, 2, 3])
+    list(mydict.values())   // [1, 2, 3]              // values
+                  </pre>
+                </li>
+              </ol>   
+            </details><!--inner-->
+            <details><!--inner-->
+              <summary>Delete from dictionary</summary>
+
+              <ol>  
+                <li>
+                  <p>Use <code>del()</code></p>
+                  <pre>
+    mydict = {'a': 1, 'b': 2, 'c': 3}
+    del(mydict['a'])
+    mydict  //  {'b': 2, 'c': 3}
+                  </pre>
+                </li>
+                <li>
+                  <p><code>pop(key)</code></p>
+                  <p>(remove key-value pair and return value)</p>
+                  <pre> 
+    mydict.pop('c') // 3
+    mydict          // {'b': 2}
+                  </pre>  
+                </li>
+              </ol>
+            </details><!--inner-->
+            <details><!--inner-->
+              <summary>Looping</summary>
+              <ol>  
+                <li> <pre>
+    ndic={'lancelot': 'the brave', 'josef': 'the coder'}
+    for x,y in ndic.items():
+      print(f&quot; {y}, {x}&quot;)
+
+    // the brave, lancelot
+    // the coder, josef
+                </pre></li>
+
+                <li> <pre>   
+    for x, y in enumerate(['tic', 'tak', 'toe']):
+        print(f&quot;{x} and {y}&quot;)
+
+    0 and tic
+    1 and tak
+    2 and toe
+                </pre></li>
+              </ol> 
+            </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">
+              Dictionaries (Data Structures)
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">
+              Mapping Types — dict (Built-in Types)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html?highlight=dict./19_dictionary.html20get#dict.get">
+              dict.get()
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html?highlight=dict./19_dictionary.html20pop#dict.pop">
+              dict.pop()
+            </a>
+            </p>
+            </dd>
+
+          </dl>           
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

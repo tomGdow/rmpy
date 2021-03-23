@@ -1,0 +1,128 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[any]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        any (built-in)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>any(iterable)</code></dt>
+
+          <dd>Return <code>True</code> if any element of the iterable is true.</dd> 
+          <dd>If the iterable is empty, return <code>False</code>.</dd> 
+          <dd>Equivalent to:</dd>
+
+          <dd>
+          <pre>
+
+  def any(iterable):
+    for element in iterable:
+      if element:
+        return True
+    return False
+
+          </pre>
+          </dd> 
+
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (my_any code challenge)</summary>
+            <pre>
+
+  def my_any (iter):
+
+      ''' Return True if any element of the iterable is true. If the iterable is
+          empty, return False. '''
+
+      for i in iter:
+        if i:
+          return True;
+        else:
+          continue;
+      return False
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Sample output from Example 1</summary>
+            <pre>
+
+    a=[3,32,6,654,0]
+    b=[True, False, True, False]
+    c=[True, True, True, True]
+    d=['Simon', 'Sarah', 'Ana']
+    e=[False, False, False]
+
+
+    print(f&quot;Calling my_any on {a} gives {my_any(a)}&quot;)
+    print(f&quot;Calling my_any on {b} gives {my_any(b)}&quot;)
+    print(f&quot;Calling my_any on {c} gives {my_any(c)}&quot;)
+    print(f&quot;Calling my_any on {d} gives {my_any(d)}&quot;)
+    print(f&quot;Calling my_any on {e} gives {my_any(e)}&quot;)
+
+    print(f&quot;Calling my_any on {[]} gives {my_any([])}&quot;)
+    print(f&quot;Calling my_any on {()} gives {my_any(())}&quot;)
+
+    //  Calling my_any on [3, 32, 6, 654, 0] gives True
+    //  Calling my_any on [True, False, True, False] gives True
+    //  Calling my_any on [True, True, True, True] gives True
+    //  Calling my_any on ['Simon', 'Sarah', 'Ana'] gives True
+    //  Calling my_any on [False, False, False] gives False
+    //  Calling my_any on [] gives False
+    //  Calling my_any on () gives False
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#any">
+              any (built-in)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

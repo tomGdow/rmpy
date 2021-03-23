@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[employees: udemy]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        employees: udemy
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>employees</dt>
+          <dd>Your company contains a list of 500 employees, 
+          the last three of which are management</dd>
+          <dd>
+          <pre>
+           employees = list(range(1,501))
+           len(employees)  //  500
+           employees[-1]   //  500
+           employees[0]    //  1
+           employees[500]  //  IndexError: list index out of range
+           employees[:5]   //  [1, 2, 3, 4, 5]    // slice:: END figure is ordinal-th term!!
+                                                  // first TO FIFTH!
+           employees[5]    //  6
+          </pre>
+          </dd>
+          <dt>management</dt>
+          <dd>
+          <pre>
+           employees[-3:]  // [498, 499, 500]
+           employees[-3:]==employees[497:]==employees[497:600]  //  True
+
+                                               // START figure +1 is Ordinal-th term!
+                                               // 498th term until end
+          </pre>
+          </dd>
+          <dt>exclude management</dt>
+          <dd> 
+          <pre>
+           employees[:-3]==employees[:497]==employees[0:497]   //  True
+
+                                                // end figure is ordinal-th term
+                                                // up to the 497th term
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://www.udemy.com/course/microsoft-python-certification-exam-98-381-practice-tests/learn/quiz/4534694/result/461047808#overview">
+              Udemy (Quiz One)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

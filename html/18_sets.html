@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[Sets]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Sets
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Sets</dt>
+          <dd>A set object is an unordered collection of distinct hashable objects.</dd>
+          <dd>Common uses include</dd> 
+          <dd>
+          <ol>
+            <li>membership testing</li>
+            <li>removing duplicates from a sequence</li>
+            <li>computing mathematical operations such as 
+              <code>intersection</code>, <code>union</code>, <code>difference</code>
+            </li>
+          </ol>
+          </dd>
+          <dd>sets support</dd> 
+          <dd>
+          <ol>
+            <li><code>x in set</code></li> 
+            <li><code>len(set)</code></li>
+            <li><code>for x in set.</code></li>
+          </ol>
+          </dd> 
+          <dd>sets do not record element position or order of insertion.</dd> 
+          <dd>sets do not support indexing, slicing, or other sequence-like behavior.</dd>
+
+          <dd>There are currently two built-in set types:</dd> 
+          <dd><code>set</code></dd> 
+          <dd>  
+          <ol>  
+            <li>The set type is mutable</li>
+            <li><code>set</code> contents can be changed using methods like 
+              <code>ali()</code> and <code>remove()</code></li> 
+            <li><code>set</code> has no hash value and cannot be used as either 
+              a dictionary key or as an element of another set.</li> 
+          </ol> 
+          </dd> 
+          <dd><code>frozenzet</code></dd> 
+          <dd>  
+          <ol>  
+            <li>The <code>frozenset</code> type is immutable and hashable</li>
+            <li><code>frozenset</code> contents cannot be altered after it is created;</li> 
+            <li><code>frozenset </code> can therefore be used as a dictionary key
+              or as an element of another set</li>
+          </ol>  
+          </dd> 
+          <dd>Sets may be created by several means:</dd>
+          <dd>   
+          <ol>  
+            <li>Use a comma-separated list of elements within braces: 
+              <code>{'jack', 'sjoerd', 'jack'}</code></li>
+            <li>Use a set comprehension: <code>{c for c in 'abracadabra' if c not
+                in 'abc'}</code></li>
+          </ol> 
+          </dd> 
+          <dd>Use the type constructor:</dd> 
+          <dd>  
+          <ol>  
+            <li><code>set()</code></li>
+            <li><code>set('foobar') &nbsp;// {'b', 'f', 'r', 'a', 'o'}</code></li>
+            <li><code>set(['a', 'b', 'foo'])</code></li>
+          </ol> 
+          </dd>
+          <dd>dictionary has higher priority than set</dd>
+          <dd>Note: to create an empty set you have to use <code>set()</code>, 
+          not <code>{}</code>
+          ; the 
+          latter creates an empty dictionary</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details><!--begin-outer-details-->
+          <summary>Set Methods</summary>
+          <details><!--inner-->
+            <summary><code>myset.add(elem)</code> (Add to Set)</summary>
+            <pre> 
+    # add elem to set
+
+    myset={"tom", "dick", "harry"}    //  
+    myset.add("dirty")                //    {'tom', 'dick', 'dirty', 'harry'}
+          </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>myset.remove(elem)</code> (Remove from Set)</summary>
+            <pre>
+
+    # remove elem from set
+
+    myset =  {'tom', 'dick', 'dirty', 'harry'} 
+    myset.remove("dirty")                //    {'tom', 'dick', 'harry'}
+
+    # note  (and compare with myset.discard())  
+
+    myset.remove('annie')    //  KeyError: 'annie'
+          
+          </pre>
+          </dd>
+            </pre>
+          </details><!--inner-->
+
+
+          <details><!--inner-->
+            <summary><code>myset.discard(elem)</code> (Discard from Set)</summary>
+            <pre>
+
+    # discard elem from set
+
+    myset =  {'tom', 'dick', 'dirty', 'harry'} 
+
+    # note  (and compare with myset.remove()()  
+
+    myset.discard('dirty')    //     {'tom', 'dick', 'harry'}
+    myset.discard('annie')    //     NO ERROR MESSAGE
+    myset                     //     {'tom', 'dick', 'harry'}
+          
+          </pre>
+          </dd>
+            </pre>
+          </details><!--inner-->
+
+
+
+
+          <details><!--inner-->
+            <summary><code>myset.update()</code> (Update Set)</summary>
+            <pre>
+            
+            # update a set content
+
+             myset={"tom", "dick", "harry"}    //  {'tom', 'dick', 'harry'}
+             myset.update(['jones', 'tupin', 'worth'])
+                  //    {'dick', 'worth', 'jones', 'harry', 'tom', 'tupin'}
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            import string
+            letters = set(&quot;abcdefghipqrstuvwxyz&quot;)
+            lalt = set(string.ascii_lowercase)
+            letters == lalt    // True
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+        {'banana', 'orange', 'pear', 'apple'}   // No duplicates
+    'orange' in basket
+        True
+    'crabgrass' in basket
+        False
+
+    a = set('abracadabra')
+    a  // {'c', 'a', 'r', 'd', 'b'}  // unique letters in a
+    b = set('alacazam')             
+    b // {'c', 'l', 'z', 'm', 'a'}   
+    a-b // {'d', 'b', 'r'}            // letters in a but not in b  
+    a|b // {'c', 'l', 'z', 'a', 'm', 'r', 'd', 'b'}  //  letters in a or b or both     
+    a&amp;b // {'c', 'a'}                        //  letters in both a and b
+    a^b // {'r', 'd', 'b', 'l', 'z', 'm'}   // letters in a or b but not both
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    seta={x for x in 'thomas' if x not in 'joe'}
+    setb={'t','h', 'm', 'a', 's'}
+    seta == setb  // True
+    seta is setb // False
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Equality of Sets</dt>
+            <dd>Both <code>set</code> and <code>frozenset</code> support set-to-set
+            comparisons.</dd> 
+            <dd>Two sets are equal if and only if <b>every element of each set is 
+              contained in the other</b> (each is a subset of the other).</dd> 
+            <dd>A set is less than another set if and only if the <b>first set is a
+              proper subset of the second</b> set (is a subset, but is not equal).</dd> 
+            <dd>A set is greater than another set if and only if the first set is
+            a proper superset of the second set (is a superset, but is not equal).</dd>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/tutorial/datastructures.html#sets">
+              Sets (Data Structures)
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">
+              set frozenset
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html?highlight=set./18_sets.html20add#frozenset.add">
+              add (python docs)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>

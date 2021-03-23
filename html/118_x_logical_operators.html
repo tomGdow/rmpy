@@ -1,0 +1,110 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[logical operators]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        logical operators
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>and</code></dt>
+          <dd>returns True only if both operands are true</dd>
+          <dd> <pre> 5 &lt; 7 and 4 &lt; 7  // True </pre> </dd>
+          <dd>False and False returns False !!</dd>
+          <dd>(as does False or False)</dd>
+
+
+          <dt><code>or</code></dt>
+          <dd>returns True when one or both of the operands are true</dd>
+          <dd><code>5 &lt; 3 or 3 == 3  // True</code></dd>
+
+          <dt>or</dt>
+          <dd>unary operator</dd>
+          <dd>negates the truth of single operand</dd>
+          <dd><code>not True // False</code></dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>and</summary>
+            <pre>
+
+    True    and    True   -&gt;    True    1 &lt; 2 and 1 &lt; 3
+    True    and    False  -&gt;    False
+    False   and    True   -&gt;    False
+    False   and    False  -&gt;    False   1 &gt; 2 and 1 &gt; 3
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>or</summary>
+            <pre>
+
+    True    or    True   -&gt;    True   
+    True    or    False  -&gt;    True
+    False   or    True   -&gt;    True
+    False   or    False  -&gt;    False 
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>
+              <code>not</code>
+            </summary>
+            <pre>
+
+    not (False and False)    //  True
+    not (False or False)     //  True
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>Booleans and (1 and 0)</dt>
+            <dd>
+            In python, Boolean values may also be represented numerically by
+            1 is True and False is 0
+            </dd>
+            <dd> <pre>
+             True ==  1     //   True
+             False == 0     //   True
+             <pre></pre></pre></dd>   
+            <dt>References</dt>
+            <dd>
+            <p>
+            </p>
+<a href="https://geek-university.com/python/logical-operators/">
+Logical operators
+</a>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>
