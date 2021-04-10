@@ -310,6 +310,31 @@ dd>ul>li, dd>ol>li{
 }
 
 
+#xkcd {
+
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top: 2em;
+  width: 50%;
+}
+
+.embed-pdf-alt {
+  margin-top: 4em;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 4em;
+}
+
+.embed-pdf {
+  display:none;
+}
+
+.anchor-one-alt {
+  display:none;
+}
+
+
 @font-face {
     font-family: 'apl';
     src: url('/font/APL386.ttf') format("truetype");

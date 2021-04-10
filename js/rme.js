@@ -2,6 +2,7 @@ let pageData = (function () {
   return [
     "0_info.html",
     "1_rmpy_precedence.html",
+    "147_mnemonics_xkcd.html",
     "2_rmpy_history.html",
     "3_rmpy_print.html",
     "144_printf_string_format.html",
@@ -65,6 +66,8 @@ let pageData = (function () {
     "140_x_random_randint_randrange.html",
     "141_prime_number.html",
     "142_armstrong_number.html",
+    "148_notes_jason_one.html",
+    "149_notes_jason_two.html",
     "rmpy_template.html"
 
   ];
