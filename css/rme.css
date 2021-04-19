@@ -335,10 +335,25 @@ dd>ul>li, dd>ol>li{
 }
 
 
+
+.tab {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+.tab2 {
+  display: inline-block;
+  margin-right: 2em;
+}
+
+sup {
+  font-size: smaller;
+}
+
 @font-face {
     font-family: 'apl';
     src: url('/font/APL386.ttf') format("truetype");
-}
+ }
 
 @media screen and (min-width:600px) {
 

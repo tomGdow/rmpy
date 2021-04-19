@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>memory management</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        memory management
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>memory management</dt>
+          <dd>Python's automatic garbage Collection does the job of freeing memory.</dd> 
+          <dd>When a value is without names/tags it is automatically removed from memory.</dd>
+          <dt>Integers</dt>
+
+          <dd>CPython optimization keeps an array of integer objects for all
+          integers between -5 and 256.</dd> 
+          <dd>So when we create an integer in that range, they simply back
+          reference to the existing object.</dd> 
+
+          <dd>
+          <pre>
+  a=10
+  b=10
+  c=10
+  hex(id(a)), hex(id(b)), hex(id(c)), hex(id(10))
+    //  ('0x298fd9b6a50', '0x298fd9b6a50', '0x298fd9b6a50', '0x298fd9b6a50')
+    //  This is 'interning'
+
+  xa=256
+  xb=256
+  xc=256
+  hex(id(xa)), hex(id(xb)), hex(id(xc)), hex(id(256))
+    //   ('0x298fd9e6990', '0x298fd9e6990', '0x298fd9e6990','0x298fd9e6990')
+    //   This is 'interning'
+
+  ya=257
+  yb=257
+  yc=257
+  hex(id(ya)), hex(id(yb)), hex(id(yc)), hex(id(257))
+      //   ('0x298ffffed10', '0x298ffffee90', '0x298ffffeeb0', '0x298ffffeed0')
+      //   ! NO 'interning' here
+
+  za =10
+  zb=za
+  hex(id(za)), hex(id(zb))  // ('0x234e8dc6a50', '0x234e8dc6a50') // The same
+      //  ! This is NOT 'interning'
+
+  wa=257
+  wb=wa
+  hex(id(wa)), hex(id(wb))  // ('0x234eb42ed70', '0x234eb42ed70') // The same
+      //  ! This is NOT 'interning'
+
+          </pre>
+          </dd>
+          <dt>Strings</dt>
+
+          <dd>When the string is simple and short the variable names refer to the
+          same object in memory.</dd> 
+          <dd>But when they become bigger, this was is not the case.</dd> 
+          <dd>This is called <code>interning</code>, and Python does interning
+          (to some extent) of shorter string literals which are created at compile time.</dd> 
+          <dd>But in general, Python string literals creates a new string object each time.</dd> 
+          <dd><code>Interning</code> is runtime dependant and is always a
+          trade-off between memory use and the cost of checking if you are creating
+          the same string.</dd> 
+          <dd>There's a built-in <code>sys.intern(string)</code> function to
+          forcefully apply interning.</dd> 
+
+          <dd><pre> 
+
+  s1="hello"
+  s2="hello"
+  hex(id(s1)), hex(id(s2)), hex(id('hello')) //    ('0x298800d8cf0', '0x298800d8cf0', '0x298800d8cf0')
+  s1 is s2                    //    True
+                              //    This IS 'interning'
+
+  s3="hello, world!"
+  s4="hello, world!"
+  s3==s4                      //   True
+  hex(id(s3)), hex(id(s4))    //   ('0x298800306f0', '0x29880030630')  // different
+                              //   ! NO 'inerning' here
+
+  s3=sys.intern("hello, world!!")
+  s5 = sys.intern("hello, world!!")
+  hex(id(s3)), hex(id(s5))    //   ('0x298800e4730', '0x298800e4730')
+  s3 = "hello world!"
+  s4 = s3
+  hex(id(s3)), hex(id(s4))    //   ('0x17089d2b3b0', '0x17089d2b3b0')
+  hex(id(s3))==hex(id(s4))    //   True   // !!
+                              //   ! This is NOT 'interning'
+  s5="hello world!"
+  hex(id(s3))==hex(id(s5))   //    False
+  s3==s4==s5                 //    True
+
+          </pre></dd>   
+
+          <dt>Objects</dt>
+          <dd>Two instances have different identities.</dd>
+          <dd>That means there are two different copies of the same object in memory.</dd> 
+          <dd>When you are creating custom objects, they will have unique
+ identities (unless you are using Singleton Pattern)</dd>
+          <dd><pre> 
+  class Foo:
+      pass
+
+  bar=Foo()
+  baz=Foo()
+  hex(id(bar)), hex(id(baz))   //    ('0x27b15bccfa0', '0x27b13b8cac0')
+  hex(id(Foo))                 //     '0x27b159a2ac0'
+
+  arra=[1,2,3]
+  arrb=arra
+  hex(id(arra)), hex(id(arrb))    //  ('0x234eb451bc0', '0x234eb451bc0') // The same!!
+  hex(id(arra))==hex(id(arrb))    //  True
+  arra.append(4)
+  arra  // [1, 2, 3, 4]
+  arrb  // [1, 2, 3, 4]
+
+  x_arr=[1,2,3]
+  y_arr=[1,2,3]
+  hex(id(x_arr))==hex(id(y_arr))  // False
+          </pre></dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Integer Example</summary>
+            <pre>
+
+  a=10
+  b=a
+  hex(id(a)), hex(id(b)) //    ('0x26b66826a50', '0x26b66826a50')
+  a+=1
+  a,b //    (11, 10)
+  hex(id(a)), hex(id(b)) //    ('0x26b66826a70', '0x26b66826a50')
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="http://foobarnbaz.com/2012/07/08/understanding-python-variables/">
+              [+++] Understanding Python variables and Memory Management [Sreejith Kesavan]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="http://www.javadude.com/articles/passbyvalue.htm">
+              Java is Pass-by-Value, Dammit [swap litmus test pass-by-reference]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://towardsdatascience.com/python-memory-and-objects-e7bec4a2845">
+              Python, Memory, and Objects [Naser Tamimi] [Data Science]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/306313/is-operator-behaves-unexpectedly-with-integers">
+             <code>is</code> operator behaves unexpectedly with integers [StackOverflow]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://medium.com/analytics-vidhya/python-under-the-hood-draft-2-7191d4da48aa">
+              Python: Under the hood [Memory Allocation & Management]  [Vasu Pal]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.csestack.org/python-getrefcount-reference-count-memory-management/">
+              Mystery of Python <code>getrefcount()</code> Reference Count & Memory Management [Aniruddha Chaudhari] 
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

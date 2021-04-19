@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Membership test]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">      <header>
+        Membership test (in / not in)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Membership test (in / not in)</dt>
+
+          <dd>The operators <code>in</code> and <code>not in</code> test for membership.</dd> 
+          <dd>
+          <code>x in s</code> evaluates to <code>True</code> if <code>x</code> 
+          is a member of <code>s</code>, and <code>False</code> otherwise.
+          </dd> 
+          <dd>
+          <code>x</code> not in <code>s</code> returns the negation of
+          <code>x</code> in <code>s</code>.
+          </dd> 
+          <dd>
+          All built-in sequences and set types support this as well  
+          as dictionary, for which in tests whether the dictionary has a given key.
+          </dd> 
+          <dd>
+          <dt>string</dt>
+          <dd>For the string and bytes types, <code>x</code> in <code>y</code> 
+          is <code>True</code> if and only if <code>x</code> is a substring of <code>y</code>.</dd> 
+          <dd>An equivalent test is <code>y.find(x) != -1.</code></dd> 
+          <dd>
+          Empty strings are always considered to be a substring of any other
+          string, so <code>""</code> in <code>"abc"</code> will return <code>True</code>
+          </dd>
+
+          <dt>list, tuple, set, dict, frozenset</dt>
+          For container types such as <code>list</code>, <code>tuple</code>,
+          <code>set</code>, <code>frozenset</code>, <code>dict</code>, 
+          or <code>collections.deque</code>, the expression 
+          <code>x in y</code>
+          is equivalent to 
+          <code>any(x is e or x == e for e in y)</code>
+          .</dd>
+          <dt><code>not in</code></dt>
+          <dd>The operator <code>not in</code> is defined to have the inverse
+          truth value of in.</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+  a=10
+  arr=[10]
+  arr2=[[10],30]
+  a in arr in arr2    //  True
+  (a in arr) in arr2  //  False
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+  ainm="Thomas Gerard"
+  "Thomas" in ainm    //  True
+  "Tom" in ainm       //  False
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/expressions.html#not-in">
+              Membership test operations
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

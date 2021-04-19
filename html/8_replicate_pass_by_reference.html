@@ -53,21 +53,60 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (Swap Litmus test)</summary>
+            <pre>
+
+    def myswap (arga, argb):
+      temp=arga
+      arga=argb
+      argb=temp
+      return (arga,argb)
+
+    def myswapalt(arga,argb):
+      return (argb,arga)
+
+    mya=10
+    myb=100
+
+    print(f"Before swap mya is {mya} and myb is {myb}")
+    (mya, myb)= myswap(mya,myb)
+    print(f"After swap: mya is {mya} and myb is {myb}")
+    print(f"----divider----")
+
+    print(f"Before swap mya is {mya} and myb is {myb}")
+    (mya, myb)= myswapalt(mya,myb)
+    print(f"After swap: mya is {mya} and myb is {mye}")
+
+    // Before swap mya is 10 and myb is 100
+    // After swap: mya is 100 and myb is 10
+    // ----divider----
+    // Before swap mya is 100 and myb is 10
+    // After swap: mya is 10 and myb is 100
+
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
             <dd>
             <p>
+            <a href ="https://realpython.com/python-pass-by-reference/">
+              Pass by Reference in Python: Background and Best Practices [Real Python]
+            </a>
+            </p>
+            </dd>
 
-            <a href ="https://realpython.com/python-pass-by-reference/">Pass by Reference in Python: Background and Best Practices</a>
+            <dd>
+            <p>
+            <a href ="http://www.javadude.com/articles/passbyvalue.htm">
+              Java is Pass-by-Value, Dammit [swap litmus test pass-by-reference]
+            </a>
             </p>
             </dd>
           </dl>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>intern</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        sys.intern()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>sys.intern()</dt>
+          <dd>To optimize memory allocation, Python does a process called <code>interning</code>.</dd>
+          <dd>For some objects (will be discussed later), Python only stores one 
+          object on heap memory and ask different variables to point to this memory
+          address if they use those objects.</dd> 
+          <dd>The objects that Python does <code>interning</code> on them are: </dd>   
+          <dd> 
+          <ol> 
+            <li>integer numbers [-5, 256]</li>
+            <li>boolean</li> 
+            <li>some strings.</li>
+          </ol>                                         
+          </dd> 
+          <dd>Interning does not apply to other types of objects such as: </dd> 
+          <dd>
+          <ol> 
+            <li>large integers</li>
+            <li>most strings</li>
+            <li>floats</li>
+            <li>lists</li>
+            <li>dictionaries</li>
+            <li>tuples.</li>
+          </ol>                                         
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://python-reference.readthedocs.io/en/latest/docs/functions/intern.html">
+              intern (python 2.6!) [Python Reference (The Right Way)]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://towardsdatascience.com/python-memory-and-objects-e7bec4a2845">
+              Python, Memory, and Objects [Naser Tamimi] [Data Science]
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.2/library/sys.html?highlight=sys.intern#sys.intern">
+              <code>sys.intern</code> (string) [Python Docs]  
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

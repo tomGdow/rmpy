@@ -5,24 +5,27 @@
     <title>[is/is not]</title>
     <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
     <style>
-div {
-  color: black;
-}
+        div {color: black;}
     </style>
   </head>
 
   <body>
     <div class="container">
       <header>
-        is is_not operators 
+        is / is_not operators 
       </header>
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>is is_not operators</dt>
-          <dd>The operators is and is not test for object identity:</dd> 
-          <dd>x is y is true if and only if x and y are the same object.</dd>
-          <dd>So, A is B is the same as id(A) == id(B)</dd>
+          <dt><code>is / is_not</code> operators</dt>
+          <dd>The operators <code>is</code> and <code>is not</code> test for
+          object's identity:</dd> 
+          <dd><code>x</code> is <code>y</code> is true if and only if 
+          <code>x</code> and <code>y</code> are the same object.</dd>
+          <dd>An Object’s identity is determined using the <code>id()</code> function.</dd> 
+          <dd>So, <code>A</code> is <code>B</code> is the same as
+          <code>id(A) == id(B)</code></dd>
+          <dd><code>x is not y</code> yields the inverse truth value.</dd> 
         </dl>
       </main>
       <div class="syntax">
@@ -80,21 +83,27 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
+
             <dd>
             <p>
-            <a href =" https://stackoverflow.com/questions/13650293/understanding-pythons-is-operator">
-              stackoverflow
+            <a href ="https://docs.python.org/3/reference/expressions.html#identity-comparisons">
+              Identity Test Comparisons
             </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/13650293/understanding-pythons-is-operator">
+              Understanding Python's "is" operator [stackoverflow]
+            </a>
+            </p>
+            </dd>
+
             <dd>
             <a href ="https://www.youtube.com/watch?v=pDCSuFk2Tmw&list=PLXHQlCIVOq0A_YVtNWReO2xb28-g0bhhu&index=15">
-              15. Microsoft Python Practical Test 1 (US Data Tech)
+              Microsoft Python Practical Test 1 (US Data Tech)  [You Tube]
             </a>
             </dd>
 

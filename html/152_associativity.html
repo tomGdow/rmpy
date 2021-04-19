@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Associativity]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Associativity
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Associativity</dt>
+
+          <dd>When two operators have the same precedence, associativity helps to
+ determine the order of operations.</dd>
+
+          <dd>Almost all the operators have left-to-right associativity.</dd>
+
+          <dd>Some operators like assignment operators and comparison operators
+ do not have associativity in Python.</dd> 
+
+          <dd>There are separate rules for sequences of this kind of operator and
+ cannot be expressed as associativity.</dd>
+
+          <dd> For example, 
+          <code>x &lt; y &lt; z</code> 
+          neither means 
+          (<code>x &lt; y) &lt; z</code> 
+          nor 
+          <code>x &lt; (y &lt; z)</code>.
+          </dd>    
+          <dd> 
+          <code>x &lt; y &lt; z</code> 
+          is equivalent to 
+          <code>x &lt; y and y &lt; z,</code> 
+          and is evaluated from left-to-right.
+          </dd>    
+          <dd>Note that if the first comparison is False, the rest of the
+          statement won't be looked at.</dd>
+
+          <dd>Exponentiation has right to left associativity.</dd>
+          <dd><code>2**3**2</code> is <code>2<sup>9</sup></code></dd>  
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+  x=10
+  y=9
+  z=8
+  x&gt;y&gt;z            //   True
+  (x&gt;y)&gt;z          //   False
+  True&gt;z           //   False
+  True&gt;10          //   False
+  True&gt;1           //   False
+  True&lt;1           //   False
+  (x&gt;y) and (y&gt;z)  //  True
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (Stackoverflow)</summary>
+            <pre>
+  x &gt; y &gt; z   # in this case, if x &gt; y evaluates to true, then
+              # the value of y is being used to compare, again,
+              # to z
+
+  (x &gt; y) &gt; z # the parenth form, on the other hand, will first
+              # evaluate x &gt; y. And, compare the evaluated result
+              # with z, which can be "True &gt; z" or "False &gt; z"
+
+  In both cases though, if the first comparison is False, 
+  the rest of the statement won't be looked at.
+
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/12660870/associativity-of-in-in-python">
+              [+++] Associativity of "in" in Python? [Stackoverflow]
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/precedence-associativity">
+              Precedence and Associativity of Operators in Python [Programiz]
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

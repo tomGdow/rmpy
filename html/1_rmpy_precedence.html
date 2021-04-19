@@ -60,6 +60,17 @@
         .table-template td[rowspan="9"] {
           vertical-align: top;
         }
+
+        .tab {
+          display: inline-block;
+          margin-left: 2em;
+        }
+
+        .tab2 {
+          display: inline-block;
+          margin-right: 2em;
+        }
+
     </style>
   </head>
 
@@ -173,20 +184,66 @@
           </tbody>
         </table>
       </main>
+
+      <div class="syntax">
+        <details>
+          <summary>Footnotes </summary>
+          <dl>
+
+            <dt>Exponentiation</dt>
+            <dd>  
+            <ol>  
+              <li>
+                 Exponentiation has right to left associativity.
+                <code>2**3**2</code> is <code>2<sup>9</sup></code>  
+              </li>
+              <li>
+                The power operator <code>**</code> binds less tightly than an
+                arithmetic or bitwise unary operator on its right, that is,
+                <code>2**-1</code> is <code>0.5</code>.
+              </li>
+            </ol> 
+            </dd>   
+            <dt>The &percnt; operator</dt>
+            <dd>The &percnt; operator is also used for string formatting; the same 
+            precedence applies</dd>
+          </dl>
+
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>BODMAS Rule</summary>
+          <dl>
+            <dt>BODMAS RULE</dt>
+            <dd>
+            <span class="tab2"><code>B&nbsp;</code></span>
+            <span class="tab">Brackets First</span>
+            </dd>
+            <dd>
+            <span class="tab2"><code>O&nbsp;</code></span>
+            <span class="tab">Orders (i.e. Powers and Square Roots, etc.)</span>
+            </dd>
+            <dd>
+            <span class="tab2"><code>DM</code></span>
+            <span class="tab">Division and Multiplication (left-to-right)</span>
+            </dd>
+            <dd>
+            <span class="tab2"><code>AS</code></span>
+            <span class="tab">Addition and Subtraction (left-to-right)</span>
+            </dd>
+          </dl>
+        </details><!--end-outer-details-->
+      </div>
+
       <div class="notes">
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>BODMAS RULE</dt>
-            <dd>B Brackets first</dd>
-            <dd>O Orders (i.e. Powers and Square Roots, etc.)</dd>
-            <dd>DM Division and Multiplication (left-to-right)</dd>
-            <dd>AS Addition and Subtraction (left-to-right)</dd>
-            <dd><a href ="https://www.mathsisfun.com/operation-order-bodmas.html">BODMAS (Math is Fun)</a></dd>
-            <dt>DM&gt;AS</dt>
+            <dt>BODMAS notes</dt>
+            <dd><code>DM&gt;AS</code></dd>
             <dd>
-            <p>division/multiplication higher precedence than add subtract
-            </p>
+            <p>division/multiplication higher precedence than add subtract</p>
             <p>
             <code>*/&gt;+- </code> (triangle with star inside, better)
             </p>
@@ -204,6 +261,31 @@
             </code>
             </p>
             </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/expressions.html?highlight=precedence">
+              Operator Precedence [Python Docs]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/precedence-associativity">
+              Precedence and Associativity of Operators in Python [Programiz]
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href ="https://www.mathsisfun.com/operation-order-bodmas.html">
+              BODMAS (Math is Fun)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>

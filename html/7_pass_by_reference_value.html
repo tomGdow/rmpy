@@ -8,6 +8,20 @@
 div {
   color: black;
 }
+.embed-pdf {
+  margin-top: 4em;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2em;
+}
+
+.embed-pdf-alt {
+  display:none;
+}
+
+.anchor-one {
+  display:none;
+}
     </style>
   </head>
 
@@ -28,9 +42,9 @@ div {
           <dd><code>a = ["X", "Y"]</code></dd>
           <dd>Here “a” is a variable that points to a list containing the element “X” and “Y”</dd>
           <dd>But “a” itself is not the list.</dd>
-          <dd>Consider “a” to be a bucket that contains the object “X” and “Y”.</dd>
+          <dd>Consider “a” to be a bucket that contains a list object, which itself contains the objects “X” and “Y”.</dd>
           <dd>Functions in python receive the reference of the same object in the memory as referred by the caller.</dd>
-          <dd>The function does not receive the variable(the bucket) that the caller is storing the same object in</dd> 
+          <dd>The function does not receive the variable (the bucket) that the caller is storing the same object in</dd> 
           <dd>Like in pass-by-value, the function provides its own bucket and creates an entirely new variable for itself</dd>
           <dd>The same object in the memory is referred by both the caller and the function</dd>
           <dd>So when the append function adds an extra element to the list, the caller object gets updated too.</dd>
@@ -41,7 +55,8 @@ div {
           </dd> 
 
 
-          <dd>JS is pass by value but in the case of objects (including arrays), the value passed is a reference to the object </dd>
+          <dd>JS is pass by value but in the case of objects (including arrays), 
+          the value passed is a reference to the object </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -56,76 +71,148 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary>Example 1: Reassign vs Append test</summary>
+            <summary>Example 1: Reassign (Reassign vs Append test)</summary>
             <pre>
-  def reassign(list):
-    list = [0,1]
-    print('REASIGN: id of list', id(list))
 
-  def append(list):
-    list.append(1)
-    print('APPEND: id of list', id(list))
+    def reassign(list):
+        id_list_pre = hex(id(list))
+        print(f"Reassign-PRE: list is {list} and id(list) is {id_list_pre}") // [2]
+        list=[0,1]
+        id_list_post = hex(id(list))
+        print(f"Reassign-POST: list is {list} and id(list) is {id_list_post}") // [3]
+        print(f"Reassign: id_list_pre == id_list_post is {id_list_pre==id_list_post}") // [4]
 
-  list = [0]
-  print('EXT: id of list',id(list))
-  print(f"list is {list}")
+    list = [0]
+    id_list_pre = hex(id(list))
+    print(f"EXT: list is {list} and id(list) is {hex(id(list))}")  // [1]
+    reassign(list)
+    id_list_post = hex(id(list))
+    print(f"EXT: list is {list} and id(list) is {hex(id(list))}")  // [5]
+    print(f"EXT: id_list_pre == id_list_post is {id_list_pre==id_list_post}")  // [6]
 
-  print('--reassign--')
-  reassign(list)
-  print('EXT: id of list after reassign->',id(list))
-  print(f"list is {list}")
-  
-  print('--append--')
-  append(list)
-  print('EXT: id of list after append->',id(list))
-  print(f"list is {list}")
+    // [1]  EXT: list is [0] and id(list) is 0x20eb824a780
 
-  // Output
+    // [2]  Reassign-PRE: list is [0] and id(list) is 0x20eb824a780                            
+    // [3]  Reassign-POST: list is [0, 1] and id(list) is 0x20eb824afc0
+    // [4]  Reassign: id_list_pre == id_list_post is False
 
-  EXT: id of list 2183981266944
-  list is [0]
-  --reassign--
-  REASIGN: id of list 2181865611968
-  EXT: id of list after reassign-> 2183981266944
-  list is [0]
-  --append--
-  APPEND: id of list 2183981266944
-  EXT: id of list after append-> 2183981266944
-  list is [0, 1]
+    // [5]  EXT: list is [0] and id(list) is 0x20eb824a780
+    // [6]  EXT: id_list_pre == id_list_post is True
+
+    // Note this modification essentially makes no difference
+
+
+    def reassign2(list):
+        id_list_pre = hex(id(list))
+        print(f"Reassign-PRE: list is {list} and id(list) is {id_list_pre}")  // [7]
+        list=[1]
+        id_list_post = hex(id(list))
+        print(f"Reassign-POST: list is {list} and id(list) is {id_list_post}") // [8]
+        print(f"Reassign: id_list_pre == id_list_post is {id_list_pre==id_list_post}") // [9]
+
+    reassign2(list)
+    id_list_post = hex(id(list))
+    print(f"EXT: list is {list} and id(list) is {hex(id(list))}")    //  [10]
+    print(f"EXT: id_list_pre == id_list_post is {id_list_pre==id_list_post}") // [11]
+
+
+
+   // [7]  Reassign-PRE: list is [0] and id(list) is 0x20eb824a780
+   // [8]  Reassign-POST: list is [1] and id(list) is 0x20eba0a1100
+   // [9]  Reassign: id_list_pre == id_list_post is False
+   // [10] EXT: list is [0] and id(list) is 0x20eb824a780
+   // [11] EXT: id_list_pre == id_list_post is True
+
             </pre>
           </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example 2: Append (Reassign vs Append test)</summary>
+            <pre>
+
+def myappend(list):
+    id_list_pre = hex(id(list))
+    print(f"Reassign-PRE: list is {list} and id(list) is {id_list_pre}") // [2]
+    list.append(100)
+    id_list_post = hex(id(list))
+    print(f"Reassign-POST: list is {list} and id(list) is {id_list_post}") // [3]
+    print(f"Reassign: id_list_pre == id_list_post is {id_list_pre==id_list_post}")  // [4]
+
+    list2=[10]  
+    id_list2_pre = hex(id(list2))
+    print(f"EXT: list is {list2} and id(list2) is {hex(id(list2))}")  // [1]
+    myappend(list2)
+    id_list2_post = hex(id(list2))
+    print(f"EXT: list is {list2} and id(list2) is {hex(id(list2))}")  // [5]
+    print(f"EXT: id_list2_pre == id_list2_post is {id_list2_pre==id_list2_post}")  // [6]
+
+
+    // [1]  EXT: list is [10] and id(list2) is 0x2348846a740
+    // [2]  Reassign-PRE: list is [10] and id(list) is 0x2348846a740
+    // [3]  Reassign-POST: list is [10, 100] and id(list) is 0x2348846a740
+    // [4]  Reassign: id_list_pre == id_list_post is True
+    // [5]  EXT: list is [10, 100] and id(list2) is 0x2348846a740
+    // [6]  EXT: id_list2_pre == id_list2_post is True
+
+
+            </pre>
+          </details><!--inner-->
+
+
+          <details><!--inner-->
+            <summary>Example 3: Diagram</summary>
+
+            <div class="anchor-one">
+              <a href="./pdf/pass_by_ref_value_diagram.pdf" target="_blank">External link to pdf</a>
+            </div>
+
+            <div class="anchor-one-alt">
+              <a href="../pdf/pass_by_ref_value_diagram.pdf" target="_blank">External link to pdf</a>
+            </div>
+
+            <pre>
+        <div class="embed-pdf">
+          <embed src="../pdf/pass_by_ref_value_diagram.pdf" 
+                 type="application/pdf" 
+                 width="100%" 
+                 height="500px">
+        </div>
+
+        <div class="embed-pdf-alt">
+          <embed src="./pdf/pass_by_ref_value_diagram.pdf" 
+                 type="application/pdf" 
+                 width="100%" 
+                 height="350px">
+        </div>
+
+
+            </pre>
+
+          </details><!--inner-->
+
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
-            <dd>
-            <p>
-            <a href="http://google.ie">link-1</a>
-            </p>
-            </dd>
-            <dd>
+           <dd>
             <p>
             <a href ="https://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/">
-              Is Python pass-by-reference or pass-by-value?</a>
+              [+++] Is Python pass-by-reference or pass-by-value? [Robert Heaton]</a>
             </p>
             </dd>
 
             <dd>
             <p>
             <a href =" https://realpython.com/python-pass-by-reference/">
-              Pass by Reference in Python: Background and Best Practices</a>
+              Pass by Reference in Python: Background and Best Practices [Real Python]</a>
             </p>
             </dd>
 
-
-            <dd><p><a href ="https://www.geeksforgeeks.org/pass-by-reference-vs-value-in-python/">Pass by reference vs value in Python</a></p></dd>
+            <dd><p><a href ="https://www.geeksforgeeks.org/pass-by-reference-vs-value-in-python/">Pass by reference vs value in Python [Geeks for Geeks]</a></p></dd>
 
           </dl>
         </details>
