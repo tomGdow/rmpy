@@ -30,6 +30,10 @@ let pageData = (function () {
     "17_tuples.html",
     "18_sets.html",
     "19_dictionary.html",
+    "155_compound_statements.html",
+    "156_if_elif_else.html",
+    "157_warlus_assignment_expression.html",
+    "128_conditional_expression_ternary_operator.html",
     "105_x_list_tuple_set_dict.html",
     "101_x_bytes.html",
     "119_x_bytes_and_bytearray.html",
@@ -55,7 +59,6 @@ let pageData = (function () {
     "123_x_strip_str_method.html",
     "125_x_replace_str_method.html",
     "127_x_insert_list_method.html",
-    "128_conditional_expression_shorthand.html",
     "129_modules.html",
     "130_x_int.html",
     "131_x_input.html",
@@ -72,6 +75,7 @@ let pageData = (function () {
     "142_armstrong_number.html",
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
+    "154_notes_jason_three.html",
     "rmpy_template.html"
 
   ];
