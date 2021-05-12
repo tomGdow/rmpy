@@ -31,7 +31,13 @@ div {
           <code>zip()</code> in conjunction with the <code>*</code> operator can be
           used to unzip a list:</dd>
           <dd>If only one iterable object passed to the <code>zip()</code> function  
-          then get a list of 1-item tuples</dd>
+          then get a list of <mark>1-item tuples</mark></dd>
+          <dt>Succinct summary</dt>
+          <dd>The <code>zip</code> function  will return an <mark>iterator of
+            tuples</mark>, where the <code><code>i-th</code></code> tuple will 
+          contain the <code>i-th</code> element from each of the iterables passed in.</dd> 
+          <dd>This iterator will stop once the shortest input iterable has been exhausted.</dd>          
+
         </dl>
       </main>
       <div class="syntax">
@@ -58,7 +64,7 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 2</summary>
+            <summary>Example 2 (Unzip)</summary>
             <pre>
             a =("Thomas", "Josef", "Emer")
             b = ("D", "Z", "G","H")
@@ -75,6 +81,63 @@ div {
             // &lt;zip at 0x14999d88d00&gt;
             tuple(zed)
             // ()
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (For Loop)</summary>
+            <pre>
+    fnames=["tom","josef", "emer"]
+    lnames="dow", "zac", "mor"
+    age=12, 14, 100
+
+    for f, l, a in zip(fnames, lnames, age):
+      print(f"{l}, {f} is age {a}")
+
+
+    //  dow, tom is age 12
+    //  zac, josef is age 14
+    //  mor, emer is age 100
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4 (Single argument)</summary>
+            <pre>
+
+    for f in zip(fnames):
+      print(f"{f}")
+
+
+    //  ('tom',)
+    //  ('josef',)
+    //  ('emer',)
+
+    for f, in zip(fnames):
+      print(f"{f}")
+
+    //  tom
+    //  josef
+    //  emer
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5 (one arg too long)</summary>
+            <pre>
+
+    agelong=100,200,300,400
+    for f, l, a in zip(fnames, lnames, agelong):
+      print(f"{l}, {f} is age {a}")
+
+
+    // dow, tom is age 100
+    // zac, josef is age 200
+    // mor, emer is age 300
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X</summary>
+            <pre>
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->

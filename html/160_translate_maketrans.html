@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[translate]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        string.translate(table)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>string.translate(table)</code></dt>
+          <dd>The <code>string translate()</code> method returns a string
+          where each character is mapped to its corresponding character in a
+          translation table.</dd>
+          <dd>
+          The <code>translate()</code> method uses a translation table to
+          replace/translate characters in a given string 
+          </dd>
+          <dd>The translation table is created by the
+          <code>maketrans()</code>method</dd>
+          <dd><code>translate()</code> takes a single parameter</dd>
+          <dt><code>string.maketrans(x, y, z)</code></dt>
+
+          <dd>
+          The <code>maketrans()</code> method returns a mapping table that
+          can be used with the <code>translate()</code> method to replace
+          specified characters
+          </dd>
+
+          <dd>
+          <dl>
+
+            <dt><code>param x</code></dt>
+            <dd>Required</dd>
+            <dd>If only one parameter is specified, this has to be a dictionary
+            describing how to perform the replace.</dd> 
+            <dd>If two or more parameters are specified, this parameter has to be
+            a string specifying the characters you want to replace.
+            </dd>
+
+            <dt><code>param y</code></dt>
+            <dd>Optional</dd> 
+            <dd>A string with the same length as parameter <code>x</code></dd> 
+            <dd>Each character in the first parameter will be replaced with
+            the corresponding character in this string.</dd>
+
+            <dt><code>param z</code></dt>
+            <dd>Optional</dd>
+            <dd>
+            A string describing which characters to remove from the original
+            string
+            </dd>
+            </dd>
+          </dl>
+          </dd>
+
+            <dd>
+            <dl>
+              <dt>Python Docs: <code>static str.maketrans(x[, y[, z]])</code> </dt>
+              <dd>This static method returns a translation table usable for
+              <code>str.translate()</code></dd>
+
+              <dd>If there is only one argument, it must be a dictionary mapping
+              Unicode ordinals (integers) or characters (strings of length 1) to
+              Unicode ordinals, strings (of arbitrary lengths) or <code>None</code>.</dd> 
+              <dd>Character keys will then be converted to ordinals.</dd>
+
+              <dd>If there are two arguments, they must be strings of equal length,
+              and in the resulting dictionary, each character in <code>x</code> 
+              will be mapped to the character at the same position in <code>y</code></dd> 
+              <dd>If there is a third argument, it must be a string, whose characters
+              will be mapped to <code>None</code> in the result.</dd>
+
+            </dl>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>string.translate(table)</pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            "thomas".translate({97: 65})     // ThomAs
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    "Thomas".maketrans('sa', 'SA')  //  {115: 83, 97: 65}
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    mystr="Thomas"
+    table=mystr.maketrans('a', 'A', 'h')
+    mystr.translate(table)    //   'TomAs'
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#str.translate">
+              str.translate(table) [Python Docs]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/methods/string/translate">
+              Python String translate() [Programiz]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.w3schools.com/python/ref_string_maketrans.asp">
+              Python String maketrans() Method [W3Schools]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.3/library/stdtypes.html#str.maketrans">
+              static str.maketrans(x[, y[, z]]) [Python Docs]
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

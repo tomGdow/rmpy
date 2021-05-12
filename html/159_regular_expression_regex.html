@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[regex]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+.metachars {
+  margin-left: 2em;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        regular expressions (regex)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>regular expressions (regex)</dt>
+          <dd>Regular expressions (called <code>REs</code>, or <code>regexes</code>,
+          or regex patterns) are essentially a tiny, highly specialized
+          programming language embedded inside Python and made available
+          through the <code>re</code> module</dd>
+
+          <dd>Regular expression patterns are compiled into a series of
+          <code>bytecodes</code> which are then executed by a matching engine
+          written in <code>C</code>.</dd>
+
+          <dd>Most letters and characters will simply match themselves.</dd> 
+          <dd>For example, the regular expression test will match the string test
+          exactly</dd>
+
+          <dd>There are exceptions to this rule; some characters are special
+          metacharacters, and don’t match themselves</dd>
+          <dd>
+          <dl>
+            <dt>The complete set of <code>metacharacters</code></dt>
+            <dd>
+            <ol>
+              <li><code class="metachars">.</code></li> 
+              <li><code class="metachars">^</code></li>
+              <li><code class="metachars">$</code></li>
+              <li><code class="metachars">*</code></li>
+              <li><code class="metachars">+</code></li>
+              <li><code class="metachars">?</code></li>
+              <li><code class="metachars">{ }</code></li>
+              <li><code class="metachars">[ ]</code></li>
+              <li><code class="metachars">\</code></li> 
+              <li><code class="metachars">|</code></li>
+              <li><code class="metachars">( )</code></li>
+            </ol>
+            </dd>
+          </dl>
+          </dd>
+          <dd>(Note that a comma is NOT a special character!)</dd>
+          <dd>Metacharacters are not active inside classes.</dd>
+          <dd>
+          For example, 
+          <code>[akm$]</code> 
+          will match any of the characters 
+          <code>'a'</code>,
+          <code>'k'</code>, 
+          <code>'m'</code>,
+          or
+          <code>'$'</code>
+          </dd>   
+
+          <dd>The backslash is used to escape all the metacharacters so you
+          can still match them in patterns</dd> 
+
+          <dd>
+          Perhaps the most important metacharacter is the backslash, 
+          <code>\</code>. 
+          </dd>   
+
+          <dd>As in Python string literals, the backslash can be followed
+          by various characters to signal various special sequences.</dd>
+
+          <dd><code>\w</code> matches any alphanumeric character, equivalent to
+          the class <code>[a-zA-Z0-9_]</code>.</dd>
+
+          <dd>Backslash-sequences can be included inside a character class.</dd> 
+          <dd>For example, <code>[\s,.]</code> is a character class that will
+          match any whitespace character, or <code>','</code> or
+          <code>'.'</code>.</dd>
+
+          <dd>The <code>'.'</code>metacharacter matches anything except a newline
+          character, and there’s an alternate mode (<code>re.DOTALL</code>) where
+          it will match even a newline</dd>
+
+          <dt><code>re.compile(string)</code></dt>
+
+          <dd>Regular expressions are compiled into pattern objects, which have
+          methods for various operations such as searching for pattern matches
+          or performing string substitutions.</dd>
+
+          <dd><code>p = re.compile('ab*', re.IGNORECASE)</code></dd>
+
+          <dd>The <code>RE</code> is passed to re.compile() as a string.</dd> 
+          <dd>REs are handled as strings because regular expressions aren’t
+          part of the core Python language, and no special syntax was created
+          for expressing them</dd>
+
+          <dd>Putting REs in strings keeps the Python language simpler, but has
+          one disadvantage: the backslash pLague</dd>
+
+          <dt>Backslash Plague</dt>
+          <dd>Regular expressions use the backslash character
+          (<code>'\'</code>) to indicate special forms or to allow special
+          characters to be used without
+          invoking their special meaning.</dd> 
+
+          <dd>!! This conflicts with Python’s usage of the same character for
+          the same purpose in string literals.</dd>
+
+          <dd>To write a <code>RE</code> that matches the string
+          <code>\section</code>, need to pass <code>\\section</code> to
+          <code>re.compile()</code> as backslash must be escaped.</dd>
+
+          <dd>
+          However, to express this as a Python string literal, both
+          backslashes must be escaped again.
+          </dd>
+          <dd>
+          In short, to match a literal backslash, one has to write
+          <code>'\\\\'</code>
+          </dd>    
+
+          <dt>raw string notation</dt>
+          <dd>The solution is to use Python’s raw string notation for regular
+          expressions</dd>                                
+
+          <dd>
+          Backslashes are not handled in any special way in a string literal
+          prefixed with <code>'r'</code>.
+          </dd>    
+
+          <dd>
+          <code>r"\n"</code> is a two-character string containing
+          <code>'\'</code> and <code>'n'</code>, while <code>"\n"</code> is a
+          one-character string containing a newline
+          </dd> 
+
+          <dd>Regular expressions will often be written in Python code using
+          this raw string notation</dd>
+        </dl>
+
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/howto/regex.html">
+              Regular Expression HOWTO [Python Docs: A.M. Kuchling]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://developers.google.com/edu/python/regular-expressions">
+              Python Regular Expressions [Google for Education: Python]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://pynative.com/python-regex-replace-re-sub/">
+              Python Regex Replace Pattern in a string using re.sub() [PYnative]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.rexegg.com/">
+              Rex Egg
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/re.html">
+              re — Regular expression operations [Python Docs]
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

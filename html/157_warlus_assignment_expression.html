@@ -21,7 +21,12 @@ div {
       <main>
         <dl>
           <dt>Assignment Expressions</dt>
-          <dd>[Main text]</dd>      
+          <dd>
+          An <code>assignment expression</code> (sometimes also called a
+          <code>named expression</code> or <code>walrus</code>) assigns an
+          <code>expression</code> to an <code>identifier</code>, while also
+          returning the value of the expression
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -38,7 +43,12 @@ div {
           <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
-            [code]
+    import re
+    str ="Thomas Gerard"
+    if match := re.search('T.+s',str):
+        print(match)               //     &lt;re.Match object; span=(0, 6), match='Thomas'&gt;
+    if match :=re.search('T.+s',str):
+        print(match.group())      //   Thomas
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
