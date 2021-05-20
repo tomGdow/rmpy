@@ -19,6 +19,7 @@ let pageData = (function () {
     "150_memory_management.html",
     "151_intern.html",
     "9_getreferencecount.html",
+    "162_hashable.html",
     "11_is_is_not_operators.html",
     "100_x_memory_view.html",
     "10_locals_globals_fn.html",
@@ -78,6 +79,8 @@ let pageData = (function () {
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
     "154_notes_jason_three.html",
+    "161_mod_7_janani_ravi_list_tuple.html",
+    "163_mod_7_janani_ravi_sets_dictionary.html",
     "rmpy_template.html"
 
   ];

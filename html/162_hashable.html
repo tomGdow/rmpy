@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[TITLE]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        hashable
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>hashable</dt>
+          <dd>An object is hashable if it has a hash value which never changes
+          during its lifetime (it needs a <code>__hash__()</code> method), and
+          can be compared to other objects (it needs an <code>__eq__()</code> method).</dd> 
+          <dd>Hashable objects which compare equal must have the same hash value.</dd>
+
+          <dd><mark>Hashability makes an object usable as a dictionary key and a 
+            set member</mark>, because these data structures use the hash value internally.</dd>
+
+          <dd>Most of Python’s immutable built-in objects are hashable</dd>
+          <dd>Mutable containers (such as <code>lists</code> or <code>dictionaries</code>) are not</dd>
+          <dd>Immutable containers (such as <code>tuples</code> and <code>frozensets</code>) are only
+          hashable if their elements are hashable.</dd> 
+          <dd>Objects which are instances of user-defined classes are hashable by default.</dd> 
+          <dd>They all compare unequal (except with themselves), and their hash
+          value is derived from their <code>id()</code>.</dd>  
+          <dd>Anything that is not mutable (mutable means, likely to change) can be hashed.</dd>
+          <dt>List of immutable types</dt> 
+          <dd>
+          <ol>
+            <li>int</li>
+            <li>float</li>
+            <li>decimal</li>
+            <li>complex</li>
+            <li>bool</li>
+            <li>string</li>
+            <li>tuple</li>
+            <li>range</li>
+            <li>frozenset</li>
+            <li>bytes</li>
+          </ol>
+          </dd>
+          <dt>List of mutable types</dt>
+          <dd>
+          <ol>
+            <li>list</li>
+            <li>dict</li>
+            <li>set</li>
+            <li>bytearray</li>
+            <li>user-defined classes</li>
+          </ol>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    t1=(1,2,3)
+    t2=(1,2,3)
+
+    t1==t2    //  True
+    t1 is t2  //  False
+
+    ht1=t1.__hash__()
+    ht1   //   529344067295497451
+
+    ht2=t2.__hash__()
+    ht2   //  529344067295497451
+    ht2 ==ht1  //  True
+
+    id(t1)     //  1394797129664    // !! id is NOT the same as hash value 
+    id(ht1)    //  1394831585136
+    id(ht2)    //  1394831584848
+    id(t2)     //  1394832574272
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/14535730/what-does-hashable-mean-in-python">
+              What does “hashable” mean in Python?
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://runestone.academy/runestone/books/published/pythonds/SortSearch/Hashing.html">
+              Hashing (Runestone Academy)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/glossary.html#term-hashable">
+              hashable (Python Glossary)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
