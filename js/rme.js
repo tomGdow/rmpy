@@ -81,6 +81,7 @@ let pageData = (function () {
     "154_notes_jason_three.html",
     "161_mod_7_janani_ravi_list_tuple.html",
     "163_mod_7_janani_ravi_sets_dictionary.html",
+    "164_mod_7_list_methods_Al_Sweigart_abswp.html",
     "rmpy_template.html"
 
   ];
