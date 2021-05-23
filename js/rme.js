@@ -75,6 +75,7 @@ let pageData = (function () {
     "139_x_all.html",
     "140_x_random_randint_randrange.html",
     "141_prime_number.html",
+    "167_eval.html",
     "142_armstrong_number.html",
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
@@ -82,6 +83,8 @@ let pageData = (function () {
     "161_mod_7_janani_ravi_list_tuple.html",
     "163_mod_7_janani_ravi_sets_dictionary.html",
     "164_mod_7_list_methods_Al_Sweigart_abswp.html",
+    "165_revision_list_tuple_set_dictionary_string_comparison_table.html",
+    "166_revision_list_tuple_set_dictionary_string_comparison_table_two.html",
     "rmpy_template.html"
 
   ];
