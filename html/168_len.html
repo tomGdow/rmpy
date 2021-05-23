@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>len</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        len
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>len</dt>
+
+          <dd>Python <code>len()</code> is a built-in function that returns the length
+          (number of items) of an object.</dd>
+
+          <dd><code>len()</code> function takes only one parameter as argument</dd>
+
+          <dd>The parameter can be a sequence, such as:
+          <ul>  
+            <li><code>string</code></li>
+            <li><code>bytes</code></li>
+            <li><code>tuple</code></li>
+            <li><code>list</code></li> 
+            <li><code>range</code></li>
+          </ul>
+          </dd>   
+          <dd>  
+          or a collection, such as:
+          <ul>                                          
+            <li><code>dictionary</code></li> 
+            <li><code>set</code></li> 
+            <li><code>frozen set</code></li>
+          </ul>                                         
+          </dd>
+
+          <dt><code>__len__() method</code></dt>
+
+          <dd>
+          <dl> <!-- Nested dl--> 
+            <dt>The difference between <code>__len__()</code> and
+            <code>len()</code> method: </dt> 
+            <dd><code>len(s)</code> is a built-in Python method which returns
+            the length of an object.</dd>
+            <dd><code>__len__()</code> is a <mark>special method that is internally
+              called</mark> by <code>len(s)</code> method to return the length of an
+          object.</dd>
+          </dl>
+
+          </dd>
+
+          <dd>The Python <code>len()</code> function can be interpreted as:</dd>
+          <dd>  <pre> 
+          def len(s):
+              return s.__len__()
+          </pre>  
+          </dd>   
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+
+          len(s)
+
+            //  s (required) – object whose length is to be returned
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="http://www.trytoprogram.com/python-programming/python-built-in-functions/len/">
+              Python len() Function (trytoprogram)
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#len">
+              len (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
