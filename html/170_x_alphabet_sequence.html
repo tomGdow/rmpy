@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>alphabet</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Alphabet sequence
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Alphabet sequence</dt>
+<dd>
+<ol>  
+  <li>Method<pre> 
+  list(map(lambda x: chr(x), range(ord('a'), ord('z')+1)))
+
+  //    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
+         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+         'y', 'z']
+  </pre></li> 
+  <li>Method<pre> 
+  [chr(x) for x in range(ord('a'), ord('z')+1)]
+
+  //    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+         'y', 'z']
+  </pre></li> 
+  <li>Method<pre> 
+  import string
+
+  string.ascii_lowercase
+  //    'abcdefghijklmnopqrstuvwxyz'
+
+  string.ascii_letters
+  //    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  
+  list(string.ascii_lowercase)
+  //    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+         'y', 'z']
+
+  list(string.ascii_lowercase[0:10])
+  //    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+  </pre></li> 
+</ol> 
+
+</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/16060899/alphabet-range-in-python">
+              Alphabet range in Python (StackOverflow)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
