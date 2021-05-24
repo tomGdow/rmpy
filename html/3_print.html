@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>[print]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {color:black;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        print
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>print</dt>
+
+          <dd><pre> 
+           print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+          </pre></dd>   
+
+          <dd>Print objects to the text stream file, separated by <code>sep</code>
+          and followed by <code>end</code>.</dd> 
+
+          <dd><code>sep</code>, <code>end</code>, <code>file</code> and
+          <code>flush</code>, if present, must be given as <code>keyword</code>
+          arguments.</dd>
+
+          <dd>All non-keyword arguments are converted to strings like
+          <code>str()</code> does and written to the stream, separated by
+          <code>sep</code> and followed by <code>end</code></dd>   
+
+          <dd>Both <code>sep</code> and <code>end</code> must be strings; they
+          can also be <code>None</code>, which means to use the default
+          values.</dd>
+
+          <dd>If no objects are given, <code>print()</code> will just write
+          <code>end</code>.</dd>
+
+          <dd>Whether output is buffered is usually determined by
+          <code>file</code>, but if the <code>flush</code> keyword argument is
+          true, the stream is forcibly flushed.</dd>
+
+          <dd>Multiple values can be displayed as comma-separated list,
+          separated by single space by default</dd>
+
+          <dd>alternative separator: by adding <code>sep</code> parameter,
+          eg <code>sep='**'</code></dd>
+
+          <dd>invisible <code>\n</code> at end of line <code>//default</code></dd>
+        </dl>
+
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <div>[Syntax]</div>
+        </details>
+      </div>
+      <div class="examples">
+        <details> <!--begin-outer-details--> 
+          <summary>Examples</summary>
+          <details> <!--inner--> 
+            <summary>Example 1 (General)</summary>
+            <pre>
+
+  price  = 3.95
+  widgets = 5
+
+  (1) print('The price of the widget is', price, 'and widgets is', widgets, end='!!')
+      //    The price of the widget is 3.95 and widgets is 5!!
+
+  (2) print('The price of the widget is ' +str(price) + ' and widgets is ' + str(widgets), end='!!')
+      //    The price of the widget is 3.95 and widgets is 5!!
+
+  (3) print(f'The price of the widget is {price} and {widgets}')
+      //    The price of the widget is 3.95 and 5
+
+  (4) print("The price of the widget is {} and widgets is {}".format(price, widgets), end='!!')
+      //    The price of the widget is 3.95 and widgets is 5!!
+
+            </pre>
+          </details><!--inner--> 
+          <details> <!--inner--> 
+            <summary>Example 2 (Print to File)</summary>
+            <pre>
+    //    print('Hi Tom, how is the Python going', file=open('output.txt', 'a'))
+            </pre>
+          </details><!--inner--> 
+        </details> <!--end-outer-details--> 
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#print">
+              print (Python Docs)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
