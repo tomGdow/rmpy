@@ -22,7 +22,7 @@ div {
           <dt>Lists</dt>
           <dd>lists are mutable sequences</dd>
           <dd>typically used to store collections of homogeneous items 
-(where the precise degree of similarity will vary by application).</dd>
+          (where the precise degree of similarity will vary by application).</dd>
           <dd><code>list =[1,2,3]</code></dd>
           <dd>Lists may be constructed in several ways</dd>
           <dd>
@@ -36,7 +36,7 @@ div {
           </ul>
           </dd>
           <dd>Lists might contain items of different types, but usually the items
- all have the same type.</dd>
+          all have the same type.</dd>
           <dd>mutable!</dd>
           <dd>
           <a href ="https://docs.python.org/3/tutorial/introduction.html#lists">
@@ -159,6 +159,20 @@ div {
             </pre>
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Example54 (try/except and remove)</summary>
+            <pre>
+
+    game=['Dinosaur', 'Rock', 'Scissors', 'Lizard', 'Spock', 'Computer']
+
+    try:
+        game.remove('Paper')
+    except ValueError:
+        pass                     // No error if element not in list
+
+            </pre>
+          </details><!--inner-->
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -179,7 +193,22 @@ div {
             </p>
             </dd>
 
-            <dd><p><a href ="https://docs.python.org/3/library/stdtypes.html#lists">Lists (Python docs)</a></p></dd>
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#lists">
+              Lists (Python docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/11277432/how-can-i-remove-a-key-from-a-python-dictionary?rq=1">
+              How can I remove a key from a Python dictionary? (StackOverflow) [Try/except Remove eg]
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
