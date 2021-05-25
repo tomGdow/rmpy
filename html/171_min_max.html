@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[min_max]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        min()  max()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>min()</dt>
+
+          <dd>Return the smallest item in an iterable or the smallest of two
+          or more arguments</dd>
+
+          <dd>If one positional argument is provided, it should be an
+          iterable.</dd>
+
+          <dd>If two or more positional arguments are provided, the smallest
+          of the positional arguments is returned</dd>
+
+          <dd>There are two optional keyword-only arguments.</dd> 
+          <dd>
+
+          <ol>
+            <li>
+              The <code>key</code> argument specifies a <mark>one-argument
+                ordering function</mark> like that used for
+              <code>list.sort()</code>
+            </li>
+            <li>
+              The default argument specifies an object to return if the
+              provided iterable is empty. If the iterable is empty and default is
+              not provided, a <code>ValueError</code> is raised
+            </li>
+          </dd>
+          </ol>
+
+          <dd>If multiple items are minimal, the function returns the first
+          one encountered.</dd>
+          <dd>
+          <mark>
+            Remember capital letters will always be "less than" lower case
+          </mark>
+          </dd>
+
+          <dt>max()</dt>
+          <dd>Return the largest item in an iterable or the largest of two or more arguments</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <details><!--inner-->
+            <summary>min</summary>
+            <pre>
+
+    min(iterable, *[, key, default])
+
+    min(arg1, arg2, *args[, key])
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>max</summary>
+            <pre>
+
+    max(iterable, *[, key, default])
+
+    max(arg1, arg2, *args[, key])
+
+            </pre>
+          </details><!--inner-->
+        </details><!--outer-->
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (Lists)</summary>
+            <pre>
+
+    mylist=['tom', 'adam', 'Tomasdow']
+    min(mylist)    //  'Tomasdow'
+    max(mylist)    //  'tom'
+    max(mylist, key=len)    //  'Tomasdow'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (Dictionary)</summary>
+            <pre>
+
+    mydict={'tom': 40, 'ziggy': 2, 'Tom':90}
+    min(mydict)                        //   'Tom'
+    min(mydict.values())               //   2
+    min(mydict, key=lambda x: x[1])    //   'ziggy'
+    min(mydict, key=mydict.get)        //   'ziggy'
+    min(mydict.items(), key=lambda x: x[1])  //  ('ziggy', 2)
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (multiple args)</summary>
+            <pre>
+
+    min(199, 2, 45, 4)
+    //    2
+
+            </pre>
+          </details><!--inner-->
+            <summary>Example 4 (Default value/Value Error)</summary>
+            <pre>
+
+    min([])
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#28&gt;", line 1, in &lt;module&gt;
+    //      min([])
+    //  ValueError: min() arg is an empty sequence
+
+    min([], default='No Minimum')
+    //    'No Minimum'
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#min">
+              min (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#max">
+              max (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.geeksforgeeks.org/python-min-function/">
+              Python min() Function (Geeks for Geeks)
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/questions/3282823/get-the-key-corresponding-to-the-minimum-value-within-a-dictionary">
+              Get the key corresponding to the minimum value within a dictionary(Stackoverflow)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
