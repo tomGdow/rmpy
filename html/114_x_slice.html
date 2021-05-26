@@ -128,7 +128,18 @@ div {
           <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
-            [code]
+            import string
+            sentence = string.ascii_lowercase
+            sentence_alt = "".join([chr(x) for x in range(ord('a'), ord('z'))])
+
+    sentence               //  'abcdefghijklmnopqrstuvwxyz'
+    sentence[::-1]         //  'zyxwvutsrqponmlkjihgfedcba'
+    sentence[-1:1:-1]      //  'zyxwvutsrqponmlkjihgfedc'
+    sentence[-1:-27:-1]    //  'zyxwvutsrqponmlkjihgfedcba'
+    sentence[26:-27:-1]    //  'zyxwvutsrqponmlkjihgfedcba'
+    sentence[26:-27:1]     //  ''
+    sentence[26:-27]       //  ''
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
