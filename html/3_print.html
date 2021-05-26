@@ -90,6 +90,22 @@ div {color:black;}
     //    print('Hi Tom, how is the Python going', file=open('output.txt', 'a'))
             </pre>
           </details><!--inner--> 
+          <details> <!--inner--> 
+            <summary>Example 3 (Plus-versus-comma)</summary>
+            <pre>
+
+    print("I am" +31 + 'years old')
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#143&gt;, line 1, in &lt;module&gt;
+    //      print("I am" +31 + 'years old')
+    //  TypeError: can only concatenate str (not "int") to str
+
+    print("I am" + str(31) + 'years old')  //   I am31years old
+
+    print("I am",31,'years old')           //   I am 31 years old
+
+            </pre>
+          </details><!--inner--> 
         </details> <!--end-outer-details--> 
       </div>
       <div class="notes">
