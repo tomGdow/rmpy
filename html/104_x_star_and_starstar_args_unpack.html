@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>[* and **]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+  <body>       
+    <div class="container">
+      <header>
+        unpacking: * and ** operators
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Unpacking with * and ** operators</dt>
+          <dd>two operators * (for tuples) and ** (for dictionaries)</dd>
+          <dd>The * operator is an unpacking operator that will unpack the values
+          from any iterable object</dd>
+          <dd>lists, tuples, string are examples</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Unpacking (function)</summary>
+            <pre>
+
+    def printme(a,b,c):
+        print(f&quot; I am {a},{b},{c}&quot;)
+    printme(*[1,2,3]) // I am 1,2,3 // Unpack in fn call // unpack args
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Packing (function)</summary>
+            <pre>
+    def sum_me(*args):
+        return sum(args)  // pack into TUPLE // pack params
+    sum_me(2,3,3,5) // 13
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Unpacking (String)</summary>
+            <pre>
+    first, *middle, last ='thomas'
+    first    //  't'
+    middle   //  ['h', 'o', 'm', 'a']
+    last     //  's'
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Unpacking (list) </summary>
+            <pre>
+    f,*m,l=1,2,3,4,5
+
+    f // 1
+    m // [2, 3, 4]
+    l // 5
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Unpacking (Dictionary)</summary>
+            <pre>
+    dict = {'a':1, 'b':2, 'c':3}
+
+    def fn(a,b,c):
+        print(a,b,c)
+
+    fn(**dict) // 1 2 3
+    BUT ...
+
+    dict2 = {'x':10, 'y':20, 'z':30}
+    fn(**dict2)
+    ------------------------------------------------------
+    TypeError: fn() got an unexpected keyword argument 'x'
+
+    // argument names MUST correspond
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Packing (Dictionary)</summary>
+            <pre>
+    dict = {'a':1, 'b':2, 'c':3}
+
+    Example 1
+
+    def fn3(**args):
+      for x in args.values():
+        print(x, end=',')
+    fn3(a=1, b=2, c=3) // 1,2,3,
+
+    Example 2
+    def fn4(**args):
+      for x in args:
+        print(x, end=',')
+    fn4(a=1, b=2, c=3) // a,b,c,
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Packing (Dictionary)</summary>
+            <pre>
+    dict = {'a':1, 'b':2, 'c':3}
+
+    Example 1
+      def fn3 (**arg):
+          for x in arg.values():
+      print(x, end=' ')
+
+      fn3(**dict)  // 1 2 3
+
+    Example 2
+      def fn4 (**arg):
+          for x in arg:
+      print(x, end=' ')
+
+      fn4(**dict) // a b c 
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Packing into list (Important!)</summary>
+            <pre>             
+            *names, = &quot;Tom&quot;, &quot;Dick&quot;, &quot;Harry&quot;
+            names // ['Tom', 'Dick', 'Harry']
+            type(names)  // list
+
+            // trailing comma after *names: left side must be a tuple or list
+            </pre>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="https://towardsdatascience.com/unpacking-operators-in-python-306ae44cd480">
+              Unpacking Operators in Python
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://realpython.com/python-kwargs-and-args/">
+              Real Python: Python args and kwargs: Demystified
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.python.org/dev/peps/pep-3132/">
+              PEP 3132 -- Extended Iterable Unpacking
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href="https://www.python.org/dev/peps/pep-0448/">
+              PEP 448 -- Additional Unpacking Generalizations
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href="https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/">
+              Packing and Unpacking Arguments in Python
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>
