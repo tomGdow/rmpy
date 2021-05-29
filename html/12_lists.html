@@ -28,11 +28,13 @@ div {
           <dd>
           <ul>
             <li>Using a pair of square brackets to denote the empty list: []</li>
-            <li>Using square brackets, separating items with commas: [a], [a, b, c]</li>
-            <li>Using a list comprehension: [x for x in iterable]</li>
-            <li>Using the type constructor: list() or list(iterable)</li>
-            <li> <code>list('abc')</code> returns <code>['a', 'b', 'c']</code> </li>
-            <li> <code>list( (1, 2, 3) )</code> returns <code>[1, 2, 3]</code> </li>
+            <li>Using square brackets, separating items with commas:
+              <code>[a, b, c]</code></li>
+            <li>Using a list comprehension: <code>[x for x in iterable]</code></li>
+            <li>Using the type constructor: <code>list()</code> or
+              <code>list(iterable)</code></li>
+            <li><code>list('abc')</code> returns <code>['a', 'b', 'c']</code></li>
+            <li><code>list( (1, 2, 3) )</code> returns <code>[1, 2, 3]</code></li>
           </ul>
           </dd>
           <dd>Lists might contain items of different types, but usually the items
@@ -49,37 +51,233 @@ div {
         <details>
           <summary>List Methods</summary>
           <dl>
-            <dt>useful methods</dt>
-            <dd>list.append(x)</dd>
-            <dd>list.extend(L)</dd>
-            <dd>list.insert(i,x)</dd>
-            <dd>list.remove(x)  // removes x</dd>
-            <dd>list.index(x)</dd>
-            <dd>list.pop()   // pops and returns it</dd> 
-            <dd>list.pop(i)  // pops and returns it</dd>
-            <dd>list.count(x)</dd>
-            <dd>list.sort()   // IN PLACE  // ! Mutates</dd>
-            <dd>list.reverse() // IN PLACE // ! Mutates</dd>
-            <dd>len(list)  // NOT list.len()!!</dd> 
-            <dd>x = ["apple", "banana", "cherry"]</dd>
-            <dd>del x[0]</dd>  
-            <dd>del(x[0:1]) // same thing</dd>
-            <dd>del(x[0:2]</dd>
-            <dd>list.sort(reverse=True)</dd>
-            <dd>new_list=sorted(courses)  // Sort but NOT in place.  Function vs Method !!</dd>
-            <dd>min(nums)</dd>
-            <dd>max(nums)</dd>
-            <dd>sums(num)</dd>
-            <dd>my_courses.index('Physics') //2</dd> 
-            <dd>my_coursed.index('Art')  // Not there // index error !!!!</dd>
-            <dd>'Art' in my_courses     // False</dd>
-            <dd>'Physics in my_courses // True</dd>
-            <dd>str_courses = ' - '.join(my_courses)</dd>
-            <dd>new_list= str_courses.split(' - ')</dd>
-            <dd>type(new_list)</dd>
+            <dt><code>list.append(x)</code></dt>
+            <dd>Add an item to the end of the list.</dd>
+            <dd>Modifies in place</dd>
+            <dd>Equivalent to:
+            <pre>
+    a[len(a):] = [x]
+            </pre>
+            </dd>
+            <dd><pre>Examples
+
+    mya=['a', 'b', 'c']
+    mya.append(['tom', 'dick'])
+    mya    //     ['a', 'b', 'c', ['tom', 'dick']]
+    mya.append('harry')
+    mya    //     ['a', 'b', 'c', ['tom', 'dick'], 'harry']
+    mya.extend(['tom', 'dick'])
+    mya    //     ['a', 'b', 'c', ['tom', 'dick'], 'harry', 'tom', 'dick']
+
+
+    mya=['a', 'b', 'c']
+
+    mya[len(mya):]='hello'
+    mya    //     ['a', 'b', 'c', 'h', 'e', 'l', 'l', 'o']  // !Note
+
+    mya[len(mya):]=['hello']
+    mya    //     ['a', 'b', 'c', 'h', 'e', 'l', 'l', 'o', 'hello']
+
+    mya[len(mya):]=['hello', 'joe']
+    mya    // ['a', 'b', 'c', 'h', 'e', 'l', 'l', 'o', 'hello', 'hello', 'joe']
+            </pre></dd>
+
+            <dt><code>list.extend(iterable)</code></dt>
+
+            <dd>Extend the list by appending all the items from the iterable.</dd> 
+            <dd>Equivalent to: 
+            <pre>
+    a[len(a):] = iterable
+
+Examples
+    mya=['a', 'b', 'c']
+
+    mya    //     ['a', 'b', 'c']
+
+    mya.extend(('tom', 'dick'))
+    mya    //     ['a', 'b', 'c', 'tom', 'dick']
+
+    mya[len(mya):]='hello'
+    mya    //     ['a', 'b', 'c', 'tom', 'dick', 'h', 'e', 'l', 'l', 'o']
+
+    mya[len(mya):]=['hello']
+    mya    //     ['a', 'b', 'c', 'tom', 'dick', 'h', 'e', 'l', 'l', 'o', 'hello']
+            </pre>
+            </dd>
+
+            <dt><code>list.insert(i,x)</code></dt>
+
+            <dd>Insert an item at a given position.</dd> 
+            <dd>The first argument is the index of the element before which to
+            insert</dd>
+            <dd><code>a.insert(0, x)</code> inserts at the front of the list</dd>
+            <dd><code>a.insert(len(a), x)</code> is equivalent to
+            <code>a.append(x)</code>.</dd>
+            <dd><pre>   
+    mya=['a', 'b', 'c']
+    mya.insert(0, 'tom')
+    mya    //     ['tom', 'a', 'b', 'c']
+    mya.insert(len(mya), 'dick')
+    mya    //     ['tom', 'a', 'b', 'c', 'dick']
+    mya.insert(100, 'harry')
+    mya    //     ['tom', 'a', 'b', 'c', 'dick', 'harry']
+            </pre></dd>   
+
+            <dt><code>list.remove(x)</code></dt>
+
+            <dd>Remove the <mark>first item</mark> from the list whose value
+            is equal to <code>x</code></dd>    
+            <dd>It raises a <code>ValueError</code> if there is no such item.</dd>
+
+            <dt><code>list.index(x,start, end)</code></dt>
+
+            <dd><code>list.index(x[, start[, end]])</code></dd>
+
+            <dd>Return zero-based index in the list of the first item whose
+            value is equal to <code>x</code>.</dd> 
+            <dd>Raises a <code>ValueError</code> if there is no such item.</dd>
+
+            <dd>The optional arguments start and end are interpreted as in the
+            slice notation and are used to limit the search to a particular
+            subsequence of the list.</dd> 
+            <dd>The returned index is computed <mark>relative to the beginning of the
+              full sequence</mark> rather than the start argument.</dd>
+
+            <dt><code>list.pop([i])</code></dt>
+            <dd>Remove the item at the given position in the list, and
+            return it.</dd> 
+            <dd>If no index is specified, <code>a.pop()</code> removes and
+            returns the last item in the list.</dd>
+            <dd>(The square brackets around the <code>i</code> in the
+            method signature denote that the parameter is optional, not that you
+            should type square brackets at that position)</dd>
+
+            <dt><code>list.count(x)</code></dt>
+            <dd>Return the number of times <code>x</code> appears in the list.</dd>
+
+            <dt><code>list.sort()</code></dt>
+            <dd><code>list.sort(*, key=None, reverse=False)</code></dd>
+            <dd>Sort the items of the list <mark>in place</mark></dd> 
+            <dd>!! Mutates</dd>
+
+            <dt><code>list.reverse()</code></dt>
+            <dd>Reverse the elements of the list <mark>in place</mark></dd>
+            <dd>// !! Mutates</dd>
+
+            <dt><code>list.copy() (lst[:])</code></dt>
+
+            <dd>Return a shallow copy of the list.</dd>
+            <dd>Equivalent to <code>a[:]</code></dt>   
+
+            <dt><code>len()</code></dt>
+            <dd>Return the length (the number of items) of an object.</dd>
+
+            <dd>The argument may be a sequence (such as a string, bytes, tuple,
+            list, or range) or a collection (such as a dictionary, set, or
+            frozen set).</dd>
+            <dd><pre>len(list)  // NOT list.len()!!</pre></dd> 
+
+            <dt><code>del statement</code></dt>
+
+
+            <dd>There is a way to remove an item from a list given its index
+            instead of its value: the 
+            <a href ="https://docs.python.org/3/tutorial/datastructures.html#the-del-statement">
+              del
+            </a>
+            statement</dd>
+
+            <dd>This differs from the <code>pop()</code> method which returns a value</dd>
+            <dd>The <code>del</code> statement can also be used to remove slices
+            from a list or clear the entire list</dd>   
+            <dd><code>del</code> can also be used to delete entire variables</dd>                                                        
             <dd>
             <pre>
-  x="Hello"
+    x = ["apple", "banana", "cherry"]
+    del x[0]  
+    del(x[0:1]) // same thing
+
+
+    a = [-1, 1, 66.25, 333, 333, 1234.5]
+    del a[0]
+
+    a           //     [1, 66.25, 333, 333, 1234.5]
+    a.pop(0)    //     1
+
+    a           //     [66.25, 333, 333, 1234.5]
+    del a[1:3]
+
+    a           //     [66.25, 1234.5]
+
+    del a
+    a
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#16&gt;", line 1, in &lt;module&lt;
+    //      a
+    //  NameError: name 'a' is not defined
+            </pre>
+            </dd>
+
+            <dt><code>sorted()</code></dt>
+            <dd>
+            <pre>
+            sorted(iterable, *, key=None, reverse=False)
+            </pre>
+            </dd>
+            <dd>Return a new sorted list from the items in <code>iterable</code>.</dd>
+            <dd>Has two optional arguments which must be specified as keyword
+            arguments.</dd>
+            <dd>[See separate entry]</dd>
+
+            <dt><code>min(nums)</code></dt>
+            <dd>[See separate entry]</dd>
+            <dt><code>max(nums)</code></dt>
+            <dd>[See separate entry]</dd>
+            <dt><code>sum(iterable, start=0)</code></dt>
+            <dd>Sums <code>start</code> and the <code>items of an iterable</code>
+            from left to right and returns the total.</dd>
+            <dd>The preferred, fast way to concatenate a sequence of strings is
+            by calling <code>''.join(sequence)</code>.</dd> 
+            <dd>To add floating point values with extended precision, see
+ <code>math.fsum()</code></dd>
+            <dd>
+            <pre>
+    sum([1,2,3], start=100)         //   106
+    sum([1,2,3][1:], start=100)     //   105
+
+
+    sum(range(0,101))    //     5050     // !! Gauss
+    sum(range(0,11))     //     55
+            </pre>
+            </dd>
+
+            <dt><code>in</code></dt>
+            <dd>
+            <pre>
+
+    my_courses.index('Physics') // 2 
+    my_coursed.index('Art')  // Not there // index error !!!!
+    'Art' in my_courses      // False
+    'Physics in my_courses   // True
+
+            </pre>
+            </dd>
+
+            <dt><code>str.join()</code></dt>
+            <dd><pre>
+
+            str_courses = '-'.join(my_courses)
+            //    'python-js-html-css'
+
+            </pre></dd>
+
+            <dt><code>str.split()</code></dt>
+            <dd><pre>new_list= str_courses.split(' - ')</pre></dd>
+
+            <dt><code>type(new_list)</code></dt>
+            <dd>
+            <pre>
+Return a new sorted list from the items in iterable.  x="Hello"
   x[::-1]  // "olleH"
 
             </pre>
@@ -142,7 +340,7 @@ div {
         print(item)          // note indent
 
     for index, item in enumerate(my_courses):
-        print(item) 
+        print(index,item) 
 
     // 0 History
     // 1 Math
@@ -160,7 +358,7 @@ div {
           </details><!--inner-->
 
           <details><!--inner-->
-            <summary>Example54 (try/except and remove)</summary>
+            <summary>Example5 (try/except and remove)</summary>
             <pre>
 
     game=['Dinosaur', 'Rock', 'Scissors', 'Lizard', 'Spock', 'Computer']
@@ -197,6 +395,14 @@ div {
             <p>
             <a href ="https://docs.python.org/3/library/stdtypes.html#lists">
               Lists (Python docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/datastructures.html">
+              More on Lists (Data Structures)
             </a>
             </p>
             </dd>
