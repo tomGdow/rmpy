@@ -1,0 +1,847 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[TITLE]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>header</header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>[Main Header]</dt>
+          <dd>[Main text]</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary><code>append_extend.py</code></summary>
+            <pre>
+            
+    # Nested Data Structures
+    # difference between append and extend
+    # **warning** under most circumstances your data structures should only
+    # contain a single data type
+
+    a = ['a', 'b', 'c']
+    print(a)
+
+    # append will add a sequence as a *single element* of the list
+    a.append(('d', 'e'))
+    print(a)        //    ['a', 'b', 'c', ('d', 'e')]
+    a.append(['f', 'g'])
+    print(a)        //    ['a', 'b', 'c', ('d', 'e'), ['f', 'g']]
+    print(len(a))   //    5
+
+    # with extend, you can pass in a sequence and it
+    # will add each element of the sequence as a seperate list element
+    a.extend(('h', 'i'))
+    print(a)        //    ['a', 'b', 'c', ('d', 'e'), ['f', 'g'], 'h', 'i']
+
+    a.extend(['j', 'k'])
+    print(a)        //    ['a', 'b', 'c', ('d', 'e'), ['f', 'g'], 'h', 'i', 'j', 'k']
+    print(len(a))   //    9
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>boolean_operators.py</code></summary>
+            <pre>
+    # boolean operators
+
+    a = True
+    b = False
+    x = ('bear', 'bunny', 'tree', 'sky', 'rain')  # a tuple
+    y = 'bear'
+
+    # and
+    if a and b:
+        print('and - Expression is true')
+    else:
+        print('and - Expression is false')    //    False
+
+    # or
+    if a or b:
+        print('or - Expression is true')    //    True
+    else:
+        print('or - Expression is false')
+
+    # not
+    if not b:
+        print('not - Expression is true')    //    True
+    else:
+        print('not - Expression is false')
+
+    # in
+    if y in x:
+        print('in - Expression is true')    //    True
+    else:
+        print('in - Expression is false')
+
+    # in
+    if 'tree' in x:
+        print('in - Expression is true')    //    True
+    else:
+        print('in - Expression is false')
+
+    # in
+    if 'leaf' in x:
+        print('in - Expression is true')
+    else:
+        print('in - Expression is false')    //    False
+
+    # not in
+    if 'tree' not in x:
+        print('not in - Expression is true')
+    else:
+        print('not in - Expression is false')    //    False
+
+    # not in
+    if 'leaf' not in x:
+        print('not in - Expression is true')    //    True
+    else:
+        print('not in - Expression is false')
+
+    # is - tests if the objects are the same object
+    if x is y:
+        print('is - Expression is true')
+    else:
+        print('is - Expression is false')    //    False
+
+    # is 
+    if 'tree' is x[0]:
+        print('is - Expression is true')
+    else:
+        print('is - Expression is false')    //    False
+
+    # is
+    if y is x[0]:
+        print('is - Expression is true')    //    True
+    else:
+        print('is - Expression is false')
+
+    # Just about everything in Python is a "object".
+    # You can check an objects "id number" with the id function. 
+    print(id(a))
+    print(id(b))
+    print(id(x))
+    print(id(x[0])) # an id for the object 'bear' was created
+    # When we wanted another object 'bear',
+    # Python returned a reference to the 'bear' object it already created
+    print(id(y)) # x[0] and y refer to the same object
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>del_keyword.py</code></summary>
+            <pre>
+            
+    # del keyword deletes a reference to an object
+
+    a = 7
+    print(a)
+
+    del a
+    ##print(a) # NameError: name 'a' is not defined
+
+    b = 'Hello'
+    print(b)
+
+    del b
+    ##print(b) # NameError: name 'b' is not defined
+
+    c = ['Apple', 'Banna']
+    print(c)
+
+    del c[0]
+    print(c)
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>eval_function.py</code></summary>
+
+            <pre>
+    # the input function returns a *string* of whatever the user input
+    a = input("Type some input: ")
+    print("input: {}, is type of {} ".format(a, type(a) ) )
+
+    # the eval function will evaluate a string argument and 
+    # if possible, return a different data type represented by that string.
+    # e.g., string "3" will return the int 3
+    # sting "False" will return the bool False
+    # string "4.3" will return the float 4.3
+    # string "[4, 6, 7]" will return the list [4, 6, 7]
+    b = eval(a)
+    print("putting input through eval: {}, is type of {} ".format(b, type(b) ) )
+
+    EXAMPLE FROM IDLE
+    a=input("input something: ")
+    // input something: 42
+    print("input: {} is of type {}".format(a, type(a)))
+    //  input: 42 is of type <class 'str'>
+    print("eval({}) is of type {}".format(a, type(eval(a))))
+    //  eval(42) is of type <class 'int'>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>len_function.py</code></summary>
+            <pre>
+            
+    # Calculating Length of string or data structure
+
+    # len() --> returns length
+
+    # len on strings
+    firstName = "Bruce"
+    print(len(firstName))
+    lastName = "Springsteen"
+    print(len(lastName))
+    # first name has the len property so we can pass 
+    # it to the len function - firstName.__len__()
+
+    # len on lists
+    ages = [0, 11, 43, 12, 10]
+    print(len(ages))
+
+    i = 0
+    for i in range(0, len(ages)):
+        print(ages[i])
+
+    print(len(["bob", "mary", "sam"]))
+
+    # len on dictionary
+    candyCollection = {"bob" : 10, "mary" : 7, "sam" : 18}
+    print(len(candyCollection))
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>list_row_of_cars.py</code></summary>
+            <pre>
+            
+    """ Parking Cars in a List """
+
+    # create a list of cars
+    row = ['Ford','Audi','BMW','Lexus']
+
+    # park my Mercedes at the end of the row
+    row.append('Mercedes')
+    print(row)
+    print(row[4])
+
+    # swap the BMW at index 2 for a Jeep
+    row[2] = 'Jeep'
+    print(row)
+
+    # park a Honda at the end of the row
+    row.append('Honda')
+    print(row)
+    print(row[4])
+
+    # park a Kia at the front of the row
+    row.insert(0,'Kia')
+    print(row)
+    print(row[4])
+
+    # find my Mercedes and leave the list
+    print(row.index('Mercedes'))
+    print(row.pop(5))
+    print(row)
+
+    # find and remove the Lexus
+    row.remove('Lexus')
+    print(row)
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>list_rows_of_cars_and_levels.py</code></summary>
+
+            <pre>
+
+    """ A 3-Dimensional Valet Service """
+
+    # 2D list of lists
+    #  - index cars by row, spot
+    lot_2d = [['Toyota','Audi','BMW'], # 0th row
+              ['Lexus','Jeep'],        # 1st row
+              ['Honda','Kia','Mazda']] # 2nd row
+
+    # 3D list of lists of lists
+    #  - index cars by floor, row, spot
+    lot_3d = [[['Telsa','Fiat','BMW'], # 0th floor
+               ['Honda','Jeep'],        
+               ['Saab','Kia','Ford']],
+              [['Subaru','Nissan'],    # 1st floor
+               ['Volvo']],
+              [['Mazda','Chevy'],      # 2nd floor
+               [],
+               ['Volkswagen']]]
+
+    # indexing 2D lists
+    print(lot_2d)          # 2D list of parking lot
+    print(lot_2d[2])       # 1D list of cars in row 2
+    print(lot_2d[2][1])    # car parking in row 2, spot 1
+
+    # indexing 3D lists
+    print(lot_3d)          # 3D list of multi-story garage
+    print(lot_3d[0])       # 2D list of cars on floor 0
+    print(lot_3d[0][2])    # 1D list of cars on floor 0, row 2
+    print(lot_3d[0][2][1]) # car parked on floor 0, row 2, spot 1
+
+    # accessing all cars in the multi-story garage
+    for floor in lot_3d:    # cycle through each floor in the multi-story garage
+        for row in floor:   # cycle through each row in the floor
+            for car in row: # cycle through each car in the row
+                print(car)
+
+    # EXAMPLES FROM IDLE
+
+  lot_2d = [
+    ['Toyota', 'Audi', 'BMW'], # 0th row
+    ['Lexus', 'Jeep'],         # 1st row
+    ['Honda', 'Kia', 'Mazda']  # 2nd row
+	]
+
+  lot_3d = [
+    [
+      ['Tesla', 'Fiat' ,'BMW'], # 0th floor
+      ['Honda', 'Jeep'],
+      ['Saab', 'Kia', 'Ford']
+    ],
+    [
+      ['Subaru', 'Nissan'],     # 1st Floor
+      ['Volvo']
+    ],
+    [
+      ['Mazda', 'Chevy'],       # 2nd Floor
+      [],
+      ['Volkswagen']
+    ]
+	]
+
+  print(lot_3d[0][2][1])        //    Kia
+
+  for floor in lot_3d:
+    for row in floor:
+      for car in row:
+        print(car, end = ', ')
+
+			
+  //    Tesla, Fiat, BMW, Honda, Jeep, Saab, Kia, Ford, Subaru, Nissan, Volvo, Mazda, Chevy, Volkswagen, 
+        
+        
+  i=j=k=-1
+  for floor in lot_3d:
+    i+=1
+    for row in floor:
+      j+=1
+      for car in row:
+        k+=1
+        print(f"(floor is {i}, row is {j}, car is {k}), {car}")
+
+			
+      //    (floor is 0, row is 0, car is 0), Tesla
+      //    (floor is 0, row is 0, car is 1), Fiat
+      //    (floor is 0, row is 0, car is 2), BMW
+      //    (floor is 0, row is 1, car is 3), Honda
+      //    (floor is 0, row is 1, car is 4), Jeep
+      //    (floor is 0, row is 2, car is 5), Saab
+      //    (floor is 0, row is 2, car is 6), Kia
+      //    (floor is 0, row is 2, car is 7), Ford
+      //    (floor is 1, row is 3, car is 8), Subaru
+      //    (floor is 1, row is 3, car is 9), Nissan
+      //    (floor is 1, row is 4, car is 10), Volvo
+      //    (floor is 2, row is 5, car is 11), Mazda
+      //    (floor is 2, row is 5, car is 12), Chevy
+      //    (floor is 2, row is 7, car is 13), Volkswagen
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>list_slicing.py</code></summary>
+            <pre>
+            
+    # *** List Slicing ***
+
+    # Lists are mutable objects
+    alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
+
+    print(alpha)
+    print(1, type(alpha) )
+    print(2, type(alpha[0]) )
+    print(3, alpha[0])
+    print(4, alpha[1])
+    print(5, alpha[:])
+    print(6, alpha[1:])
+    print(7, alpha[:5])
+    print(8, alpha[::])
+    print(9, alpha[::3])
+    print(10, alpha[1:15:2])
+    print(11, alpha[-10:-1:2])
+
+
+    alpha[1] = "X" # replaces index with new string
+    print(12, alpha)
+    alpha[4:10] = "Z" # replaces index range with single index containing string
+    print(13, alpha)
+    print("the end")
+
+    IDLE EXAMPLES
+
+    alpha=list(chr(x) for x in range(ord('a'), ord('z')+1))
+
+    //    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+           'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+           'y', 'z']
+
+    import string
+
+    alpha_two = list(string.ascii_lowercase)
+
+    alpha_two == alpha
+    //    True
+
+    alpha is alpha_two
+    //    False
+
+    print(1, type(alpha))
+    //    1 &lt;class 'list'&gt;
+
+    print(2, type(alpha[0]))
+    //   2 &lt;class 'str'&gt;
+
+    print(3, alpha[0])
+    //    3 a
+
+    print(4, alpha[1])
+    //    4 b
+
+    print(5, alpha[:])
+    //    5 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+             'y', 'z']
+
+    print(6, alpha[1:])
+    //    6 ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+             'z']
+
+    print(7, alpha[:5])
+    //    7 ['a', 'b', 'c', 'd', 'e']
+
+    print(8, alpha[::])
+    //    8 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+             'y', 'z']
+
+    print(9, alpha[::3])
+    //    9 ['a', 'd', 'g', 'j', 'm', 'p', 's', 'v', 'y']
+
+    print(10, alpha[1:15:2])
+    //    10 ['b', 'd', 'f', 'h', 'j', 'l', 'n']
+
+    print(11, alpha[-10:-1:2])                
+    //    11 ['q', 's', 'u', 'w', 'y']
+
+    alpha[1]="X"
+    print(12, alpha)
+    //    12 ['a', 'X', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+              'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+              'y', 'z']
+
+    alpha[4:10]="Z"
+    print(13, alpha)
+    //    13 ['a', 'X', 'c', 'd', 'Z', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+              'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>lists.py</code></summary>
+            <pre>
+            
+    # list example
+
+    # you can define your own function to display a list:
+    def print_list(o):
+        for i in o:
+            print(i, end=' ', flush=True)
+        print()
+
+
+    game = [ 'Rock', 'papper', 'Scissors', 'Lizard', 'Spock' ]
+
+    print_list(game)
+    print(game)
+    print()
+    print(len(game)) # len function
+
+    # item assignment
+    game[1] = 'Paper' # make sure index is not out of range
+
+    if 'Paper' in game:
+        print('Paper found in game list')
+    else:
+        print('Paper not found in game list')
+
+    # slicing
+    print(game[1:]) # just take a slice, doesn't change list
+    print(game[1:3]) # start(inclusive):end(exclusive)
+    print(game[1:5:2]) # start(inclusive):end(exclusive):step
+
+    i = game.index('Paper')
+    print(game[i])
+
+    game.append('Computer')
+    game.insert(0, 'Dinosour')
+    print(game)
+
+    # sorted function creates a new sorted version of the list
+    print('sorted function:\n', sorted(game), sep='')
+    print('origional list:\n', game, sep='')
+    # list's sort method sorts the actual list
+    game.sort() 
+    print('sort method:\n', game, sep='')
+    print()
+
+    game.remove('Paper') # removes particular item
+    print(game)
+    print()
+
+    # pop() removes from end of list and returns object can be used to simulate a stack
+    x = game.pop() 
+    print(game)
+    print(x)
+    y = game.pop(1) # removes from index location
+    print(game)
+    print(y)
+    print()
+
+    # del is a keyword, it deletes the reference to an object
+    del game[3]
+    print(game)
+    del game[1:3]
+    print(game)
+
+    game.clear() # Removes all the elements from the list, list still exists 
+    print(game)
+
+    print()
+    # a list can be generated from a tuple
+    thistuple = ("apple", "banana", "cherry")
+    print(type(thistuple))
+    print(thistuple)
+
+    # list function / constructor
+    thislist = list(thistuple)
+    print(type(thislist))
+    print(thislist)
+
+    print()
+    del game
+    print(game) # NameError: name 'game' is not defined
+
+    ##Method	Description
+    ##------        -----------
+    ##append()	Adds an element at the end of the list
+    ##clear()	Removes all the elements from the list
+    ##copy()	Returns a copy of the list
+    ##count()	Returns the number of elements with the specified value
+    ##extend()	Add the elements of a list (or any iterable), to the end of the current list
+    ##index()	Returns the index of the first element with the specified value
+    ##insert()	Adds an element at the specified position
+    ##pop()	        Removes the element at the specified position
+    ##remove()	Removes the item with the specified value
+    ##reverse()	Reverses the order of the list
+    ##sort()	Sorts the list
+
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>min_max_functions.py</code></summary>
+            <pre>
+            
+    # Minimum and Maximum
+
+    print(min(0, 12, -19))
+
+    playerOneScore = 10
+    playerTwoScore = 4
+    playerThreeScore = 14
+
+    # min
+    print(min(playerOneScore, playerTwoScore))
+    # max
+    print(max(playerOneScore, playerTwoScore))
+
+    # order of arguments doesn't matter
+    print(max(playerThreeScore, playerTwoScore, playerOneScore))
+
+
+    # min max with lists
+    a = [3, 5, 6, 8, 23, 4]
+    print(a)
+    print(max(a))
+
+    # min max with strings
+    # remember capital letters will always be "less than" lower case
+
+    # within one string
+    name = "Simon"
+    print(name)
+    print(min(name))
+
+    # comparing strings
+    print(min("Kathryn", "Katie"))
+    print(min("Angela", "Bob"))
+    print(max("Kathryn", "Katie"))
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>sorted.py</code></summary>
+            <pre>
+            
+    # The sorted function takes an iterable
+    # Least to Greatest
+    points_in_a_game = [0, -10, 15, -2, 1, 12]
+    sorted_game = sorted(points_in_a_game)
+    print(sorted_game)
+
+    # Alphabetically
+    children = ["Sue", "Jerry", "Linda"]
+    print(sorted(children))
+    print(sorted(["Sue", "jerry", "linda"]))
+
+    # Key Parameters
+    print(sorted("My favorite child is Linda".split(), key=str.upper))
+    print(sorted(points_in_a_game, reverse=True))
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>sorted_function.py</code></summary>
+            <pre>
+            
+    # sorted function takes an iterable
+
+    # Least to Greatest
+    pointsInaGame = [0, -10, 15, -2, 1, 12]
+    sortedGame = sorted(pointsInaGame)
+    print(sortedGame)
+
+    # Alphabetically
+    children = ["Sue", "Jerry", "Linda"]
+    print(sorted(children))
+    print(sorted(["Sue", "jerry", "linda"]))
+
+    # Key Parameters
+    print(sorted("My favorite child is Linda".split(), key = str.upper))
+    print(sorted(pointsInaGame, reverse = True))
+
+    leaderBoard = {231: "CKL", 123:"ABC", 432:"JKC"}
+    print(sorted(leaderBoard, reverse=True))
+    print(leaderBoard.get(432))
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>str_functions_slicing.py</code></summary>
+            <pre>
+            
+    prefix = 'Py'
+    language = prefix + 'thon'
+    print(language)
+    print('Hello' + ' ' + 'world!')
+    print('hello ' * 3)
+    #print('I am ' + 21 + ' years old') # TypeError: must be str, not int
+    print('I am ' + str(21) + ' years old')
+    print('I am', 21, 'years old')
+
+    print('\n*** Built-in functions min max len *** ')
+    name = 'Simon'
+    print(min(name))
+
+    name = 'simon'
+    print(min(name))
+    print(max(name))
+    print(len(name))
+
+    #sting indexing and slicing
+    #the_string[start:end:direction/inclusion]
+    print('\n*** string slicing ***')
+    sentence = 'abcdefghijklmnopqrstuvwxyz'
+
+    print('sentence - ', sentence, end='\n\n')
+    print('sentence[0] - ', sentence[0])        #index 0
+    print('sentence[-2] - ', sentence[-2])      #index -2, two from the end
+    print('sentence[0:] - ', sentence[0:])      #from index 0 to the end
+    print('sentence[0:5] - ', sentence[0:5])    #from 0 up to (but not including)5
+    print('sentence[:5] - ', sentence[:5])      #from the start up to (but not including)5
+    print('sentence[-5:-1] - ', sentence[-5:-1])
+    print('sentence[::1] - ', sentence[::1])
+    print('sentence[::2] - ', sentence[::2])    # start to end, every second character
+    print('sentence[::3] - ', sentence[::3])    # start to end, every third character
+    print('sentence[10::2] - ', sentence[10::2])# from position 10 to end, every second character
+    print('sentence[::-1] - ', sentence[::-1])  # entire string, backwards
+    print('sentence[10::-1] - ', sentence[10::-1])  # from position 10, backwards
+    print('sentence[9::-2] - ', sentence[9::-2])# from position 9, backwards, every second character
+    print('sentence[20:5:-3] - ', sentence[20:5:-3])# from position 20, backwards to position 5,every third character
+
+    #sentence[0] = "A" # TypeError: 'str' does not support item assignment
+    #print("the end of working with sentense") # this line is never reached becaused of the TypeError
+
+
+    print()
+    s = 'Don'
+    print('s =', s)
+
+    a, b, c = s # Unpack into variables
+    print(a)
+    print(b)
+    print(c)
+
+    ##s = 'Don Quijote'
+    ##a, b, c = s # doesn't work
+    ##print(a)
+    ##print(b)
+    ##print(c)
+
+    name = 'Simon Grogan'
+    print('name =', name)
+    x = y = z = name
+    print(x)
+    print(y)
+    print(z)
+
+
+    num = 42
+    print('num =', num)
+    x, y, z = num
+    print(x)
+    print(y)
+    print(z)
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>str_methods1.py</code></summary>
+            <pre>
+
+    # *** string methods ***
+    # many string methods have a variable number
+    # of argument and default arugments
+    alphanum = 'abc123'
+    spaces = '   \n\n  \t  '
+    print(alphanum.isalnum())
+    print(alphanum.isalpha())
+    print(alphanum.isdecimal())
+    print(alphanum.isspace())
+    print(spaces.isspace())
+    print()
+
+    my_string = "  hello Simon  "
+    print(my_string.upper())
+    print(my_string.lower())
+    print(my_string.swapcase())
+    print(my_string.strip())
+    print(my_string.strip().capitalize())
+    print(my_string.center(21, "*"))
+    print(my_string.strip().center(21, "*"))
+    print(my_string.isdigit())
+    print(my_string.istitle())
+    print(max(my_string))
+    print(my_string.split())
+    print(my_string.split()[0])
+    print()
+
+    search_me = "The apple is red and the berry is blue!"
+    print(search_me.find("is"))
+    print(search_me.rfind("is"))
+    print(search_me.count("is"))
+    print(search_me.startswith("The"))
+    print(search_me.endswith("The"))
+    print(search_me.replace("apple", "car").replace("berry", "truck"))
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>string_slicing.py</code></summary>
+            <pre>
+
+    # *** String Slicing ***
+
+    # String are immutable objects
+
+    # a = "Hello, how are you? What's you're name"
+    a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+    print(a)
+    print("****")
+    print(1, a[:])
+    print(2, a[1:5])
+    print(3, a[5:])
+    print(4, a[:5])
+    print(5, a[::2]) # 3rd number: how many places are skipped for each slice
+    print(6, a[1:20:3]) 
+    print(7, a[10])
+    print(8, a[-2]) # negitive numbers start from the end of the string
+    print(9, a[-4: -2])
+    print(10, a[-2: -4]) # empty
+
+    a[4] = "X" # TypeError: 'str' does not support item assignment
+    print("the end") # this line is never reached becaused of the TypeError
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>EXAMPLE NUMBER</code></summary>
+            <pre>
+            
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
