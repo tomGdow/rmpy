@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[sorted()]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        sorted()
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt><code>sorted()</code></dt>
+
+          <dd>Return a new sorted list from the items in iterable</dd>
+          <dd>Has two optional arguments which must be specified as keyword
+ arguments</dd>
+          <dd>
+          <ol>
+
+            <li>
+              <p><code>key</code> specifies a function of one argument that is used
+              to extract a comparison key from each element in iterable (for example,
+              key=<code>str.lower</code>).</p>
+              <p>
+              The default value is <code>None</code> (compare the elements
+              directly)
+              </p>
+            </li>
+            <li>
+              <p><code>reverse</code> is a boolean value. If set to
+              <code>True</code>, then the list elements are sorted as if each
+              comparison were reversed.</p>
+            </li>
+          </ol>
+          </dd>
+
+          <dd>The built-in <code>sorted()</code> function is guaranteed to be stable. 
+          </dd> 
+          <dd>  A sort is stable if it guarantees not to change the relative
+          order of elements that compare equal</dd>
+          <dd>A simple ascending sort is very easy: just call the sorted() function.
+          </dd>
+          <dd>It returns a new sorted list</dd>
+          <dt><code>list.sort()</code></dt>
+          <dd>Python <mark>LISTS</mark> have a built-in <code>list.sort()</code> 
+method that<mark> modifies the list in-place</mark>.</dd> 
+
+          <dd>It modifies the list in-place (and returns None to avoid confusion).</dd>
+          <dd>Usually it’s less convenient than <code>sorted()</code> - but if
+          you don’t need the original list, it’s slightly more efficient.</dd>
+
+          <dd><mark>Another difference is that the <code>list.sort()</code>
+            method is only defined for lists.</mark></dd>
+          <dd>In contrast, the <code>sorted()</code> function accepts any iterable.</dd>
+
+          <dd>Both <code>list.sort()</code> and <code>sorted()</code> have a key
+          parameter to specify a function (or other callable) to be called on
+          each list element prior to making comparisons.</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (Lists)</summary>
+            <pre>
+
+    mylist=["tomas", "tom", "thomasdow", "Thomas"]
+
+    sorted(mylist)                 //    ['Thomas', 'thomasdow', 'tom', 'tomas']
+    sorted(mylist, key=len)        //    ['tom', 'tomas', 'Thomas', 'thomasdow']
+    sorted(mylist, key=str.lower)  //    ['Thomas', 'thomasdow', 'tom', 'tomas']
+    sorted(mylist, key=str.lower, reverse=True)  // ['tomas', 'tom', 'thomasdow', 'Thomas']
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (Dictionary)</summary>
+            <pre>
+
+    mydict={'tom': 100, 'tomdow': 40, 'harry': 100}
+    sorted(mydict)                   //     ['harry', 'tom', 'tomdow']
+    sorted(mydict.values())          //     [40, 100, 100]
+    sorted(mydict.items(), key=len)  //     [('tom', 100), ('tomdow', 40), ('harry', 100)]
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3 (Reverse Name)</summary>
+            <pre>
+
+    fns=sorted('tomas')
+    lns=sorted('manure')
+    fns    //   ['a', 'm', 'o', 's', 't']
+    ms=""
+    print(ms.join(fns),"".join(lns))    //  amost aemnru
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4 (Strings)</summary>
+            <pre>
+
+    sorted('thomas')
+    //    ['a', 'h', 'm', 'o', 's', 't']
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5 (Strings)</summary>
+            <pre>
+
+    sorted("This is a test string from Andrew".split(), key=str.lower)
+    sorted("This is a test string from Andrew".split(), key=len)
+    //    ['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+    //    ['a', 'is', 'This', 'test', 'from', 'string', 'Andrew']
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#sorted">
+              sorted() (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/howto/sorting.html#sortinghowto">
+              Sorting HOW TO (Andrew Dalke and Raymond Hettinger) [Python Docs]
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
