@@ -32,7 +32,7 @@ div {
           <dl>
             <dt><code>str.find(sub[, start[, end]])</code></dt>
             <dd>Return the lowest index in the string where substring sub is found 
-within the slice s[start:end].</dd> 
+            within the slice s[start:end].</dd> 
             <dd>Optional arguments start and end are interpreted as in slice notation.</dd> 
             <dd>Return -1 if sub is not found (contrast with <code>str.index()</code>) </dd>
             <dt>raw string</dt>
@@ -59,20 +59,20 @@ within the slice s[start:end].</dd>
 
             </pre>
           </details><!--inner-->
-        <details><!--inner-->
-          <summary>Not always immutable example 2</summary>
-          <pre>
+          <details><!--inner-->
+            <summary>Not always immutable example 2</summary>
+            <pre>
     a="Hello"
     id(a)     //  2619781261936
     a+="!"
     id(a)    //   2619741244400    // Same-1
     a+="!"
     id(a)    //   2619741244400    // Same-2
-          </pre>
-        </details><!--inner-->
-        <details><!--inner-->
-          <summary>Not always immutable example 3</summary>
-          <pre>
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Not always immutable example 3</summary>
+            <pre>
             id(tom)    //   1562971712240
             tom+="th"
             id(tom)    //   1562970986736  // change
@@ -81,8 +81,8 @@ within the slice s[start:end].</dd>
             tom+="e"
             id(tom)    //   1562970986736  // no change !!
             tom        //   'hellothere'
-          </pre>
-        </details><!--inner-->
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -124,6 +124,14 @@ within the slice s[start:end].</dd>
               string methods
             </a>
             </p>  
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/39675898/499167">
+              Is python += string concatenation bad practice? (Stackoverflow)
+            </a>
+            </p>
             </dd>
 
           </dl>
