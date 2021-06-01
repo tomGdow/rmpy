@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[TITLE]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Functions
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>functions()</dt>
+
+
+          <dd><pre>
+
+          def name(positional_only_parameters, /, positional_or_keyword_parameters,
+         *, keyword_only_parameters):
+
+          </pre></dd>   
+
+          <dd>A function definition is an executable statement</dd>
+          <dd>The function definition does not execute the function body;
+          this gets executed only when the function is called</dd>
+          <dd>A function definition may be wrapped by one or more decorator
+          expressions.</dd>
+
+          <dt>decorators</dt>
+          <dd>Decorator expressions are evaluated when the function is defined,
+          in the scope that contains the function definition</dd>
+
+          <dd>Multiple decorators are applied in nested fashion</dd>
+
+          <dt>default parameters</dt>
+          <dd>When one or more parameters have the form
+          <code>parameter = expression</code>, 
+          the function is said to have 
+          <code>default parameter values</code>
+          </dd>
+
+          <dd>
+          For a parameter with a default value, the corresponding argument
+          may be omitted from a call, in which case the parameter’s default value
+          is substituted
+          </dd>
+
+          <dd>
+          If a parameter has a default value, all following parameters
+          up until the <code>*</code> must also have a default value
+          (a syntactic restriction)  
+          </dd>    
+
+          <dd>Default parameter values are evaluated from left to right when
+          the function definition is executed</dd>
+
+          <dd>This means that the expression is evaluated once, when the function
+          is defined, and that the same “pre-computed” value is used for each
+          call.</dd> 
+
+          <dd>A function call always assigns values to all parameters mentioned
+          in the parameter list, either from positional arguments, from keyword
+          arguments, or from default values.</dd> 
+
+          <dd>If the form <code>*identifier</code> is present, it is initialized 
+          to a tuple receiving any excess positional parameters, defaulting to
+          the empty tuple</dd>
+
+          <dd>If the form <code>**identifier</code> is present, it is initialized
+          to a new ordered mapping receiving any excess keyword arguments,
+          defaulting to a new empty mapping of the same type</dd>
+
+          <dd>Parameters after <code>*</code> or <code>*identifier</code> are
+          <mark>keyword-only</mark> parameters and may only be passed by keyword
+          arguments.</dd>
+
+          <dd>Parameters before <code>/</code> are <mark>positional-only</mark>
+          parameters and may only be passed by positional arguments.</dd>
+
+          <dd>The <code>/</code> function parameter syntax may be used to
+          indicate positional-only parameters</dd>
+
+          <dt>parameter</dt>
+          <dd>A named entity in a function (or method) definition that specifies
+          an argument (or in some cases, arguments) that the function can
+          accept.</dd>
+          <dd>There are five kinds of parameter:</dd>
+          <dd>
+          <ol>
+
+            <li>
+              <p><code>positional-or-keyword</code>: specifies an argument that can
+              be passed either positionally or as a keyword argument.</p>
+
+              <p>This is the default kind of parameter, for example
+              <code>foo</code> and <code>bar</code> in the following:</p>
+
+              <p><pre>
+                         &nbsp;
+            def func(foo, bar=None): ...
+              </pre></p>
+
+            </li>
+
+            <li>
+
+              <p><code>positional-only</code>: specifies an argument that can be
+              supplied only by position.</p> 
+
+              <p>Positional-only parameters can be defined by including a
+              <code>/</code> character in the parameter list of the function
+              definition after them, for example <code>posonly1</code> and
+              <code>posonly2</code> in the following:
+              </p>
+
+              <p>
+              <pre>
+                   &nbsp;
+            def func(posonly1, posonly2, /, positional_or_keyword): ...
+              </pre>
+              </p> 
+
+            </li>
+            <li>
+
+              <p><code>keyword-only</code>: specifies an argument that can 
+              be supplied only by <code>keyword</code></p>  
+
+              <p>  
+              <code>Keyword-only</code> parameters can be defined by including a single
+              <code>var-positional</code> parameter or bare <code>*</code> in the
+              parameter list of the function definition before them, for example
+              <code>kw_only1</code> and <code>kw_only2</code> in the following:
+              </p>
+
+              <p><pre>
+              &nbsp;
+            def func(arg, *, kw_only1, kw_only2): ...
+              </pre>
+              </p>
+
+            </li>
+            <li>  
+              <p><code>var-positional</code>: specifies that an arbitrary sequence
+              of positional arguments can be provided (in addition to any positional
+              arguments already accepted by other parameters).</p>
+
+              <p>Such a parameter can be defined by prepending the parameter name
+              with <code>*</code>, for example <code>args</code> in the
+              following:</p>
+
+              <p><pre> 
+            def func(*args, **kwargs): ...
+              </pre></p>  
+            </li> 
+
+            <li>
+
+              <p><code>var-keyword</code>: specifies that arbitrarily many keyword
+              arguments can be provided (in addition to any keyword arguments already
+              accepted by other parameters).</p> 
+
+              <p>Such a parameter can be defined by prepending the parameter name
+              with <code>**</code>, for example <code>kwargs</code> in the example
+              above</p>
+
+            </li>
+          </ol>
+          </dd>
+
+          <dd>Parameters may have an annotation of the form
+          <code>": expression"</code> following the parameter name.</dd>
+
+          <dd>Any parameter may have an annotation, even those of the form
+          <code>*identifier</code> or <code>**identifier</code></dd>
+
+          <dd>Functions may have <code>"return"</code> annotation of the form
+          <code>"-&gt; expression"</code> after the parameter list.</dd>
+
+          <dd>These annotations can be any valid Python expression.</dd>
+          <dd>The presence of annotations does not change the semantics of a function.</dd>
+
+          <dt>function annotations</dt>
+          <dd>An annotation of a function parameter or return value.</dd>
+          <dd>For example, this function is expected to take two <code>int</code> arguments
+          and is also expected to have an <code>int</code> return value,</dd>
+
+          <dd>
+          <pre>
+          &nbsp;
+    def sum_two_numbers(a: int, b: int) -&gt; int:
+       return a + b
+          </pre>
+
+          </dd>
+          <dd>An annotation is a label associated with a variable, a class
+          attribute or a function parameter or return value, <mark>used by
+            convention as a type hint</mark>.</dd>                                                                                    
+
+          <dd>Annotations of local variables cannot be accessed at runtime,
+          but annotations of global variables, class attributes, and functions
+          are stored in the <code>__annotations__</code> special
+          <mark>attribute</mark> of modules, classes, and functions, respectively.</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Minimum 'full' function</summary>
+            <pre>
+
+    def myfn2(a:"fname"="tom", 
+              b:'lname'="jones",
+              /,
+              c:"age"=21,
+              *, 
+              sex:"'M' or 'F'")-&gt; "Return an f-string":
+
+       return f"fname is {a} and lname is {b} and age is {str(c)} and sex is {sex}"
+
+    myfn2.__annotations__
+    // {'c': 'age', 'a': 'fname', 
+          'b': 'lname', 
+          'sex': "'M' or 'F'", 
+          'return': 'Return an f-string'}
+
+    myfn2(sex="M")
+    //    'fname is tom and lname is jones and age is 21 and sex is M'
+
+    myfn2("tomm", sex="M")
+    //    'fname is tomm and lname is jones and age is 21 and sex is M'
+
+    myfn2(c=44, sex="M")
+    //  'fname is tom and lname is jones and age is 44 and sex is M'
+
+    myfn2("tom","Manure",c=44, sex="M")
+    // 'fname is tom and lname is Manure and age is 44 and sex is M'
+
+    myfn2("tom",b="Manure",c=44, sex="M")
+    // Traceback (most recent call last):
+    //   File "&lt;pyshell#14&gt;", line 1, in &lt;module&gt;
+    //   myfn2("tom",b="Manure",c=44, sex="M")
+    // TypeError: myfn2() got some positional-only arguments passed as keyword arguments: 'b'
+
+
+    myfn2("tom", "Manure",b="Manure",c=44, sex)
+    //  SyntaxError: positional argument follows keyword argument
+
+    myfn2("tom", "Manure",b="Manure",c=44)
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#16&gt;", line 1, in &lt;module&gt;
+    //    myfn2("tom", "Manure",b="Manure",c=44)
+    //  TypeError: myfn2() got some positional-only arguments passed as keyword arguments: 'b'
+
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Positional parameters Only</summary>
+            <pre>
+
+    def myfn(fname, msg):
+      print(f"Hello {fname}, {msg}")
+
+    myfn('tom', 'how are you')    //    Hello tom, how are you
+
+    myfn('tom')
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#4&gt;", line 1, in &lt;module&gt;
+    //      myfn('tom')
+    //  TypeError: myfn() missing 1 required positional argument: 'msg'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Default parameters</summary>
+            <pre>
+
+    def myfn2(fname, msg="how are you?"):
+      print(f"hello {fname}, {msg}")
+
+    myfn2('tom')    // hello tom, how are you?
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Function call, keyword argument</summary>
+            <pre>
+
+    myfn2('tom', msg="how are you doing?")  //  hello tom, how are you doing?
+    myfn2(msg="how are you doing?", 'tom')
+    // SyntaxError: positional argument follows keyword argument
+    // !! positional args must come before keyword args
+
+    myfn2(msg="how are you doing?", fname='tom')  // hello tom, how are you doing?
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Arbitrary number of parameters</summary>
+            <pre>
+
+    def mysum (*args):
+      print(f"The sum is {sum(args)}")
+
+    mysum(1,2,3,100)    //   The sum is 106
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Function with docstring</summary>
+            <pre>
+
+    def myfn(fname:"str"="Tom", lname:"str"="Jones", /, age:"int"=21,*, sex)-&gt; "formatted string":
+        """Return a formatted string"""
+        return f"Firstname is {fname}, last name is {lname}, age is {age}, and sex is {sex}"
+
+    myfn("Tom", "Manure", age=44, sex="M")
+    //    'Firstname is Tom, last name is Manure, age is 44, and sex is M'
+
+    myfn.__annotations__
+    //    {'age': 'int', 'fname': 'str', 'lname': 'str', 'return': 'formatted string'}
+
+    myfn.__doc__
+    //    'Return a formatted string'
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Closure 1</summary>
+            <pre>
+    def print_msg(msg):
+        def inner():
+            return f"The message is {msg}"
+        return inner
+
+    hello = print_msg("hello world")
+    hello()
+    //    'The message is hello world'
+    hello.__closure__
+    //    (&lt;cell at 0x000001C96E73BCD0: str object at 0x000001C96E764230&gt;,)
+    print_msg.__closure__
+    //
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.9/reference/compound_stmts.html#def">
+              Function definitions (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/glossary.html#term-parameter">
+              parameters (Python Glossary)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.9/reference/expressions.html#calls">
+              Calls (Expressions, Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.9/glossary.html#term-function-annotation">
+              function-annotation (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-0570/">
+              PEP 570 -- Python Positional-Only Parameters
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-3107/">
+              PEP 3107 -- Function Annotations
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-0257/">
+              PEP 257 -- Docstring Conventions
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3.9/reference/expressions.html#lambda">
+              Lambdas (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/function-argument">
+              Python Function Arguments (Programiz)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/closure">
+              [+++] Python Closures (Programiz)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/decorator">
+              [+++] Python Decorators (Programiz)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
