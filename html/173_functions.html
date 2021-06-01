@@ -357,16 +357,31 @@ div {
     hello = print_msg("hello world")
     hello()
     //    'The message is hello world'
+    
     hello.__closure__
     //    (&lt;cell at 0x000001C96E73BCD0: str object at 0x000001C96E764230&gt;,)
+
     print_msg.__closure__
     //
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Closure 2</summary>
             <pre>
-            [code]
+          
+    def make_multiplier_of(n):
+      def inner(x):
+        return x * n
+      return inner
+
+    times3= make_multiplier_of(3)
+    times3(100)   //   300
+    times3.__closure__
+    //  (&lt;cell at 0x000001C96E73BF10: int object at 0x000001C96C396970&gt;,)
+
+    make_multiplier_of.__closure__
+    //
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
