@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[docstring]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Docstring
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>docstring</dt>
+
+
+          <dd>A <code>docstring</code> is a string literal that occurs as the
+          first statement in a module, function, class, or method
+          definition.</dd> 
+          <dd>Such a docstring becomes the <code>__doc__</code> <mark>special
+            attribute</mark> of that object</dd>
+
+          <dd>All modules should normally have docstrings, and all functions and
+          classes exported by a module should also have docstrings.</dd> 
+          <dd>Public methods (including the <code>__init__</code> constructor)
+          should also have docstrings.</dd>
+          <dd>The docstring is a phrase ending in a period.</dd> 
+          <dd>It prescribes the function or method's effect
+          <mark>as a command</mark>
+          ("Do this", "Return that"), not as a description;
+          e.g. don't write "Returns the pathname ...".</dd>
+
+          <dd>The docstrings are declared using <code>'''triple single quotes'''</code>
+          or <code>"""triple double quotes"""</code> just below the class, method or function declaration</dd>
+
+          <dt>Single-line Docstrings</dt>
+          <dd><pre> 
+    def kos_root():
+      """Return the pathname of the KOS root directory."""
+      global _kos_root
+      if _kos_root: return _kos_root
+          </pre></dd>   
+
+          <dd>Triple quotes are used even though the string fits on one line. This
+          makes it easy to later expand it.</dd>
+          <dd>The closing quotes are on the same line as the opening quotes. This
+          looks better for one-liners.</dd>
+          <dd>There's no blank line either before or after the docstring.</dd>
+
+          <dt>Multi-line Docstrings</dt>
+          <dd>Multi-line docstrings consist of a summary line just like a
+          one-line docstring, followed by a blank line, followed by a more
+          elaborate description.</dd>
+
+          <dt>function docstring</dt>
+          <dd>The docstring for a function or method should summarize its
+          behavior and document its arguments, return value(s), side effects,
+          exceptions raised, and restrictions on when it can be called (all if applicable).</dd> 
+          <dd>Optional arguments should be indicated. </dd>   
+          <dd>  It should be documented whether keyword arguments are part of
+          the interface.</dd>
+          <dd>  <pre> 
+    def complex(real=0.0, imag=0.0):
+      """Form a complex number.
+
+      Keyword arguments:
+      real -- the real part (default 0.0)
+      imag -- the imaginary part (default 0.0)
+      """
+      if imag == 0.0 and real == 0.0:
+      return complex_zero
+      ...
+                      <pre> <dd>  
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-0257/">
+              PEP 257 -- Docstring Conventions
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
