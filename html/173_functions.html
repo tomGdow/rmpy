@@ -385,9 +385,36 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Decorator</summary>
             <pre>
-            [code]
+    def mydiv(a,b):
+      return a/b
+
+    mydiv(100,2)  //  50.0
+
+    mydiv(100,0)
+    //    Traceback (most recent call last):
+    //        File "&lt;pyshell#5&gt;", line 1, in &lt;module&gt;
+    //        mydiv(100,0)
+    //    File "&lt;pyshell#3&gt;", line 2, in mydiv
+    //      return a/b
+    //   ZeroDivisionError: division by zero
+
+    def smarten(func):
+        def inner(a,b):
+            if b ==0:
+                print('oops')
+                return
+            return func(a,b)
+        return inner
+
+    @smarten
+    def mydiv2(a,b):
+      return a/b
+
+    mydiv2(100,2)  //  50.0
+    mydiv2(100,0)  //  "oops"
+          
             </pre>
           </details><!--inner-->
           <details><!--inner-->
