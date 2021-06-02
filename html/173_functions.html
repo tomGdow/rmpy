@@ -357,7 +357,7 @@ div {
     hello = print_msg("hello world")
     hello()
     //    'The message is hello world'
-    
+
     hello.__closure__
     //    (&lt;cell at 0x000001C96E73BCD0: str object at 0x000001C96E764230&gt;,)
 
@@ -368,7 +368,7 @@ div {
           <details><!--inner-->
             <summary>Closure 2</summary>
             <pre>
-          
+
     def make_multiplier_of(n):
       def inner(x):
         return x * n
@@ -424,11 +424,11 @@ div {
 
     NOTE:
 
-mydiv2.__closure__
-(&lt;cell at 0x000001697CE3CFA0: function object at 0x000001697CF27E50&gt;,)
+    mydiv2.__closure__
+    (&lt;cell at 0x000001697CE3CFA0: function object at 0x000001697CF27E50&gt;,)
 
-divsmart.__closure__
-(&lt;cell at 0x000001697CF1B220: function object at 0x000001697CF27EE0&gt;,)
+    divsmart.__closure__
+    (&lt;cell at 0x000001697CF1B220: function object at 0x000001697CF27EE0&gt;,)
 
     A Better Smart Function 
 
@@ -440,13 +440,39 @@ divsmart.__closure__
           return
         return temp
       return inner
-          
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>'Double' Decorator</summary>
             <pre>
-            [code]
+
+    def countcall(func):
+      i=0
+      def inner(a,b):
+        nonlocal i
+        i+=1
+        print(i)
+        return func(a,b)
+      return inner
+
+    @countcall
+    @smarten
+    def mydiv(a,b):
+      return a/b
+
+    mydiv(100,2)
+    //    1
+    //    50.0
+
+    mydiv(100,0)
+    //    2
+    //    oops
+
+    mydiv(100,3)
+    //    3
+    //    33.333333333333336
+
             </pre>
           </details><!--inner-->
 
@@ -546,6 +572,14 @@ divsmart.__closure__
             <p>
             <a href ="https://www.programiz.com/python-programming/decorator">
               [+++] Python Decorators (Programiz)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/a/38693333/499167">
+              python counter with closure
             </a>
             </p>
             </dd>
