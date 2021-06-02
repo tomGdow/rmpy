@@ -414,6 +414,32 @@ div {
 
     mydiv2(100,2)  //  50.0
     mydiv2(100,0)  //  "oops"
+
+    INSTEAD OF:
+
+    divsmart=smarten(mydiv2)
+    divsmart(100,2)    // 50.0
+    divsmart(100,0)    // "oops"
+
+
+    NOTE:
+
+mydiv2.__closure__
+(&lt;cell at 0x000001697CE3CFA0: function object at 0x000001697CF27E50&gt;,)
+
+divsmart.__closure__
+(&lt;cell at 0x000001697CF1B220: function object at 0x000001697CF27EE0&gt;,)
+
+    A Better Smart Function 
+
+    def smart(func):
+      def inner(a,b):
+        try:
+          temp=func(a,b)
+        except:
+          return
+        return temp
+      return inner
           
             </pre>
           </details><!--inner-->
