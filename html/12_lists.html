@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html> 
+<html lang="en">
 
   <head>
     <meta charset="utf-8" />
@@ -167,7 +168,7 @@ Examples
             <dt><code>list.copy() (lst[:])</code></dt>
 
             <dd>Return a shallow copy of the list.</dd>
-            <dd>Equivalent to <code>a[:]</code></dt>   
+            <dd>Equivalent to <code>a[:]</code></dd>   
 
             <dt><code>len()</code></dt>
             <dd>Return the length (the number of items) of an object.</dd>
@@ -235,10 +236,12 @@ Examples
             <dd>[See separate entry]</dd>
 
             <dt><code>sum(iterable, start=0)</code></dt>
+            <dd>  
             Formally 
             <pre>
             sum(iterable, /, start=0) 
             </pre>
+            </dd>   
             <dd>(positional arguments only, except for <code>start</code> value)</dd>
             <dd>Sums <code>start</code> and the <code>items of an iterable</code>
             from left to right and returns the total.</dd>
@@ -269,25 +272,11 @@ Examples
             </pre>
             </dd>
 
-            <dt><code>str.join()</code></dt>
-            <dd><pre>
-
-            str_courses = '-'.join(my_courses)
-            //    'python-js-html-css'
-
-            </pre></dd>
-
-            <dt><code>str.split()</code></dt>
-            <dd><pre>new_list= str_courses.split(' - ')</pre></dd>
-
             <dt><code>type(new_list)</code></dt>
-            <dd>
-            <pre>
-Return a new sorted list from the items in iterable.  x="Hello"
-  x[::-1]  // "olleH"
-
-            </pre>
-            </dd>
+            <dd><pre> 
+    type(lst)
+    &lt;class 'list'&gt;
+            </pre></dd>   
           </dl>
         </details>
       </div>
