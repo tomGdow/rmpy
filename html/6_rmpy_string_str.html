@@ -21,7 +21,7 @@ div {
         <dl>
           <dt>string/str</dt>
           <dd>String values must be enclosed within quotes</dd>
-          <dd>In python, the string data types are immutable. </dd>
+          <dd>In python, the <mark>string data types are immutable</mark>. </dd>
           <dd>Which means a string value cannot be updated</dd>
           <dd>but sometimes string <em>is</em> mutable (see below!)</dd>
         </dl>
@@ -31,12 +31,232 @@ div {
           <summary>Some String Methods</summary>
           <dl>
             <dt><code>str.find(sub[, start[, end]])</code></dt>
-            <dd>Return the lowest index in the string where substring sub is found 
-            within the slice s[start:end].</dd> 
-            <dd>Optional arguments start and end are interpreted as in slice notation.</dd> 
-            <dd>Return -1 if sub is not found (contrast with <code>str.index()</code>) </dd>
+            <dd>Return the lowest index in the string where <code>sub</code> is found 
+            within the slice <code>s[start:end]</code>.</dd> 
+            <dd>Optional arguments <code>start</code> and <code>end</code> are
+            interpreted as in <code>slice</code> notation.</dd> 
+            <dd>Return -1 if <code>sub</code> is not found (contrast with
+            <code>str.index()</code>) </dd>
+            <dd>
+            <pre> 
+            str="thomas Manure"
+            str.find('om')    //     2
+            str.find('omm')   //    -1
+            str.index('om')   //     2
+            str.index('omm')
+            //  Traceback (most recent call last):
+            //    File "&lt;pyshell#4&gt;", line 1, in &lt;module&gt;
+            //      str.index('omm')
+            //  ValueError: substring not found
+            </pre>
+            </dd>   
             <dt>raw string</dt>
             <dd><code>r"thomas\t\n"</code></dd>      
+
+            <dt><code>str.isalnum()</code></dt>
+
+            <dd>
+            Return <code>True</code> if all characters in the string are
+            alphanumeric and there is at least one character, <code>False</code>
+            otherwise.</dd> <dd>A character c is alphanumeric if one of the following
+            returns <code>True</code>:
+            </dd>
+            <dd>
+            <ul>  
+              <li><code>c.isalpha()</code></li>
+              <li><code>c.isdecimal()</code></li>
+              <li><code>c.isdigit()</code></li>
+              <li><code>c.isnumeric()</code></li>
+              <ul>  
+            </dd>
+
+            <dd>
+            <pre>
+    "123".isalnum()    //   True
+    "abc".isalnum()    //   True
+    "abc-".isalnum()   //   False
+    "abc-".isalpha()   //   False
+            </pre>
+            </dd>
+
+            <dt><code>str.isalpha()</code></dt>
+
+            <dd>Return <code>True</code> if all characters in the string are alphabetic
+            and there is at least one character, <code>False</code> otherwise.</dd> 
+
+            <dd>Alphabetic characters are those characters defined in the Unicode
+            character database as "Letter"</dd>
+
+
+            <dt><code>str.isdecimal()</code></dt>
+
+            <dd>Return <code>True</code> if all characters in the string are decimal
+            characters and there is at least one character, <code>False</code>
+            otherwise.</dd>
+            <dd>Decimal characters are those that can be used to form
+            numbers in base 10</dd>
+
+            <dt><code>str.isdigit()</code></dt> 
+
+            <dd>Return <code>True</code> if all
+            characters in the string are digits and there is at least one character,
+            <code>False</code> otherwise.</dd>
+            <dd>Digits include decimal characters
+            and digits that need special handling, such as the compatibility
+            superscript digits.</dd>
+            <dd>This covers digits which cannot be used to
+            form numbers in base 10, like the Kharosthi numbers.</dd> 
+
+            <dt><code>str.isidentifier()</code></dt>
+
+            <dd>Return <code>True</code> if the string is a valid identifier
+            according to the language definition</dd>
+
+            <dd>Call <code>keyword.iskeyword()</code> to test whether string
+            <code>s</code> is a reserved identifier, such as <code>def</code> and 
+            <code>class</code>.</dd>  
+            <dt><code>str.upper()</code></dt>
+            <dt><code>str.lower()</code></dt>
+            <dt><code>str.swapcase()</code></dt>
+            <dd>Return a copy of the string with uppercase characters converted to
+            lowercase and vice versa.</dd> 
+            <dd>Note that it is not necessarily true that
+            <code>s.swapcase().swapcase() == s</code>.</dd>
+
+            <dt><code>str.strip([chars])</code></dt>
+
+            <dd>Return a copy of the string with the leading and trailing
+            characters removed.</dd> 
+            <dd>The <code>chars</code> argument is a string specifying the set of
+            characters to be removed.</dd> 
+            <dd>If omitted or <code>None</code>, the chars argument defaults to
+            removing <code>whitespace</code>.</dd> 
+            <dd>The <code>chars</code> argument is not a prefix or suffix; rather,
+            all combinations of its values are stripped</dd>
+
+            <dd>The outermost leading and trailing <code>chars</code> argument
+            values are stripped from the string.</dd> 
+            <dd>Characters are removed from the leading end until reaching a string
+            character <code>that is not contained</code> in the set of characters
+            in <code>chars</code>.</dd> 
+            <dd>A similar action takes place on the trailing end.</dd>
+            <dd><pre> 
+    spstr="    spacious    "
+    spstr.strip()               //   'spacious'
+    wwwstr="www.example.com"
+    wwwstr.strip('cmowz.')      //   'example'
+    wwwstr2="www.exa.mple.com"
+    wwwstr2.strip('cmowz.')     //   'exa.mple'   // !Note
+            </pre><dd>  
+            <dt>str.rstrip([chars])</dt>
+            <dt>str.lstrip([chars])</dt>
+
+            <dt><code>str.capitalize()</code></dt>
+            <dd>Return a copy of the string with its first character capitalized
+            and the rest lowercased.</dd>
+
+            <dd>Changed in version 3.8: The first character is now put into
+            titlecase rather than uppercase.</dd> 
+            <dd>This means that characters like digraphs will only have their first
+            letter capitalized, instead of the full character.</dd>
+            <dd>  <pre> 
+      thomas manure".capitalize()    //   'Thomas manure'
+            </pre></dd>   
+
+            <dt><code>str.istitle()</code></dt>
+
+            <dd>Return <code>True</code> if the string is a <code>titlecased</code>
+            string and there is at least one character</dd>
+            <dd>For example, uppercase characters may only follow uncased
+            characters and lowercase characters only cased ones.</dd> 
+            <dd>Return <code>False</code> otherwise.</dd>
+
+            <dd>
+            <pre> 
+        'Thomas manure'.istitle()    //   False
+        'Thomas Manure'.istitle()    //   True
+        'ThOmAs Manure'.istitle()    //   False
+        'ThomsManure'.istitle()      //   False
+            </pre>
+            </dd>   
+            <dt><code>str.center(width[, fillchar])</code></dt>
+
+            <dd>Return centered in a string of length <code>width</code>.</dd>    
+            <dd>Padding is done using the specified <code>fillchar</code>
+            (default is an ASCII space).</dd> 
+            <dd>The original string is returned if width is less than or equal
+            to <code>len(s)</code>.</dd>
+
+            <dt><code>str.split(sep=None, maxsplit=-1)</code></dt> 
+            <dd>Return a list of the words in the string, using <code>sep</code>
+            as the delimiter string.</dd> 
+            <dd>If <code>maxsplit</code> is given, at most <code>maxsplit</code>
+            splits are done (thus, the list will have at most
+            <code>maxsplit+1</code> elements).</dd> 
+            <dd>If <code>maxsplit</code> is not specified or -1, then there is no
+            limit on the number of splits (all possible splits are made).</dd>
+            EXAMPLE
+            <dd>If <code>sep</code> is given, consecutive delimiters are not
+            grouped together and are deemed to delimit empty strings</dd> 
+            <dd>For example, <code>'1,,2'.split(',')</code> returns
+            <code>['1', '', '2'])</code></dd> 
+            <dd>The <code>sep</code> argument may consist of multiple characters
+            (for example, '1&lt;&gt;2&lt;&gt;3'.split('&lt;&gt;') returns
+            <code>['1', '2', '3'])</code>.</dd> 
+
+            <dd>Splitting an empty string with a specified separator returns
+            <code>['']</code></dd>   
+
+
+            <dd>If <code>sep</code> is not specified or is <code>None</code>,
+            a different splitting algorithm is applied</dd>
+            <dd>Runs of consecutive whitespace are regarded as a single separator,
+            and the result will contain no empty strings at the start or end if
+            the string has leading or trailing whitespace.</dd> 
+            <dd>Consequently, splitting an empty string or a string consisting of
+            just whitespace with a <code>None</code> separator returns<code>[]</code>
+            </dd>
+
+            <dd>
+            <pre> 
+            '-'.join([x.strip().capitalize() for x in "thomas manure heap".split('manure')])
+            //    'Thomas-Heap'
+            </pre>
+            </dd>   
+            <dd>  <pre> 
+
+        '1,2,3'.split(',')                //     ['1', '2', '3']
+        '1,2,3'.split(',', maxsplit=1)    //     ['1', '2,3']
+        '1,,2,3'.split(None)              //     ['1,,2,3']
+        '1,2,,3'.split()                  //     ['1,2,,3']
+
+            </pre></dd>   
+            <dt>Reverse string</dt>
+            <dd>   
+            <pre>
+    "Hello"
+    x[::-1]  // "olleH"
+            </pre>
+            </dd>   
+
+            <dt><code>str.join(iterable)</code></dt>
+
+            <dd>Return a string which is the concatenation of the strings in
+ <code>iterable</code>.</dd>
+            <dd>A <code>TypeError</code> will be raised if there are any non-string
+            values in <code>iterable</code>, including <code>bytes</code> objects.</dd>   
+            <dd>The separator between elements is the string providing this method</dd>
+            <dd>Concatenating immutable sequences always results in a new object.</dd>
+            <dd>This means that building up a sequence by repeated concatenation
+            will have a quadratic runtime cost in the total sequence length.</dd> 
+            <dd>To get a linear runtime cost, you can build a list and use
+ <code>str.join()</code> at the end</dd>
+            <dd>
+            <pre> 
+             '-'.join([x.capitalize() for x in ["Tom", "dick", "harry"]])
+             //    'Tom-Dick-Harry'
+            </pre>  
+            </dd>   
           </dl>
         </details>
       </div>
@@ -130,6 +350,14 @@ div {
             <p>
             <a href ="https://stackoverflow.com/q/39675898/499167">
               Is python += string concatenation bad practice? (Stackoverflow)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html">
+              Built-in Types
             </a>
             </p>
             </dd>
