@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html> 
+<html lang="en">
 
   <head>
     <meta charset="utf-8"/>
@@ -31,12 +32,25 @@ div {
           <summary>Some String Methods</summary>
           <dl>
             <dt><code>str.find(sub[, start[, end]])</code></dt>
-            <dd>Return the lowest index in the string where <code>sub</code> is found 
-            within the slice <code>s[start:end]</code>.</dd> 
+            <dd>Return the <mark>lowest index</mark> in the string where
+            <code>sub</code> is found within the slice <code>s[start:end]</code>.
+            </dd> 
             <dd>Optional arguments <code>start</code> and <code>end</code> are
             interpreted as in <code>slice</code> notation.</dd> 
             <dd>Return -1 if <code>sub</code> is not found (contrast with
-            <code>str.index()</code>) </dd>
+            <code>str.index()</code>)
+            </dd>
+
+            <dd>The <code>find()</code> method should be used only if you need to
+            know the position of sub. </dd>   
+            <dd>To check if sub is a substr<code>in</code>g or not, use the in
+            operator:</dd>
+            <dd><pre> 
+    'Py' in 'Python'
+    True
+            </pre></dd>   
+
+
             <dd>
             <pre> 
             str="thomas Manure"
@@ -50,6 +64,51 @@ div {
             //  ValueError: substring not found
             </pre>
             </dd>   
+            <dd><pre> 
+            str ="The apple is red and the berry is blue"
+
+            str.find('is')             //     10
+            str.rfind('is')            //     31
+            str[str.rfind('is')]       //     'i'
+            str[str.rfind('is'):]      //     'is blue'
+            str[:str.rfind('is')]      //     'The apple is red and the berry '
+
+            import re
+            [m.start() for m in re.finditer('is', str)]    //     [10, 31]
+            </pre><dd>  
+
+            <dt><code>str.rfind(sub[, start[, end]])</code></dt>
+
+            <dd>Return the <mark>highest index</mark> in the string where substring
+            <code>sub</code> is found, such that <code>sub</code> is contained
+            within <code>s[start:end]</code>.</dd> 
+
+            <dd>Optional arguments <code>start</code> and <code>end</code>
+            are interpreted as in slice notation.</dd>   
+            <dd>Return -1 on failure</dd>
+            <dd><pre> 
+
+    str="tom is a man and tom is a coder"
+
+    str.find('is', 0, -1)    //     4
+    str.rfind('is')          //     21
+    str[str.find('is'):]     //     'is a man and tom is a coder'
+    str[str.rfind('is'):]    //     'is a coder'
+
+            </pre></dd>   
+
+
+            <dt><code>str.index(sub[, start[, end]])</code></dt>
+
+            <dd>Like <code>find()</code>, but raise <code>ValueError</code> when
+            the substring is not found.</dd>
+
+
+            <dt><code>str.rindex(sub[, start[, end]])</code></dt>
+
+            <dd>Like <code>rfind()</code> but raises <code>ValueError</code>
+            when the substring <code>sub</code> is not found.</dd>
+
             <dt>raw string</dt>
             <dd><code>r"thomas\t\n"</code></dd>      
 
@@ -58,7 +117,8 @@ div {
             <dd>
             Return <code>True</code> if all characters in the string are
             alphanumeric and there is at least one character, <code>False</code>
-            otherwise.</dd> <dd>A character c is alphanumeric if one of the following
+            otherwise.</dd> 
+            <dd>A character <code>c</code> is alphanumeric if one of the following
             returns <code>True</code>:
             </dd>
             <dd>
@@ -67,7 +127,7 @@ div {
               <li><code>c.isdecimal()</code></li>
               <li><code>c.isdigit()</code></li>
               <li><code>c.isnumeric()</code></li>
-              <ul>  
+            </ul>                                            
             </dd>
 
             <dd>
@@ -87,7 +147,6 @@ div {
             <dd>Alphabetic characters are those characters defined in the Unicode
             character database as "Letter"</dd>
 
-
             <dt><code>str.isdecimal()</code></dt>
 
             <dd>Return <code>True</code> if all characters in the string are decimal
@@ -95,6 +154,11 @@ div {
             otherwise.</dd>
             <dd>Decimal characters are those that can be used to form
             numbers in base 10</dd>
+
+            <dd><pre> 
+    '123.4'.isdecimal()    //   False
+    '123.4'.isdigit()      //   False
+            </pre></dd>   
 
             <dt><code>str.isdigit()</code></dt> 
 
@@ -137,7 +201,7 @@ div {
             <dd>The outermost leading and trailing <code>chars</code> argument
             values are stripped from the string.</dd> 
             <dd>Characters are removed from the leading end until reaching a string
-            character <code>that is not contained</code> in the set of characters
+            character <mark>that is not contained</mark> in the set of characters
             in <code>chars</code>.</dd> 
             <dd>A similar action takes place on the trailing end.</dd>
             <dd><pre> 
@@ -148,8 +212,8 @@ div {
     wwwstr2="www.exa.mple.com"
     wwwstr2.strip('cmowz.')     //   'exa.mple'   // !Note
             </pre><dd>  
-            <dt>str.rstrip([chars])</dt>
-            <dt>str.lstrip([chars])</dt>
+            <dt><code>str.rstrip([chars])</code></dt>
+            <dt><code>str.lstrip([chars])</code></dt>
 
             <dt><code>str.capitalize()</code></dt>
             <dd>Return a copy of the string with its first character capitalized
@@ -179,6 +243,7 @@ div {
         'ThomsManure'.istitle()      //   False
             </pre>
             </dd>   
+
             <dt><code>str.center(width[, fillchar])</code></dt>
 
             <dd>Return centered in a string of length <code>width</code>.</dd>    
@@ -187,7 +252,14 @@ div {
             <dd>The original string is returned if width is less than or equal
             to <code>len(s)</code>.</dd>
 
+            <dd><pre>
+'tom'.center(9, '*')    //  '***tom***'
+'tom'.center(9, ' ')    //  '   tom   '
+'tom'.center(9)         //  '   tom   '   // Default is ASCII space
+            </pre></dd>   
+
             <dt><code>str.split(sep=None, maxsplit=-1)</code></dt> 
+
             <dd>Return a list of the words in the string, using <code>sep</code>
             as the delimiter string.</dd> 
             <dd>If <code>maxsplit</code> is given, at most <code>maxsplit</code>
@@ -195,18 +267,16 @@ div {
             <code>maxsplit+1</code> elements).</dd> 
             <dd>If <code>maxsplit</code> is not specified or -1, then there is no
             limit on the number of splits (all possible splits are made).</dd>
-            EXAMPLE
             <dd>If <code>sep</code> is given, consecutive delimiters are not
             grouped together and are deemed to delimit empty strings</dd> 
             <dd>For example, <code>'1,,2'.split(',')</code> returns
             <code>['1', '', '2'])</code></dd> 
             <dd>The <code>sep</code> argument may consist of multiple characters
-            (for example, '1&lt;&gt;2&lt;&gt;3'.split('&lt;&gt;') returns
+            (for example, <code>'1&lt;&gt;2&lt;&gt;3'.split('&lt;&gt;')</code> returns
             <code>['1', '2', '3'])</code>.</dd> 
 
             <dd>Splitting an empty string with a specified separator returns
             <code>['']</code></dd>   
-
 
             <dd>If <code>sep</code> is not specified or is <code>None</code>,
             a different splitting algorithm is applied</dd>
@@ -223,14 +293,16 @@ div {
             //    'Thomas-Heap'
             </pre>
             </dd>   
-            <dd>  <pre> 
+            <dd>
+            <pre> 
 
         '1,2,3'.split(',')                //     ['1', '2', '3']
         '1,2,3'.split(',', maxsplit=1)    //     ['1', '2,3']
         '1,,2,3'.split(None)              //     ['1,,2,3']
         '1,2,,3'.split()                  //     ['1,2,,3']
 
-            </pre></dd>   
+            </pre>
+            </dd>   
             <dt>Reverse string</dt>
             <dd>   
             <pre>
@@ -242,7 +314,7 @@ div {
             <dt><code>str.join(iterable)</code></dt>
 
             <dd>Return a string which is the concatenation of the strings in
- <code>iterable</code>.</dd>
+            <code>iterable</code>.</dd>
             <dd>A <code>TypeError</code> will be raised if there are any non-string
             values in <code>iterable</code>, including <code>bytes</code> objects.</dd>   
             <dd>The separator between elements is the string providing this method</dd>
@@ -250,13 +322,104 @@ div {
             <dd>This means that building up a sequence by repeated concatenation
             will have a quadratic runtime cost in the total sequence length.</dd> 
             <dd>To get a linear runtime cost, you can build a list and use
- <code>str.join()</code> at the end</dd>
+            <code>str.join()</code> at the end</dd>
             <dd>
             <pre> 
              '-'.join([x.capitalize() for x in ["Tom", "dick", "harry"]])
              //    'Tom-Dick-Harry'
             </pre>  
             </dd>   
+
+            <dd>
+            <code>str.replace(old, new[, count])</code>
+            </dd>
+
+            <dd>Return a copy of the string with all occurrences of substring
+            <code>old</code> replaced by <code>new</code>.</dd> 
+            <dd>If the optional argument <code>count</code> is given, only the
+            first count occurrences are replaced.</dd>
+            <dd><pre> 
+
+    str="tom is a man and tom is a coder"
+    str.replace('is', 'was')     //     'tom was a man and tom was a coder'
+    str.replace('is', 'was',1)   //     'tom was a man and tom is a coder'
+
+            </pre></dd>   
+
+            <dt><code>str.endswith(suffix[, start[, end]])</code></dt>
+
+            <dd>Return <code>True</code> if the string ends with the specified
+            suffix, otherwise return <code>False</code>.</dd> 
+            <dd><code>suffix</code> can also be a <mark>tuple of suffixes</mark>
+            to look for.</dd> 
+            <dd>With optional <code>start</code>, test beginning at that position. </dd>               <dd>With optional <code>end</code>, stop comparing at that position.</dd>
+
+            <dt><code>str.format(*args, **kwargs)</code></dt> 
+
+            <dd>Perform a string formatting operation.</dd> 
+            <dd>The string on which this method is called can contain literal text
+            or replacement fields delimited by braces <code>{}</code>.</dd> 
+            <dd>Each replacement field contains either the <mark>numeric index of
+              a positional argument</mark>, or the
+            <code>name of a keyword argument</code>.</dd> 
+            <dd>Returns a copy of the string where each replacement field is
+            replaced with the string value of the corresponding argument.</dd>
+
+            <dd><pre> 
+
+    "hello {}, how are you {}".format('joe', 'today')
+    'hello joe, how are you today'
+
+    "hello {1}, how are you {0}".format('joe', 'today')
+    'hello today, how are you joe'
+
+    "hello {fname}, how are you {day}".format(fname="joe", day="today")
+    'hello joe, how are you today'
+
+    "hello {2}, how are you {1}".format('joe', 'today')
+    //  Traceback (most recent call last):
+    //    File "&lt;pyshell#1&gt;", line 1, in &lt;module&gt;
+    //    "hello {2}, how are you {1}".format('joe', 'today')
+    //    IndexError: Replacement index 2 out of range for positional args tuple
+
+            </pre></dd>   
+
+            <dt><code>str.partition(sep)</code></dt>
+
+            <dd>Split the string at the first occurrence of <code>sep</code>,
+            and <mark>return a 3-tuple</mark> containing the part before the
+            separator, the separator itself, and the part after the separator.
+            </dd> 
+            <dd>If the separator is not found, return a 3-tuple containing the
+            string itself, followed by two empty strings.</dd>
+            <dd><pre> 
+    "thomas".partition('m')     //     ('tho', 'm', 'as')
+    "thomas".split('m')         //     ['tho', 'as']
+    "assassin".partition('s')   //     ('a', 's', 'sassin')
+            </pre></dd>   
+
+            <dt><code>str.startswith(prefix[, start[, end]])</code></dt>
+
+            <dd>Return <code>True</code> if string starts with the
+            <code>prefix</code>, otherwise return <code>False</code>.</dd>
+            <dd><code>prefix</code> can also be a tuple of prefixes to look for.</dd>
+            <dd>With optional <code>start</code>, test string beginning at that position.</dd> 
+            <dd>With optional <code>end</code>, stop comparing string at that
+            position.</dd>
+
+            <dt><code>str.zfill(width)</code></dt> 
+
+            <dd>The <code>zfill()</code> method adds zeros <code>(0)</code> at the
+ beginning of the string, until it reaches the specified length.</dd>
+
+            <dd>Return a copy of the string left filled with ASCII <code>'0'</code>
+            digits to make a string of length width.</dd> 
+
+            <dd>A leading sign prefix <code>('+'/'-')</code> is handled by
+            inserting the padding after the sign character rather than before.</dd> 
+
+            <dd>The original string is returned if <code>width</code> is less than
+            or equal to <code>len(s)</code>.</dd>
           </dl>
         </details>
       </div>
@@ -356,8 +519,16 @@ div {
 
             <dd>
             <p>
-            <a href ="https://docs.python.org/3/library/stdtypes.html">
-              Built-in Types
+            <a href ="https://docs.python.org/3/library/stdtypes.html#string-methods">
+              String Methods
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/a/4664889/499167">
+              How to find all occurrences of a substring?
             </a>
             </p>
             </dd>
