@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[boolean ops]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        boolean operators (and, or, not) 
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>boolean ops (and, or, not) </dt>
+          <dd>These are the Boolean operations, ordered by ascending
+          priority</dd>
+          <dd>
+          <pre>  
+
+    x or y       if x is false, then y, else x
+    x and y      if x is false, then x, else y
+    not x        if x is false, then True, else False
+          </pre> 
+          </dd>
+
+          <dd>
+          <code>or</code> is a short-circuit operator, so <mark>it only
+            evaluates the second argument if the first one is false</mark>
+          </dd>
+          <dd><code>and</code> is a short-circuit operator, so <mark>it only evaluates
+          the second argument if the first one is true</mark>.</dd>
+
+          <dd><code>not</code> has a lower priority than non-Boolean operators, 
+          so <code>not a == b</code> is interpreted as <code>not (a == b)</code>,
+          and <code>a == not b</code> is a syntax error.
+          </dd>   
+          <dd><pre> 
+
+    print(0 or None)        //    None      // If x is False, then y
+    print(None or 0)        //    0         // If x is False, then y
+
+    print(0 and None)       //    0         // If x is False, then x
+    print(None and 0)       //    None      // If x is False, then x
+
+          </pre></dd>   
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not">
+              Boolean Operations — and, or, not (Python Docss)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
