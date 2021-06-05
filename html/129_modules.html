@@ -114,6 +114,35 @@ div {
             
             </pre>
           </details><!--inner-->
+
+          <details><!--inner-->
+            <summary><code>Import examples (Idle)</code></summary>
+            <pre>
+    dir()
+    //    ['__annotations__', '__builtins__', '__doc__',
+    '__loader__', '__name__', '__package__', '__spec__']
+    
+    import math
+    dir()[-2:]          //         ['__spec__', 'math']
+
+    import math as fun
+    dir()[-3:]          //         ['__spec__', 'fun', 'math']
+
+    from math import pi, tan 
+
+    dir()[-5:]          //         ['__spec__', 'fun', 'math', 'pi', 'tan']
+    from math import pi as pie, tan as tanny
+    
+    dir()[-7:]          //         ['__spec__', 'fun', 'math', 'pi', 'pie', 'tan', 'tanny']
+    tanny(90)           //        -1.995200412208242
+    pie                 //         3.141592653589793
+
+            
+            </pre>
+          </details><!--inner-->
+          
+          
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
