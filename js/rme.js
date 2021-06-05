@@ -81,6 +81,7 @@ let pageData = (function () {
     "172_sorted.html",
     "173_functions.html",
     "174_docstring.html",
+    "175_dir.html",
     "142_armstrong_number.html",
     "170_x_alphabet_sequence.html",
     "148_notes_jason_one.html",
