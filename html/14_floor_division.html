@@ -43,6 +43,20 @@ div {
           $$
           </dd>
           <dd>note that sign on divisor/dividend does not apply</dd>
+          <dt><code> x // y </code></dt>
+          <dd>Floored quotient of <code>x</code> and <code>y</code></dd>
+          <dd>Also referred to as <mark>integer division</mark>.</dd> 
+          <dd>The resultant value is a whole integer, though the result’s type is
+          not necessarily <code>int</code>.</dd> 
+          <dd><mark>The result is always rounded towards minus infinity</mark></dd>
+          <dd>
+          <pre> 
+    1//2 is 0
+    (-1)//2 is -1
+    1//(-2) is -1
+    (-1)//(-2) is 0
+          </pre>  
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -111,13 +125,22 @@ div {
             </p>
             </dd>
 
-
             <dd>
             <p>
             <a href ="https://www.askpython.com/python/python-floor-based-division">
               Python // operator – Floor Based Division</a>
             </p>
             </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#typesnumeric">
+              Numeric Types — int, float, complex (Python Docs)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
