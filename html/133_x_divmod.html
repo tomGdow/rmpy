@@ -15,7 +15,7 @@ div {
   <body>
     <div class="container">
       <header>
-        divmod
+        divmod() (Built-in function)
       </header>
       <div class="counter">xx</div>
       <main>
@@ -23,21 +23,26 @@ div {
           <dt><code>divmod(a, b)</code></dt>
 
           <dd>Take two (non complex) numbers as arguments and return a pair of
-          numbers consisting of their quotient and remainder when using integer division.</dd> 
+          numbers consisting of their quotient and remainder when using integer
+          division.</dd> 
           <dd>For integers, the result is the same as 
           <pre> 
   (a // b, a % b)
           </pre>  
           </dd> 
-          With mixed operand types, the rules for binary arithmetic operators apply. 
+          <dd>With mixed operand types, the rules for binary arithmetic
+          operators apply.</dd> 
           <dd>For floating point numbers the result is 
           <pre>
   (q, a % b),   // q is usually math.floor(a / b)
                 // but may be 1 less than that
           </pre> 
           </dd> 
-          <dd>With mixed operand types, the rules for binary arithmetic operators apply.</dd> 
+          <dd>With mixed operand types, the rules for binary arithmetic operators
+          apply.</dd> 
 
+          <dt><code>divmod(x, y)</code></dt>
+          <dd>the pair <code>(x // y, x % y)</code></dd>
 
         </dl>
       </main>
@@ -72,9 +77,20 @@ div {
             <p>Note One</p>
             </dd>
             <dt>References</dt>
+
             <dd>
             <p>
-            <a href="http://google.ie">link-1</a>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-float">
+              Built-in Types: Additional methods on floats (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#divmod">
+              divmod (Built-in)
+            </a>
             </p>
             </dd>
           </dl>
