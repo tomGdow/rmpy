@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html> 
+<html lang="en">
 
   <head>
     <meta charset="utf-8"/>
@@ -20,10 +21,14 @@ div {
       <main>
         <dl>
           <dt>float</dt>
-          <dd>Return a floating point number constructed from a number or string <code>x</code>.</dd>                                  
-          <dd>If the argument is a string, it should contain a decimal number, optionally preceded by a sign, and optionally embedded in whitespace.</dd> 
-          <dd>The optional sign may be '<code>+</code>' or '<code>-</code>'; a '<code>+</code>' sign has no effect on the value produced.</dd>
-          <dd>The argument may also be a string representing a <code>NaN</code> (not-a-number), or a positive or negative infinity.</dd> 
+          <dd>Return a floating point number constructed from a number or string
+          <code>x</code>.</dd>                                  
+          <dd>If the argument is a string, it should contain a decimal number,
+          optionally preceded by a sign, and optionally embedded in whitespace.</dd> 
+          <dd>The optional sign may be '<code>+</code>' or '<code>-</code>'; 
+          a '<code>+</code>' sign has no effect on the value produced.</dd>
+          <dd>The argument may also be a string representing a <code>NaN</code>
+          (not-a-number), or a positive or negative infinity.</dd> 
 
         </dl>
       </main>
@@ -31,9 +36,26 @@ div {
         <details>
           <summary>Some Float Methods</summary>
           <dl>
-            <dt><code>float. as_integer_ratio()</code></dt>
+            <dt><code>float.as_integer_ratio()</code></dt>
             <dd>Returns a pair of integers whose ratio is exactly equal to the original
             float and with a positive denominator.</dd>
+
+            <dt><code>float.fromhex(s)</code></dt>
+            <dd><code>float.formhex(s)</code> is a class method</dd>
+            <dd>
+            <pre> 
+            myl=list(range(1,9))
+            myl.extend(['a', 'b', 'c', 'd', 'e', 'f'])
+            myl    //     [1, 2, 3, 4, 5, 6, 7, 8, 'a', 'b', 'c', 'd', 'e', 'f']
+            [float.fromhex(str(x)) for x in myl]
+            //    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0]
+            </pre>
+            </dd>   
+
+             <dt><code>float.hex()</code></dt>
+
+    <dd>Return a representation of a floating-point number as a
+ <mark>hexadecimal string</mark>.</dd>
           </dl>
         </details>
       </div>
@@ -72,11 +94,23 @@ div {
             <p>Note One</p>
             </dd>
             <dt>References</dt>
+
             <dd>
             <p>
-            <a href="http://google.ie">link-1</a>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#additional-methods-on-float">
+              Additional Methods on Float (Built-in Types)
+            </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/floatingpoint.html">
+              Floating Point Arithmetic: Issues and Limitations (Python Docs)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
