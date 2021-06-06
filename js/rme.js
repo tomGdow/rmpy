@@ -34,6 +34,7 @@ let pageData = (function () {
     "155_compound_statements.html",
     "156_if_elif_else.html",
     "121_x_truthy_falsy.html",
+    "181_nan.html",
     "122_x_bool.html",
     "157_warlus_assignment_expression.html",
     "128_conditional_expression_ternary_operator.html",
