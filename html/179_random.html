@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[random]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        random module
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>random module</dt>
+          <dd>This module implements pseudo-random number generators for various
+          distributions</dd>
+          <dd>Almost all module functions depend on the basic function
+          <code>random()</code>, which generates a <mark>random float</mark>
+          uniformly in the semi-open range <code>[0.0, 1.0)</code></dd>
+          <dd>Python uses the Mersenne Twister as the core generator</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Methods</summary>
+
+          <dt><code>random.seed(a=None, version=2)</code></dt>
+
+          <dd>Initialize the random number generator.</dd>
+          <dd>If <code>a</code> is omitted or <code>None</code>, the current
+          system time is used.</dd> 
+          <dd>If randomness sources are provided by the operating system, they
+          are used instead of the system time (see the <code>os.urandom()</code> 
+          function for details on availability).</dd>
+          <dd>If <code>a</code> is an <code>int</code>, it is used directly</dd>
+
+
+          <dt><code>random.random()</code></dt>
+
+          <dd>Return the next random <mark>floating point number</mark> in
+          the <code>range [0.0, 1.0)</code>.</dd>
+
+
+          <dt><code>random.randrange(start, stop[, step])</code></dt>
+
+          <dd>Return a randomly selected element from
+          <code>range(start, stop, step)</code>.</dd>
+          <dd>
+          This is equivalent to <code>choice(range(start, stop, step))</code>,
+          but doesn’t actually build a <code>range</code> object
+          </dd>
+
+          <dt><code>random.choice(seq)</code></dt>
+
+          <dd>Return a random element from the non-empty <code>seq</code>uence seq.</dd> 
+          <dd>If <code>seq</code> is empty, raises <code>IndexError</code>.</dd>
+
+          <dt><code>random.randint(a, b)</code></dt>
+
+          <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b</code>.</dd>    
+          <dd>  Alias for <code>randrange(a, b+1)</code>.</dd>
+
+
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (Idle Example)</summary>
+            <pre>
+
+    import random
+    random.random()    //     0.0469203796547516
+
+    [random.random() for x in range(10)]
+    [0.8057668849398337, 0.33881655685627354, 0.9096723752889532,
+     0.1733462294163931, 0.0862193375348288, 0.7263047109440248,
+     0.0851398966756608, 0.21404611235832094, 0.02909405326470693,
+     0.05028770457887033]
+
+    max([random.random() for x in range(10000000)])    // 0.9999999770312834
+
+    random.randrange(1,10,2)    //  9
+
+    [random.randrange(1,10,2) for x in range(100)]
+    [3, 3, 7, 7, 1, 1, 5, 3, 5, 3, 5, 7, 7, 3, 3, 7, 5, 3, 1, 3,
+     5, 7, 9, 9, 3, 9, 1, 7, 9, 3, 3, 5, 5, 3, 3, 1, 1, 9, 3, 1,
+     9, 3, 3, 3, 3, 9, 1, 7, 1, 1, 3, 1, 5, 3, 9, 9, 7, 3, 3, 9,
+     9, 3, 3, 9, 1, 1, 7, 3, 7, 3, 3, 7, 9, 3, 1, 7, 1, 3, 7, 1,
+     5, 9, 7, 5, 5, 3, 1, 3, 3, 7, 1, 1, 5, 3, 9, 3, 7, 9, 7, 1]
+
+    random.randint(1,10)   //  4
+
+    random.choice(['win', 'lose', 'draw'])  //  'lose'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (<code>randint()</code> vs <code>randrange()</code>)</summary>
+
+            <pre>
+
+    max([random.randint(1,100) for x in range(10000000)])    //    100
+
+    max([random.randrange(1,100) for x in range(10000000)])  //     99
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/random.html">
+              random — Generate pseudo-random numbers
+            </a>
+            </p>
+            </dd>
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/3540431/499167">
+              What is the difference between random.randint and randrange? (Stackoverflow)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
