@@ -21,7 +21,7 @@ div {
       <main>
         <dl>
           <dt>Sets</dt>
-          <dd>A set object is an unordered collection of distinct hashable objects.</dd>
+          <dd>A set object is an <mark>unordered collection of distinct hashable objects</mark>.</dd>
           <dd>Common uses include</dd> 
           <dd>
           <ol>
@@ -49,9 +49,9 @@ div {
           <ol>  
             <li>The set type is mutable</li>
             <li><code>set</code> contents can be changed using methods like 
-              <code>ali()</code> and <code>remove()</code></li> 
-            <li><code>set</code> has no hash value and cannot be used as either 
-              a dictionary key or as an element of another set.</li> 
+              <code>add()</code> and <code>remove()</code></li> 
+            <li><code>set</code> has no hash value and <mark>cannot be used as either 
+                a dictionary key or as an element of another set</mark>.</li> 
           </ol> 
           </dd> 
           <dd><code>frozenzet</code></dd> 
@@ -84,7 +84,7 @@ div {
           <dd>Note: to create an empty set you have to use <code>set()</code>, 
           not <code>{}</code>
           ; the 
-          latter creates an empty dictionary</dd>
+          latter creates <mark>an empty dictionary</mark></dd>
 
         </dl>
       </main>
@@ -98,7 +98,7 @@ div {
 
     myset={"tom", "dick", "harry"}    //  
     myset.add("dirty")                //    {'tom', 'dick', 'dirty', 'harry'}
-          </pre>
+            </pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary><code>myset.remove(elem)</code> (Remove from Set)</summary>
@@ -112,9 +112,9 @@ div {
     # note  (and compare with myset.discard())  
 
     myset.remove('annie')    //  KeyError: 'annie'
-          
-          </pre>
-          </dd>
+
+            </pre>
+            </dd>
             </pre>
           </details><!--inner-->
 
@@ -132,25 +132,87 @@ div {
     myset.discard('dirty')    //     {'tom', 'dick', 'harry'}
     myset.discard('annie')    //     NO ERROR MESSAGE
     myset                     //     {'tom', 'dick', 'harry'}
-          
-          </pre>
-          </dd>
+
+            </pre>
+            </dd>
             </pre>
           </details><!--inner-->
-
-
-
 
           <details><!--inner-->
             <summary><code>myset.update()</code> (Update Set)</summary>
             <pre>
-            
+
             # update a set content
 
              myset={"tom", "dick", "harry"}    //  {'tom', 'dick', 'harry'}
              myset.update(['jones', 'tupin', 'worth'])
                   //    {'dick', 'worth', 'jones', 'harry', 'tom', 'tupin'}
             </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>set.union()</code> or <code>|</code></summary>
+            <pre>
+
+    s1={1, 2, 3, 4, 5}                                                
+    s2={4,5,6,7,8}
+
+    s1.union(s2)    //  {1, 2, 3, 4, 5, 6, 7, 8}
+    s1 | s2         //  {1, 2, 3, 4, 5, 6, 7, 8}
+    
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>METHOD X</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>set.intersection()</code> or <code>&amp;</code></summary>
+            <pre>
+
+    s1={1, 2, 3, 4, 5}                                                
+    s2={4,5,6,7,8}
+
+    s1.intersection(s2)    //     {4, 5}
+    s1&amp;s2              //     {4, 5}
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>set.difference()</code> or <code>-</code></summary>
+            <pre>
+
+//  Returns a set containing elements only in the first set, but not in the second set
+
+    s1={1, 2, 3, 4, 5}                                                
+    s2={4,5,6,7,8}
+
+    s1.difference(s2)       //  {1, 2, 3}
+    s1-s2                   //  {1, 2, 3}
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>set.symmetric_difference()</code> or <code>^</code></summary>
+            <pre>
+    
+    Returns a set consisting of elements in both sets, excluding the common elements.
+    
+    s1={1, 2, 3, 4, 5}                                                
+    s2={4,5,6,7,8}
+
+    s1^s2                        //    {1, 2, 3, 6, 7, 8}
+    s1.symmetric_difference(s2)  //    {1, 2, 3, 6, 7, 8}
+
+
+            </pre>
+          <details><!--inner-->
+            <summary><code>METHOD X</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
           </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
@@ -233,6 +295,14 @@ div {
             <p>
             <a href ="https://docs.python.org/3/library/stdtypes.html?highlight=set./18_sets.html20add#frozenset.add">
               add (python docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.tutorialsteacher.com/python/python-set#set-operations">
+              Tutorials Teacher: set operations
             </a>
             </p>
             </dd>
