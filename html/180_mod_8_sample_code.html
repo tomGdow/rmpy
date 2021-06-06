@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Mod 7-Sample</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>Sample code from Module 8</header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>[Main Header]</dt>
+          <dd>[Main text]</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary><code>break_continue.py</code></summary>
+            <pre>
+
+      # tuple of animals
+      animals = ( 'bear', 'bunny', 'dog', 'cat', 'velociraptor' )
+
+      # print list until there is a cat
+      for pet in animals:
+          if pet == 'cat':
+              break
+          print(pet)
+
+      print('----')
+      # print list but skip cat
+      for pet in animals:
+          if pet == 'cat':
+              continue
+          print(pet)
+
+    // IDLE EXAMPLES
+
+    animals =('bear', 'bunny', 'dog', 'cat', 'velociraptor')
+
+    for pet in animals:
+      print(pet, end=' ')
+
+              //                  bear bunny dog cat velociraptor
+
+    for pet in animals:
+      if pet =='cat':
+        break;
+      print(pet, end=' ')
+
+             //                   bear bunny dog
+
+    for pet in animals:
+      if pet =='cat':
+        continue;
+      print(pet, end=' ')
+
+
+            //                    bear bunny dog velociraptor
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>conditional_ifstatement.py</code></summary>
+            <pre>
+            
+
+    # basic if / elif statement structure
+
+    # In a chained elif statement, the first condition
+    # to be true is the branch that gets executed
+    # and the rest are skipped.  If no condition is true
+    # the optional 'else' brance gets executed.
+
+    if True:    
+        print('if true')
+    elif False:
+        print('elif true')
+    else:
+        print('neither true')
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>for_loop.py</code></summary>
+            <pre>
+            
+
+    # basic for loop using range function
+    # range(from-inclusive,up to-exclusive,step)
+    for i in range(10):
+        print("hello")
+
+    # basic for loop iterating over a list and printing each element
+    words = ['one', 'two', 'three', 'four', 'five']
+
+    for i in words:
+        print(i)
+
+    # using for loop with tuple
+    animals = ( 'bear', 'bunny', 'dog', 'cat', 'velociraptor' )
+
+    for pet in animals:
+        print(pet)
+
+    // IDLE Examples
+
+    for i in range(10):
+      print(i, end=' ')
+
+    //  0 1 2 3 4 5 6 7 8 9
+
+    words=['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+    for x in words:
+      print(x, end=' ')
+
+    //    one two three four five six seven eight nine ten
+
+    for pet in ('bear', 'bunny', 'dog', 'cat'):
+      print(pet, end= ' ')
+
+    //   bear bunny dog cat
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>if_statement.py</code></summary>
+
+            <pre>
+
+    # if statements
+
+    # take in input from the user
+    age = int(input('How old are you? '))
+
+    # A "hard coded" value can be used during initial divelopment,
+    # but the program should be properly tested
+    #age = 18
+
+    # if else
+    if age &gt; 18:
+        print('You are old enough to vote')
+    else:
+        print('You are not old enough to vote')
+
+    print('----')
+    # elif
+    # Be careful with the order of statements,
+    # mixing up &gt; and &lt;, and off by one errors
+    if age &lt; 0:
+        print('I\'m sorry your age must be a positive number.')
+    if age &gt;= 0 and age &lt; 16:
+        print('You are not old enough to vote')
+    elif age &gt;= 16 and age &lt; 18:
+
+        print('You are not old enough to vote, but you can get into most movies')
+    elif age &gt;= 18 and age &lt; 35:
+        print('You are old enough to vote')
+    elif age &gt;= 35 and age &lt; 150:
+        print('You are old enough to vote and be president')
+    else:
+        print("I'm sorry you that's too old to be human.")
+
+    print('----')
+
+    # Every new decade gets a big party execpt 20 as there's a
+    # big party for 18 and 21
+    if (age % 10 == 0 and age != 20) or age == 18 or age == 21:
+        print('You get a big birthday party')
+    else:
+        print('You don\'t get a big birthday party')
+
+
+    // IDLE examples
+
+
+    age = int(input('your age : '))
+
+    if age &lt; 0:
+        print(f"age must be positive, you entered {age}")
+    if age &gt;=0 and age &lt; 16:
+        print('You are not old enough to vote')
+    elif age &gt;=16 and age &lt; 18:
+        print('You are not old enough to vote, but you can get into most movies')
+    elif age &gt;=18 and age &lt; 35:
+        print('You are old enough to vote')
+    elif age&gt;=35 and age &lt; 150:
+        print('You are old enough to vote and be president')
+    else:
+        print("I'm sorry, Joe, you are just too old to be human")
+
+  
+    age=40
+    if (age % 10 ==0 and age != 20) or age == 18 or age ==21:
+      print('you get a big party')
+    else:
+      print('no party')
+
+
+    //  you get a big party
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>len_function.py</code></summary>
+            <pre>
+            
+    # Calculating Length of string or data structure
+
+    # len() --&gt; returns length
+
+    # len on strings
+    firstName = "Bruce"
+    print(len(firstName))
+    lastName = "Springsteen"
+    print(len(lastName))
+    # first name has the len property so we can pass 
+    # it to the len function - firstName.__len__()
+
+    # len on lists
+    ages = [0, 11, 43, 12, 10]
+    print(len(ages))
+
+    i = 0
+    for i in range(0, len(ages)):
+        print(ages[i])
+
+    print(len(["bob", "mary", "sam"]))
+
+    # len on dictionary
+    candyCollection = {"bob" : 10, "mary" : 7, "sam" : 18}
+    print(len(candyCollection))
+
+    // Python Examples 
+
+     firstName="Bruce"
+     lastName="Springsteen"
+     len(firstName)            //    5
+     len(lastName)            //   11
+     firstName.__len__()      //    5
+
+     ages=[0,11,43,12,10]
+     len(ages)                //    5
+     i=0;
+     for i in range(0, len(ages)):
+      print(ages[i], end=' ')
+                              //    0 11 43 12 10
+
+     candyCollection ={"bob": 10, "mary": 7, "sam": 18}
+     len(candyCollection)     //    3
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>range_function.py</code></summary>
+            <pre>
+
+    # Range -&gt; range instance that holds all nums counting 
+    # by one between 0 and first input
+
+    # List -&gt; lists numbers from the inputted sequence
+
+    numberedContestants = range(30)
+    print(type(numberedContestants))
+    print(numberedContestants)
+
+    # convert to a list and print
+    print(list(numberedContestants))
+
+    # basic for loop using range
+    for i in range(10):
+        print("hello")
+
+
+    # interate through a list
+    for c in list(numberedContestants):
+        print("Contestant " + str(c) + " is here")
+
+    # range starting a first number, going up to but not 
+    # including second and counting in increments of the third number
+    luckyWinners = range(7, 30, 5)
+
+    print(list(luckyWinners))
+
+
+    # IDLE Examples
+
+    numberedContestants=range(30)
+    len(numberedContestants)      //   30
+
+    type(numberedContestants)
+    &lt;class 'range'&gt;
+
+    print(numberedContestants)
+    range(0, 30)
+
+    numberedContestants
+    range(0, 30)
+
+    list(numberedContestants)
+    //  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+         21, 22, 23, 24, 25, 26, 27, 28, 29]
+    
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>ternary.py</code></summary>
+
+            <pre>
+
+    # ternary operator / conditional operator
+    hungry = True
+    x = 'Feed the bear now!' if hungry else 'Do not feed the bear.'
+    print(x)
+
+    //IDLE
+
+    x='Feed the bear now' if hungry else 'do not feed the bear'
+    x     //   'Feed the bear now'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>while_loop.py</code></summary>
+            <pre>
+
+
+    # declare list
+    words = ['one', 'two', 'three', 'four', 'five']
+
+    # while loop
+    n = 0
+    while(n &lt; 5): # loop repeats until condition is false
+        print(words[n])
+        n += 1
+
+    # while loop used to check users input
+    secret = 'swordfish'
+    pw = ''
+
+    while pw != secret:
+        pw = input("What's the secret word? ")
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>EXAMPLE NUMBER</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
