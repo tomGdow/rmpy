@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[triple quoted string]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        triple quoted string
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>triple quoted string</dt>
+
+          <dd>A string which is bound by three instances of either a quotation
+          mark <code>(")</code> or an apostrophe <code>(')</code></dd>
+
+          <dd>While they don't provide any functionality not available with
+ single-quoted strings, they are useful for a number of reasons.</dd> 
+
+          <dd>They allow you to include unescaped single and double quotes within
+          a string and they can span multiple lines without the use of the
+          continuation character, making them especially useful when writing
+          docstrings.</dd>
+          <dd>
+          <pre>
+
+    print(""" This is a \t\t  \"\"\" quoted string where I can
+
+    use unescaped "" (double quotes) and \n\n\n\t newlines!
+    """)
+
+
+    //  This is a 		  """ quoted string where I can
+
+    //  use unescaped "" (double quotes) and 
+
+
+    //         newlines!
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (Raw triple quoted string)</summary>
+            <pre>
+
+    print(r""" This is a \t\t  \"\"\" quoted string where I can
+
+    use unescaped "" (double quotes) and \n\n\n\t newlines!
+    """)
+
+    //  This is a \t\t  \"\"\" quoted string where I can
+
+    //  use unescaped "" (double quotes) and \n\n\n\t newlines!
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2 (Unicode triple quoted string)</summary>
+            <pre>
+
+    print(u""" This is a \t\t  \"\"\" quoted string where I can
+
+    use unescaped "" (double quotes) and \n\n\n\t newlines!
+    """)
+
+    //  This is a 		  """ quoted string where I can
+
+    //  use unescaped "" (double quotes) and 
+
+
+    //  	 newlines!
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/glossary.html#term-triple-quoted-string">
+              triple-quoted-string (Glossary: Python docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-0257/">
+              PEP 257 -- Docstring Conventions
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
