@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Pass by object sharing]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+
+div {
+  color: black;
+}
+
+.anchor-one {
+  display:none;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Pass by Object Sharing (Barbara Liskov)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Five Key Demonstrative Functions</dt>
+          <dd>
+          <pre>
+
+    def fn1(arg):
+      arg=[0]              //   Reassign
+
+    def fn2(arg):
+      arg.append(0)        //   Append
+
+    def fn3(arg):
+      arg=[]               //   Reassign first, then append
+      arg.append(100)
+
+    def fn4(arg):
+      arg.append(100)      //   Append first , then reassign
+      arg=[]
+
+    def swap(a,b):
+      temp=a              //    'Litmus test' for pass-by-reference
+      a=b
+      b=temp
+      return f"a is {a} and b is {b}"
+          </pre></dd>   
+
+          <dt>Function calls</dt>
+          <dd>
+          <pre> 
+    a=[]
+    fn1(a)
+    a        //     []     //   Reassignment no effect, Python is NOT pass-by-ref
+
+    fn2(a)   //    
+    a        //     [0]    //   Mutates the arg, Python is NOT pass-by-value
+
+    a=[]
+
+    fn3(a)
+    a        //     []     //   Reassign first, then mutate
+
+    fn4(a)
+    a        //     [100]       Mutate first, then reassign
+
+    a,b=10,1000
+
+
+    swap(a,b)        //     'a is 1000 and b is 10'
+    a                //     10
+    b                //     1000    // Python fails 'Pass-by-reference' Litmus test
+
+          </pre>
+          </dd>
+          <dt>Call by sharing</dt>
+          <dd>Call by sharing (also known as "call by object" or
+          "call by object-sharing") is an evaluation strategy <mark>first noted by
+            Barbara Liskov</mark> in 1974 for the <code>CLU</code> language.</dd> 
+
+          <dd>It is used by languages such as 
+          <code>Python</code>,
+          <code>Java</code> (for object references), 
+          <code>Ruby</code>,
+          <code>JavaScript</code>, 
+          <code>Scheme</code>, 
+          <code>OCaml</code>,
+          <code>AppleScript</code>, 
+          and many others.</dd>
+
+          <dd>However, the term "call by sharing" is not in common use; the
+          terminology is inconsistent across different sources.</dd> 
+
+          <dd>For example, in the <code>Java</code> community, they say that
+          <code>Java</code> is call by value</dd>
+
+          <dd>The semantics of call by sharing differ from call by reference:</dd> 
+
+          <dd><blockquote>"In particular it is not call by value because mutations of
+            arguments performed by the called routine will be visible to the caller.
+
+            And it is not call by reference because access is not given
+            to the variables of the caller, but merely to certain objects"</blockquote></dd>
+
+          <dd>So, for example, if a variable was passed, it is not possible to
+          simulate an assignment on that variable in the callee's scope.</dd> 
+          <dd>However, since the function has access to the same object as the
+          caller (no copy is made), mutations to those objects, if the objects
+          are mutable, within the function are visible to the caller,</dd>
+
+          <dd>Mutations of a mutable object within the function are visible to
+          the caller because the object is not copied or cloned—<mark>it is shared</mark>.</dd>
+
+          <dd>Assignments within a function are not noticeable to the caller,
+          because, in these languages, passing the variable only means passing
+          (access to) the actual object referred to by the variable, not access
+          to the original (caller's) variable</dd>
+
+          <dd>Since the rebound variable only exists within the scope of the
+          function, the counterpart in the caller retains its original binding.</dd>
+
+          <dd>For immutable objects, there is no real difference between call by
+          sharing and call by value</dd>
+
+          <dt>The CLU Reference Manual by Liskov  (page 14)</dt>
+          <dd>"We call the argument passing technique <mark>call by sharing</mark>, 
+          because the argument objects are shared between the caller and the called routine.</dd>  
+
+          <dd>This technique does not correspond to most traditional argument
+          passing techniques (it is similar to argument passing in LISP).</dd>
+          <dd>In particular it is not call by value because mutations of
+          arguments performed by the called routine will be visible to the caller.</dd>
+          <dd>And it is not call by reference because access is not given to the
+          variables of the caller, but merely to certain objects."</dd>
+          <dd>Unlike variables in many common programming languages, which
+          contain containers for values, CLU variables are simply names that the
+          programmer uses to refer to objects</dd> 
+          <dd>As such, it is possible for two variables to denote (or share) the same object</dd>
+
+          <dd>CLU variables are much like those in LISP, and similar to pointer
+          variables in other languges.</dd> 
+
+          <dd>However CLU variables are not objects: they cannot be denoted by
+          other variables or referred to by objects</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing">
+              Call By Sharing (Evaluation strategy) [Wikipedia]
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://web.archive.org/web/20201111195827/https://www.effbot.org/zone/call-by-object.htm">
+              Call By Object
+            </a>
+            </p>
+            </dd>
+
+            <dd><div class="anchor-one">
+              <a href ="./pdf/MIT-LCS-TR-225.pdf">
+                CLU Reference Manual (Barbara Liskov, Russ Atkinson, Toby Bloom, Eliot Moss, Craig Scheifler, Alan Snyder)
+              </a>
+            </div>
+            </dd>   
+            <dd>  
+            <div class="anchor-one-alt">
+              <a href ="../pdf/MIT-LCS-TR-225.pdf">
+                [pdf]  CLU Reference Manual (Barbara Liskov, Russ Atkinson, Toby Bloom, Eliot Moss, Craig Scheifler, Alan Snyder)
+              </a>
+            </div>
+            </dd>   
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
