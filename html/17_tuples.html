@@ -22,22 +22,27 @@ div {
           <dt>Tuples</dt>
           <dd>Tuples are immutable sequences</dd>
           <dd>Typically used to store collections of heterogeneous data </dd>
-          <dd>(such as the <b>2-tuples</b> produced by the <code>enumerate()</code> built-in).</dd> 
+          <dd>(such as the <b>2-tuples</b> produced by the
+          <code>enumerate()</code> built-in).</dd> 
           <dd>Tuples are also used for cases where an immutable sequence of</dd> 
-          <dd>homogeneous data is needed (such as allowing storage in a set or dict instance).</dd>
+          <dd>homogeneous data is needed (such as allowing storage in a set or
+          dict instance).</dd>
           <dd>Tuples may be constructed in a number of ways:</dd>
           <dd>  
           <ul>   
             <li>Using a pair of parentheses to denote the empty tuple: ()</li>
             <li>Using a trailing comma for a singleton tuple: a, or (a,)</li>
             <li>Separating items with commas: a, b, c or (a, b, c)</li>
-            <li>Using the tuple() built-in: <code>tuple() </code>or <code>tuple(iterable)</code></li>
+            <li>Using the tuple() built-in: <code>tuple() </code>or
+              <code>tuple(iterable)</code></li>
           </ul> 
           </dd> 
           <dd><code>tuple('abc')</code> returns <code>('a', 'b', 'c')</code></dd>
           <dd><code>tuple( [1, 2, 3] )</code> returns <code>(1, 2, 3).</code></dd> 
-          <dd>If no argument is given, the constructor creates a new empty tuple, <code>()</code>.</dd>
-          <dd>Note that it is actually the comma which makes a tuple, not the parentheses.</dd>
+          <dd>If no argument is given, the constructor creates a new empty tuple,
+          <code>()</code>.</dd>
+          <dd>Note that it is actually the comma which makes a tuple, not the
+          parentheses.</dd>
           <dd>The parentheses are optional, except in the empty tuple case, 
           or when they are needed to avoid syntactic ambiguity.</dd>
           <dd><code>f(a, b, c)</code> is a function call with three arguments</dd>
@@ -52,12 +57,15 @@ div {
           such as lists</dd>
           <dd>Tuples are immutable, and usually contain a heterogeneous 
           sequence of elements</dd> 
-          <dd>elements accessed via unpacking or indexing (or even by attribute in the case of named tuples)</dd>
+          <dd>elements accessed via unpacking or indexing (or even by attribute
+          in the case of named tuples)</dd>
           <dd>A SPECIAL PROBLEM  is the construction of tuples containing 
           0 or 1 items:</dd>
           <dd>Empty tuples are constructed by an empty pair of parentheses;</dd> 
-          <dd>A tuple with one item is constructed <b>by following a value with a comma</b></dd> 
-          <dd>(it is not sufficient to enclose a single value in parentheses).</dd> 
+          <dd>A tuple with one item is constructed <b>by following a value with a
+            comma</b></dd> 
+          <p><dd>(<mark>It is not sufficient to enclose a single value in
+            parentheses</mark>).</dd></p> 
 
           <dd>&quot;Note that multiple assignment is really just a combination of 
           tuple packing</dd> 
@@ -111,6 +119,31 @@ div {
 
     singleton=(&quot;Apple&quot;,)  // Note comma !!
     type(singleton) // tuple 
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4</summary>
+            <pre>
+
+    a=('a')
+    a                  //   'a'
+    type(a)            //    &lt;class 'str'&gt;       //   <mark>! Note</mark>
+
+    b=tuple('a')
+    b                  //    ('a',)
+    type(b)            //    &lt;class 'tuple'&gt;
+
+    c=()               
+    type(c)            //    &lt;class 'tuple'&gt;    //   <mark>! Note</mark>
+
+    d='a',
+    d                  //    ('a',)
+    type(d)            //    &lt;class 'tuple'&gt;
+
+    e=('a',)
+    e                  //    ('a',)
+    type(e)            //    &lt;class 'tuple'&gt;
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
