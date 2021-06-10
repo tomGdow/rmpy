@@ -48,7 +48,12 @@ div {
           <dd>Also referred to as <mark>integer division</mark>.</dd> 
           <dd>The resultant value is a whole integer, though the result’s type is
           not necessarily <code>int</code>.</dd> 
-          <dd><mark>The result is always rounded towards minus infinity</mark></dd>
+          <dd>
+          <pre>
+    <mark> &#8594; </mark> math.floor(-x) == - math.ceil(x)
+            </pre>
+          </dd>
+          <dd>(Another way of looking at things) <mark>The result is always rounded towards minus infinity</mark></dd>
           <dd>
           <pre> 
     1//2 is 0
