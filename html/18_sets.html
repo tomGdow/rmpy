@@ -116,7 +116,6 @@ div {
             </pre>
           </details><!--inner-->
 
-
           <details><!--inner-->
             <summary><code>myset.discard(elem)</code> (Discard from Set)</summary>
             <pre>
@@ -125,7 +124,7 @@ div {
 
     myset =  {'tom', 'dick', 'dirty', 'harry'} 
 
-    # note  (and compare with myset.remove()()  
+    # note  (and compare with myset.remove())  
 
     myset.discard('dirty')    //     {'tom', 'dick', 'harry'}
     myset.discard('annie')    //     NO ERROR MESSAGE
@@ -143,13 +142,29 @@ div {
              myset={"tom", "dick", "harry"}    //  {'tom', 'dick', 'harry'}
              myset.update(['jones', 'tupin', 'worth'])
                   //    {'dick', 'worth', 'jones', 'harry', 'tom', 'tupin'}
+            
+            # Example 2
+
+            myset={"Tom", "Dick", "Harry"}
+            myset    //   {'Harry', 'Tom', 'Dick'}
+            myset.update(['Worth'])
+            myset   //    {'Worth', 'Harry', 'Tom', 'Dick'}
+            myset.update('hello')
+            myset   //    {'h', 'Tom', 'Dick', 'e', 'l', 'o', 'Worth', 'Harry'}   // <mark> !Note</mark>
+
+            # Example 3 
+
+            myset.clear()
+            myset.add('thomas')
+            myset                      // {'thomas'}
+            myset.update('thoma)
+            myset                      // {'h', 'a', 'thomas', 'm', 't', 'o', 's'}
+                                       //  <mark>! Compare with above</mark>
             </pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary><code>set.union()</code> or <code>|</code></summary>
             <pre>
-
-    s1={1, 2, 3, 4, 5}                                                
     s2={4,5,6,7,8}
 
     s1.union(s2)    //  {1, 2, 3, 4, 5, 6, 7, 8}

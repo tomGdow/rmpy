@@ -1,0 +1,267 @@
+﻿<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>[bytes bytesarray]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico"/>
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        bytes object
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+
+
+          <dt><code>bytes objects</code></dt>
+
+          <dd>Bytes objects are <b>immutable sequences of single bytes</b>.</dd> 
+          <dd><code>bytes objects</code> behave like immutable
+          sequences of integers</dd>   
+          <dd>Each value in the sequence
+          is restricted such that <code>0 &lt;= x &lt; 256</code> </dd>  
+
+          <dd>(Attempts to violate this restriction will trigger
+          <code>ValueError</code>)</dd>
+          <dd>A<code> byte object</code> is akin to tuple</dd>
+          <dd>A <code> bytearray</code> is akin to a list</dd>
+
+          <dd>
+          Since many major binary protocols are based on the ASCII text encoding,
+          bytes objects offer several methods that are only valid when working
+          with ASCII
+          compatible data and are closely related to string objects in a variety 
+          of other ways.
+          </dd>
+          <dt>byte literals</dt>
+          <dd>The syntax for bytes literals is largely the same as that for string
+          literals, except that a <code>b prefix</code> is added:
+          </dd>
+          <dd>
+          <ul>
+            <li><code>Single quotes: b'still allows embedded &quot;double&quot;
+                quotes'</code></li>
+            <li><code>Double quotes: b&quot;still allows embedded 'single'
+                quotes&quot;</code></li>
+            <li>
+              <code>Triple quoted: b'''3 single quotes''', b&quot;&quot;&quot;3 
+                double quotes&quot;&quot;&quot;</code>
+            </li>
+          </ul> 
+          </dd>
+          <dd>Only ASCII characters are permitted in bytes literals (regardless 
+          of the declared source code encoding).</dd> 
+          <dd>Any binary values over 127 must be entered into bytes literals using
+          the appropriate escape sequence.</dd>
+          <dd>As with string literals, bytes literals may also use a
+          <code>r prefix</code> to 
+          disable processing of escape sequences.</dd>
+
+
+          <dt>Create <code>byte object</code></dt>
+
+          <dd>In addition to the literal forms, bytes objects can be created
+          in a number of other ways:</dd>
+
+          <dd>
+          <ol>  
+            <li>A zero-filled bytes object of a specified length:
+              <code>bytes(10)</code></li>
+            <li>From an iterable of integers: <code>bytes(range(20))</code></li>
+            <li>Copying existing binary data via the buffer protocol:
+              <code>bytes(obj)</code></li>
+            <li>use <code>mystr.encode()</code></li>
+            <ol>  
+          </dd>   
+
+
+          <dt>Parts, slicing and interconversions</dt>
+
+          <dd>Since bytes objects are sequences of integers (akin to a tuple),
+          for a bytes object <code>b, b[0]</code> will be an integer,</dd> 
+          <dd>But <code>b[0:1]</code> will be a bytes object of length 1. </dd>   
+          <dd>(This contrasts with text strings, where both indexing and slicing
+          will produce a string of length 1)</dd>
+
+          <dd>The representation of bytes objects uses the literal format
+          <code>(b'...')</code> since it is often more useful than
+          e.g. <code>bytes([46, 46, 46])</code>.</dd>     
+          <dd>  You can always convert a bytes object into a list of integers
+          using <code>list(b)</code>.</dd>
+
+          <dd><mark>Since 2 hexadecimal digits correspond precisely to a single
+            byte, hexadecimal numbers are a commonly used format for describing
+            binary data</mark>.</dd> 
+          <dd>Accordingly, the bytes type has an additional class method to read
+          data in that format: the classmethod <code>bytes.fromhex(string)</code>
+          </dd>
+          <dd>A reverse conversion function exists to transform a bytes object
+          into its hexadecimal representation: 
+          <code>hex([sep[, bytes_per_sp]])</code>
+          </dd>   
+
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Methods</summary>
+          <dl>
+            <dt><code>classmethod fromhex(string)</code></dt>
+
+            <dd>This bytes class method returns a bytes object, decoding the given
+            string object.</dd> 
+
+            <dd>The string must contain two hexadecimal digits per byte, with ASCII
+            whitespace being ignored.</dd>
+
+            <dd><pre>
+    bytes.fromhex('2Ef0 F1f2    ')     //    b'.\xf0\xf1\xf2'
+            </pre></dd>
+
+            <dt> <code>hex([sep[, bytes_per_sep]])</code></dt>
+
+            <dd>Return a <mark>string object containing two hexadecimal digits
+              for each byte</mark> in the instance</dd>
+
+            <dd>If you want to make the hex string easier to read, you can specify
+            a single character separator <code>sep</code> parameter to include in the output.</dd> 
+            <dd>By default between each byte.</dd> 
+            <dd>A second optional <code>bytes_per_sep</code> parameter controls the
+            spacing.</dd> 
+            <dd>Positive values calculate the separator position from the right,
+            negative values from the left</dd>
+
+            <dd><pre>
+
+    value=b"\xf0\xf1\xf2"
+    value.hex()               //    'f0f1f2'
+    value.hex('-')            //    'f0-f1-f2'
+    value.hex('-',2)          //    'f0-f1f2'
+    value.hex('-',-2)         //    'f0f1-f2'
+
+    val2=b"UUDDLRLRAB"
+    val2.hex()                //    '555544444c524c524142'
+    val2.hex('-', -4)         //    '55554444-4c524c52-4142'
+
+            </pre></dd>
+
+
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+        string = "Python is interesting"
+        arr = bytes(string, 'utf-8')
+        arr    //     b'Python is interesting'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+
+        rList = [1, 2, 3, 4, 5]
+        arr2 = bytes(rList)
+        arr2   //     b'\x01\x02\x03\x04\x05'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+
+    myb=bytes('0Aa', 'utf-8')
+    myb              //     b'0Aa'
+    myb.decode()     //      '0Aa'
+    bytes.hex(myb)   //      '304161'   //   hex representation of bytes object
+    myb.hex()        //      '304161'   //   This also works
+    bytes.fromhex('30 41 61')           //   b'0Aa'
+    bytes.fromhex(bytes.hex(myb))       //   b'0Aa'
+
+    myb[0]                              //   48
+    myb[0:]                             //   b'0Aa'
+    [x for x in myb]                    //   [48, 65, 97]  // list(myb) is easier!
+    [hex(x) for x in myb]               //   ['0x30', '0x41', '0x61']
+    myb[0:1]                            //   b'0'
+    myb[1:2]                            //   b'A'
+    myb[1:2].decode()                   //   'A'
+    myb[1:2].hex()                      //   '41'
+    myb[1:2][0]                         //   65        // Note
+
+
+    'OAa'.encode()                      //   b'OAa'    // Another way to make a bytes obj
+    'OAa'.encode().decode()             //   'OAa'
+
+    list(myb)                           //   [48, 65, 97]
+    tuple(myb)                          //   (48, 65, 97)
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4</summary>
+            <pre>
+
+    bytes([48, 65,97,127,255])           //     b'0Aa\x7f\xff'
+
+    bytes([48, 65,97,127,255,256])      //      !! 256 not allowed
+    Traceback (most recent call last):
+      File "&lt;pyshell#4&gt;", line 1, in &lt;module&gt;
+        bytes([48, 65,97,127,255,256])
+    ValueError: bytes must be in range(0, 256)
+
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+            <dd>
+            <p>
+
+            <a href="https://docs.python.org/3/library/stdtypes.html#bytes-objects">
+              built-in types: bytes objects (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#bytearray">
+              Byte Array (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/methods/built-in/bytes">
+              python bytes
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+
+</html>
