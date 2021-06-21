@@ -155,6 +155,25 @@ div {
 
             </pre></dd>
 
+            <dt>
+            str.encode(encoding="utf-8", errors="strict")
+            </dt>
+            <dd>Return an encoded version of the string as a <code>bytes object</code>.</dd> 
+            <dd>Default encoding is <code>'utf-8'</code>.</dd> 
+            <dd>Errors may be given to set a different error handling scheme.</dd> 
+            <dd>The default for errors is <code>'strict'</code>, meaning that
+            encoding errors raise a <code>UnicodeError</code>.</dd>
+            <dd>Other possible values are <code>'ignore'</code>,
+            <code>'replace'</code>, <code>'xmlcharrefreplace'</code>,
+            <code>'backslashreplace'</code> and any other name registered via
+            <code>codecs.register_error()</code></dd>
+
+            <dd><pre>
+
+    "0Aa".encode()          //   b'0Aa'
+    list("0Aa".encode())    //   [48, 65, 97]
+
+            </pre></dd>
 
           </dl>
         </details>
@@ -224,6 +243,36 @@ div {
       File "&lt;pyshell#4&gt;", line 1, in &lt;module&gt;
         bytes([48, 65,97,127,255,256])
     ValueError: bytes must be in range(0, 256)
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5 (Replace)</summary>
+            <pre>
+
+    myb=bytes([48,65,97])
+    myb    //    b'0Aa'
+
+    myb.replace(97,98)
+    //  Traceback (most recent call last):
+    //  File "&lt;pyshell#3", line 1, in &lt;module
+    //  myb.replace(97,98)
+    //  TypeError: a bytes-like object is required, not 'int'
+
+    //  myb.replace(b'a', b'b')    //   b'0Ab'  // Must be bytes object
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 6 (Decode)</summary>
+            <pre>
+
+    copyright=b"\xc2\xa9"
+    copyright                   //     b'\xc2\xa9'
+    copyright.decode()          //     '©'
+    list(copyright)             //     [194, 169]
+    bytes([194,169]).decode()   //     '©'
 
             </pre>
           </details><!--inner-->
