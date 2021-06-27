@@ -21,12 +21,19 @@ div {
       <main>
         <dl>
           <dt>memoryview</dt>
+
+          <dd>A <code>memoryview object</code> exposes the C level buffer
+          interface as a Python object which can then be passed around like any other object.</dd>
           <dd>memoryview objects allow Python code to access the internal data of
           an object that supports the buffer protocol without copying.</dd>
           <dd>
           <code>memoryview(obj)</code>: Create a memoryview that references obj.</dd> 
           <dd>obj must support the buffer protocol.</dd> 
           <dd>Built-in objects that support the buffer protocol include bytes and bytearray.</dd>
+          <dd>A <code>memory view</code> is a safe way to expose the buffer protocol in Python.</dd>
+          <dd>It allows you to access the internal buffers of an object by creating a memory view object.</dd>
+
+
         </dl>
       </main>
       <div class="syntax">
@@ -43,7 +50,17 @@ div {
           <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
-            [code]
+
+    myba=bytearray("0Aa", 'utf-8')
+    myba    //    bytearray(b'0Aa')
+
+    mv=memoryview(myba)
+    mv      //    &lt;memory at 0x00000276369E1100&gt;
+    mv[1]   //    65
+    mv[1]=66
+
+    myba    // bytearray(b'0Ba')    // Mutated
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
@@ -57,6 +74,15 @@ div {
             <p>Note One</p>
             </dd>
             <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/c-api/memoryview.html#index-0">
+              MemoryView objects (Python Docs)
+            </a>
+            </p>
+            </dd>
+
             <dd>
             <p>
             <a href ="https://docs.python.org/3/library/stdtypes.html#memory-views">
@@ -64,6 +90,15 @@ div {
             </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/methods/built-in/memoryview">
+              Python memoryview() (Programiz)
+            </a>
+            </p>
+            </dd>
+
             <dd>
             <p>
             <a href ="https://www.w3schools.com/python/trypython.asp?filename=demo_type_memoryview">
@@ -71,6 +106,7 @@ div {
             </a>
             </p>
             </dd>
+
           </dl>
         </details>
       </div>
