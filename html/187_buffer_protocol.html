@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[buffer]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Buffer protocol
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>buffer protocol</dt>
+
+          <dd>Certain objects available in Python wrap access to an underlying
+          memory array or <code>buffer</code></dd>          
+          <dd>Such objects include the built-in <code>bytes</code> and
+          <code>bytearray</code>, and some extension types like <code>array.array</code></dd>
+
+          <dd>These types share the common characteristic of being backed by a
+          possibly large memory buffer.</dd>
+
+          <dd>It is desirable, in some situations, to access that buffer directly
+          and without intermediate copying.</dd>
+
+          <dd>The buffer protocol protocol has two sides:</dd>
+          <dd><ul>
+            <li>
+              On the producer side, a type can export a
+              <code>buffer interface</code> which allows objects of that type to
+              expose information about their underlying buffer.
+            </li>
+
+            <li>
+              On the consumer side, several means are available to obtain a
+              pointer to the raw underlying data of an object (for example a method
+              parameter).
+            </li>
+
+          </ul></dd>
+
+          <dd>Simple objects such as <code>bytes</code> and <code>bytearray</code>
+          expose their underlying buffer in byte-oriented form</dd>
+
+          <dd>Other forms are possible; for example, the elements exposed by an
+          <code>array.array</code> can be multi-byte values.</dd>
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+    myb=b"0Aa"
+    myba=bytearray('0Aa', 'utf-8')
+    ,  
+    myb.endswith(b'a')         //     True
+    myb.endswith(myba)         //     True
+    myb.endswith(myba[-1:])    //     True
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/c-api/buffer.html#bufferobjects">
+              Buffer Protocol (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://jakevdp.github.io/blog/2014/05/05/introduction-to-the-python-buffer-protocol/">
+              An Introduction to the Python Buffer Protocol
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
