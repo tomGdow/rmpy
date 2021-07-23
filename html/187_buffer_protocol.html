@@ -54,6 +54,17 @@ div {
 
           <dd>Other forms are possible; for example, the elements exposed by an
           <code>array.array</code> can be multi-byte values.</dd>
+          <dd>The buffer protocol provides a way to access the internal data of an object.</dd> 
+          <dd>This internal data is a memory array or a buffer.</dd>
+          <dd>The buffer protocol allows one object to expose its internal data
+          (buffers) and the other to access those buffers without intermediate copying.</dd>
+
+          <dd>This protocol is only accessible to us at the C-API level and not
+          using our normal codebase.</dd>
+
+          <dd>So, in order to expose the same protocol to the normal Python
+          codebase, memory views are present.</dd>
+
 
         </dl>
       </main>

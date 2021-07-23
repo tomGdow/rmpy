@@ -127,8 +127,11 @@ div {
             <dd><pre>
     bytes.fromhex('2Ef0 F1f2    ')     //    b'.\xf0\xf1\xf2'
             </pre></dd>
-
-            <dt> <code>hex([sep[, bytes_per_sep]])</code></dt>
+            <dd><pre> 
+    bytes.fromhex("304161")     //    b'0Aa'
+    bytes.fromhex("30 41 61")   //    b'0Aa'
+            </pre></dd>   
+            <dt><code>hex([sep[, bytes_per_sep]])</code></dt>
 
             <dd>Return a <mark>string object containing two hexadecimal digits
               for each byte</mark> in the instance</dd>
@@ -174,6 +177,27 @@ div {
     list("0Aa".encode())    //   [48, 65, 97]
 
             </pre></dd>
+
+            <dt><code>bytes.decode(encoding="utf-8", errors="strict")</code></dt>
+            <dt><code>bytearray.decode(encoding="utf-8", errors="strict")</code></dt>
+
+            <dd>Return a string decoded from the given bytes.</dd> 
+            <dd>Default encoding is <code>'utf-8'</code>.</dd> 
+            <dd>Errors may be given to set a different error handling scheme.</dd> 
+            <dd>The default for errors is <code>'strict'</code>, meaning that
+            encoding errors raise a <code>UnicodeError</code>.</dd> 
+            <dd>Other possible values are <code>'ignore'</code>,
+            <code>'replace'</code> and any other name registered via
+            <code>codecs.register_error()</code></dd> 
+
+            <dd>
+            <pre>
+
+    b"0Aa".decode()                    //    '0Aa'
+    b"0Aa".decode(encoding="utf-8")    //    '0Aa'
+
+            </pre>
+            </dd>
 
           </dl>
         </details>
@@ -276,6 +300,14 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 7 (Decode)</summary>
+            <pre>
+[bytes([194, x]).decode() for x in [163,171,174,177,187]]
+    // ['£', '«', '®', '±', '»']
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -304,6 +336,14 @@ div {
             <p>
             <a href ="https://www.programiz.com/python-programming/methods/built-in/bytes">
               python bytes
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/stdtypes.html#bytes.decode">
+              bytes.decode() (Python Docs)
             </a>
             </p>
             </dd>
