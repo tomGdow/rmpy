@@ -92,6 +92,8 @@ let pageData = (function () {
     ".\179_random.html",
     "142_armstrong_number.html",
     "170_x_alphabet_sequence.html",
+    "188_file_open.html", 
+    "189_with.html",
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
     "154_notes_jason_three.html",
