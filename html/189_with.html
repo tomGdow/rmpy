@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[with]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        with statement
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>with statement</dt>
+
+          <dd>The <code>with</code> statement is used to wrap the
+          execution of a block with methods defined by a
+          <code>context manager</code></dd>
+
+          <dd>This allows common <code>try…except…finally</code> usage
+          patterns to be <em>encapsulated</em> for convenient reuse.</dd>
+
+          <dd>The <code>with</code> statement in Python is used in exception
+          handling to make the code cleaner and much more readable.</dd> 
+
+          <dd>It simplifies the management of common resources like file streams</dd>
+
+          <dd><pre> 
+    (i) with EXPRESSION as TARGET:
+           SUITE
+
+    (ii) with A() as a, B() as b:
+           SUITE
+
+    (iii) with A() as a:
+              with B() as b:
+                  SUITE
+
+    // (ii) and (iii) semantically equivalent
+          </pre></dd>   
+          <dd>It is good practice to use the <code>with</code> keyword when
+ dealing with file objects.</dd>
+          <dd>The advantage is that the file is <mark>properly closed</mark>
+          after its suite finishes, even if an exception is raised at some point.</dd> 
+          <dd>Using with is also much shorter than writing equivalent try-finally
+          blocks</dd>
+          <dd><pre> 
+
+    with open('workfile') as f:
+        ...     read_data = f.read()
+
+    f.closed    //   True    // Check that file is automatically closed
+          </pre></dd>   
+          <dt>context managers</dt>
+          <dd><code>context managers</code> provide <code>__enter__()</code> and
+          <code>__exit__()</code> methods that are invoked on entry to and exit
+          from the body of the <code>with</code> statement</dd>
+
+          <dd>A <code>context manager</code> is an object that defines the
+          runtime context to be established when executing a <code>with</code>
+          statement.</dd>                                                
+
+          <dd>The context manager handles the entry into, and the exit from, the
+          desired runtime context for the execution of the block of code</dd>
+
+          <dd>Context managers are normally invoked using the <code>with</code>
+          statement, but can also be used by directly invoking their methods</dd>
+
+          <dt><code>object.__enter__(self)</code></dt>    
+          <dd>Enter the runtime context related to this object</dd>
+
+          <dt><code>object.__exit__(self, exc_type, exc_value, traceback)</code></dt>
+          <dd>Exit the runtime context related to this object.</dd>
+
+          <dt>PEP 343</dt>
+          <dd> A new statement is proposed with the syntax:</dd>
+          <dd>
+          <pre> 
+    with EXPR as VAR:
+        BLOCK
+          </pre>  </dd>   
+          <dd>Here, <code>'with'</code> and <code>'as'</code> are new keywords</dd>
+          <dd>
+          <code>EXPR</code> is an arbitrary expression
+          (but not an expression-list) and <code>VAR</code> is a single assignment
+          target.
+          </dd> 
+          <dd>
+          It can not be a comma-separated sequence of variables, but it can
+          be a parenthesized comma-separated sequence of variables
+          </dd>
+          <dd>The <code>"as VAR"</code> part is optional.</dd>
+          <dd>Roughly translates as follows:</dd>
+          <dd>  <pre>  
+    mgr = (EXPR)
+    exit = type(mgr).__exit__  # Not calling it yet
+    value = type(mgr).__enter__(mgr)
+    exc = True
+    try:
+        try:
+            VAR = value  # Only if "as VAR" is present
+            BLOCK
+        except:
+            # The exceptional case is handled here
+            exc = False
+            if not exit(mgr, *sys.exc_info()):
+                raise
+            # The exception is swallowed if exit() returns true
+    finally:
+        # The normal and non-local-goto cases are handled here
+        if exc:
+            exit(mgr, None, None, None)
+          </pre>  </dd>   
+
+        </dl>
+
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    with open('tom') as f:
+        for line in f:
+            print(line, end='')
+
+    // Line One
+    // Line Two
+    // Line Three
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    with open('tom') as a, open('tom2') as b:
+      for l1, l2, in zip(a,b):
+        print(f"{l1}{l2}",end='')
+
+    // Line One
+    // Sentence 1
+    // Line Two
+    // Sentence 2
+    // Line Three
+    // Sentence 3
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    with open('tom', mode="r") as tf:
+        with open('out.txt', mode='w') as of:
+            for line in tf:
+                of.write(line)
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href ="https://www.geeksforgeeks.org/with-statement-in-python/">
+              with statement in Python (Geeks for Geeks)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/compound_stmts.html#with">
+              The with statement (Compound Statements, Python docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.python.org/dev/peps/pep-0343/">
+              PEP 343 -- The with Statement
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/reference/datamodel.html#context-managers">
+              With Statement Context Managers
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>

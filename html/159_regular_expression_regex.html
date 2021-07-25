@@ -109,7 +109,7 @@ div {
           for expressing them</dd>
 
           <dd>Putting REs in strings keeps the Python language simpler, but has
-          one disadvantage: the backslash pLague</dd>
+          one disadvantage: the backslash plague</dd>
 
           <dt>Backslash Plague</dt>
           <dd>Regular expressions use the backslash character
@@ -167,7 +167,13 @@ div {
           <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
-            [code]
+    import os
+    import re
+
+    def lsgrep (regex):
+      for item in os.listdir(os.curdir):
+        if(re.match(regex,item)):
+          print(item)
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
@@ -176,9 +182,6 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
             </dd>
             <dt>References</dt>
 
