@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[read-write]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Reading and Writing files
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>open() method</dt>
+          <dd>Opens a file and returns a file object</dd>
+          <dd>The method is most commonly used with two arguments:
+          <code>open(filename, mode)</code></dd>
+          <dd>If the file cannot be opened, an <mark>OSError</mark> is raised</dd>
+          <dd><pre> 
+          f = open('workfile', 'w')
+
+          open(file, 
+               mode='r', 
+               buffering=-1, 
+               encoding=None, 
+               errors=None, 
+               newline=None, 
+               closefd=True, 
+               opener=None
+               )
+          </pre><dd>  
+
+          <dd><em>file</em> is a path-like object giving the pathname
+          (absolute or relative to the current working directory) of the file
+          to be opened</dd>
+
+          <dd><em>mode</em> is an optional string that specifies the mode in
+          which the file is opened.</dd> 
+          <dd>It defaults to <code>'r'</code> which means open for reading
+          in text mode</dd>
+          <dd><pre> 
+
+    'r'    //    open for reading (default)
+    'w'    //    open for writing, truncating the file first
+    'x'    //    open for exclusive creation, failing if the file already exists
+    'a'    //    open for writing, appending to the end of the file if it exists 
+    'b'    //    binary mode 
+    't'    //    text mode (default)
+    '+'    //    open for updating (reading and writing)
+
+          </pre></dd>   
+          <dd>Modes <code>'w+'</code> and <code>'w+b'</code> open and
+          truncate the file.</dd>
+          <dd>Modes <code>'r+'</code> and <code>'r+b'</code> open the file with
+          no truncation</dd>
+          <dd>Python distinguishes between <em>binary</em> and <em>text</em> I/O.</dd>
+          <dd>Files opened in <em>binary</em> mode (including <code>'b'</code> in
+          the mode argument) return contents as <code>bytes objects</code>
+          without any decoding</dd>
+
+          <dd>In <em>text</em> mode (the default, or when <code>'t'</code> is
+          included in the mode argument), the contents of the file are returned
+          as <code>str</code>, the bytes having been first decoded using a
+          platform-dependent encoding or using the specified encoding if given.</dd>
+
+
+          <dd><em>Buffering</em> is an optional integer used to set the buffering
+          policy.</dd> 
+          <dd><pre> 
+          0           //    switch buffering off (only allowed in binary mode), 
+          1           //    select line buffering (only usable in text mode), 
+          integer &gt; 1 //   indicate the size in bytes of a fixed-size chunk buffer. 
+          </pre></dd>   
+          <dd><code>encoding</code> is the name of the encoding used to decode
+          or encode the file.</dd> 
+          <dd>This should only be used in text mode</dd>
+          <dd><code>errors</code> is an optional string that specifies how
+          encoding and decoding errors are to be handled—this cannot be used in
+          binary mode.</dd>
+          <dd><pre> 
+          'strict'    //  raise a ValueError exception if there is an encoding error. 
+                      //  The default value of None has the same effect.
+
+          'ignore'    //  ignores errors. 
+
+          'replace'   //  causes a replacement marker (such as '?') to be inserted 
+                      //  where there is malformed data.
+
+
+          'backslashreplace'   //  replaces malformed data by Python’s backslashed 
+                               //  escape sequences.
+
+           'namereplace'       //  replaces unsupported characters with \N{...} escape sequences.
+                               //  (also only supported when writing) 
+          </pre>  </dd>   
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Methods of File Objects</summary>
+          <dl>
+            <dt><code>file_object.read(size)</code></dt>
+            <dd>Reads some quantity of data and returns it <em>as a string</em>
+            (in text mode) or bytes object (in binary mode).</dd> 
+
+            <dd><code>size</code> is an optional numeric argument.</dd> 
+            <dd>When <code>size</code> is omitted or negative, the entire contents
+            of the file will be read and returned;</dd> 
+            <dd>If the end of the file has been reached, <code>f.read()</code>
+            will return an empty string ('').</dd>
+            <dd><pre> 
+
+    f = open('tom')
+    x = f.read()
+    print(type(x))      //   &lt;class 'str'&gt;
+    print(x)
+    //  Line One
+    //  Line Two
+    //  Line Three
+
+    xx = f.read()
+    print(xx)      // ''
+
+            </pre></dd>   
+            <dt><code>file_object.readline()</code></dt>
+            <dd>reads a single line from the file</dd> 
+            <dd>a newline character (<code>\n</code>) is left at the end of
+            the string, and is only omitted on the last line of the file if the
+            file doesn’t end in a newline.</dd> 
+            <dd>This makes the return value unambiguous</dd> 
+            <dd>If <code>f.readline()</code> returns an empty string, the end
+            of the file has been reached</dd>
+            <dd>a blank line is represented by <code>'\n'</code>, a
+            string containing only a single newline.</dd>
+            <dd><pre> 
+    f = open('tom')
+    x = f.readline()
+    print(type(x))     //   &lt;class 'str'&gt;
+    print(x)           //   Line One
+
+    x = f.readline()   
+    print(x)           //   Line Two
+
+    f.seek(0)          //   0
+    x=f.readline()     
+    print(x)           //   Line One
+
+
+            </pre></dd>   
+            <dt>read lines with loop</dt>
+            <dd><pre> 
+    for line in f:
+      print(line, end='')
+
+    //  Line One
+    //  Line Two
+    //  Line Three
+
+    //  Memory efficient AND fast
+            </pre></dd>   
+
+            <dt><code>file_object.readlines</code></dt>
+            <dd>Return value is list</dd>
+            <dd><code>list(f)</code> seems to be equivalent</dd>
+
+            <dt><code>f.write(string)</code></dt>
+            <dd>Writes the contents of string to the file, returning the number
+            of characters written</dd>
+            <dd><pre> 
+     f.write('This is a test\n')
+     // 15
+            </pre></dd>   
+
+            <dt><code>file_object.writelines</code></dt>
+            <dd><pre> 
+
+    lines =["line one\n", "line two \n", "line three \n"]
+    f=open('tnew', 'w')
+    f.writelines(lines)
+    f.close()
+
+    with open('tnew') as t:
+      for line in t:
+        print(line, end='')
+
+    //  line one
+    //  line two
+    //  line three
+
+            </pre></dd>   
+
+            <dt><code>f.tell()</code></dt>
+            <dd>Returns an integer giving the file object’s current position
+            in the file represented as number of bytes from the beginning of the
+            file when in binary mode and an opaque number when in text mode.</dd>
+            <dt><code>f.seek(offset, whence)</code></dt>
+            <dd>Changes the file object’s position</dd>
+            <dd>The position is computed from adding <code>offset</code> to
+            a reference point</dd>
+            <dd>The reference point is selected by the <code>whence</code>
+            argument.</dd> 
+            <dd><pre> 
+                0     //  measures from the beginning of the file
+                1     //  uses the current file position
+                2     //  uses the end of the file as the reference point 
+            </pre></dd>   
+            <dd><code>whence</code> can be omitted and defaults to 0</dd> 
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+    def file_iter():
+    '''Process single line into string'''
+
+    with open('tom', mode="r") as tf:
+              with open('out.txt', mode='w') as of:
+                  for line in tf:
+                      of.write(line)
+
+    // Alt version
+
+    def file_iter():
+    '''Process single line into string'''
+
+    with open('tom', mode="r") as tf, open('out.txt', mode='w') as of:
+        for line in tf:
+            of.write(line)
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    def file_readlines(fname):
+    '''Processess all lines into list in memory'''
+
+    with open(fname, mode='r') as tf:
+              with open('out.txt', 'w') as of:
+                  lines=tf.readlines()
+                  of.writelines(lines)            // Note writelines 
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    def file_readline(fname):
+    with open(fname, mode='r') as tf:
+        with open('out.txt',mode='w') as of:
+            while 1:
+                line=tf.readline()
+                if not line:
+                    break
+                else:
+                    of.write(line)
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4</summary>
+            <pre>
+      def file_read(fname):
+    '''Process all lines into string in memory'''
+
+    with open(fname, mode='r') as tf:
+        with open('out.txt', mode='w') as of:
+            of.write(tf.read())
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#open">
+              Open (Built-in Functions, Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.w3schools.com/python/ref_func_open.asp">
+              Python open() Function (W3Schools)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/tutorial/inputoutput.html#tut-files">
+              Reading and Writing Files
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
