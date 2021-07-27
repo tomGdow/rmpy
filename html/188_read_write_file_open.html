@@ -278,6 +278,25 @@ div {
             of.write(tf.read())
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5 (timeit</summary>
+            <pre>
+    from timeit import timeit
+
+    if __name__ == '__main__':
+        print(100*timeit(stmt='file_iter("Sample1000.csv")',setup='from __main__ import file_iter', number=10))
+        print(100*(timeit(stmt='file_readlines("Sample1000.csv")', setup='from __main__ import file_readlines', number=10)))
+        print(100*(timeit(stmt='file_readline("Sample1000.csv")', setup='from __main__ import file_readline', number=10)))
+        print(100*(timeit(stmt='file_read("Sample1000.csv")', setup='from __main__ import file_read', number=10)))
+
+    // 2.1377300000000043
+    // 2.7254599999999964
+    // 2.2908299999999993
+    // 1.4870400000000006
+
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
