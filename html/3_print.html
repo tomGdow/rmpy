@@ -87,7 +87,18 @@ div {color:black;}
           <details> <!--inner--> 
             <summary>Example 2 (Print to File)</summary>
             <pre>
-    //    print('Hi Tom, how is the Python going', file=open('output.txt', 'a'))
+    // Example 1
+
+    print('Hi Tom, how is the Python going', file=open('output.txt', 'a'))
+
+    //  A Better Example 
+
+    f = open('bigfile.txt', 'w')
+    for i in range(1000000):
+        msg = "This is line number %d" % i
+        print(msg, file=f,end ='\n')          // !! Note
+    f.close()
+
             </pre>
           </details><!--inner--> 
           <details> <!--inner--> 
