@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[_main__]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        __main__ and __name__
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>__main__ and __name__</dt>
+
+          <dd><code>'__main__'</code> is the name of the scope in which top-level
+          code executes</dd>
+          <dd>A module’s <code>__name__</code> is set equal to
+          <code>'__main__'</code> when read from standard input, a script, or
+          from an interactive prompt</dd>
+          <dd>A module can discover whether or not it is running in the main
+          scope by checking its own <code>__name__</code></dd>   
+          <dd>  
+          This allows a common idiom for conditionally executing code in a module
+          when it is run as a script or with <code>python -m</code> but not when
+          it is imported</dd>
+          <dd><pre> 
+    if __name__ == "__main__":
+        # execute only if run as a script
+        main()
+          </pre><dd>  
+          <dd>when the interpreter runs a module, the <code>__name__</code>
+          variable will be set as  <code>__main__</code> if the module that is
+          being run is the main program.</dd>
+
+          <dd>But if the code is importing the module from another module, then
+          the <code>__name__</code>  variable will be set to that module’s name</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+    // file_one_tgd_mod
+
+    from file_two_tgd_mod import function_three
+
+    print("File One __name__ is set to {}".format(__name__))
+
+    def function_one():
+        print("Function one is executed")
+
+    def function_two():
+        print("Function two is executed")
+
+    if __name__ == "__main__":
+        print("File one executed when ran directly")
+        function_one()
+        function_three()
+    else:
+        print("File one executed when imported")
+
+    // file_two_tgd_mod
+
+    print("File two __name__ is set to {}".format(__name__))
+
+    def function_three():
+        print("Function three is executed")
+
+    def function_four():
+        print("Function four is executed")
+
+
+    if __name__ == "__main__":
+        print("File two executed directly")
+    else:
+        print("File two executed when imported")
+
+
+    // Run 
+
+    python  .\file_one_tgd_mod.py
+
+
+    // File two __name__ is set to file_two_tgd_mod
+    // File two executed when imported
+    // File One __name__ is set to __main__
+    // File one executed when ran directly
+    // Function one is executed
+    // Function three is executed
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://www.freecodecamp.org/news/if-name-main-python-example/">
+              Python if __name__ == __main__ Explained with Code Examples (Goran Aviani, FreeCodeCamp)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/__main__.html">
+              __main__ — Top-level script environment (Python Docs)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
