@@ -25,7 +25,7 @@ div {
           expression using the <code>globals</code> and <code>locals</code>
           dictionaries as global and
           local namespace</dd>
-          <dd>The arguments are a string and optional globals and locals</dd> 
+          <dd>The arguments <em>are a string</em>. and optional globals and locals</dd> 
           <dd>If provided, <code>globals</code> must be a dictionary.</dd> 
           <dd>If provided, <code>locals</code> can be any mapping object.</dd>
 
@@ -36,6 +36,10 @@ div {
           <dd><code>eval</code> can also be used to execute arbitrary code
           objects (such as those created by compile()).</dd> 
           <dd>In this case pass a code object instead of a string.</dd>
+          <dd>WARNING: If you allow users to input a value using
+          <code>eval(input())</code>, the user may issue commands to change
+          file or even delete all the files using the command:
+          <code>os.system('rm -rf *')</code></dd>
         </dl>
       </main>
       <div class="syntax">
@@ -55,14 +59,34 @@ div {
             eval ('tom +2', {},{'tom':3}) // 5
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2</summary>
+            <pre>
+    eval ('x+4', {}, {'x':200})        //   204
+    eval ('x+4', {'x':44}, {'x':200})  //   204   // Locals take precedence
+    eval ('x+4', {'x':44})             //   48
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3</summary>
+            <pre>
+    //  Rafiq Wayani (Skillsoft)
+
+    x = 4
+    eval('x+100')    //   104
+    x                //   4
+    eval('x==2')     //   False
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
+            <dt>Video (Rafiq Wayani,Skillsoft)</dt>
+            See <code>~/ecollege/98_381_python/mp4/eval_function_Rafiq_Wayani_ecol.mp4</code> <dd>
             <p>Note One</p>
             </dd>
             <dt>References</dt>
