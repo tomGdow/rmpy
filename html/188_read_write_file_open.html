@@ -300,6 +300,8 @@ div {
           <details><!--inner-->
             <summary>Create Big File (Example 5)</summary>
 
+    //  Rafiq Wayani (Skillsoft)
+
     f = open('bigfile.txt', 'w')
     for i in range(1000000):
         msg = "This is line number %d" % i
@@ -310,8 +312,27 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example x</summary>
+            <summary>Write a big text file (Example 6)</summary>
             <pre>
+
+    // Rafiq Wayani (Skillsoft)
+    :wq
+    def main():
+        buffersize = 50000
+        infile = open('bigfile.txt', 'r')
+        outfile = open('newbig.txt', 'w')
+        buffer = infile.read(buffersize)
+
+        while len(buffer):
+            outfile.write(buffer)
+            print('.', end='')
+            buffer=infile.read(buffersize)
+        infile.close()
+        outfile.close() 
+        print()
+        print('Done')
+
+    main()
             </pre>
           </details><!--inner-->
           <details><!--inner-->
