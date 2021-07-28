@@ -221,7 +221,7 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>file_iter (Example 1)</summary>
             <pre>
     def file_iter():
     '''Process single line into string'''
@@ -242,7 +242,7 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 2</summary>
+            <summary>file_readlines (Example 2)</summary>
             <pre>
     def file_readlines(fname):
     '''Processess all lines into list in memory'''
@@ -254,7 +254,7 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 3</summary>
+            <summary>file_readline (Example 3)</summary>
             <pre>
     def file_readline(fname):
     with open(fname, mode='r') as tf:
@@ -268,7 +268,7 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 4</summary>
+            <summary>file_read (Example 4)</summary>
             <pre>
       def file_read(fname):
     '''Process all lines into string in memory'''
@@ -279,7 +279,7 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 5 (timeit)</summary>
+            <summary>timeit (Example 5)</summary>
             <pre>
     from timeit import timeit
 
@@ -294,11 +294,11 @@ div {
     // 2.2908299999999993
     // 1.4870400000000006
 
-
             </pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary>Create Big File (Example 5)</summary>
+            <pre> 
 
     //  Rafiq Wayani (Skillsoft)
 
@@ -308,7 +308,6 @@ div {
         print(msg, file=f,end ='\n')           // !! Note this use of print
     f.close()
 
-            <pre>
             </pre>
           </details><!--inner-->
           <details><!--inner-->
@@ -316,7 +315,7 @@ div {
             <pre>
 
     // Rafiq Wayani (Skillsoft)
-    
+
     def main():
         buffersize = 50000
         infile = open('bigfile.txt', 'r')
@@ -335,7 +334,7 @@ div {
     main()
 
     // Run from command line
-    
+
     python bigwriter.py
     ..............................................................................
     ..............................................................................
@@ -344,11 +343,11 @@ div {
     ..............................................................................
     ..............................................................................
     ......................................................................
-    
+
     Done
-    
+
     // Check
-    
+
     Get-ChildItem -Name  | rg .*big.*\.txt
     // bigfile.txt
     // newbig.txt
@@ -356,35 +355,35 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Write a binary file (Example 7)</summary>
+            <summary>Write a binary file [jpg] (Example 7)</summary>
+            <pre> 
 
-    // Rafiq Wayani (Skillsoft)
+            // Rafiq Wayani (Skillsoft)
 
-    from sys import argv
-    def main():
-        inputfile = open(argv[1],'rb')
-        outputfile = open(argv[2],'wb')
+            from sys import argv
+            def main():
+            inputfile = open(argv[1],'rb')
+            outputfile = open(argv[2],'wb')
 
-        buffersize = 50000
-        buffer = inputfile.read(buffersize)
-        while len(buffer):
+            buffersize = 50000
+            buffer = inputfile.read(buffersize)
+            while len(buffer):
             outputfile.write(buffer)
 
-        print()
-        print("Copy Complete")
+            print()
+            print("Copy Complete")
 
-    main()
+            main()
 
-    // Command line
-    python readbin.py apple_mac_classic.jpg apple_mac_classic2.jpg
-    .
-    Copy Complete
+            // Command line
+            python readbin.py apple_mac_classic.jpg apple_mac_classic2.jpg
+            .
+            Copy Complete
 
-    Get-ChildItem -Name | rg apple_mac_classic
-    // apple_mac_classic.jpg
-    // apple_mac_classic2.jpg
+            Get-ChildItem -Name | rg apple_mac_classic
+            // apple_mac_classic.jpg
+            // apple_mac_classic2.jpg
 
-            <pre>
             </pre>
           </details><!--inner-->
           <details><!--inner-->
