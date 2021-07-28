@@ -352,10 +352,38 @@ div {
     Get-ChildItem -Name  | rg .*big.*\.txt
     // bigfile.txt
     // newbig.txt
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example x</summary>
+            <summary>Write a binary file (Example 7)</summary>
+
+    // Rafiq Wayani (Skillsoft)
+
+    from sys import argv
+    def main():
+        inputfile = open(argv[1],'rb')
+        outputfile = open(argv[2],'wb')
+
+        buffersize = 50000
+        buffer = inputfile.read(buffersize)
+        while len(buffer):
+            outputfile.write(buffer)
+
+        print()
+        print("Copy Complete")
+
+    main()
+
+    // Command line
+    python readbin.py apple_mac_classic.jpg apple_mac_classic2.jpg
+    .
+    Copy Complete
+
+    Get-ChildItem -Name | rg apple_mac_classic
+    // apple_mac_classic.jpg
+    // apple_mac_classic2.jpg
+
             <pre>
             </pre>
           </details><!--inner-->
