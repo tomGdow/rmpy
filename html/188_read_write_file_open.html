@@ -387,8 +387,58 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example x</summary>
+            <summary>Recursively Read a file (Example 8)</summary>
             <pre>
+
+    from sys import argv
+    script, file = argv
+    f = open(file)
+
+    def main(arg):
+        line =arg.readline().rstrip()
+        
+        if line:
+            print(f"{line} squared is {int(line) * int(line)}")
+            return main(arg)                                    # !! Recursion
+
+    main(f)
+    print()
+    print(f"Is \"{file[2:]}\" closed? {f.closed}")
+    f.close()
+    print(f"Is \"{file[2:]}\" closed? {f.closed}")
+    print()
+
+    // expt_1.txt 
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+
+    // Command Line 
+    python .\expt_1_tgd.py .\expt_1.txt
+
+    //  1 squared is 1
+    //  2 squared is 4
+    //  3 squared is 9
+    //  4 squared is 16
+    //  5 squared is 25
+    //  6 squared is 36
+    //  7 squared is 49
+    //  8 squared is 64
+    //  9 squared is 81
+    //  10 squared is 100
+
+    //  Is "expt_1.txt" closed? False
+    //  Is "expt_1.txt" closed? True
+
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
