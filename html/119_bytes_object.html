@@ -308,12 +308,27 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 8 (lpthw,Zed Shaw)</summary>
+            <pre>
+    raw_bytes = b'\xe6\x96\x87\xe8\xa8\x80'
+    raw_bytes.decode()    //     '文言'
+    utf_string =raw_bytes.decode()
+    utf_string            //     '文言'
+    utf_string.encode()    //  b'\xe6\x96\x87\xe8\xa8\x80'
+
+    // An example of the deby-sten law! (decode-bytes, string-encode)
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
         <details>
           <summary>Notes</summary>
           <dl>
+            <dt>DeBy-StEn law (deby-sten law)</dt>  
+            <dd>Decode-Bytes <em>but</em> Encode-Strings(DeBy-StEn)</dd>
             <dt>References</dt>
             <dd>
             <p>
