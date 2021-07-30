@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Mod 9-Sample</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>Sample code from Module 9</header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>[Main Header]</dt>
+          <dd>[Main text]</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary><code>command_line.py</code></summary>
+            <pre>
+
+    # Command Line Arguments
+    # A use of the sys module
+    # command line arguments can be written on the command line
+    # after the name of the Python file to be run seperated
+    # by spaces. 
+    # sys.argv stores these arguments in your program as a list
+
+    import sys
+
+    # Print Arguments
+    print("Number of arguments: ", len(sys.argv), ' arguments.')
+    print("Type of sys.argv: ", type(sys.argv))
+    print("Arguments ", sys.argv)
+
+    # Remove Arguments
+    sys.argv.remove(sys.argv[0])
+
+    print("Arguments", sys.argv)
+
+    # Sum up the Arguments
+    arguments = sys.argv
+    sum = 0
+    for arg in arguments:
+        try:
+            number = int(arg)
+            sum = sum + number
+        except Exception:
+            print("Bad input")
+
+    print(sum)
+    
+    # Command line                           
+
+    python .\command_line_tgd.py | set-clipboard
+
+    //  Number of arguments: 1 arguments
+    //  Type of sys.argv: &lt;class 'list'&gt;
+    //  Arguments ['.\\command_line_tgd.py']
+    //  Arguments []
+    //  0
+
+    # Command line                           
+
+    //  Number of arguments: 5 arguments
+    //  Type of sys.argv: &gt;class 'list'&gt;
+    //  Arguments ['.\\command_line_tgd.py', '1', '2', '3', '4']
+    //  Arguments ['1', '2', '3', '4']
+    //  10
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>eval.py</code></summary>
+            <pre>
+            
+    # eval function
+
+    # the input function returns a *string* of whatever the user input
+    a = input("Type some input: ")
+    print("input: {}, is type of {} ".format(a, type(a) ) )
+
+    # the eval function will evaluate a string argument and 
+    # if possible, return a different data type represented by that string.
+    # e.g., string "3" will return the int 3
+    # string "False" will return the bool False
+    # string "4.3" will return the float 4.3
+    # string "[4, 6, 7]" will return the list [4, 6, 7]
+    b = eval(a)
+    print("putting input through eval: {}, is type of {} ".format(b, type(b) ) )
+
+    # Command Line
+
+    a=input("Type some input: ")
+    //  Type some input: 44
+    print("input: {}, is type of {}".format(a, type(a)))
+    //  input: 44, is type of &lt;class 'str'&gt;
+    b=eval(a)
+    print("putting input through eval: {}, is type of {}".format(b, type(b)))
+    //  putting input through eval: 44, is type of &lt;class 'int'&gt;
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>file_reader1.py</code></summary>
+            <pre>
+
+    # same directory
+    with open('pi_digits.txt') as file_object:
+        contents = file_object.read()
+        print(contents)
+
+    # relative path
+    with open('text_files\pi_digits.txt') as file_object: # file_object accessible for width block
+        contents = file_object.read()
+        print(contents.rstrip())        # string methods like lstrip, rstrip, strip etc., can be used in formatting
+
+
+    print('*** - no line gap above is the affect of rstrip()')
+    # absolute path
+    file_path = 'S:\\Python Scripts\\Files\\text_files\\pi_digits.txt'
+
+    with open(file_path) as file_object:
+        contents = file_object.read()
+        print(contents.rstrip())
+
+    # Command Line 
+    python .\file_reader_1_tgd.py
+
+    // 3.1415926535
+    //   8979323846
+    //   2643383279
+
+    # Absolute path (Alt) 
+
+    with open("C:\\Users\\thoma\\ecollege\\98_381_python\\Topic_9_Example_Code-20210730\\pi_digits.txt") as file_object:
+        contents = file_object.read()
+        print(contents)
+
+    // !! Note escaped backslashes     
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>file_reader2.py</code></summary>
+
+            <pre>
+
+    # Making a List of Lines from a File
+
+    filename = 'pi_digits.txt'
+    # stores contents of the txt file in a list inside the with block
+    # and then prints the lines outside the with block:
+    with open(filename) as file_object:
+        lines = file_object.readlines() # stores file contents as a list
+        print(type(lines))  # lines
+        print(lines)        # a list
+        
+    for line in lines:
+        print(line.rstrip())
+
+# command line
+//  &lt;class 'list'&gt;  
+//  ['3.1415926535\n', '  8979323846\n', '  2643383279\n']
+//  3.1415926535
+//    8979323846
+//    2643383279
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>files_reading_writing.py</code></summary>
+            <pre>
+            
+    ## Char	    Meaning
+    ## 'r'	    open for reading (default)
+    ## 'w'	    open for writing, truncating the file first
+    ## 'x'	    open for exclusive creation, failing if the file already exists
+    ## 'a'	    open for writing, appending to the end of the file if it exists
+    ## 'b'	    binary mode
+    ## 't'	    text mode (default)
+    ## '+'	    open a disk file for updating (reading and writing)
+
+
+    # Open a file for writing and create it if it doesn't exist
+    f = open("textfile.txt", "w+")
+
+    # write some lines of data to the file
+    for i in range(10):
+        f.write("This is line " + str(i) + "\r\n")
+
+    # close the file when done
+    f.close()
+
+
+    # Open the file for appending text to the end
+    f = open("textfile.txt", "a")
+    for i in range(10):
+        f.write("This is line " + str(i) + "\r\n")
+
+    # close the file when done
+    f.close()
+
+    # Open the file back up and read the contents
+    f = open("textfile.txt", "r") 
+        
+    if f.mode == 'r':
+        contents = f.read()
+        print(contents)
+
+    # close the file when done
+    f.close()
+    
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+
+            <pre>
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+            
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+
+            
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>xxx</code></summary>
+            <pre>
+            
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
