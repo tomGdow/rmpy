@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[sys module]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        sys module
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>sys module</dt>
+          <dd>This module provides access to some variables used or maintained by
+          the interpreter and to functions that interact strongly with the 
+          interpreter.</dd>
+          <dd>It is always available.</dd>
+          <dt>sys.argv</dt>
+
+          <dd>The list of command line arguments passed to a Python script.</dd> 
+          <dd><code>argv[0]</code> is the script name (it is operating system
+          dependent whether this is a full pathname or not).</dd>
+
+          <dd>If the command was executed using the <code>-c</code> command line
+          option to the interpreter, <code>argv[0]</code> is set to the string
+          <code>'-c'</code>.</dd>
+          <dd>If no script name was passed to the Python interpreter,
+          <code>argv[0]</code> is the empty string</dd>    
+          (<dd>But argv is <em>an array</em> whose first entry is the empty
+          string (see below)</dd>
+          <dd><pre> 
+
+    python
+    // Python 3.8.5 (default, Sep  3 2020, 21:29:08) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+    // Type "help", "copyright", "credits" or "license" for more information.
+
+    from sys import argv
+    argv     // ['']           // !! Note An array (argv[0] is the empty string)
+
+          </pre></dd>   
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/sys.html">
+              sys — System-specific parameters and functions (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
