@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[os/os.path</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        os and os.path modules
+      </header>       
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>os module</dt>
+          <dd>This module provides a portable way of using operating system
+          dependent functionality.</dd> 
+
+          <dd>If you just want to read or write a file see
+          <a href ="https://docs.python.org/3/library/functions.html#open">
+            Open (Python Docs)
+          </a></dd>    
+
+          <dd>If you want to manipulate paths, see the 
+          <a href ="https://docs.python.org/3/library/os.path.html#module-os.path">
+            os.path (Python Docs)
+          </a>
+          module</dd> 
+
+          <dd>If you want to read all the lines in all the files on the command
+          line see the 
+          <a href ="https://docs.python.org/3/library/fileinput.html#module-fileinput">
+            fileinput (Python Docs)
+          </a>
+          module.</dd> 
+
+          <dd>For creating temporary files and directories see the 
+          <a href ="https://docs.python.org/3/library/tempfile.html#module-tempfile">
+            tempfile (Python Docs)
+          </a>
+          tempfile module</dd>   
+
+          <dd>  
+          For high-level file and directory handling see the 
+          <a href ="https://docs.python.org/3/library/shutil.html#module-shutil">
+            shutil (Python Docs)
+          </a>
+          shutil module.</dd>
+
+          <dt><code>os.path module</code></dt>
+
+          <dd>This module implements some useful functions on pathnames.</dd> 
+          <dd>For accessing the filesystem see the <code>os module</code>.</dd>
+          <dd>The path parameters can be passed as either strings, or bytes.</dd> 
+          <dd><pre>
+
+    import os.path
+    os.path.exists('textfile.txt')    //    True
+    os.path.isfile('textfile.txt')    //    True
+    os.path.isdir('textfile.txt')     //    False
+    os.path.exists(os.getcwd()+'\\textfile.txt')    // True
+                                                    // Note did not have to 'import os'
+
+          </pre></dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/os.html">
+              os — Miscellaneous operating system interfaces (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/os.path.html#module-os.path">
+              os.path — Common pathname manipulations (Python Docs)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
