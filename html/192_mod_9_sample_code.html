@@ -176,12 +176,13 @@ div {
     for line in lines:
         print(line.rstrip())
 
-# command line
-//  &lt;class 'list'&gt;  
-//  ['3.1415926535\n', '  8979323846\n', '  2643383279\n']
-//  3.1415926535
-//    8979323846
-//    2643383279
+    # command line
+    //  &lt;class 'list'&gt;  
+    //  ['3.1415926535\n', '  8979323846\n', '  2643383279\n']
+    //  3.1415926535
+    //    8979323846
+    //    2643383279
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
@@ -230,8 +231,39 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>xxx</code></summary>
+            <summary><code>files_reading_writing2.py</code></summary>
             <pre>
+
+    import os               # Miscellaneous operating system interfaces
+    #from os import path    # Common pathname manipulations
+
+    filename = "textfile.txt"
+
+    print("Item exists: " + str(os.path.exists(filename)) )
+    print("Item is file: " + str(os.path.isfile(filename)) )
+    print("Item is a directory: " + str(os.path.isdir(filename)) )
+
+
+    # check if file exists before reading from it 
+    if os.path.isfile(filename):
+        f = open(filename, "r")
+        lines = f.readlines() # stores file contents as a list
+      
+        for line in lines:
+            print(line.strip())
+
+        f.close()
+    else:
+        print("File was not found")
+
+    # Command line
+
+    //    Item Exist: True
+    //    Item is file: True
+    //    Item is directory: False
+    //    Goodbye from me
+    //    Goodbye from him
+    //    The two Ronnies
 
             </pre>
           </details><!--inner-->
