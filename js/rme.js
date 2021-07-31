@@ -104,6 +104,7 @@ let pageData = (function () {
     "163_mod_7_janani_ravi_sets_dictionary.html",
     "164_mod_7_list_methods_Al_Sweigart_abswp.html",
     "169_mod_7_sample_code.html",
+    "192_mod_9_sample_code.html",
     "165_revision_list_tuple_set_dictionary_string_comparison_table.html",
     "166_revision_list_tuple_set_dictionary_string_comparison_table_two.html",
     "177_tutorials_teacher_questions.html",
