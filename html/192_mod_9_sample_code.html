@@ -268,16 +268,102 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>xxx</code></summary>
+            <summary><code>open_function.py</code></summary>
 
             <pre>
 
+    # ** Files and File Writing **
+    # open is a built in function
+    # Built in functions: https://docs.python.org/3/library/functions.html
+
+    # Open a file
+    myFile = open("scores.txt", "w")
+
+    # w --&gt; write
+    # r --&gt; read (default)
+    # r+ --&gt; read and write
+    # a --&gt; append
+    # b --&gt; binary
+    # t --&gt; text (default)
+    # x --&gt; open for exclusive creation, failing if the file already exists
+
+    # Show attributes and properties of that file
+    print("Name " + myFile.name)
+    print("Mode " + myFile.mode)
+
+    # Write to a file
+    myFile.write("SPG : 100\nKHD : 099\nBBB : 089\n")
+    myFile.close()
+
+    # Read the file
+    myFile = open("scores.txt", "r")
+    print("Reading...\n" + myFile.read(10)) # read 10 chacters, \n is taken to be one character
+    print("Reading again\n" + myFile.read(10))
+
+    # To read from start of file again either close 
+    # and open again or use the seek function set to 0
+
+    #myFile.close()
+    #myFile = open("scores.txt", "r")
+    myFile.seek(0)
+    print("Reading again from start\n" + myFile.read(10))
+    myFile.close()
+
+    // Command line
+
+    myFile = open('scores.txt','w')
+    print("Name " + myFile.name)  //  scores.txt
+    print("Mode " + myFile.mode)  //  Mode w
+    myFile.write("SPG : 100\nKHD : 099\nBBB : 089\n")    //  30
+    myFile.close() 
+
+    with open('scores.txt') as f:
+         for line in f:
+             print(line, end='')
+
+    //  SPG : 100         // #10 (\n counts as 1)
+    //  KHD : 099         // #10
+    //  BBB : 089         // #10 
+
+
+    myfile = open("scores.txt", 'r')
+    print("Reading...\n" + myfile.read(10))
+    //  Reading...
+    //  SPG : 100
+
+    print("Reading again\n" + myfile.read(10))
+    //  Reading again
+    //  KHD : 099
+
+    myFile.seek(0)    // 0
+    myFile.read(10)   // 'SPG : 100\n'
+                      // !! Note the '\n' (single character)
+    myFile.close
+
+    myFile = open('scores.txt')
+    myFile
+    //  &lt;_io.TextIOWrapper name='scores.txt' mode='r' encoding='cp1252'&gt;
+
+    myFile.name       //  'scores.txt'
+    myFile.encoding   //  'cp1252'    // code-page 1252 // Windows
+    myFile.mode       //  'r'
+
+
+    myFile =open("scores.txt")
+    myFile.seek(6,0)    //   6
+    myFile.read(3)      //  '100'
+    myFile.seek(0)      //   0
+    myFile.seek(6,1)    //   !Note
+    //  Traceback (most recent call last):
+    //  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //  io.UnsupportedOperation: can't do nonzero cur-relative seeks
 
             </pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary><code>xxx</code></summary>
             <pre>
+
 
             </pre>
           </details><!--inner-->
