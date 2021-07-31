@@ -202,6 +202,7 @@ div {
             <dd>Returns an integer giving the file object’s current position
             in the file represented as number of bytes from the beginning of the
             file when in binary mode and an opaque number when in text mode.</dd>
+
             <dt><code>f.seek(offset, whence)</code></dt>
             <dd>Changes the file object’s position</dd>
             <dd>The position is computed from adding <code>offset</code> to
@@ -214,6 +215,20 @@ div {
                 2     //  uses the end of the file as the reference point 
             </pre></dd>   
             <dd><code>whence</code> can be omitted and defaults to 0</dd> 
+            <dt>Remove a file</dt>
+            <dd>
+            <pre>
+    // ecollege module 9
+
+    import os.path
+    if os.path.isfile(filename):
+        os.remove(filename)
+        print(f"File \"{filename}\" has been deleted")
+    else:
+        print("That file does not exist")
+            
+            </pre>
+            </dd>
           </dl>
         </details>
       </div>
