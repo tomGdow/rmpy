@@ -361,18 +361,111 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>xxx</code></summary>
+            <summary><code>remove_file.py</code></summary>
             <pre>
 
+    import os # os has operating system level functions 
+
+    print("Delete file using Python's os.remove function!")
+    print("Note: this will delete the file without putting it in the Recycle Bin")
+    filename = input('Which file would you like to remove? ').strip()
+
+    if os.path.isfile(filename):
+        os.remove(filename)
+        print(f'File "{filename}" has been deleted.')
+    else:
+        print("That file does not exist. Goodbye")
+
+    // Command line
+
+    filename =input("Which file would you like to delete? ")
+    //Which file would you like to delete? file_to_delete.txt
+    import os.path
+    if os.path.isfile(filename):
+        os.remove(filename)
+        print(f"File \"{filename}\" has been deleted")
+    else:
+        print("That file does not exist")
+
+    //  File "file_to_delete.txt" has been deleted
 
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>xxx</code></summary>
+            <summary><code>str_format.py</code></summary>
             <pre>
 
+    # *** string formatting ***
 
+    name = "Joe"
+    age = 5
+    cost = 1200.5563
 
+    #using str format method
+    print("Hi I'm {}, I'm {} years old".format(name, age) )
+
+    #using format string f
+    print(f"Hi I'm {name}, I'm {age} years old" )
+
+    #using % formatting - considered old way of doing it (Python 2)
+    print("Hi I'm %s, I'm %d years old" % (name,age) )
+
+    #formatting to x decimal places
+    print("The Python course costs %.2f" %cost) 
+
+    #will take up at least 10 spaces. 
+    print("The Python course costs %10f" %cost) 
+
+    #will take up at least 10 spaces, 2 after decimal point 
+    print("The Python course costs %10.2f" %cost) 
+
+    # will print a string reading excape characters
+    print("We \tlove \nPython")
+
+    # will print a "raw" string not interpreting escape caracters
+    print(r"We \tlove \nPython")
+
+    # triple quotes can make a multi line sting. New lines formated as written
+    # the backslash escapes the new line symbol
+    s = '''\
+    Multi 
+    line 
+    string'''
+    print(s)
+
+    // Command line
+
+    age = 5
+    cost = 1200.5563
+
+    print("Hi I'm {}, I'm {} years old".format(name, age))
+    Hi I'm joe, I'm 5 years old
+
+    print(f"I'm {name} and I am {age} years old")
+    I'm joe and I am 5 years old
+
+    print("Hi, I am %s and I am %d years old" % (name, age))
+    //    Hi, I am joe and I am 5 years old
+    print("The python course costs %.2f" % cost)
+    //    The python course costs 1200.56
+    print("The Python course costs %10f" % cost)
+    //    The Python course costs 1200.556300
+    print("The Python course costs %10.2f" % cost)
+    //    The Python course costs    1200.56
+    print("We \tlove \nPython")
+    //    We      love
+    //    Python
+    print(r"We \tlove \nPython")
+    //    We \tlove \nPython
+    s='''\
+    Multi
+    line
+    string'''
+    print(s)
+    Multi
+    line
+    string
+            // Note that the backslash (\) ESCAPES newline in """
             </pre>
           </details><!--inner-->
           <details><!--inner-->
