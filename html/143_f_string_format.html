@@ -247,9 +247,9 @@ div {color:black;}
 
     name="thomas"
     (1) F"hello {name}"      //    'hello thomas'
-    (2) F"hello{name!r}"     //    "hello'thomas'"
-    (3) F"hello{name!a}"     //    "hello'thomas'"
-    (4) F"hello{name!s}"     //    'hellothomas'
+    (2) F"hello{name!r}"     //    "hello'thomas'"  // repr() // printable representation
+    (3) F"hello{name!a}"     //    "hello'thomas'"  // ascii
+    (4) F"hello{name!s}"     //    'hellothomas'    // string
     (5) F"hello{str(name)}"  //    'hellothomas'
 
             </pre>
@@ -525,6 +525,23 @@ div {color:black;}
             </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/a/44800859/499167">
+              In Python format (f-string) strings, what does !r mean? (StackOverflow)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/methods/built-in/repr">
+              Python repr() (Progamiz)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
