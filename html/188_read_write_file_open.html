@@ -401,6 +401,27 @@ div {
 
             </pre>
           </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>xxx</summary>
+            <pre> 
+
+    from struct import unpack
+    avi = open('sample_audio.avi', 'br')
+    avi.seek(64)    //   64
+    binary = avi.read(8)
+    binary    //    b'\x00\x05\x00\x00\xd0\x02\x00\x00'
+    width_height = unpack('&lt;hhhh', binary)
+    width_height    //     (1280, 0, 720, 0)
+    width=width_height[0]
+    width     //    1280
+    height=width_height[2]
+    height    //    720
+
+            </pre>
+          </details><!--inner-->
+
+
           <details><!--inner-->
             <summary>Recursively Read a file (Example 8)</summary>
             <pre>
