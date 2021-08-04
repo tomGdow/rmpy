@@ -91,6 +91,7 @@ div {
             <summary><code>eval.py</code></summary>
             <pre>
             
+            ;'
     # eval function
 
     # the input function returns a *string* of whatever the user input
@@ -469,9 +470,87 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>xxx</code></summary>
+            <summary><code>str_num_format.py</code></summary>
             <pre>
             
+    # formatted Numbers with string method .format
+    num = 7000
+    num2 = 3456
+
+    print("A variable {} in a string".format(num))
+
+    formatted = "A {0} {1} and a {0} {2}."
+    print(formatted.format("blue", "car", "truck"))
+
+    # b (binary) c (character) d (decimal) o (octal)
+    # x (hexadecimal lowercase) X (hexadecimal uppercase )
+    formatted = "{:d}"      
+    print(formatted.format(num))
+
+    formatted = "{:,d}"     # place , as thousand seperator
+    print(formatted.format(num))
+
+    # ^ centered, > right aligned, &lt; left aligned
+    formatted = "{:^15,d}"  # take up 15 spaces
+    print(formatted.format(num))
+
+    formatted = "{:*^15,d}"
+    print(formatted.format(num))
+
+    # the number before the colan acts as the number inside
+    # the braces did before, which aruguent from the tuple
+    formatted = "{1:*^15,d}"
+    print(formatted.format(num, num2))
+
+    formatted = "{:*^15.2f}" # two decimal places
+    print(formatted.format(num))
+
+    formatted = "{:*&gt;15X}"
+    print(formatted.format(num))
+
+    formatted = "{:*&lt;#15x}"
+    print(formatted.format(num))
+
+
+    # see course notes for info on string formatting and the blueprint below
+    # :[[fill]align][sign][#][0][width][,][.precision][type]
+
+    // Command Line
+
+    num = 7000
+    num2 = 8000
+
+    print("A variable {} is a string".format(num))
+    //    A variable 7000 is a string
+
+    formatted ="{:d}"
+    print(formatted.format(num))
+    //    7000
+
+    formatted = "{:,d}"
+    print(formatted.format(num))
+    7,000
+    
+    // ! Note these 
+    print("&lt;--|{1:*^15}|--&gt;".format(num,num2))
+    &lt;--|*****8000******|--&gt;
+
+    print("&lt;--|{0:*^15}|--&gt;".format(num,num2))
+    &lt;--|*****7000******|--&gt;
+
+    print("&lt;--|{1:*^15} and {0:*^15}|--&gt;".format(num,num2))
+    &lt;--|*****8000****** and *****7000******|--&gt;
+
+    print("&lt;--|{0:*^15} and {1:*^15}|--&gt;".format(num,num2))
+    &lt;--|*****7000****** and *****8000******|--&gt;
+
+    formatted="{:*^15.2f}"
+    print(formatted.format(num))
+    ****7000.00****
+
+    print("{:&lt;#x}".format(16))
+    0x10
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
@@ -489,7 +568,7 @@ div {
           <details><!--inner-->
             <summary><code>xxx</code></summary>
             <pre>
-            
+           
 
 
             </pre>
