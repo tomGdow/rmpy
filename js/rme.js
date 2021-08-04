@@ -11,6 +11,7 @@ let pageData = (function () {
     "126_format_str_method.html",
     "143_f_string_format.html",
     "146_repr.html",
+    "145_template_string_format.html",
     "4_rmpy_comments.html",
     "5_rmpy_variables.html",
     "6_rmpy_string_str.html",
