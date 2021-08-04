@@ -403,8 +403,9 @@ div {
           </details><!--inner-->
 
           <details><!--inner-->
-            <summary>xxx</summary>
+            <summary>read avi (binary) file</summary>
             <pre> 
+    // Keith Wright, Skillsoft
 
     from struct import unpack
     avi = open('sample_audio.avi', 'br')
@@ -421,6 +422,30 @@ div {
             </pre>
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Write binary file (Keith Wright)</summary>
+            <pre> 
+    // Keith Wright, Skillsoft
+
+    from string import ascii_letters
+    ascii_letters
+    //    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    data=bytes(ascii_letters, 'utf-8')
+
+    with open('bitetgd', 'wb') as t:
+        t.write(data)
+
+    //    52
+
+    with open('bitetgd', 'rb') as t:
+        for line in t:
+            print(line)
+
+    //    b'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+            </pre>
+          </details><!--inner-->
 
           <details><!--inner-->
             <summary>Recursively Read a file (Example 8)</summary>
