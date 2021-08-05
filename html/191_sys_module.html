@@ -85,9 +85,29 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example x</summary>
+            <summary>Example 2 (silly summer) [calculator]</summary>
             <pre>
-            [code]
+            
+    import sys
+    sys.argv.remove(sys.argv[0])
+    args = sys.argv
+    sum = 0
+
+    for arg in args:
+        try:
+            number = int(arg)
+            sum += number
+        except Exception:
+            print("Bad Input")
+
+    print(f"The sum of {args} is {sum}")
+
+    // Command Line
+
+    python .\silly_summer.py 1 2 3 4 5
+    //    The sum of ['1', '2', '3', '4', '5'] is 15
+
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
