@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[Comparison formtting]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Comparitave Examples of String Formatting Methods
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Write an email address</dt>
+          <dd>
+          <pre>
+
+    fname="John"
+    lname="Doe"
+    middle_initial="o"
+    email_host="gmail"
+    domain_name="com"
+
+    # f-string
+
+    print(f"{fname.lower()}\
+    {middle_initial.lower()}\
+    {lname.lower()}\
+    \N{COMMERCIAL AT}\
+    {email_host.lower()}\
+    .{domain_name.lower()}")
+
+    //    johnodoe@gmail.com
+
+    # .format() method
+
+    str2="{}{}{}\N{COMMERCIAL AT}{}.{}"
+
+    str2.format(fname.lower(),\
+    middle_initial.lower(),\
+    lname.lower(),\
+    email_host.lower(),\
+    domain_name.lower())
+
+    //    'johnodoe@gmail.com'
+
+    str3="{fname}{middle_initial}{lname}\N{COMMERCIAL AT}{email_host}.{domain_name}"
+
+    str3.format(fname=fname.lower(),\ 
+    middle_initial=middle_initial.lower(),\
+    lname=lname.lower(),\ 
+    email_host=email_host.lower(),\ 
+    domain_name=domain_name.lower())
+
+    //    'johnodoe@gmail.com'    // Note no inverted commas around fname etc
+
+      # % method
+
+     print("%s%s%s\N{COMMERCIAL AT}%s%s" % (
+     fname.lower(), 
+     middle_initial.lower(), 
+     lname.lower(), 
+     email_host.lower(), 
+     domain_name.lower()))
+
+     //    johnodoe@gmailcom
+
+     print("%(fname)s\
+            %(middle_initial)s\
+            %(lname)s\
+            \N{COMMERCIAL AT}\
+            %(email_host)s\
+            %(domain_name)s" % {'fname': fname.lower(), 
+                                'middle_initial':middle_initial.lower(),
+                                'lname':lname.lower(), 
+                                'email_host':email_host.lower(), 
+                                'domain_name':domain_name.lower()})
+
+     //    johnodoe@gmailcom
+     //     Note the inverted commas around 'fname' etc in the dictionary keys
+
+     # Template method
+
+     from string import Template
+     email_template=Template("$fname$middle_initial$lname\N{COMMERCIAL AT}$email_host.$domain_name")
+
+     email_template.substitute(
+     fname=fname.lower(), 
+     lname=lname.lower(), 
+     middle_initial=middle_initial.lower(),
+     email_host=email_host.lower(),
+     domain_name=domain_name.lower())
+
+     //    'johnodoe@gmail.com'
+
+          </pre>
+          </dd>
+          <dt>Format a million</dt>
+          <dd>
+          <pre>
+    
+    mymill=1000000
+
+    print("{0:,}".format(mymill))
+    //    1,000,000
+
+    print(f"{mymill:,}")
+    //    1,000,000
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
