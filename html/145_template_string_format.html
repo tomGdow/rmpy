@@ -112,6 +112,8 @@ div {
           <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
+    from string import Template
+
     mytemplate = Template("Hello $name")
     student="Joe"
     mytemplate = Template("Hello $name")
@@ -122,6 +124,7 @@ div {
           <details><!--inner-->
             <summary>Example 2</summary>
             <pre>
+    from string import Template
 
     newtemp=Template("The shares of $company have $state. This is $reaction")
     newtemp.substitute(state='dropped', company="Apple", reaction="bad")
