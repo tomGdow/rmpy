@@ -12,6 +12,7 @@ let pageData = (function () {
     "143_f_string_format.html",
     "146_repr.html",
     "145_template_string_format.html",
+    "194_string_formatting_comparison_examples.html",
     "4_rmpy_comments.html",
     "5_rmpy_variables.html",
     "6_rmpy_string_str.html",
