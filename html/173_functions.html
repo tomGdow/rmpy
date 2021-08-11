@@ -476,6 +476,39 @@ div {
             </pre>
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Decorator 3</summary>
+            <pre>
+
+    def smarty(func):
+        def inner(a,b):
+            return func(a, int(b))
+        return inner
+
+    @smarty
+    def adder1(a,b):
+        return a + b
+
+    adder1(2,3)    //     5
+    adder1(2,"3")  //     5
+
+    def adder2(a,b):
+        return a + b
+
+    adder2(2,3)    //     5
+    adder2(2,"3")
+    //  Traceback (most recent call last):
+    //  File "<stdin>", line 1, in <module>
+    //  File "<stdin>", line 2, in adder2
+    //  TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+    adder3=smarty(adder2)
+    adder3(2,"3")   //     5
+
+
+            </pre>
+          </details><!--inner-->
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -588,6 +621,14 @@ div {
             <p>
             <a href ="https://docs.python.org/3/faq/programming.html#what-are-the-rules-for-local-and-global-variables-in-python">
               What are the rules for local and global variables in Python?
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="Defining Functions (Python Docs) [+++]">
+              https://docs.python.org/3/tutorial/controlflow.html#tut-unpacking-arguments
             </a>
             </p>
             </dd>
