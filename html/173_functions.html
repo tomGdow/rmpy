@@ -289,6 +289,16 @@ div {
 
     # Note the syntax error: a keyword cannot be an expression
 
+    mydict ={'a': 'tom', 'b': 'dick'}
+    myfn(dict)
+    //  Traceback (most recent call last):
+    //  File "<stdin>", line 1, in <module>
+    //  TypeError: myfn() takes exactly 0 arguments (1 given)
+     
+    myfn(**mydict)
+    //  {'a': 'tom', 'b': 'dick'}
+
+
           </pre>
           </dd>
         </dl>
