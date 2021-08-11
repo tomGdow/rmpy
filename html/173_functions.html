@@ -225,6 +225,42 @@ div {
           are stored in the <code>__annotations__</code> special
           <mark>attribute</mark> of modules, classes, and functions, respectively.</dd>
 
+          <dt>Parameter Packing Examples</dt>
+
+        <dd>
+        <pre>
+    # Example One
+    def mixed(a,b, *args, **kwargs):
+        return a, b, args, kwargs
+
+    mixed('tom','dick', 'harry', 'worth', people="yes")
+    //   ('tom', 'dick', ('harry', 'worth'), {'people': 'yes'})
+    //  ! Note NOT "people"="yes" 
+
+    # Example Two
+    def fn2 (a, b, *c):
+        return a, b, c
+
+    fn2(1,2,3,4)
+    // (1, 2, (3, 4))
+
+    # Example Three
+
+    def mixm(*c, a, b):
+        return c,a,b
+
+    mixm(1,2,3,4)
+    //  Traceback (most recent call last):
+    //  File "<stdin>", line 1, in <module>
+    //  TypeError: mixm() missing 2 required keyword-only arguments: 'a' and 'b'
+
+    # but the following IS OK!!
+    mixm(1,2, a=3, b=4)
+    //    ((1, 2), 3, 4)
+
+
+        </pre>
+</dd>
         </dl>
       </main>
       <div class="syntax">
