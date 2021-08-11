@@ -90,6 +90,19 @@ div {
           <dd>The <code>/</code> function parameter syntax may be used to
           indicate positional-only parameters</dd>
 
+          <dt>default parameters and scope example</dt>
+          <dd>
+          <pre>
+
+    i = 5
+    def f(arg=i):
+        print(arg)
+    i = 10
+    f()    //  5  //!! Note
+
+          </pre>
+          </dd>
+
           <dt>parameter</dt>
           <dd>A named entity in a function (or method) definition that specifies
           an argument (or in some cases, arguments) that the function can
