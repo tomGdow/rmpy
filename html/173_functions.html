@@ -227,8 +227,8 @@ div {
 
           <dt>Parameter Packing Examples</dt>
 
-        <dd>
-        <pre>
+          <dd>
+          <pre>
     # Example One
     def mixed(a,b, *args, **kwargs):
         return a, b, args, kwargs
@@ -257,10 +257,17 @@ div {
     # but the following IS OK!!
     mixm(1,2, a=3, b=4)
     //    ((1, 2), 3, 4)
+    # IF *a is first parameter in function definition, all other arguments MUST
+      be keyword-only when fn is called
 
-
-        </pre>
-</dd>
+          </pre>
+          </dd>
+          <dt>Variable-length arguments (*a) - a note</dt>
+          <dd>
+          When variable-length arument (*students) is the FIRST element in
+          the list of function arguments, all other arguments become keyword-only
+ arguments (Janini Rani, Skillsoft)
+          </dd>
         </dl>
       </main>
       <div class="syntax">
