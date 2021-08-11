@@ -262,11 +262,34 @@ div {
 
           </pre>
           </dd>
-          <dt>Variable-length arguments (*a) - a note</dt>
+          <dt>Variable-length arguments as tuple (*args) - a note</dt>
           <dd>
           When variable-length arument (*students) is the FIRST element in
           the list of function arguments, all other arguments become keyword-only
- arguments (Janini Rani, Skillsoft)
+          arguments (Janini Rani, Skillsoft)
+          </dd>
+
+
+          <dt>Variable-length arguments as dictionary (**kwargs) - a note</dt>
+          <dd>Variable length arguments may also be passed in as keywords
+          (Perhaps more intuitive?): use **.</dd>  
+          <dd>Pack into dictionary, not tuple!</dd>
+          <dd>
+          <pre>
+
+    def myfn(**kwargs):
+        return kwargs
+
+    myfn()                     //  {}
+    myfn(a='tom')              //  {'a': 'tom'}
+    myfn(a='tom', b="gerry")   //  {'a': 'tom', 'b': 'gerry'}
+    myfn('a'='tom')
+    //    File "<stdin>", line 1
+    //    SyntaxError: keyword can't be an expression
+
+    # Note the syntax error: a keyword cannot be an expression
+
+          </pre>
           </dd>
         </dl>
       </main>
