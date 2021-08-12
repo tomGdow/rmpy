@@ -294,13 +294,57 @@ div {
     //  Traceback (most recent call last):
     //  File "<stdin>", line 1, in <module>
     //  TypeError: myfn() takes exactly 0 arguments (1 given)
-     
+
     myfn(**mydict)
     //  {'a': 'tom', 'b': 'dick'}
 
 
           </pre>
           </dd>
+          <dt>Function execution </dt>
+          <dd>The execution of a function introduces a new symbol table used for
+          the local variables of the function.</dd> 
+          <dd>More precisely, all variable assignments in a function store the
+          value in the local symbol table</dd> 
+          <dd>Variable references <em>first</em> look in the local symbol table, 
+          <em>then</em> in the local symbol tables of enclosing functions,
+          <em>then</em> in the global symbol table, and <em>finally</em> in the
+          table of built-in names.</dd> 
+          <dd>Thus, global variables and variables of enclosing functions cannot
+          be directly assigned a value within a function (unless, for global
+          variables, named in a global statement, or, for variables of enclosing
+          functions, named in a nonlocal statement), although they may be referenced.</dd>
+
+          <dd>The actual parameters (arguments) to a function call are introduced
+          in the local symbol table of the called function when it is called</dd> 
+          <dd>thus, arguments are passed using <em>call by value</em>, where the
+          value <code>is always an object reference</code>, not the value of the object</dd>   
+          <dd>  
+          Actually, <code>call by object reference</code> would be a better
+          description, since if a <code>mutable object</code> is passed, the caller
+          will see any changes the callee makes to it (items inserted into a list).</dd>
+          <dd>
+          When a function calls another function, or calls itself recursively,
+          a new local symbol table is created for that call.
+          </dd>
+          <dt>Some Rules</dt>
+
+          <dd>In a function call, <code>keyword arguments</code> must follow
+          <code>positional arguments</code>.</dd> 
+          <dd>All the keyword arguments passed must match one of the arguments
+          accepted by the function and their order is not important.</dd> 
+          <dd>No argument may receive a value more than once.</dd>
+
+          <dd>When a final formal parameter of the form <code>**name</code> is present,
+          it receives a <em>dictionary</em> containing all keyword arguments except
+          for those corresponding to a formal parameter.</dd> 
+
+          <dd>This may be combined with a formal parameter of the form <code>*name</code>
+          which receives a <em>tuple</em> containing the positional arguments beyond
+          the formal parameter list. (<code>*name</code> must occur before
+          <code>**name</code>.)</dd>
+
+
         </dl>
       </main>
       <div class="syntax">
@@ -716,8 +760,8 @@ div {
 
             <dd>
             <p>
-            <a href ="Defining Functions (Python Docs) [+++]">
-              https://docs.python.org/3/tutorial/controlflow.html#tut-unpacking-arguments
+            <a href ="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">
+              Defining Functions (Pyton Docs, More on Control Flow)
             </a>
             </p>
             </dd>
