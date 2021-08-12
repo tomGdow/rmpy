@@ -191,7 +191,27 @@ def myappend(list):
 
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Sorted vs .sort() example</summary>
+            <pre>
 
+    mylist=[100, 2, 30, 40]
+
+    def solist(list):
+        return sorted(list)
+
+    def listds(list):
+        return list.sort()
+
+    solist(mylist)    //   [2, 30, 40, 100]
+    mylist            //   [100, 2, 30, 40]      //  No mutation
+
+    listds(mylist)    //    !! returns nothing 
+    mylist            //    [2, 30, 40, 100]     //  Mutates
+
+            </pre>
+
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
