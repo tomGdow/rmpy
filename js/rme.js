@@ -91,7 +91,6 @@ let pageData = (function () {
     "175_dir.html",
     "176_boolean_operations_and_or_not.html",
     "178_underscore_last_evaluation.html",
-    ".\179_random.html",
     "142_armstrong_number.html",
     "170_x_alphabet_sequence.html",
     "188_read_write_file_open.html", 
