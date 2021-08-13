@@ -28,18 +28,9 @@ div {
           a function to generate a random permutation of a list in-place, and a
           function for random sampling without replacement.</dd>
           <dd>Python uses the Mersenne Twister as the core generator.</dd>
-          <dt><code>random.random()</code></dt>
 
           <dd>Almost all module functions depend on the basic function <code>random()</code>, 
           which generates a random float uniformly in the semi-open range [0.0, 1.0).</dd> 
-
-          <dt><code>random.randint(a, b)</code></dt>
-          <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b.</code></dd> 
-          <dd>Alias for <code>randrange(a, b+1).</code></dd>
-          <dt><code>random.randrange(start, stop[, step])</code></dt>
-          <dd>Return a randomly selected element from <code>range(start, stop, step).</code></dd> 
-          <dd>This is equivalent to <code>choice(range(start, stop, step))</code>,
-          but doesn’t actually build a range object.</dd>
 
         </dl>
       </main>
@@ -48,41 +39,58 @@ div {
         <details>
           <summary>Methods</summary>
           <dl>  
-          <dt><code>random.seed(a=None, version=2)</code></dt>
+            <dt><code>random.seed(a=None, version=2)</code></dt>
 
-          <dd>Initialize the random number generator.</dd>
-          <dd>If <code>a</code> is omitted or <code>None</code>, the current
-          system time is used.</dd> 
-          <dd>If randomness sources are provided by the operating system, they
-          are used instead of the system time (see the <code>os.urandom()</code> 
-          function for details on availability).</dd>
-          <dd>If <code>a</code> is an <code>int</code>, it is used directly</dd>
-
-
-          <dt><code>random.random()</code></dt>
-
-          <dd>Return the next random <mark>floating point number</mark> in
-          the <code>range [0.0, 1.0)</code>.</dd>
+            <dd>Initialize the random number generator.</dd>
+            <dd>If <code>a</code> is omitted or <code>None</code>, the current
+            system time is used.</dd> 
+            <dd>If randomness sources are provided by the operating system, they
+            are used instead of the system time (see the <code>os.urandom()</code> 
+            function for details on availability).</dd>
+            <dd>If <code>a</code> is an <code>int</code>, it is used directly</dd>
 
 
-          <dt><code>random.randrange(start, stop[, step])</code></dt>
+            <dt><code>random.random()</code></dt>
 
-          <dd>Return a randomly selected element from
-          <code>range(start, stop, step)</code>.</dd>
-          <dd>
-          This is equivalent to <code>choice(range(start, stop, step))</code>,
-          but doesn’t actually build a <code>range</code> object
-          </dd>
+            <dd>Return the next random <mark>floating point number</mark> in
+            the <code>range [0.0, 1.0)</code>.</dd>
 
-          <dt><code>random.choice(seq)</code></dt>
 
-          <dd>Return a random element from the non-empty <code>seq</code>uence seq.</dd> 
-          <dd>If <code>seq</code> is empty, raises <code>IndexError</code>.</dd>
+            <dt><code>random.randrange(start, stop[, step])</code></dt>
 
-          <dt><code>random.randint(a, b)</code></dt>
+            <dd>Return a randomly selected element from
+            <code>range(start, stop, step)</code>.</dd>
+            <dd>
+            This is equivalent to <code>choice(range(start, stop, step))</code>,
+            but doesn’t actually build a <code>range</code> object
+            </dd>
 
-          <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b</code>.</dd>    
-          <dd>  Alias for <code>randrange(a, b+1)</code>.</dd>
+            <dt><code>random.choice(seq)</code></dt>
+
+            <dd>Return a random element from the non-empty <code>seq</code>uence seq.</dd> 
+            <dd>If <code>seq</code> is empty, raises <code>IndexError</code>.</dd>
+          
+             <dt><code>random.choices(population, weights=None, *, cum_weights=None, k=1)</code></dt>
+
+             <dd>Return a <code>k</code> sized list of elements chosen from the
+ population with replacement. </dd>   
+             <dd> If the population is empty, raises <code>IndexError</code>.</dd>
+
+            <dt><code>random.randint(a, b)</code></dt>
+
+            <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b</code>.</dd>    
+            <dd>  Alias for <code>randrange(a, b+1)</code>.</dd>
+            <dd>
+            <code>
+
+    // From StackOverflow
+    def randint(self, a, b):
+        """Return random integer in range [a, b], including both end points.
+        """
+        return self.randrange(a, b+1)
+
+            </code>
+            </dd>
 
           </dl>   
         </details>
@@ -175,7 +183,7 @@ div {
     random.randint(5,11)
     random.randrange(5,12,1)
     random.randrange(5,11,1)
-    
+
     max([random.randint(5,12)  for x in range(1,1000)])      //   12
     max([random.randint(5,11)  for x in range(1,1000)])      //   11
     min([random.randint(5,12)  for x in range(1,1000)])      //    5
@@ -219,7 +227,7 @@ div {
             </a>
             </p>
             </dd>
-            
+
             <dd>
             <p>
             <a href ="https://stackoverflow.com/q/3540431/499167">
