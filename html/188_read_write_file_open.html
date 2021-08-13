@@ -507,6 +507,18 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Write a help file with print/pydoc</summary>
+            <pre>
+
+    import pydoc
+    import math
+    f = open('tomtest.txt', 'w')
+    print(pydoc.render_doc(math, renderer=pydoc.plaintext), file=f, end='')
+    f.close()
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
