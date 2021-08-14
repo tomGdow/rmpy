@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[datetime]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        datetime module
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>datetime</dt>
+          <dd>The datetime module supplies classes for manipulating dates and times.</dd>
+          <dd>
+          <pre>
+
+    datetime.datetime.now().strftime("%Y-%m-%d")       //  '2021-08-14'
+    datetime.datetime.now().strftime("%Y-%M-%D")       //  '2021-02-08/14/21'
+    datetime.datetime.now().strftime("%Y-%M-%d (%a)")  //  '2021-02-14 (Sat)'
+    datetime.datetime.now().strftime("%Y-%b-%d (%a)")  //  '2021-Aug-14 (Sat)'
+    datetime.datetime.now().strftime("%Y-%B-%d (%a)")  //  '2021-August-14 (Sat)'
+
+    datetime.datetime.today()
+    //    datetime.datetime(2021, 8, 14, 4, 10, 4, 405902)
+    datetime.datetime.today().strftime("%Y-%B-%d (%a)")
+    //    '2021-August-14 (Sat)'
+
+    delta = datetime.timedelta(140)
+    delta
+    //    datetime.timedelta(days=140)
+    datetime.datetime.now() + delta
+    //    datetime.datetime(2022, 1, 1, 4, 15, 54, 639266)
+    (datetime.datetime.now() + delta).strftime("%Y-%B-%d (%a)")
+    //    '2022-January-01 (Sat)'
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Methods</summary>
+          <dl>
+
+            <dt><code>datetime.datetime</code> (class)</dt>
+
+            <dd>A combination of a date and a time.</dd> 
+            <dd>Attributes: <code>year</code>, <code>month</code>, <code>day</code>,
+            <code>hour</code>, <code>minute</code>, <code>second</code>,
+            <code>microsecond</code>, and <code>tzinfo</code>.</dd>
+
+            <dd><code>datetime.timedelta</code></dd>
+
+            <dd>A <em>duration</em> expressing the difference between two
+            <code>date</code>, <code>time</code>, or <code>datetime</code>
+            instances to microsecond resolution.</dd>
+
+
+            <dt><code>date.strftime(format)</code></dt> 
+
+            <dd>Return a string representing the date, controlled by an explicit format string.</dd>
+            <dd>Format codes referring to hours, minutes or seconds will see 0 values.</dd> 
+            <dd>For a complete list of formatting directives, see 
+            <a href ="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">
+              strftime() and strptime() Behavior (Python Docs)
+            </a> </dd>   
+            <dt> <code>date.__format__(format)</code></dt>
+            <dd> Same as <code>date.strftime()</code>.</dd>
+            <dd>This makes it possible to specify a format string for a date object
+            in formatted string literals and when using
+            <code>str.format()</code>.</dd> 
+
+            <dt><code> _strftime() and strptime()</code> behaviour </dt>
+            <dd><code>date</code>, <code>datetime</code>, and <code>time</code>
+            objects all support a <code>strftime(format)</code> method, to create
+            a string representing the time under the control of an 
+            explicit format string.</dd>
+            <dd>Conversely, the <code>datetime.strptime()</code> <em>class</em>
+            method creates a <code>datetime object</code> from a string
+            representing a date and time and a corresponding format string.</dd>
+            <dd>
+            <pre>
+
+    %a     Weekday as locale’s abbreviated name.    Sun, Mon
+    %A     Weekday as locale’s full name.           Sunday, Monday
+    %w     Weekday as a decimal number 
+           where 0 is Sunday and 6 is Saturday.
+    %d     Day of the month as a zero-padded 
+           decimal number.                          01
+    %b     Month as locale’s abbreviated name.      Jan, Feb
+    %B     Month as locale’s full name.             January
+
+    %m     Month as a zero-padded decimal number.   01
+    %y     Year without century as a zero-padded
+           decimal number.                          00
+    %Y     Year with century as a decimal number.   0001
+    %H     Hour (24-hour clock) as a zero-padded 
+           decimal number.                          00
+    %I     Hour (12-hour clock) as a zero-padded
+           decimal number.                          01
+    %p     Locale’s equivalent of either AM or PM   AM 
+    %M     Minute as a zero-padded decimal number   00
+    %S     Second as a zero-padded decimal number   00
+    %f     Microsecond as a decimal number, 
+           zero-padded on the left.                 000000
+    %z     UTC offset in the form
+           ±HHMM[SS[.ffffff]]
+           (empty string if the object is naive).   (empty), +0000
+    %j     Day of the year as a zero-padded 
+           decimal number.                          001
+    %U     Week number of the year 
+           (Sunday as the first day of the week) 
+           as a zero padded decimal number. 
+           All days in a new year preceding the
+           first Sunday are considered to be in
+           week 0.                                  00 
+   %W      Week number of the year 
+           (Monday as the first day of the week)
+           as a decimal number.
+           All days in a new year preceding the
+           first Monday are considered to be in
+           week 0.                                  00
+    %c    Locale’s appropriate date and time
+          representation.
+    %x    Locale’s appropriate date representation.
+    %X    Locale’s appropriate time representation.
+
+            </pre>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/datetime.html">
+              datetime — Basic date and time types (Python Docs)
+            </a>
+            </p>
+            </dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
