@@ -338,15 +338,112 @@ div {
           the formal parameter list. (<code>*name</code> must occur before
           <code>**name</code>.)</dd>
 
-          <dt>Functions as first class Citizens</dt>
+          <dt>Functions as first class citizens</dt>
           <dd>
-           <p>Janani Ravi, Skillsoft, Module 10)</p>
-           <dl>
-             <dt>Functions may be assigned to variables</dt>
-             <dd></dd>
-           </dl>
+          <p>Janani Ravi, Skillsoft, Module 10)</p>
+          <dl>
+            <dt>Functions may be assigned to variables</dt>
+            <dd>
+            <pre>
+
+    def greet(name):
+        print(f"Hello {name}")
+
+    greet('Tom')    //    Hello Tom
+    x=greet
+    x('Dick')       //    Hello Dick
+
+            </pre>
+            </dd>
+            <dt>Pass functions as input arguments</dt>
+            <dd>
+            <pre>
+
+    import math
+    def area_circle_fn(radius):
+        return math.pi * radius **2
+
+    def perimeter_circle_fn(radius):
+        return 2 * math.pi * radius
+
+    def diameter_circle_fn(radius):
+        return 2 * radius
+
+    def calculate_for_circle(radius, fn):
+        return fn(radius)
+
+    area_circle_fn(1)                         //  3.141592653589793
+    calculate_for_circle(1, area_circle_fn)   //  3.141592653589793
+
+    calculate_for_circle(10, diameter_circle_fn)    //  20
+    calculate_for_circle(10, perimeter_circle_fn)   //  62.8318
+
+            </pre>
+            </dd>
+            <dt>Variable length arguments</dt>
+            <dd>
+            <pre>
+
+    def calculate(*args, fn):
+         return fn(*args)          // Note packing AND unpacking
+
+    calculate(10, fn=area_circle_fn)        //   314.159265
+
+    def area_rectangle(length, breadth):
+         return length * breadth
+
+    calculate(10, 20, fn=area_rectangle)    //    200
+
+            </pre>
+            </dd>
+            <dt>Return function from function</dt>
+            <dd><pre> 
+
+    def add(a,b):
+        return a + b
+    def mul(a,b):
+        return a * b
+    def sub(a,b):
+        return a - b
+    def div(a,b):
+        return a / b
+
+    def get_function(operator="+"):
+             return add
+         if operator == "-":
+             return sub
+         if operator == "*":
+             return mul
+         if operator == "/":
+             return div
+
+    get_function()(2,3)        //   5
+    func = get_function('*')   //   func(3,4)
+
+            </pre></dd>   
+            <dt>functions as elements of lists and dictionaries </dt>
+            <dd>
+            <pre>
+
+    calc_dictionary = {
+     "+": add,
+     "-": sub,
+     "*": mul,
+     "/": div
+     }
+
+    calc_dictionary
+    {'+': &lt;function add at 0x000001D6ABA9FAF0&gt;,
+    '-': &lt;function sub at 0x000001D6ABA9FC10&gt;,
+    '*': &lt;function mul at 0x000001D6ABA9F8B0&gt;, 
+    '/': &lt;function div at 0x000001D6ABA9F700&gt;}
+
+    calc_dictionary["+"](2,3)     //    5
+
+            </pre></dd>
+          </dl>
           </dd>
-           
+
         </dl>
       </main>
       <div class="syntax">
