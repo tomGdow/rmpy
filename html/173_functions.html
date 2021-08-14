@@ -118,10 +118,10 @@ div {
               <p>This is the default kind of parameter, for example
               <code>foo</code> and <code>bar</code> in the following:</p>
 
-              <p><pre>
+              <pre>
                          &nbsp;
             def func(foo, bar=None): ...
-              </pre></p>
+              </pre>
 
             </li>
 
@@ -135,14 +135,10 @@ div {
               definition after them, for example <code>posonly1</code> and
               <code>posonly2</code> in the following:
               </p>
-
-              <p>
               <pre>
                    &nbsp;
             def func(posonly1, posonly2, /, positional_or_keyword): ...
               </pre>
-              </p> 
-
             </li>
             <li>
 
@@ -156,11 +152,10 @@ div {
               <code>kw_only1</code> and <code>kw_only2</code> in the following:
               </p>
 
-              <p><pre>
+              <pre>
               &nbsp;
             def func(arg, *, kw_only1, kw_only2): ...
               </pre>
-              </p>
 
             </li>
             <li>  
@@ -172,13 +167,12 @@ div {
               with <code>*</code>, for example <code>args</code> in the
               following:</p>
 
-              <p><pre> 
+              <pre> 
             def func(*args, **kwargs): ...
-              </pre></p>  
+              </pre> 
             </li> 
 
             <li>
-
               <p><code>var-keyword</code>: specifies that arbitrarily many keyword
               arguments can be provided (in addition to any keyword arguments already
               accepted by other parameters).</p> 
@@ -251,7 +245,7 @@ div {
 
     mixm(1,2,3,4)
     //  Traceback (most recent call last):
-    //  File "<stdin>", line 1, in <module>
+    //  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
     //  TypeError: mixm() missing 2 required keyword-only arguments: 'a' and 'b'
 
     # but the following IS OK!!
@@ -284,7 +278,7 @@ div {
     myfn(a='tom')              //  {'a': 'tom'}
     myfn(a='tom', b="gerry")   //  {'a': 'tom', 'b': 'gerry'}
     myfn('a'='tom')
-    //    File "<stdin>", line 1
+    //    File "&lt;stdin&gt;", line 1
     //    SyntaxError: keyword can't be an expression
 
     # Note the syntax error: a keyword cannot be an expression
@@ -292,7 +286,7 @@ div {
     mydict ={'a': 'tom', 'b': 'dick'}
     myfn(dict)
     //  Traceback (most recent call last):
-    //  File "<stdin>", line 1, in <module>
+    //  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
     //  TypeError: myfn() takes exactly 0 arguments (1 given)
 
     myfn(**mydict)
@@ -344,7 +338,15 @@ div {
           the formal parameter list. (<code>*name</code> must occur before
           <code>**name</code>.)</dd>
 
-
+          <dt>Functions as first class Citizens</dt>
+          <dd>
+           <p>Janani Ravi, Skillsoft, Module 10)</p>
+           <dl>
+             <dt>Functions may be assigned to variables</dt>
+             <dd></dd>
+           </dl>
+          </dd>
+           
         </dl>
       </main>
       <div class="syntax">
@@ -631,8 +633,8 @@ div {
     adder2(2,3)    //     5
     adder2(2,"3")
     //  Traceback (most recent call last):
-    //  File "<stdin>", line 1, in <module>
-    //  File "<stdin>", line 2, in adder2
+    //  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //  File "&lt;stdin&gt;", line 2, in adder2
     //  TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
     adder3=smarty(adder2)
