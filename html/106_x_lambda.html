@@ -19,13 +19,81 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>lambda</dt>
-          <dd>Small anonymous functions can be created with the lambda keyword.</dd> 
-          <dd>Lambda functions can be used wherever function objects are required.</dd> 
+          <dt><code>lambda</code></dt>
+          <dd>Small anonymous functions can be created with the
+          <code>lambda</code> keyword.</dd> 
+          <dd><code>Lambda</code> functions can be used wherever function objects
+          are required.</dd> 
           <dd>They are syntactically restricted to a single expression.</dd> 
-          <dd>Semantically, they are just syntactic sugar for a normal function definition.</dd> 
-          <dd>Like nested function definitions, lambda functions can reference 
+          <dd>Semantically, they are just syntactic sugar for a normal function
+          definition.</dd> 
+          <dd>Like nested function definitions, <code>lambda</code> functions can
+          reference 
           variables from the containing scope:</dd>
+          <dt>Janani Ravi (Skillsoft) on <code>Lambda</code></dt>
+          <dd><code>&check; </code> Although <code>lambda</code> functions are
+          anonymous, you <em>can</em> assign a
+          name to them just like other functions</dd>
+          <dd>
+          <pre>
+
+    myfn = lambda x: x * x
+          </pre>
+          </dd>
+          <dd><code>&check; </code>Like other functions, <code>lambda</code>
+ functions are first-class citizens
+          in python</dd>
+          <dd><code>&times; </code>Cannot have <code>if</code> or other
+ conditional statements
+          in a <code>lamdba</code></dd>
+          <dd><code>&times; </code>This includes an <code>assert</code> statement!</dd>
+          <dd><code>&check; </code><code>lambdas</code>: define, invoke and
+ discard! This is the idea</dd>
+          <dd>
+          <pre>
+
+    (lambda x : x * 2)(10)
+          </pre>
+          </dd>
+          <dd><code>&times; </code>No keywords (such as <code>assert</code>)
+ within the body of
+          <code>lambda</code> function</dd>
+          <dd>
+          <pre>
+
+    def check_if_even(arg):       
+    assert arg % 2 == 0
+
+    check_if_even(2)              //   Does Nothing
+    check_if_even(3)              //   !! Assertion Error
+    lambda x : assert x % 2 == 0  //   !! SyntaxError: invalid syntax
+
+          </pre>
+          </dd>
+          <dd><code>&check; </code><em>Can</em> use keyword arguments with
+ <code>lambda</code> functions</dd>
+          <dd>
+          <pre>
+    (lambda x : x * x)(x=10)    //    100
+          </pre>
+          </dd>
+          <dd><code>&check; </code><em>Can</em> use default argument values</dd> 
+          <dd>
+          <pre>
+
+    (lambda chem, phys, biol=40 : chem + phys + biol)(10,20)            //  70
+    (lambda chem, phys, biol=40 : chem + phys + biol)(chem=22,phys=20)  //  82
+
+          </pre>
+          </dd>
+          <dd><code>&check; </code><em>Can</em> have variable-length input arguments</dd>
+          <dd>
+          <pre>
+
+    (lambda *args : sum(args))(1,2,3,4,5)    //     15
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -41,6 +109,10 @@ div {
           OR
 
           lambda arguments : expression
+
+          OR (Janani Ravi, Skillsoft) 
+
+          lambda &lt;input arguments&gt; : &lt;expression&gt;
           </pre>
         </details>
       </div>
