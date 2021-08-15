@@ -88,6 +88,7 @@ let pageData = (function () {
     "106_x_lambda.html",
     "174_docstring.html",
     "182_triple_quoted_strings.html",
+    "196_pydoc.html",
     "183_indentation.html",
     "175_dir.html",
     "176_boolean_operations_and_or_not.html",
