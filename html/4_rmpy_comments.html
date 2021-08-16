@@ -87,13 +87,11 @@ div {
             <dd>When trailing commas are redundant, they <em>are often helpful</em>
             when a version control system is used, when a list of values, arguments
             or imported items is expected to be extended over time.</dd>    
-            <p><dd>The pattern is to put each value on a line by itself,
+            <dd>The pattern is to put each value on a line by itself,
             <em>always adding a trailing comma</em>, and add the close
-            parenthesis/bracket/brace</p>
-            on the next line
+            parenthesis/bracket/brace on the next line
             </dd>   
             <dd><pre>
-
     FILES = [
         'setup.cfg',
         'tox.ini',
@@ -113,7 +111,7 @@ div {
             case letter</dd>
             <dd>Never alter the case of identifiers!.</dd>
 
-            <dt><code>Block Comments</code></dt>
+            <dt><code>&check; Block Comments</code></dt>
             <dd>Block comments generally, apply to some (or all) code that follows
             them, and are indented to the same level as that code.</dd>
             <dd>Each line of a block comment starts with a <code>#</code>
@@ -121,10 +119,10 @@ div {
             <dd>Paragraphs inside a block comment are separated by a line
             containing a single <code>#</code>.</dd>
 
-            <dt><code>Inline Comments</code></dt>
+            <dt><code>&check; Inline Comments</code></dt>
             <dd>Use inline comments sparingly</dd>
 
-            <dt><code>Document Strings</code></dt>
+            <dt><code>&check; Document Strings</code></dt>
             <dd>Conventions for writing good documentation strings (a.k.a.
             "<code>docstrings</code>") are immortalized in <code>PEP 257</code>.</dd>
             <dd>Note that most importantly, the <code>"""</code> that ends a
@@ -139,7 +137,7 @@ div {
             <dd><em>Overriding principle</em>: Names that are visible to the user
             As public parts of the API should follow conventions that reflect usage
             rather than implementation</dd>
-            <dt><code>Naming Styles </code></dt>
+            <dt><code>&check; Naming Styles </code></dt>
 
             <dd><code>_single_leading_underscore</code>: weak "internal use" indicator.</dd>
             <dd>  E.g. <code>from M import *</code> does not import objects whose
@@ -161,22 +159,22 @@ div {
             <code>__file__</code>.</dd> 
             <dd>Never invent such names; only use them as documented</dd>
 
-            <dt><code>Module Names</code></dt>
+            <dt><code>&check; Module Names</code></dt>
             <dd>Modules should have short, all-lowercase names.  </dd>   
             <dd>Underscores can be used in the module name if it improves readability</dd>
 
-            <dt><code>Class Names</code></dt>
+            <dt><code>&check; Class Names</code></dt>
             <dd>Class names should normally use the <code>CapWords</code> convention.</dd>
 
-            <dt><code>Exception Names</code></dt>
+            <dt><code>&check; Exception Names</code></dt>
             <dd>Because exceptions should be classes, the class naming convention
             applies here.</dd>
 
-            <dt><code>Function Names</code></dt>
+            <dt><code>&check; Function Names</code></dt>
             <dd>Function names should be lowercase, with words separated by
             underscores as necessary to improve readability.</dd>
 
-            <dt><code>Function and method arguments</code></dt>
+            <dt><code>&check; Function and method arguments</code></dt>
             <dd>Always use <code>self</code> for the first argument to instance
             methods</dd>
 
@@ -185,7 +183,7 @@ div {
             it is generally better to append a <code>single trailing underscore</code>
             rather than use an abbreviation or spelling corruption</dd>
 
-            <dt><code>Constants</code></dt>
+            <dt><code>&check; Constants</code></dt>
             <dd>Constants are usually defined on a module level and written in all
             capital letters with underscores separating words.</dd> 
             <dd>Examples include <code>MAX_OVERFLOW</code> and <code>TOTAL</code>.</dd>
@@ -193,9 +191,8 @@ div {
           </dd>
           <dd>
           <dl>
-            <dt>Programming Recommendations</dt>
-            <dd></dd>
-            <dd>Comparisons to singletons like <code>None</code> should always be
+            <dt><code>&check; Programming Recommendations</code></dt>
+            <dd><em>Comparison: </em>Comparisons to singletons like <code>None</code> should always be
             done with <code>is</code> or <code>is not</code>, never the equality
             operators.</dd>
 
@@ -207,21 +204,18 @@ div {
             <dd> While both expressions are functionally identical, the former is
             more readable </dd>
 
-            <dd>Always use a <code>def</code> statement instead of an assignment
+            <dd><em>Lambda: </em>Always use a <code>def</code> statement instead of an assignment
             statement that binds a <code>lambda</code> expression directly to an
             identifier.</dd>
             <dd> <pre> 
-
     // Yes:
-
     def f(x): return 2*x
 
     // No:
-
     f = lambda x: 2*x
             </pre> </dd>   
 
-            <dd>Derive exceptions from <code>Exception</code> rather than <code>BaseException</code>. 
+            <dd><em>Exceptions: </em>Derive exceptions from <code>Exception</code> rather than <code>BaseException</code>. 
             </dd>   
             <dd>Direct inheritance from <code>BaseException</code> is reserved
             for exceptions where catching them is almost always the wrong thing
@@ -235,7 +229,7 @@ div {
             equivalent to except <code>BaseException</code>:).
             </dd>
 
-            <dd>Be consistent in <code>return</code> statements.</dd> 
+            <dd><em>return: </em>Be consistent in <code>return</code> statements.</dd> 
             <dd>Either all <code>return</code> statements in a function should
             return an expression, <em>or none of them should</em>.</dd> 
             <dd>If any <code>return</code> statement returns an expression,
@@ -244,33 +238,28 @@ div {
             <code>return </code>statement should be present at the end of the
             function (if reachable).
             </dd>
-
-
-            <dd>Use string methods instead of the <code>string</code> module.</dd>
+            <dd><em>Strings: </em>Use string methods instead of the <code>string</code> module.</dd>
 
             <dd>String methods are always much faster and share the same API with unicode strings.</dd>
 
-            <dd>Use <code>''.startswith()</code> and <code>''.endswith()</code> instead of string slicing to check for prefixes or suffixes</dd>
-            <dd><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone.</dd>
+            <dd>Use <code>''.startswith()</code> and <code>''.endswith()</code> 
+instead of string slicing to check for prefixes or suffixes</dd>
+            <dd><code>startswith()</code> and <code>endswith()</code> are cleaner
+ and less error prone.</dd>
             <dd>  <pre> 
-
     //    Yes:
-
     if foo.startswith('bar'):
 
     //    No:
-
     if foo[:3] == 'bar':
             </pre></dd>   
 
-            <dd>Object type comparisons should always use <code>isinstance() </code>instead of comparing types directly:</dd>
+            <dd><em>Objects: </em> Object type comparisons should always use <code>isinstance() </code>instead of comparing types directly:</dd>
             <dd><pre> 
     //    Yes:
-
     if isinstance(obj, int):
 
     //    No:
-
     if type(obj) is type(1):
 
      </pre></dd>  
@@ -278,36 +267,27 @@ div {
      <dd>For sequences, (strings, lists, tuples), <em>use the fact that empty sequences are false</em>:</dd>
      <dd> <pre> 
     //    Yes:           
-
     if not seq:
     if seq:
 
     //    No:
-
     if len(seq):
     if not len(seq):
      </pre> </dd>   
-     <dd>Don’t compare boolean values to <code>True</code> or
+     <dd><em>Booleans: </em>Don’t compare boolean values to <code>True</code> or
  <code>False</code> using <code>==</code>:</dd>
      <dd><pre> 
-
     //    Yes:
-
     if greeting:
 
     //    No:
-
     if greeting == True:
 
     //    Worse:
-
     if greeting is True:
      </pre></dd>   
           </dl>
           </dd>
-          <dd><code>&check; </code>
-          </dd>
-
         </dl>
       </main>
       <div class="syntax">
