@@ -20,14 +20,13 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>docstring</dt>
-
+          <dt><code>docstring</code></dt>
 
           <dd>A <code>docstring</code> is a string literal that occurs as the
-          first statement in a module, function, class, or method
-          definition.</dd> 
-          <dd>Such a docstring becomes the <code>__doc__</code> <mark>special
-            attribute</mark> of that object</dd>
+          first statement in a <code>module</code>, <code>function</code>,
+          <code>class</code>, or <code>method</code> definition.</dd> 
+          <dd>Such a docstring becomes the <code>__doc__</code> <em>special
+            attribute</em> of that object</dd>
 
           <dd>All modules should normally have docstrings, and all functions and
           classes exported by a module should also have docstrings.</dd> 
@@ -35,12 +34,23 @@ div {
           should also have docstrings.</dd>
           <dd>The docstring is a phrase ending in a period.</dd> 
           <dd>It prescribes the function or method's effect
-          <mark>as a command</mark>
-          ("Do this", "Return that"), not as a description;
-          e.g. don't write "Returns the pathname ...".</dd>
+          <em>as a command</em></dd>    
+          <dd>&hellip;  
+          "Do this", "Return that", not as a description </dd>    
+          <dd>&hellip; e.g. don't write "Returns the pathname ...".</dd>
 
           <dd>The docstrings are declared using <code>'''triple single quotes'''</code>
-          or <code>"""triple double quotes"""</code> just below the class, method or function declaration</dd>
+          or <code>"""triple double quotes"""</code> just below the class,
+          method or function declaration</dd>
+
+          <dd><code>&check; </code>For consistency, always use
+          <code>"""triple double quotes"""</code>
+          around docstrings.</dd> 
+          <dd><code>&check; </code>Use <code>r"""raw triple double quotes"""</code>
+          if you use any
+          backslashes in your docstrings.</dd>
+          <dd><code>&check; </code>For Unicode docstrings, use
+          <code>u"""Unicode triple-quoted strings"""</code>.</dd>
 
           <dt>Single-line Docstrings</dt>
           <dd><pre> 
@@ -50,21 +60,46 @@ div {
       if _kos_root: return _kos_root
           </pre></dd>   
 
-          <dd>Triple quotes are used even though the string fits on one line. This
-          makes it easy to later expand it.</dd>
-          <dd>The closing quotes are on the same line as the opening quotes. This
-          looks better for one-liners.</dd>
-          <dd>There's no blank line either before or after the docstring.</dd>
+          <dd><code>&check; </code>Triple quotes are used even though the string
+          fits on one line. This makes it easy to later expand it.</dd>
+          <dd><code>&check; </code>The closing quotes are on the same line as the
+          opening quotes. This looks better for one-liners.</dd>
+          <dd><code>&check; </code>There's no blank line either before or after
+          the docstring.</dd>
 
           <dt>Multi-line Docstrings</dt>
-          <dd>Multi-line docstrings consist of a summary line just like a
-          one-line docstring, followed by a blank line, followed by a more
-          elaborate description.</dd>
+          <dd><code>&check; </code>Multi-line docstrings consist of a summary
+          line just like a one-line docstring </dd>   
+          <dd><code>&check; </code>&hellip; followed by a blank line,</dd> 
+          <dd><code>&check; </code>&hellip; followed by a more elaborate description.</dd>
 
-          <dt>function docstring</dt>
+          <dd>The summary line may be on the same line as the opening quotes or
+          on the next line.</dd>
+
+          <dd>The summary line may be used by automatic indexing tools</dd>
+          <dd>It is important that it fits on one line and is separated from the
+          rest of the docstring by a blank line</dd>
+          <dt>Scripts</dt>
+
+          <dd>The <code>docstring</code> of a script (a stand-alone program)
+          should be usable as its "usage" message</dd>   
+          <dd>&hellip; printed when the script is invoked with incorrect or
+          missing arguments (or perhaps with a "-h" option, for "help").</dd> 
+
+          <dd>Such a docstring should document the script's function and command
+          line syntax, environment variables, and files.</dd> 
+          <dd>Usage messages can be fairly elaborate (several screens full)</dd> 
+
+          <dd>&hellip; and should be sufficient for a new user to use the
+          command properly,</dd> 
+          <dd>&hellip; as well as a complete quick reference to all options and
+          arguments for the sophisticated user.</dd>
+
+          <dt>Function docstring</dt>
           <dd>The docstring for a function or method should summarize its
           behavior and document its arguments, return value(s), side effects,
-          exceptions raised, and restrictions on when it can be called (all if applicable).</dd> 
+          exceptions raised, and restrictions on when it can be called
+          (all if applicable).</dd> 
           <dd>Optional arguments should be indicated. </dd>   
           <dd>  It should be documented whether keyword arguments are part of
           the interface.</dd>
