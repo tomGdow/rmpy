@@ -14,7 +14,7 @@ let pageData = (function () {
     "145_template_string_format.html",
     "194_string_formatting_comparison_examples.html",
     "195_datetime.html",
-    "4_rmpy_comments.html",
+    "4_comments_style_guide_pep8.html",    
     "5_rmpy_variables.html",
     "6_rmpy_string_str.html",
     "7_pass_by_reference_value.html",
