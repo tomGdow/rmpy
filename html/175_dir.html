@@ -23,9 +23,45 @@ div {
           <dt><code>dir([object])</code></dt>
           <dd>Without arguments, return the list of names in the current local scope.</dd> 
           <dd>With an argument, attempt to return a list of valid attributes
- for that object.</dd>
+          for that object.</dd>
+          <dd>see  <a href ="https://youtu.be/BVXv0-1Rcc8">
+            Socratica YouTube video </a>  [ecollege recommended]
+          </dd>
+          <dt>New Python Session</dt>
+          <dd><pre>
+    dir()
+    //    ['__annotations__', '__builtins__', '__doc__',
+    //    '__loader__', '__name__', '__package__', '__spec__']
+     
+    import math
+    dir()
+    //    ['__annotations__', '__builtins__', '__doc__',
+    //    '__loader__', '__name__', '__package__', '__spec__', 'math']
 
-<dd><pre> 
+    dir(math)
+    //    ['__doc__', '__loader__', '__name__', '__package__',
+           d$ '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', ...
+
+          </pre></dd>
+          <dt>help() example</dt>
+          <dd>
+          <pre>
+
+    help(hex)
+    //    Help on built-in function hex in module builtins:
+    //
+    //    hex(number, /)
+    //    Return the hexadecimal representation of an integer.
+
+    hex(12648430) //  '0xc0ffee'
+    hex(16)       //  '0x10'
+    0x10          //   16         // Note to convert hex to decimal.
+                                  // just type in number (no quotes) 
+
+
+          </pre>
+          </dd>
+          <dd><pre> 
     def myfn(a,b):
         return a/b
 
@@ -46,7 +82,7 @@ div {
     myfn.__call__(100,10)   //   10.0
     myfn.__sizeof__()       //   120
 
-</pre></dd>   
+          </pre></dd>   
         </dl>
       </main>
       <div class="syntax">
@@ -79,10 +115,19 @@ div {
             <dt>References</dt>
             <dd>
             <p>
-            
-<a href ="https://docs.python.org/3/library/functions.html#dir">dir (Python Docs)</a>
+
+            <a href ="https://docs.python.org/3/library/functions.html#dir">dir (Python Docs)</a>
             </p>
             </dd>
+
+<dd>
+<p>
+<a href ="https://youtu.be/BVXv0-1Rcc8">
+Python Interactive Help (Socratica) [ecollege recommended]
+</a>
+</p>
+</dd>
+
           </dl>
         </details>
       </div>
