@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html> 
 <html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>[TITLE]</title>
+    <meta charset="utf-8" />
+    <title>[comments and PEP 8]</title>
     <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico">
     <style>
 div {
@@ -17,9 +16,298 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>Comments&nbsp;</dt>
+          <dt>Comments and PEP 8 (Style Guide for Python Code)</dt>
           <dd>Comments in python: <code>#</code></dd>
           <dd>Multi-line comments: enclose in triple quotation mark: <code>'''</code></dd>
+          <dt>PEP 8 Notes</dt>
+          <dd>See <a href ="https://pep8.org/">
+            PEP 8 — the Style Guide for Python Code</a>
+          </dd>
+          <dd><code>&check; </code>Four Spaces</dd>
+          <dd><code>&check; </code>No tabs!</dd>
+          <dd><code>&check; </code>Use hanging indents</dd>
+          <dd><code>&check; </code>Max line length is 79 characters</dd>
+          <dd><code>&check; </code>For docstring and comments, max length is 72
+          characters</dd>
+          <dd><code>&check; </code>Break <em>before</em> a binary operator</dd>
+          <dd><code>&check; </code>Top level functions:  2 blank lines</dd>
+          <dd><code>&check; </code>Otherwise, one blank line</dd>    
+          <dd><code>&check; </code>All identifiers <em>must</em> use ASCII only
+          characers </dd>
+          <dd><code>&check; </code>All identifiers <em>should</em> be English
+          words where possible</dd>
+          <dd><code>&check; </code>string literals and comments <em>must</em>
+          use ascii</dd>
+          <dd><code>&check; </code>use separate lines for imports</dd>
+          <dd><code>&check; </code>Use <code>utf-8</code> for source file
+          encoding</dd>
+          <dd><code>&check; </code>Imports should be in the following order:</dd>
+          <dd><pre>
+
+    1 standard library imports
+    2 related third party imports
+    3 local application/library specific imports
+
+          </pre></dd>
+          <dd><code>&check; </code>You should put a blank line between each
+          group of imports
+          </dd>
+          <dd><code>&check; </code>
+          Module level <code>dunders</code> such as 
+          <code>__all__</code>, 
+          <code>__author__</code>,
+          <code>__version__</code>, 
+          etc. should be placed after the module docstring but before any import
+          statements
+          </dd>
+          <dd><code>&check; </code>In Python, single-quoted strings and
+          double-quoted strings are the same. This PEP does not make
+          a recommendation for this.</dd>
+          <dd><code>&check; </code>Pick a rule and stick to it.</dd>
+          <dd><code>&check; </code>When a string contains single or double quote
+          characters, however, use the other one to avoid backslashes in the
+          string. It improves readability.  </dd>
+          <dd><code>&check; </code>For triple-quoted strings, always use double
+          quote characters to be consistent with the docstring convention in
+          PEP 257.</dd>
+          <dd><code>&check; </code>Don’t use spaces around the <code>=</code>
+          sign when used to indicate a keyword argument or a default parameter
+          value</dd>
+          <dd>  
+          <dl>
+            <dt><code>&check; Trailing commas</code></dt>  
+            <dd> Trailing commas are usually optional, except they are mandatory
+            when making a tuple of one element.</dd>
+            <dd>For clarity, it is recommended to surround the latter in
+            (technically redundant) parentheses.</dd>
+            <dd><pre>
+
+    FILES = ('setup.cfg',)
+            </pre></dd>
+            <dd>When trailing commas are redundant, they <em>are often helpful</em>
+            when a version control system is used, when a list of values, arguments
+            or imported items is expected to be extended over time.</dd>    
+            <p><dd>The pattern is to put each value on a line by itself,
+            <em>always adding a trailing comma</em>, and add the close
+            parenthesis/bracket/brace</p>
+            on the next line
+            </dd>   
+            <dd><pre>
+
+    FILES = [
+        'setup.cfg',
+        'tox.ini',
+        ]
+            </pre></dd>
+          </dl>
+          </dd>
+          <dd>
+          <dl>
+            <dt><code>&check; Comments</code></dt>
+            <dd>Comments that contradict the code are worse than no comments</dd>
+            <dd>Always make a priority of keeping the comments up-to-date when the
+            code changes!</dd>
+            <dd>Comments should be complete sentences</dd> 
+            <dd>If a comment is a phrase or sentence, its first word should be
+            capitalized, unless it is an identifier that begins with a lower
+            case letter</dd>
+            <dd>Never alter the case of identifiers!.</dd>
+
+            <dt><code>Block Comments</code></dt>
+            <dd>Block comments generally, apply to some (or all) code that follows
+            them, and are indented to the same level as that code.</dd>
+            <dd>Each line of a block comment starts with a <code>#</code>
+            and a single space</dd>
+            <dd>Paragraphs inside a block comment are separated by a line
+            containing a single <code>#</code>.</dd>
+
+            <dt><code>Inline Comments</code></dt>
+            <dd>Use inline comments sparingly</dd>
+
+            <dt><code>Document Strings</code></dt>
+            <dd>Conventions for writing good documentation strings (a.k.a.
+            "<code>docstrings</code>") are immortalized in <code>PEP 257</code>.</dd>
+            <dd>Note that most importantly, the <code>"""</code> that ends a
+            multiline docstring should be on a line by itself,</dd>
+            <dd>For one liner docstrings, keep the closing <code>"""</code>
+            on the same line.</dd>
+          </dl>
+          </dd>
+          <dd>
+          <dl>
+            <dt><code>&check; Naming Conventions</code></dt>
+            <dd><em>Overriding principle</em>: Names that are visible to the user
+            As public parts of the API should follow conventions that reflect usage
+            rather than implementation</dd>
+            <dt><code>Naming Styles </code></dt>
+
+            <dd><code>_single_leading_underscore</code>: weak "internal use" indicator.</dd>
+            <dd>  E.g. <code>from M import *</code> does not import objects whose
+            name starts with an underscore.</dd>
+
+            <dd><code>single_trailing_underscore_</code>: used by convention to
+            avoid conflicts with Python keyword</dd>
+            <dd><pre>
+    Tkinter.Toplevel(master, class_='ClassName')
+            </pre></dd> 
+
+            <dd><code>__double_leading_underscore</code>: when naming a class
+            attribute, invokes name mangling (inside class <code>FooBar</code>,
+            <code>__boo</code> becomes <code>_FooBar__boo</code>)</dd>
+            <dd><code>__double_leading_and_trailing_underscore__</code>:
+            "<code>magic</code>" objects or attributes that live in user-controlled
+            namespaces.</dd>   
+            <dd>E.g. <code>__init__</code>, <code>__import__</code> or
+            <code>__file__</code>.</dd> 
+            <dd>Never invent such names; only use them as documented</dd>
+
+            <dt><code>Module Names</code></dt>
+            <dd>Modules should have short, all-lowercase names.  </dd>   
+            <dd>Underscores can be used in the module name if it improves readability</dd>
+
+            <dt><code>Class Names</code></dt>
+            <dd>Class names should normally use the <code>CapWords</code> convention.</dd>
+
+            <dt><code>Exception Names</code></dt>
+            <dd>Because exceptions should be classes, the class naming convention
+            applies here.</dd>
+
+            <dt><code>Function Names</code></dt>
+            <dd>Function names should be lowercase, with words separated by
+            underscores as necessary to improve readability.</dd>
+
+            <dt><code>Function and method arguments</code></dt>
+            <dd>Always use <code>self</code> for the first argument to instance
+            methods</dd>
+
+            <dd>Always use <code>cls</code> for the first argument to class methods</dd>
+            <dd>If a function argument's name clashes with a reserved keyword,
+            it is generally better to append a <code>single trailing underscore</code>
+            rather than use an abbreviation or spelling corruption</dd>
+
+            <dt><code>Constants</code></dt>
+            <dd>Constants are usually defined on a module level and written in all
+            capital letters with underscores separating words.</dd> 
+            <dd>Examples include <code>MAX_OVERFLOW</code> and <code>TOTAL</code>.</dd>
+          </dl>
+          </dd>
+          <dd>
+          <dl>
+            <dt>Programming Recommendations</dt>
+            <dd></dd>
+            <dd>Comparisons to singletons like <code>None</code> should always be
+            done with <code>is</code> or <code>is not</code>, never the equality
+            operators.</dd>
+
+            <dd>Also, beware of writing <code>if x</code> when you really mean
+            <code>if x is not None</code></dd> 
+
+
+            <dd>Use <code>is not</code> operator rather than <code>not ... is</code></dd>   
+            <dd> While both expressions are functionally identical, the former is
+            more readable </dd>
+
+            <dd>Always use a <code>def</code> statement instead of an assignment
+            statement that binds a <code>lambda</code> expression directly to an
+            identifier.</dd>
+            <dd> <pre> 
+
+    // Yes:
+
+    def f(x): return 2*x
+
+    // No:
+
+    f = lambda x: 2*x
+            </pre> </dd>   
+
+            <dd>Derive exceptions from <code>Exception</code> rather than <code>BaseException</code>. 
+            </dd>   
+            <dd>Direct inheritance from <code>BaseException</code> is reserved
+            for exceptions where catching them is almost always the wrong thing
+            to do.</dd>
+
+            <dd>When catching exceptions, mention specific exceptions whenever
+            possible instead of using a bare <code>except:</code> clause.</dd>
+
+            <dd>If you want to catch all exceptions that signal program errors,
+            use except <code>Exception:</code> (bare <code>except</code> is
+            equivalent to except <code>BaseException</code>:).
+            </dd>
+
+            <dd>Be consistent in <code>return</code> statements.</dd> 
+            <dd>Either all <code>return</code> statements in a function should
+            return an expression, <em>or none of them should</em>.</dd> 
+            <dd>If any <code>return</code> statement returns an expression,
+            any <code>return</code> statements where no value is returned should
+            explicitly state this as <code>return None</code>, and an explicit
+            <code>return </code>statement should be present at the end of the
+            function (if reachable).
+            </dd>
+
+
+            <dd>Use string methods instead of the <code>string</code> module.</dd>
+
+            <dd>String methods are always much faster and share the same API with unicode strings.</dd>
+
+            <dd>Use <code>''.startswith()</code> and <code>''.endswith()</code> instead of string slicing to check for prefixes or suffixes</dd>
+            <dd><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone.</dd>
+            <dd>  <pre> 
+
+    //    Yes:
+
+    if foo.startswith('bar'):
+
+    //    No:
+
+    if foo[:3] == 'bar':
+            </pre></dd>   
+
+            <dd>Object type comparisons should always use <code>isinstance() </code>instead of comparing types directly:</dd>
+            <dd><pre> 
+    //    Yes:
+
+    if isinstance(obj, int):
+
+    //    No:
+
+    if type(obj) is type(1):
+
+     </pre></dd>  
+
+     <dd>For sequences, (strings, lists, tuples), <em>use the fact that empty sequences are false</em>:</dd>
+     <dd> <pre> 
+    //    Yes:           
+
+    if not seq:
+    if seq:
+
+    //    No:
+
+    if len(seq):
+    if not len(seq):
+     </pre> </dd>   
+     <dd>Don’t compare boolean values to <code>True</code> or
+ <code>False</code> using <code>==</code>:</dd>
+     <dd><pre> 
+
+    //    Yes:
+
+    if greeting:
+
+    //    No:
+
+    if greeting == True:
+
+    //    Worse:
+
+    if greeting is True:
+     </pre></dd>   
+          </dl>
+          </dd>
+          <dd><code>&check; </code>
+          </dd>
+
         </dl>
       </main>
       <div class="syntax">
@@ -57,13 +345,14 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-              <p>Note One</p>
-            </dd>
             <dt>References</dt>
+
             <dd>
-              <p> <a href="http://google.ie">link-1</a> </p>
+            <p>
+            <a href ="https://pep8.org/">
+              PEP 8 — the Style Guide for Python Code
+            </a>
+            </p>
             </dd>
           </dl>
         </details>
