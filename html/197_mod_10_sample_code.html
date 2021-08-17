@@ -34,38 +34,601 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            <pre></pre>
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
+            <summary><code> basic_slicing_functions.py </code></summary>
+              <pre>
 
-            <pre></pre>
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            <pre></pre>
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            <pre> </pre>
-          </details><!--inner-->
-          <details><!--inner-->
-            <summary><code>XXX</code></summary>
+    # take input string from the user
+    s = input("\nEnter your text please ; ")
+    # function declarations
+    def reverse_str(s):
+        str=s[::-1]
+        return str
 
-            <pre></pre>
+    def every_second(s):
+        sec = s[::2]
+        return sec
+
+    # return results
+
+    print("string {} reversed is".format(s), reverse_str(s))
+    print("every second character of string {} is".format(s), every_second(s))
+
+
+    //    Enter your text please ; To be or not to be that is the python
+    //    string To be or not to be that is the python reversed is nohtyp eht si taht eb ot ton ro eb oT
+    //    every second character of string To be or not to be that is the python is T eo o ob hti h yhn
+
+              </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code>XXX</code></summary>
-            <pre></pre>
+            <summary><code>exercise_write_missing_functions.py</code></summary>
+            <pre>
+
+    # functions that takes in a list and returns a list
+    # program should display all results to the user
+
+    # generate list
+    # numbers = [-4,-3,1,2]
+    numbers = list(range(-50,50))
+    print(numbers)
+    print('---')
+
+    # write functions
+    def only_positive(my_list):
+        # define output list
+        output_list = []
+        # for each element in my_list
+        for i in my_list:
+            # check if it is positive, if so add it to output list
+            if i > 0:
+                output_list.append(i)
+
+        return output_list
+
+    def only_odd(my_list):
+        output_list =[]
+        
+        for i in my_list:
+            if i%2:
+                output_list.append(i)
+        return output_list
+
+    def make_positive(my_list):
+        output_list =[]
+        for i in my_list:
+            if abs(i) == i:
+                output_list.append(i)
+            else:
+                output_list.append(-i)
+
+        return output_list
+
+    def make_positive_alt(my_list):
+        output_list =[]
+        for i in my_list:
+            output_list.append(i) if abs(i) == i else output_list.append(-i) 
+        
+
+        return output_list
+
+    # call functions and print to user
+
+    print(only_positive(numbers))
+    print('*'*10)
+    print(only_odd(numbers))
+    print('*'*10)
+    print(make_positive(numbers))
+    print('*'*10)
+    print(make_positive_alt(numbers))
+
+
+
+    // Console
+    //    [-50, -49, -48, -47, -46, -45, -44, -43, -42, -41, &hellip;                  
+    //    ---
+    //    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,&hellip;
+    //    **********
+    //    [-49, -47, -45, -43, -41, -39, -37, -35, -33, -31, -29, -27, -25 &hellip;
+    //    **********
+    //    [50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35,&hellip;
+    //    **********
+    //    [50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, &hellip;
+            </pre>      
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code> functions1.py</code></summary>
+            <pre>
+
+    # simple function
+    def greeting():
+        """ Display a simple greeting. """
+        print("Hello!")
+
+    greeting()
+
+    # function with parameter
+    def greet_user(username):
+        """Display a simple greeting."""
+        print("Hello, " + username.title() + "|")
+
+    greet_user('jesse jones')
+
+
+    print('# function with multiple parameters - order matters')
+
+    # function with multiple parameters - order matters
+    def describe_pet(animal_type, pet_name):
+        """Display information about a pet. """
+        print("\n I have a " + animal_type + ".")
+        print("My " + animal_type + "'s name is " + pet_name.title() + ".")
+
+    describe_pet('hamster', 'harry')
+    print()
+    describe_pet('dog', 'willie')
+    print()
+    print('Wrong order: ', end='')
+    describe_pet('harry', 'hamster')
+
+    describe_pet(animal_type='hamster', pet_name='harry')
+    describe_pet(pet_name='harry', animal_type = 'hamster')
+    print()
+
+    print('# function with default parameter values')
+    # function with default parameter values
+    def describe_pet(pet_name, animal_type='dog'):
+        """Display information about a pet."""
+        print("\nI have a " + animal_type + ".")
+        print("My " + animal_type + "'s name is " + pet_name.title() + ".")
+
+    # Equivalent function calls
+    # A dog named Willie.
+    describe_pet(pet_name='Willie')
+    describe_pet('willie')
+
+    # A Hamster named Harry
+    describe_pet('harry', 'hamster')
+    describe_pet(pet_name='harry', animal_type='hamster')
+    describe_pet(animal_type="hamster", pet_name='harry')
+
+    # Avoid argument errors
+    print('# Avoid argument errors')
+    #describe_pet() 
+    describe_pet('harry', 'hamster', 7, 'large') 
+
+    // Console
+
+    //    Hello!
+    //    Hello, Jesse Jones|
+    //    # function with multiple parameters - order matters
+
+    //     I have a hamster.
+    //    My hamster's name is Harry.
+
+
+    //     I have a dog.
+    //    My dog's name is Willie.
+
+    //    Wrong order: 
+    //     I have a harry.
+    //    My harry's name is Hamster.
+
+    //     I have a hamster.
+    //    My hamster's name is Harry.
+
+    //     I have a hamster.
+    //    My hamster's name is Harry.
+
+    //    # function with default parameter values
+
+    //    I have a dog.
+    //    My dog's name is Willie.
+
+    //    I have a dog.
+    //    My dog's name is Willie.
+
+    //    I have a hamster.
+    //    My hamster's name is Harry.
+
+    //    I have a hamster.
+    //    My hamster's name is Harry.
+
+    //    I have a hamster.
+    //    My hamster's name is Harry.
+    //    # Avoid argument errors
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code> functions2.py </code></summary>
+
+            <pre>
+
+    # return values
+    print('# return values')
+
+    def get_formatted_name(first_name, last_name):
+        """Return a full name, neatly formatted."""
+        full_name = first_name + ' ' + last_name
+        return full_name.title()
+
+    musician = get_formatted_name('jimi', 'hendrix')
+    print(musician)
+
+    # making an argument optional
+    print("# making an argument optional")
+    # bad way
+    def get_formatted_name(first_name, middle_name, last_name):
+        """Return a full name, neatly formatted."""
+        full_name = first_name + ' ' + middle_name + ' ' + last_name
+        return full_name.title()
+
+    musician = get_formatted_name('john', 'lee', 'hooker')
+    print(musician)
+    ## musician = get_formatted_name('john', 'hooker') # causes error
+    ## print(musician)
+
+    # good way
+    def get_formatted_name(first_name, last_name, middle_name=''):
+        """Return a full name, neatly formatted."""
+        if middle_name:
+            full_name = first_name + ' ' + middle_name + ' ' + last_name
+        else:
+            full_name = first_name + ' ' + last_name
+        
+        return full_name.title()
+
+    musician = get_formatted_name('jimi', 'hendrix')
+    print(musician)
+    musician = get_formatted_name('john', 'hooker', 'lee')
+    print(musician)
+
+
+    // console
+
+
+    //    # return values:
+    //    Jimi Hendrix:
+    //    # making an argument optional:
+    //    John Lee Hooker:
+    //    Jimi Hendrix:
+    //    John Lee Hooker:
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code> functions3.py </code></summary>
+            <pre>
+
+    # Functions should generally do "one" thing. Printing is thing
+    # If the core functionality of your function is not printing,
+    # then avoid printing inside the function and return data isntead.
+    # This leaves your function much more flexible, and the calling
+    # code can choose how to use the data.
+
+    # return a dictionary
+    def build_person(first_name, last_name):
+        """Return a dictionary of information about a person."""
+        person = {'first' : first_name, 'last' : 'last_name'}
+        return person
+
+    musician = build_person('jimi', 'hendrix')
+    print(musician)
+
+    # return a built dictionary
+    def build_person(first_name, last_name, age=''):
+        """Return a dictionary of information about a person."""
+        person = {'first' : first_name, 'last' : last_name}
+        if age:
+            person['age'] = age
+        return person
+
+    musician = build_person('jimi', 'hendrix', age=27)
+    print(musician)
+
+    # Calling a function from a loop
+    def get_formatted_name(first_name, last_name):
+        """Return a full name, neatly formatted."""
+        full_name = first_name + ' ' + last_name
+        return full_name.title()
+
+    while True:
+        print("\n Please Tell me your name:")
+        print("(enter 'q' at any time to quit)")
+        f_name = input("First name: ")
+        
+        if f_name == 'q':
+            break
+
+        l_name = input('Last name: ')
+        if l_name == 'q':
+            break
+        formatted_name = get_formatted_name(f_name, l_name)
+        print("\nHello, " + formatted_name + "!")
+
+    // Console
+
+    //     Please Tell me your name::
+    //    (enter :'q' at any time to quit)
+    //    First name:: Thomas
+    //    Last name:: Doe
+
+    //    Hello:, Thomas Doe!
+
+    //     Please Tell me your name::
+    //    (enter :'q' at any time to quit)
+    //    First name:: John
+    //    Last name:: Deere
+
+    //    Hello:, John Deere!
+
+    //     Please Tell me your name::
+    //    (enter :'q' at any time to quit)
+    //    First name:: q
+
+</pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>functions4.py</code></summary>
+            <pre>
+
+    # Passing a list to a function
+    def greet_users(names):
+        """Print a simple greeting to each user in the list."""
+        for name in names:
+            msg = "Hello, " + name.title() + "!"
+            print(msg)
+
+    usernames = ['hannah', 'ty', 'margot']
+    greet_users(usernames)
+
+    #Start with some designs that need to be printed
+    unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+    completed_models =[]
+
+    # Simulate printing each design, until none are left.
+    # Move each design to completed_models after printing
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        # Simulate creating  a 3D print from the design.
+        print("Printing model: " + current_design)
+        completed_models.append(current_design)
+
+    # Display all completed models
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+
+    print("*****")
+
+    # Modifying a list in a fuction
+    def print_models(unprinted_designs, completed_models):
+        """
+        Simulate printing each design, until none are left.
+        Move each design to completed_models after printing
+        """
+        while unprinted_designs:
+            current_design = unprinted_designs.pop()
+
+            # Simulate creating a 3D print from the design.
+            print("Printing model: " + current_design)
+            completed_models.append(current_design)
+
+
+    def show_completed_models(completed_models):
+        """Show all the models that were printed."""
+        print("\nThe following models have been printed:")
+
+        for completed_model in completed_models:
+            print(completed_model)
+
+    unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+    completed_models =[]
+    # a reference to original lists are passed into function
+    print_models(unprinted_designs, completed_models)
+    show_completed_models(completed_models)
+
+    print(unprinted_designs)
+    print(completed_models)
+    # if you want to create a copy of a list to pass in use a "full" slice
+    # unprinted_designs[:]
+
+    // console
+
+    //    Hello:, Hannah!
+    //    Hello:, Ty!
+    //    Hello:, Margot!
+    //    Printing model:: dodecahedron
+    //    Printing model:: robot pendant
+    //    Printing model:: iphone case
+
+    //    The following models have been printed::
+    //    dodecahedron:
+    //    robot pendant:
+    //    iphone case:
+    //    *****
+    //    Printing model:: dodecahedron
+    //    Printing model:: robot pendant
+    //    Printing model:: iphone case
+
+    //    The following models have been printed::
+    //    dodecahedron:
+    //    robot pendant:
+    //    iphone case:
+    //    []:
+    //    [:'dodecahedron', 'robot pendant', 'iphone case']
+</pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>functions5.py</code></summary>
+
+            <pre>
+
+    # Passing an arbitrary number of arguments
+    # This is implemented and accessed inside the function as a tuple.
+
+    def make_pizza(*toppings): # creates a tuple of all the arguments passed
+        """Print the list of toppings that have been requested."""
+        print(toppings)
+
+    make_pizza('pepperoni')
+    make_pizza('mushrooms', 'green peppers', 'extra cheese')
+
+    # Process each tuple element separately
+    # you can access an element individually using [] notation e.g. toppings[0]
+    # or process them in a for loop like below
+    def make_pizza(*toppings):
+        """Summarize the pizza we are about to make."""
+        print("\nMaking a pizza with the following toppings:")
+        for topping in toppings:
+            print("- " + topping)
+
+    make_pizza('pepperoni')
+    make_pizza('mushrooms', 'green peppers', 'extra cheese')
+
+    # Mixing Positional and Arbitrary number of Arguments
+
+    def make_pizza(size, *toppings): # *parameter_name must be the last  parameter
+        """Summarize the pizza we are about to make."""
+        print("\nMaking a " + str(size) + "-inch pizza with the following toppings: ")
+        for topping in toppings:
+            print("- " + topping)
+
+    make_pizza(16,'pepporoni')
+    make_pizza(12,'mushrooms', 'green peppers', 'extra cheese')
+
+    # Using arbitrary number of keyword arguments
+    # Sometimes you'll want to accept an arbitrary number of arguments,
+    # but you won't know ahead of time what kind of information will be
+    # passed to the function.  In this case, you can write fuctions that 
+    # accept as many key-value pairs as the calling statement provides.
+    # This is implemented and accessed inside the function as a dictionary.
+
+    def build_profile(first, last, **user_info):
+        """Build a dictionary containing everything we know about a user"""
+        profile ={}
+        profile['first_name'] = first
+        profile['last_name'] = last
+
+        for key, value in user_info.items():
+            profile[key] = value
+
+        return profile
+
+    user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')
+
+    print(user_profile)
+
+
+    // console
+
+    //    (:'pepperoni',)
+    //    (:'mushrooms', 'green peppers', 'extra cheese')
+
+    //    Making a pizza with the following toppings::
+    //    - pepperoni:
+
+    //    Making a pizza with the following toppings::
+    //    - mushrooms:
+    //    - green peppers:
+    //    - extra cheese:
+
+    //    Making a :16-inch pizza with the following toppings:
+    //    - pepporoni:
+
+    //    Making a :12-inch pizza with the following toppings:
+    //    - mushrooms:
+    //    - green peppers:
+    //    - extra cheese:
+    //    {:'first_name': 'albert', 'last_name': 'einstein', 'location': 'princeton', 'field': 'physics'}
+
+
+</pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code> main_docstring.py, mydocstring.py </code></summary>
+            <pre>
+    // mydocstring.py
+
+
+    """docstring definition:
+       A docstring is a string literal that occurs as the first statement
+       in a module, function, class, or method definition.
+       Such a docstring becomes the __doc__ special attribute of that object
+       """
+
+    def sayhello():
+        '''Print hello to standard output.'''
+        print('hello')
+
+    def sayhellohello(num):
+        '''
+        Prints hello num number of times.
+
+        Parameters:
+        num -- the number of times hello is repeated
+        '''
+
+        for i in range(num):
+            print('hello')
+
+    ## sayhello()
+    ## print('--')
+    ## sayhellohello(5)
+
+    # Python documentation strings (or docstrings) provide a convenient way of 
+    # associating documentation with Python modules, functions, classes, and methods.
+
+    # An object's docstring is defined by including a string constant as 
+    # the first statement in the object's definition
+
+    # Unlike conventional source code comments the docstring
+    # should describe what the function does, not how.
+
+    # All functions should have a docstring. This allows the program
+    # to inspect these comments at run time, for instance as an
+    # interactive help system, or as metadata.
+
+    # Docstrings can be accessed by the __doc__ attribute on objects.
+    # This is accessed automatically by interactive help
+
+    # -- docstring rules -- 
+    # The doc string line should begin with a capital letter and end with a period.
+
+    # The first line should be a short description. Don't write the name of the object
+
+    # If there are more lines in the documentation string, the second line should be
+    # blank, visually separating the summary from the rest of the description.
+
+    # The following lines should be one or more paragraphs describing the object's
+    # calling convention, its side effects, etc.
+
+    # If there are parameters, keyboard arguments etc these can be listed with
+    # a brief explanation of each
+
+    # Detailed Docstring Conventions  - PEP 257
+    # https://www.python.org/dev/peps/peo-0257/
+
+    // main_docstring.py
+
+
+    # importing a module you wrote
+    import mydocstring
+    mydocstring.sayhello()
+    print('---')
+    mydocstring.sayhellohello(5)
+
+    // Console
+
+    //    hello:
+    //    ---:
+    //    hello:
+    //    hello:
+    //    hello:
+    //    hello:
+    //    hello:
+
+</pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary><code>XXX</code></summary>
