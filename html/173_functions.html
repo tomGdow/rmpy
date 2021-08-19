@@ -740,6 +740,25 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Pass a COPY of list</summary>
+            <pre>
+    // See Python Crash Course, Ch 8
+
+    def append_to_list(list_,el=200):
+        list_.append(el)
+        return None
+
+    mylist=[1,2,3]
+    append_to_list(mylist)
+    print(mylist)             // [1, 2, 3, 200]
+    print("---")
+    append_to_list(mylist[:])
+    print(mylist)             // [1, 2, 3, 200]   // !! Note
+
+
+            </pre>
+          </details><!--inner-->
 
         </details><!--end-outer-details-->
       </div>
