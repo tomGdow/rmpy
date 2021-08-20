@@ -760,6 +760,29 @@ div {
             </pre>
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Mutable default argument</summary>
+            <pre>
+
+    def func(a=[]):
+        return a
+
+    func()            //    [2]
+    a
+    //  Traceback (most recent call last):
+    //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //    NameError: name 'a' is not defined
+    func()            //    [2, 2]
+    func()            //    [2, 2, 2]
+    func()            //    [2, 2, 2, 2]
+    a
+    //  Traceback (most recent call last):
+    //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //    NameError: name 'a' is not defined
+
+            </pre>
+          </details><!--inner-->
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -880,6 +903,22 @@ div {
             <p>
             <a href ="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">
               Defining Functions (Pyton Docs, More on Control Flow)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/1132941/499167">
+              “Least Astonishment” and the Mutable Default Argument
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://web.archive.org/web/20200221224620/http://effbot.org/zone/default-values.htm">
+              Default Parameter Values in Python
             </a>
             </p>
             </dd>
