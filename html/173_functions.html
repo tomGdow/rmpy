@@ -780,6 +780,16 @@ div {
     //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
     //    NameError: name 'a' is not defined
 
+
+    // BUT NOTE
+
+    def funx(y,x=[]):
+        x.append(y)
+        return x
+
+    [funx(y) for y in [1,2,3]]  //  [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+
+
             </pre>
           </details><!--inner-->
 
