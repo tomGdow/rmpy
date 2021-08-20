@@ -216,6 +216,45 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4 Random number in range [3,7)</summary>
+            <dd>
+            <pre>
+            //Socratica video
+
+    def my_random():
+        """ Return a random number in the range [3,7)."""
+        return 4 * random.random() + 3    # (3-7) = 4, and add 3
+
+    [(min(x), max(x)) for x in [[my_random() for y in range(1000000)]]]
+    //    [(3.000000405438391, 6.999998988887352)]
+
+
+
+            </pre>
+            </dd>
+
+            <pre>
+
+   # You are writing code that generates a random integer with a minimum value of 5
+   # and maximum value of 11. 
+
+   # Which of the following 2 functions we required to use?
+
+    random.randint(5,12)
+    random.randint(5,11)
+    random.randrange(5,12,1)
+    random.randrange(5,11,1)
+
+    max([random.randint(5,12)  for x in range(1,1000)])      //   12
+    max([random.randint(5,11)  for x in range(1,1000)])      //   11
+    min([random.randint(5,12)  for x in range(1,1000)])      //    5
+
+    max([random.randrange(5,11)  for x in range(1,1000)])    //   10
+    max([random.randrange(5,12,1)  for x in range(1,1000)])  //   11
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
