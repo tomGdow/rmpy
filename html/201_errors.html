@@ -53,9 +53,44 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Example 1 Socratica logging example</summary>
             <pre>
-            [code]
+            
+        import logging
+        import time
+
+        # Create logger
+        logging.basicConfig(filename="C:\\Users\\thoma\\ecollege/98_381_python\\11_topic\\problems.log", level = logging.DEBUG)
+
+        logger = logging.getLogger()
+
+        def read_file_timed(path):
+            """Return the contents of the file at 'path' and measure the time required"""
+            start_time = time.time()
+            try:
+                f = open(path, mode='rb')
+                data = f.read()
+                return data
+            except FileNotFoundError as err:
+                logger.error(err)
+                raise
+            else:
+                f.close()
+            finally:
+                stop_time = time.time()
+                dt=stop_time - start_time
+                logger.info("Time required for {file} = {time}".format(file=path, time=dt))
+
+        # data=read_file_timed("C:\\Users\\thoma\\ecollege\\98_381_python\\11_topic\\symphony_no_6.wav")
+        data=read_file_timed("C:\\Users\\thoma\\ecollege\\98_381_python\\11_topic\\imaginary.wav")
+
+        // problems.log (final)
+
+
+    INFO:root:Time required for C:\Users\thoma\ecollege\98_381_python\11_topic\symphony_no_6.wav = 0.05799055099487305
+    ERROR:root:[Errno 2] No such file or directory: 'C:\\Users\\thoma\\ecollege\\98_381_python\\11_topic\\imaginary.wav'
+    INFO:root:Time required for C:\Users\thoma\ecollege\98_381_python\11_topic\imaginary.wav = 0.0010020732879638672
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
