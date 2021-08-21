@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[fibonacci]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        fibonacci
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>fibonacci</dt>
+          <dd>
+          <pre>
+
+    def fibonacci(n):
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 1
+        elif n &gt; 2:
+            return fibonacci(n-1) + fibonacci(n-2)
+
+    [fibonacci(n) for n in range(1,11)]
+    //  [1, 1, 2, 3, 5, 8, 13, 21, 34,55]
+
+    //  But this is SLOW!! (Very slow!) 
+
+    // Memoization 
+
+    fibonacci_cache ={}
+
+    def fibonacci_two(n):
+        return fibonacci_cache[n]
+        if n == 1:
+        return 1
+        elif n == 2:
+            return 1
+        elif n &gt; 2:
+            value = fibonacci(n-1) + fibonacci(n-2)
+        fibonacci_cache[n]=value
+            return value
+
+    [fibonacci_two(n) for n in range(1,11)]
+    //    [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+
+    // But CAN greatly speed up the original method
+
+    from functools import lru_cache
+    @lru_cache(maxsize=1000)
+    def fibonacci(n):
+        if n == 1:
+            return 1
+        if n == 2:
+            return 1
+        if n &gt; 2:
+            return fibonacci(n-1) + fibonacci(n-2)
+
+    [fibonacci(n) for n in range(1,11)]
+    //    [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+    // COULD add the following error checking to above
+
+    if type(n) != int:
+        raise TypeError("n must be a positive int")
+    if n &lt; 1:
+        raise ValueError("n must be positive int")
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://www.youtube.com/watch?v=Qk0zUZW-U_M">
+              Socratica: Recursion, the Fibonacci Sequence and Memoization (YouTube)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
