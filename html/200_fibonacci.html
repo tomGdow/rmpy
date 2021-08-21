@@ -78,6 +78,14 @@ div {
     if n &lt; 1:
         raise ValueError("n must be positive int")
 
+    // In Fibonacci, the ratio of consecutive terms converges to the golden ratio
+
+    [fibonacci(n+1)/fibonacci(n) for n in range(1,10)]
+
+    //    [1.0, 2.0, 1.5, 1.6666666666666667, 1.6,
+           1.625, 1.6153846153846154, 
+           1.619047619047619, 1.6176470588235294]
+
           </pre>
           </dd>
         </dl>
