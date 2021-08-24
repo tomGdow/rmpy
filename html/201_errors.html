@@ -22,10 +22,157 @@ div {
         <dl>
           <dt>Errors</dt>
           <dd>[Main text]</dd>
-
-          <dt><code>try...except..else...finally</code></dt>
+          <dt>Syntax Errors</dt>
+          <dd>Syntax errors, also known as parsing errors, are "where you do not
+          write Python code properly"</dd>
+          <dt>Exceptions</dt>
+          <dd>Even if a statement or expression is syntactically correct, it may
+          cause an error when an attempt is made to execute it.</dd> 
+          <dd>Errors <em>detected during execution</em> are called
+          <code>exceptions</code> and are not unconditionally fatal</dd>
+          <dd>Most exceptions are not handled by programs and result in error messages</dd> 
           <dd>
           <pre>
+
+    10 * (1/0)
+    //  Traceback (most recent call last):
+    //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //  ZeroDivisionError: division by zero
+
+          </pre>
+          </dd>
+
+          <dt>Handling Exceptions</dt> 
+          <dd>
+          <pre>
+    while True:
+        try:
+            x = int(input("Please enter a number: "))
+            break
+        except ValueError:
+            print("Oops!  That was no valid number.  Try again...")
+          </pre>
+          </dd>
+
+          <dd>The <code>try</code> statement works as follows.</dd>
+
+          <dd>
+          <ol>
+            <li>First, the <code>try</code> clause (the statement(s) between the
+              try and except keywords) is executed.</li>
+            <li>If no exception occurs, the <code>except </code>clause is skipped
+              and execution of the <code>try</code> statement is finished.</li>
+
+            <li>If an exception occurs during execution of the <code>try</code>
+              clause, the rest of the clause is skipped.</li>
+            <li>Then <em>if its type matches</em> the exception named after the
+              <code>except </code>keyword, the except <code>clause</code> is executed,
+              and then execution continues after the <code>try</code> statement.</li>
+            <li>If an exception occurs which does not match the exception named in
+              the except clause, it is passed on to outer try statements</li> 
+            <li>If no handler is found, it is an unhandled exception and execution
+              stops with a message as shown above.</li>
+          </ol>
+          </dd>
+          <dd> <code>&check; </code>A <code>try</code> statement may have more
+          than one <code>except</code> clause, to specify handlers for different 
+          exceptions.</dd>
+
+          <dd> <code>&check; </code>At most one handler will be executed.</dd>
+
+          <dd>Handlers only handle exceptions that occur in the corresponding try
+          clause, not in other handlers of the same try statement</dd>
+
+          <dd><code>&check; </code>An <code>except</code> clause may name multiple
+          exceptions as a parenthesized tuple, for example:</dd>
+
+          <dd>
+          <code>
+            except (RuntimeError, TypeError, NameError):
+            pass
+          </code>
+          </dd>
+
+          <dd>The <code>try … except</code> statement has an optional
+          <code>else</code> clause, which, when present, must <em>follow</em>
+          all <code>except</code> clauses.</dd> 
+          <dd>It is useful for code that must be executed if the try clause does
+          not raise an exception.</dd> 
+
+          <dd><pre> 
+    for arg in sys.argv[1:]:
+    try:
+        f = open(arg, 'r')
+    except OSError:
+        print('cannot open', arg)
+    else:
+        print(arg, 'has', len(f.readlines()), 'lines')
+        f.close()
+          </pre></dd>   
+          <dd><code>else</code></dd>
+          <dd>The use of the <code>else</code> clause is better than adding
+          additional code to the <code>try</code> clause because it avoids accidentally
+          catching an exception that wasn’t raised by the code being protected by
+          the try … except statement.</dd>
+          <dt>Exception argument</dt>
+          <dd>When an exception occurs, it may have an associated value, also
+          known as the exception’s <code>argument</code>.</dd>
+
+          <dd>The presence and type of the argument depend on the exception type.</dd>
+          <dd>The <code>except</code> clause may specify a variable after the
+          exception name</dd>
+          <dd>The variable is bound to an exception instance with the arguments
+          stored in <code>instance.args</code>.</dd>
+          <dd>For convenience, the exception instance defines <code>__str__()</code>
+          so the arguments can be printed directly without having to reference
+          <code>.args</code>
+          </dd>   
+          <dd>One may also instantiate an exception first before raising it and
+          add any attributes to it as desired.</dd>
+          <dd><pre>
+
+    try:
+        raise Exception('spam', 'eggs')
+    except Exception as inst:
+        print(type(inst))         //    &lt;class 'Exception'&gt;
+        print(inst.args)          //    ('spam', 'eggs')
+        print(inst)               //    ('spam', 'eggs')
+                                  //    __str__ allows args to be printed directly
+        x, y = inst.args
+        print("x = ", x)          //    x = spam
+        print("y = ", y)          //    y = eggs 
+        print(str(inst.args))     //    ('spam', 'eggs')
+        print(repr(inst.args))    //    ('spam', 'eggs')
+
+          </pre></dd>
+          <dd>If an exception has arguments, they are printed as the last part
+          (‘detail’) of the message for unhandled exceptions.</dd>
+          <dd>Exception handlers don’t just handle exceptions if they occur
+          immediately in the <code>try</code> clause, but also
+ <em>if they occur inside functions</em>
+          that are called (even indirectly) in the try clause.</dd>
+
+          <dt><code>raise</code>an exception</dt>
+                                            
+          <dd>The <code>raise</code> statement allows the programmer to force
+ a specified exception to occur.</dd>
+          <dd>For example</dd>
+
+          <dd><pre> 
+    raise NameError('HiThere')
+
+    //  Traceback (most recent call last):
+    //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //  NameError: HiThere
+                      <pre><dd>  
+
+<dd>The sole argument to raise indicates the exception to be raised.</dd>
+<dd>This must be either an exception instance or an exception class (a class that derives from Exception).</dd>
+    <dd>If an exception class is passed, it will be implicitly instantiated by calling its constructor with no arguments:</dd>
+              <dt><code>try</code></dt>
+
+              <dd>
+              <pre>
     try:
         # Runs first
     except:
