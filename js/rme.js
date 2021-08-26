@@ -104,6 +104,7 @@ let pageData = (function () {
     "193_os_os_dot_path_modules.html",
     "200_fibonacci.html",
     "201_errors_exceptions.html",
+    "202_double_colon_equals_bnf.html",
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
     "154_notes_jason_three.html",
