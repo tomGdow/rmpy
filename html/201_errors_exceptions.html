@@ -494,6 +494,23 @@ div {
           index used on a mapping or sequence is invalid: <code>IndexError</code>,
           <code>KeyError</code>.</dd>
 
+          <dt><code>exception AttributeError</code></dt>
+
+          <dd>Raised when an <code>attribute reference</code>
+          (see <a href ="https://docs.python.org/3/reference/expressions.html#attribute-references">
+            attribute references</a>
+          or assignment fails.</dd>
+          <dd>(When an object does not support attribute references or attribute
+          assignments at all, <code>TypeError</code> is raised.)</dd>
+
+          <dd>An <code>attribute reference</code> is a <code>primary</code>
+          followed by a <code>period</code> and a <code>name</code>:</dd>
+          <dd><pre> 
+    attributeref ::=  primary "." identifier
+          </pre></dd>   
+          <dd>The <code>primary</code> must evaluate to an object of a type
+          that supports <code>attribute references</code>, which most objects do</dd>
+
           <dt><code>exception IndexError</code></dt>
 
           <dd>Raised when a sequence subscript is out of range.</dd> 
@@ -575,7 +592,7 @@ BaseException
       |    +-- OverflowError
       |    +-- ZeroDivisionError                      // ZeroDivision
       +-- AssertionError
-      +-- AttributeError
+      +-- AttributeError                              // Atrribute Error
       +-- BufferError
       +-- EOFError
       +-- ImportError
