@@ -82,7 +82,7 @@ div {
           <dd> <code>&check; </code>At most one handler will be executed.</dd>
 
           <dd> <code>&check; </code>Handlers only handle exceptions that occur
- in the corresponding <code>try</code>
+          in the corresponding <code>try</code>
           clause, not in other handlers of the same try statement</dd>
 
           <dd><code>&check; </code>An <code>except</code> clause may name multiple
@@ -114,6 +114,24 @@ div {
           additional code to the <code>try</code> clause because it avoids accidentally
           catching an exception that wasn’t raised by the code being protected by
           the try … except statement.</dd>
+
+          <dt><code>try &hellip; finally</code></dt>
+          <dd>Note that <code>try &hellip; finally</code>is acceptable</dd>
+
+          <dt><code>try block</code></dt>
+          <pre>
+    try:
+        # Runs first
+    except:
+        # Runs in exception in try block
+    else:
+        # Runs if try block SUCCEEDS
+    finally:
+        # Always executes 
+
+          </pre>
+          </dd>
+
           <dt>Exception argument</dt>
           <dd>When an exception occurs, it may have an associated value, also
           known as the exception’s <code>argument</code>.</dd>
@@ -181,7 +199,6 @@ div {
 
 
           <dd><pre>  
-
     try:
         raise NameError('HiThere')
     except NameError:
@@ -322,11 +339,12 @@ div {
               <em>last task</em> before the <code>try</code> statement completes.</li>
 
             <li>The <code>finally</code> clause runs whether or not the
- <code>try</code> statement produces an exception.</li> 
+              <code>try</code> statement produces an exception.</li> 
           </ol> 
           </dd>   
 
-          <dd>The following points discuss more complex cases when an exception occurs:</dd>
+          <dd><code>&check; </code>The following points discuss more complex
+ cases when an exception occurs:</dd>
           <dd>  
           <ol>  
             <li>If an exception occurs during execution of the try clause,
@@ -368,18 +386,18 @@ div {
     //  False
 
           </pre></dd> 
-          <dd>A better example</dd>
           <dd><pre>
+    # A better example:
 
-def divide(x,y):
-    try:
-        result = x/y
-    except ZeroDivisionError:
-        print('Division by Zero!')
-    else:
-        print('result is: ', result)
-    finally:
-        print("Executing finally clause")
+    def divide(x,y):
+        try:
+            result = x/y
+        except ZeroDivisionError:
+            print('Division by Zero!')
+        else:
+            print('result is: ', result)
+        finally:
+            print("Executing finally clause")
 
     // python console
 
@@ -439,8 +457,8 @@ def divide(x,y):
           <dd>This may be a string or a tuple of several items of information
           (e.g., an error code and a string explaining the code).</dd> 
           <dd>The base class for those built-in exceptions that are raised for
- various arithmetic errors: <code>OverflowError</code>,
- <code>ZeroDivisionError</code>, <code>FloatingPointError</code></dd>       
+          various arithmetic errors: <code>OverflowError</code>,
+          <code>ZeroDivisionError</code>, <code>FloatingPointError</code></dd>       
           <dd>The <code>associated value</code> is usually <em>passed as arguments</em>
           to the exception class’s constructor.</dd>
 
@@ -472,7 +490,8 @@ def divide(x,y):
           <dt><code>exception LookupError</code></dt>
 
           <dd>The base class for the exceptions that are raised when a key or
- index used on a mapping or sequence is invalid: <code>IndexError</code>, <code>KeyError</code>.</dd>
+          index used on a mapping or sequence is invalid: <code>IndexError</code>,
+          <code>KeyError</code>.</dd>
 
           <dt><code>exception IndexError</code></dt>
 
@@ -497,7 +516,8 @@ def divide(x,y):
           <dd>This applies only to unqualified names.</dd>
           <dd>The associated value is an error message that includes the name
           that could not be found.</dd>
-          <dd><code>exception SyntaxError(message, details)</code></dd>
+
+          <dt><code>exception SyntaxError(message, details)</code></dt>
           <dd>Raised when the parser encounters a syntax error.</dd> 
           <dd>This may occur in an <code>import</code> statement, in a call to
           the built-in functions <code>compile()</code>, <code>exec()</code>,
@@ -512,45 +532,30 @@ def divide(x,y):
           <dd>Base class for syntax errors related to incorrect indentation.</dd> 
           <dd>This is a subclass of <code>SyntaxError</code>.</dd>
 
-  <dt><code>exception TypeError</code></dt>
+          <dt><code>exception TypeError</code></dt>
 
-  <dd>Raised when an operation or function is applied to an object
- <code>of inappropriate type</code></dd>
-  <dd>The associated value is a string giving details about the type mismatch.</dd>
-  <dd>This exception may be raised by user code to indicate that an
- attempted operation on an object is not supported, and is not meant
- to be</dd>
+          <dd>Raised when an operation or function is applied to an object
+          <code>of inappropriate type</code></dd>
+          <dd>The associated value is a string giving details about the type mismatch.</dd>
+          <dd>This exception may be raised by user code to indicate that an
+          attempted operation on an object is not supported, and is not meant
+          to be</dd>
 
-  <dd>Passing arguments of the <em>wrong type</em> (e.g. passing a list
- when an int is expected) <em>should result</em> in a <code>TypeError</code></dd>
+          <dd>Passing arguments of the <em>wrong type</em> (e.g. passing a list
+          when an int is expected) <em>should result</em> in a <code>TypeError</code></dd>
 
-  <dd>But passing arguments with the <em>wrong value</em> (e.g. a number
- outside expected boundaries) <em>should result</em> in a <code>ValueError</code>.</dd>
+          <dd>But passing arguments with the <em>wrong value</em> (e.g. a number
+          outside expected boundaries) <em>should result</em> in a <code>ValueError</code>.</dd>
 
- <dd><code>exception ValueError</code></dd>
- <dd>Raised when an operation or function receives an argument that has the <em>right type</em> but an <em>inappropriate value</em>,</dd> 
- <dd>&hellip;and the situation is not described by a more precise exception such as <code>IndexError</code></dd>
+          <dt><code>exception ValueError</code></dt>
+          <dd>Raised when an operation or function receives an argument that has the <em>right type</em> but an <em>inappropriate value</em>,</dd> 
+          <dd>&hellip;and the situation is not described by a more precise exception such as <code>IndexError</code></dd>
 
- <dd><code>exception ZeroDivisionError</code></dd>
+          <dt><code>exception ZeroDivisionError</code></dt>
 
- <dd>Raised when the second argument of a division <em>or</em> modulo operation is zero.</dd> 
- <dd>The associated value is a string indicating the type of the operands and the operation</dd>
+          <dd>Raised when the second argument of a division <em>or</em> modulo operation is zero.</dd> 
+          <dd>The associated value is a string indicating the type of the operands and the operation</dd>
 
-          <dd>
-          <pre>
-    try:
-        # Runs first
-    except:
-        # Runs in exception in try block
-    else:
-        # Runs if try block SUCCEEDS
-    finally:
-        # Always executes 
-
-
-          </pre>
-
-          </dd>
         </dl>
       </main>
       <div class="syntax">
