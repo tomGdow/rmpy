@@ -33,7 +33,8 @@ div {
           <dd>Most exceptions are not handled by programs and result in error messages</dd> 
           <dd>
           <pre>
-
+    #
+    # Example
     10 * (1/0)
     //  Traceback (most recent call last):
     //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
@@ -70,8 +71,8 @@ div {
               and then execution continues after the <code>try</code> statement.</li>
             <li>If an exception occurs which does not match the exception named in
               the except clause, it is passed on to outer try statements</li> 
-            <li>If no handler is found, it is an unhandled exception and execution
-              stops with a message as shown above.</li>
+            <li>If no handler is found, it is an unhandled exception and 
+              <em>execution stops</em> with a message as shown above.</li>
           </ol>
           </dd>
           <dd> <code>&check; </code>A <code>try</code> statement may have more
@@ -80,18 +81,17 @@ div {
 
           <dd> <code>&check; </code>At most one handler will be executed.</dd>
 
-          <dd>Handlers only handle exceptions that occur in the corresponding try
+          <dd> <code>&check; </code>Handlers only handle exceptions that occur
+ in the corresponding <code>try</code>
           clause, not in other handlers of the same try statement</dd>
 
           <dd><code>&check; </code>An <code>except</code> clause may name multiple
           exceptions as a parenthesized tuple, for example:</dd>
 
-          <dd>
-          <code>
-            except (RuntimeError, TypeError, NameError):
-            pass
-          </code>
-          </dd>
+          <dd><pre>
+    except (RuntimeError, TypeError, NameError):
+    pass
+          </pre></dd>
 
           <dd>The <code>try … except</code> statement has an optional
           <code>else</code> clause, which, when present, must <em>follow</em>
@@ -152,14 +152,13 @@ div {
           <em>if they occur inside functions</em>
           that are called (even indirectly) in the try clause.</dd>
 
-          <dt><code>raise</code>an exception</dt>
+          <dt><code>raise</code></dt>
 
           <dd>The <code>raise</code> statement allows the programmer to force
           a specified exception to occur.</dd>
           <dd>For example</dd>
 
-          <dd>
-          <pre> 
+          <dd><pre> 
     raise NameError('HiThere')
 
     //  Traceback (most recent call last):
@@ -322,7 +321,8 @@ div {
             <li>If a <code>finally</code> clause is present, it will execute as the
               <em>last task</em> before the <code>try</code> statement completes.</li>
 
-            <li>The <code>finally</code> clause runs whether or not the <code>try</code> statement produces an exception.</li> 
+            <li>The <code>finally</code> clause runs whether or not the
+ <code>try</code> statement produces an exception.</li> 
           </ol> 
           </dd>   
 
@@ -438,7 +438,10 @@ def divide(x,y):
 
           <dd>This may be a string or a tuple of several items of information
           (e.g., an error code and a string explaining the code).</dd> 
-          The base class for those built-in exceptions that are raised for various arithmetic errors: OverflowError, ZeroDivisionError, FloatingPointError       <dd>The <code>associated value</code> is usually <em>passed as arguments</em>
+          <dd>The base class for those built-in exceptions that are raised for
+ various arithmetic errors: <code>OverflowError</code>,
+ <code>ZeroDivisionError</code>, <code>FloatingPointError</code></dd>       
+          <dd>The <code>associated value</code> is usually <em>passed as arguments</em>
           to the exception class’s constructor.</dd>
 
           <dd>Programmers are encouraged to derive new exceptions from the
@@ -468,7 +471,8 @@ def divide(x,y):
 
           <dt><code>exception LookupError</code></dt>
 
-          <dd>The base class for the exceptions that are raised when a key or index used on a mapping or sequence is invalid: <code>IndexError</code>, <code>KeyError</code>.</dd>
+          <dd>The base class for the exceptions that are raised when a key or
+ index used on a mapping or sequence is invalid: <code>IndexError</code>, <code>KeyError</code>.</dd>
 
           <dt><code>exception IndexError</code></dt>
 
@@ -510,7 +514,8 @@ def divide(x,y):
 
   <dt><code>exception TypeError</code></dt>
 
-  <dd>Raised when an operation or function is applied to an object <code>of inappropriate type</code></dd>
+  <dd>Raised when an operation or function is applied to an object
+ <code>of inappropriate type</code></dd>
   <dd>The associated value is a string giving details about the type mismatch.</dd>
   <dd>This exception may be raised by user code to indicate that an
  attempted operation on an object is not supported, and is not meant
@@ -550,9 +555,72 @@ def divide(x,y):
       </main>
       <div class="syntax">
         <details>
-          <summary>Syntax</summary>
+          <summary>Hierarchy</summary>
           <pre>
-          Syntax One
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt                                 // KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError                      // ZeroDivision
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      |    +-- ModuleNotFoundError                    // ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError                             // IndexError
+      |    +-- KeyError                               // KeyError
+      +-- MemoryError
+      +-- NameError                                   // NameError
+      |    +-- UnboundLocalError
+      +-- OSError
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError                       // FileExistsError
+      |    +-- FileNotFoundError                     // FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError                               // SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError                                // TypeError
+      +-- ValueError                               // ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning
           </pre>
         </details>
       </div>
