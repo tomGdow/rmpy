@@ -583,71 +583,107 @@ div {
         <details>
           <summary>Hierarchy</summary>
           <pre>
-BaseException
- +-- SystemExit
- +-- KeyboardInterrupt                                 // KeyboardInterrupt
- +-- GeneratorExit
- +-- Exception
-      +-- StopIteration
-      +-- StopAsyncIteration
-      +-- ArithmeticError
-      |    +-- FloatingPointError
-      |    +-- OverflowError
-      |    +-- ZeroDivisionError                      // ZeroDivision
-      +-- AssertionError
-      +-- AttributeError                              // Atrribute Error
-      +-- BufferError
-      +-- EOFError
-      +-- ImportError
-      |    +-- ModuleNotFoundError                    // ModuleNotFoundError
-      +-- LookupError
-      |    +-- IndexError                             // IndexError
-      |    +-- KeyError                               // KeyError
-      +-- MemoryError
-      +-- NameError                                   // NameError
-      |    +-- UnboundLocalError
-      +-- OSError
-      |    +-- BlockingIOError
-      |    +-- ChildProcessError
-      |    +-- ConnectionError
-      |    |    +-- BrokenPipeError
-      |    |    +-- ConnectionAbortedError
-      |    |    +-- ConnectionRefusedError
-      |    |    +-- ConnectionResetError
-      |    +-- FileExistsError                       // FileExistsError
-      |    +-- FileNotFoundError                     // FileNotFoundError
-      |    +-- InterruptedError
-      |    +-- IsADirectoryError
-      |    +-- NotADirectoryError
-      |    +-- PermissionError
-      |    +-- ProcessLookupError
-      |    +-- TimeoutError
-      +-- ReferenceError
-      +-- RuntimeError
-      |    +-- NotImplementedError
-      |    +-- RecursionError
-      +-- SyntaxError                               // SyntaxError
-      |    +-- IndentationError
-      |         +-- TabError
-      +-- SystemError
-      +-- TypeError                                // TypeError
-      +-- ValueError                               // ValueError
-      |    +-- UnicodeError
-      |         +-- UnicodeDecodeError
-      |         +-- UnicodeEncodeError
-      |         +-- UnicodeTranslateError
-      +-- Warning
-           +-- DeprecationWarning
-           +-- PendingDeprecationWarning
-           +-- RuntimeWarning
-           +-- SyntaxWarning
-           +-- UserWarning
-           +-- FutureWarning
-           +-- ImportWarning
-           +-- UnicodeWarning
-           +-- BytesWarning
-           +-- ResourceWarning
+  BaseException
+   +-- SystemExit
+   +-- KeyboardInterrupt                                 // KeyboardInterrupt
+   +-- GeneratorExit
+   +-- Exception
+        +-- StopIteration
+        +-- StopAsyncIteration
+        +-- ArithmeticError
+        |    +-- FloatingPointError
+        |    +-- OverflowError
+        |    +-- ZeroDivisionError                      // ZeroDivision
+        +-- AssertionError
+        +-- AttributeError                              // Atrribute Error
+        +-- BufferError
+        +-- EOFError
+        +-- ImportError
+        |    +-- ModuleNotFoundError                    // ModuleNotFoundError
+        +-- LookupError
+        |    +-- IndexError                             // IndexError
+        |    +-- KeyError                               // KeyError
+        +-- MemoryError
+        +-- NameError                                   // NameError
+        |    +-- UnboundLocalError
+        +-- OSError
+        |    +-- BlockingIOError
+        |    +-- ChildProcessError
+        |    +-- ConnectionError
+        |    |    +-- BrokenPipeError
+        |    |    +-- ConnectionAbortedError
+        |    |    +-- ConnectionRefusedError
+        |    |    +-- ConnectionResetError
+        |    +-- FileExistsError                       // FileExistsError
+        |    +-- FileNotFoundError                     // FileNotFoundError
+        |    +-- InterruptedError
+        |    +-- IsADirectoryError
+        |    +-- NotADirectoryError
+        |    +-- PermissionError
+        |    +-- ProcessLookupError
+        |    +-- TimeoutError
+        +-- ReferenceError
+        +-- RuntimeError
+        |    +-- NotImplementedError
+        |    +-- RecursionError
+        +-- SyntaxError                               // SyntaxError
+        |    +-- IndentationError
+        |         +-- TabError
+        +-- SystemError
+        +-- TypeError                                // TypeError
+        +-- ValueError                               // ValueError
+        |    +-- UnicodeError
+        |         +-- UnicodeDecodeError
+        |         +-- UnicodeEncodeError
+        |         +-- UnicodeTranslateError
+        +-- Warning
+             +-- DeprecationWarning
+             +-- PendingDeprecationWarning
+             +-- RuntimeWarning
+             +-- SyntaxWarning
+             +-- UserWarning
+             +-- FutureWarning
+             +-- ImportWarning
+             +-- UnicodeWarning
+             +-- BytesWarning
+             +-- ResourceWarning
           </pre>
+           <pre>
+           // Shorter Version
+
+    BaseException
+     +-- KeyboardInterrupt   
+     +-- Exception
+          +-- ArithmeticError
+          |    +-- FloatingPointError
+          |    +-- OverflowError
+          |    +-- ZeroDivisionError 
+          +-- AttributeError           
+          +-- ImportError
+          |    +-- ModuleNotFoundError 
+          +-- LookupError
+          |    +-- IndexError          
+          |    +-- KeyError            
+          +-- MemoryError
+          +-- NameError                
+          |    +-- UnboundLocalError
+          +-- OSError
+          |    +-- FileExistsError 
+          |    +-- FileNotFoundError
+          |    +-- TimeoutError
+          +-- SyntaxError           
+          |    +-- IndentationError
+          |         +-- TabError
+          +-- TypeError             
+          +-- ValueError            
+          |    +-- UnicodeError
+          |         +-- UnicodeDecodeError
+          |         +-- UnicodeEncodeError
+          |         +-- UnicodeTranslateError
+
+
+           // Note  BaseEXCEPTION, EXCEPTION but ArithmeticERROR
+           </pre>
         </details>
       </div>
       <div class="examples">
@@ -695,7 +731,6 @@ BaseException
             </pre>
           </details><!--inner-->
 
-
           <details><!--inner-->
             <summary>Example 2: all_close (Keith Wright)</summary>
             <pre>
@@ -711,8 +746,8 @@ BaseException
             print("Calculating %s/%s" %(x,y))
             z = x / y
         except BaseException as exception:
-            print("Unexpected Error->", str(exception))
-            print("Unexpected Error->", repr(exception))
+            print("Unexpected Error-&gt;", str(exception))
+            print("Unexpected Error-&gt;", repr(exception))
         else:
             print("No Exception Occured")
             return z
@@ -740,6 +775,59 @@ BaseException
             </pre>
           </details><!--inner-->
 
+          <details><!--inner-->
+            <summary>Example 3:  (Keith Wright)</summary>
+            <pre>
+
+    from math import exp
+
+    def overflow_most_specific():
+        try:
+            z=exp(1000000000)
+        except OverflowError as exception:
+            print("Handling OverflowError: ", repr(exception))
+        else:
+            print("This would print if there were no exceptions")
+        finally:
+            print('Most specific handler is deepest in hierarchy') 
+
+    def overflow_medium_specific():
+        try:
+            z=exp(1000000000)
+        except ArithmeticError as exception:
+            print("Handling ArithmeticError: ", repr(exception))
+        else:
+            print("This would print if there were no exceptions")
+        finally:
+            print('Medium specific handler is medium in hierarchy') 
+
+    def overflow_least_specific():
+        try:
+            z=exp(1000000000)
+        except BaseException as exception:
+            print("Handling ArithmeticError: ", repr(exception))
+        else:
+            print("This would print if there were no exceptions")
+        finally:
+            print('Medium specific handler is medium in hierarchy') 
+
+
+    if __name__ == '__main__':
+        overflow_most_specific()
+        overflow_medium_specific()
+        overflow_least_specific()
+
+    //    Handling OverflowError:  OverflowError('math range error')
+    //    Most specific handler is deepest in hierarchy
+
+    //    Handling ArithmeticError:  OverflowError('math range error')
+    //    Medium specific handler is medium in hierarchy
+
+    //    Handling ArithmeticError:  OverflowError('math range error')
+    //    Medium specific handler is medium in hierarchy
+
+            </pre>
+          </details><!--inner-->
 
         </details><!--end-outer-details-->
       </div>
