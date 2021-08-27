@@ -21,7 +21,10 @@ div {
       <main>
         <dl>
           <dt>Errors</dt>
-          <dd>[Main text]</dd>
+          <dd>There are three types of errors: <code>syntax</code>,
+          <code>logic</code> errors and <code>runtime</code> errors</dd>
+          <dt>Exceptions</dt>
+          <dd>An exception object consists of a description and a traceback (Socratica) </dd>
           <dt>Syntax Errors</dt>
           <dd>Syntax errors, also known as parsing errors, are "where you do not
           write Python code properly"</dd>
@@ -691,6 +694,53 @@ BaseException
 
             </pre>
           </details><!--inner-->
+
+
+          <details><!--inner-->
+            <summary>Example 2: all_close (Keith Wright)</summary>
+            <pre>
+
+    def all_far(x,y):
+        """ Demonstrate Error handling when handling functions"""
+        z = x / y
+        return z
+
+    def all_close(x,y):
+        """ Demonstrate Error handling within a function """
+        try:
+            print("Calculating %s/%s" %(x,y))
+            z = x / y
+        except BaseException as exception:
+            print("Unexpected Error->", str(exception))
+            print("Unexpected Error->", repr(exception))
+        else:
+            print("No Exception Occured")
+            return z
+        finally:
+            print("Finished")
+
+    if __name__ == "__main__":
+        print("Calling all_close(5,2) returned:", all_close(5,2))
+        print()
+        print("Calling all_close(2,0) returned:", all_close(2,0))
+
+    // Output
+
+    Calculating 5/2
+    No Exception Occured
+    Finished
+    Calling all_close(5,2) returned: 2.5      // Note
+
+    Calculating 2/0
+    Unexpected Error-&gt; division by zero
+    Unexpected Error-&gt; ZeroDivisionError('division by zero')
+    Finished
+    Calling all_close(2,0) returned: None     // !!!! Note 
+
+            </pre>
+          </details><!--inner-->
+
+
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
