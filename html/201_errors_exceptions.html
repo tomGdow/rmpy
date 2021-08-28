@@ -648,7 +648,7 @@ div {
              +-- BytesWarning
              +-- ResourceWarning
           </pre>
-           <pre>
+          <pre>
            // Shorter Version
 
     BaseException
@@ -683,7 +683,7 @@ div {
 
 
            // Note  BaseEXCEPTION, EXCEPTION but ArithmeticERROR
-           </pre>
+          </pre>
         </details>
       </div>
       <div class="examples">
@@ -825,6 +825,77 @@ div {
 
     //    Handling ArithmeticError:  OverflowError('math range error')
     //    Medium specific handler is medium in hierarchy
+
+            </pre>
+          </details><!--inner-->
+
+
+          <details><!--inner-->
+            <summary>Example 4:  (Keith Wright)</summary>
+            <pre>
+
+    import errno
+    import os
+
+    # example one
+    def check_file(filepath):
+        if not os.path.isfile(filepath):
+            raise FileNotFoundError
+
+    # errno ENOENT
+    # check_file('invalid_path')
+
+    try:
+        check_file('invalid.path')
+    except FileNotFoundError as exception:
+        print(exception)
+
+    //      // NOTHING printed to screen 
+
+    def check_file_message(filepath):
+        if not os.path.isfile(filepath):
+            raise FileNotFoundError('"%s" is not found' % filepath)
+
+    try:
+        check_file_message('invalid.path')
+    except FileNotFoundError as exception:
+        print(exception)
+
+    // "invalid.path" is not found
+
+    def check_file_args(filename):
+        if not os.path.isfile(filename):
+            raise FileNotFoundError(errno.ENOENT,
+                    os.strerror(errno.ENOENT),
+                    filename,
+                    27,
+                    f'{filename}',
+                    )
+
+    try:
+        check_file_args('invalid.path')
+    except FileNotFoundError as exception:
+        print(exception)
+        print(exception.args)
+
+    //    [Errno 2] No such file or directory: 'invalid.path' -&gt; 'invalid.path'
+    //    (2, 'No such file or directory')
+
+
+
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example X: </summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example X </summary>
+            <pre>
 
             </pre>
           </details><!--inner-->
