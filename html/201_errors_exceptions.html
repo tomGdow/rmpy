@@ -831,7 +831,7 @@ div {
 
 
           <details><!--inner-->
-            <summary>Example 4:  (Keith Wright)</summary>
+            <summary>Example 4: Exception Payload (Keith Wright)</summary>
             <pre>
 
     import errno
@@ -887,8 +887,24 @@ div {
           </details><!--inner-->
 
           <details><!--inner-->
-            <summary>Example X: </summary>
+            <summary>Example 5: </summary>
             <pre>
+
+    def check_file_real(filename):
+        f = open(filename)
+
+    try:
+        check_file_real('invalid.path')
+    except FileNotFoundError as exception:
+        print(exception)
+        print(exception.args)
+    finally:
+        print('finished')
+
+
+    //  [Errno 2] No such file or directory: 'invalid.path'
+    //  (2, 'No such file or directory')
+    //  finished
 
             </pre>
           </details><!--inner-->
