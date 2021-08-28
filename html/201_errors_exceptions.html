@@ -987,16 +987,95 @@ div {
     17 Traceback    raise RuntimeError('link1 problem') "line 17 in link1"
        Traceback    RuntimeError link1 problem
 
-
-
-
-
-
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example X </summary>
+            <summary>Example 7: Explicit Chaining of Exceptions (Keith Wright) </summary>
             <pre>
+
+    """ Demonstrate explicit exception chaining
+
+    When explicitly using exception chaining with 'from exception' 
+    the traceback will show:
+
+    "The above exception was the direct cause of the following exception"
+    """
+
+    def link3():
+        print('link3 in the chain')
+        raise RuntimeError('link3 problem')
+
+    def link2():
+        print('link2 in the chain')
+        try:
+            link3()
+        except RuntimeError as exception:
+            raise RuntimeError('link2 problem') from exception
+
+    def link1():
+        print('link1 in the chain')
+        try:
+            link2()
+        except RuntimeError as exception:
+            raise RuntimeError('link1 problem') from exception
+
+    if __name__ == "__main__":
+        link1()
+
+
+    // Output
+
+    link1 in the chain
+    link2 in the chain
+    link3 in the chain
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 16, in link2
+        link3()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 11, in link3
+        raise RuntimeError('link3 problem')
+    RuntimeError: link3 problem
+
+    The above exception was the direct cause of the following exception:
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 23, in link1
+        link2()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 18, in link2
+        raise RuntimeError('link2 problem') from exception
+    RuntimeError: link2 problem
+
+    The above exception was the direct cause of the following exception:
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 28, in <module>
+        link1()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_explicit_keith_wright.py", line 25, in link1
+        raise RuntimeError('link1 problem') from exception
+    RuntimeError: link1 problem
+
+
+    // Analysis TGD 
+
+     21 print('link1 in the chain')
+     14 print('link2 in the chain')
+     10 print('link3 in the chain')
+
+     16 Traceback  link3()  "line 16, in link2"
+      11 Traceback  raise RuntimeError('link3 problem') "line11, in link3"
+        Traceback   RuntimeError link3 problem
+
+    The above exception was the direct cause of  the following exception
+
+     23 Traceback  link2()  "line 23, in link1
+     18 Traceback   raise RuntimeError('link2 problem') from exception "line 10, in link2"
+        Traceback   RuntimeError: link2 problem
+
+    The above exception was the direct cause of the following exception
+
+    28 Traceback    link1()    "line 28, in <module>
+    25 Traceback    raise RuntimeError('link1 problem') "line 25 in link1"
+       Traceback    RuntimeError link1 problem
 
             </pre>
           </details><!--inner-->
