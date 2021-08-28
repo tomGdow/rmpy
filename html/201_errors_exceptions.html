@@ -910,11 +910,104 @@ div {
           </details><!--inner-->
 
           <details><!--inner-->
+            <summary>Example 6: Implicit Chaining (Keith Wright) </summary>
+            <pre>
+
+    def link3():
+        print('link3 in the chain')
+        raise RuntimeError('link3 problem')
+
+    def link2 ():
+        print('link2 in the chain')
+        try:
+            link3()
+        except RuntimeError as exception:
+            raise RuntimeError('link2 problem')
+
+    def link1():
+        print('link1 in the chain')
+        try:
+            link2()
+        except RuntimeError as exception:
+            raise RuntimeError('link1 problem')
+    if __name__ == "__main__":
+        link1()
+
+    // Output
+
+    link1 in the chain
+    link2 in the chain
+    link3 in the chain
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 8, in link2
+        link3()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 3, in link3
+        raise RuntimeError('link3 problem')
+    RuntimeError: link3 problem
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 15, in link1
+        link2()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 10, in link2
+        raise RuntimeError('link2 problem')
+    RuntimeError: link2 problem
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 19, in &lt;module&gt;
+        link1()
+      File "../../../AppData/Local/Programs/Python/Python39/chain_exceptions_imp_keith_wright.py", line 17, in link1
+        raise RuntimeError('link1 problem')
+    RuntimeError: link1 problem
+
+
+    // Analysis TGD
+
+     13 print('link1 in the chain')
+      6 print('link2 in the chain')
+      2 print('link3 in the chain')
+
+      8 Traceback  link3()  "line 8, in link2"
+      3 Traceback  raise RuntimeError('link3 problem') "line3, in link3"
+        Traceback   RuntimeError link3 problem
+
+    During handling of the above exception, another exception occured
+
+     15 Traceback  link2()  "line 15, in link1
+     10 Traceback   raise RuntimeError('link2 problem') "line 10, in link2"
+        Traceback   RuntimeError: link2 problem
+
+    During handling of the above exception, another exception occured
+
+    19 Traceback    link1()    "line 19 in &lt;module&gt;
+    17 Traceback    raise RuntimeError('link1 problem') "line 17 in link1"
+       Traceback    RuntimeError link1 problem
+
+
+
+
+
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
             <summary>Example X </summary>
             <pre>
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X </summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+
+
 
         </details><!--end-outer-details-->
       </div>
