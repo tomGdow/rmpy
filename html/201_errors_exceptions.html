@@ -449,6 +449,51 @@ div {
           </pre>  </dd>   
           <dd>After the statement is executed, the file <code>f</code> is always
           closed, even if a problem was encountered while processing the lines.</dd>
+
+          <dt>Implicit and Explicit exceptions</dt>
+
+          <dd>When raising a new exception (rather than using a bare raise to
+ re-raise the exception currently being handled), the implicit exception
+ context can be supplemented with an explicit cause by using from with
+ raise:</dd>
+
+          <dd><pre>
+    raise new_exc from original_exc
+            </pre></dd>
+
+          <dd>The expression following from must be an exception or
+ <code>None</code>.</dd> 
+          <dd>It will be set as <code>__cause__</code> on the raised exception.</dd> 
+          <dd><code>__cause__</code> <em>attribute</em>refers to an EXPLICIT  exception</dd>
+          <dd><code>__context__</code>  <em>attribute</em> refers to and IMPLICIT exception</dd>
+          <dd>Setting <code>__cause__</code> also implicitly sets the
+ <code>__suppress_context__</code> attribute to <code>True</code></dd> 
+          <dd>&hellip;so that using <code>raise new_exc from None</code>
+ effectively replaces the old exception with the new one for display
+ purposes (e.g. converting <code>KeyError</code> to <code>AttributeError</code>),</dd> 
+          <dd>&hellip;while leaving the old exception available in
+ <code>__context__</code> for introspection when debugging.</dd>
+
+          <dd>The default traceback display code shows these chained exceptions in addition to the traceback for the exception itself.</dd> 
+          <dd>An explicitly chained exception in <code>__cause__</code> is always shown when present.</dd> 
+          <dd>An implicitly chained exception in <code>__context__</code> is
+ shown only if <code>__cause__</code> is <code>None</code> and
+ <code>__suppress_context__</code> is false.</dd>
+
+          <dd>In either case, the exception itself is always shown
+ <em>after</em> any chained exceptions so that the final line of the
+ traceback always shows the last exception that was raised.</dd>
+
+          <dd>An <em>explicit</em> exception will display the message:</dd>
+          <dd><pre>
+    The above exception was the direct cause of the following exception:
+            </pre></dd>
+
+          <dd>An <em>implicit</em> exception will display the message:</dd>
+          <dd><pre>
+    During handling of the above exception, another exception occurred:
+            </pre></dd>
+
           <dt>Built-in Exceptions</dt>
 
           <dd>In Python, all exceptions must be instances of a class that derives
