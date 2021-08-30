@@ -105,6 +105,7 @@ let pageData = (function () {
     "200_fibonacci.html",
     "201_errors_exceptions.html",
     "202_double_colon_equals_bnf.html",
+    "203_mod_11_sample_code.html",
     "148_notes_jason_one.html",
     "149_notes_jason_two.html",
     "154_notes_jason_three.html",
