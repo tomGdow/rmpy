@@ -402,8 +402,53 @@ div {
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code> exceptions_try_except_else_finally.py </code></summary>
               <pre>
+              
+    # exception handling - try except finally else
+
+    try:
+        x= int(input('Enter the Denominator: '))
+        print('b')
+        y = 1 / x
+        print('a')
+    except ZeroDivisionError:
+        print('Cannot divide by zero, sorry!')
+    except ValueError:
+        print('You must enter an integer value')
+    except Exception:
+        print("oh oh, something went wrong but i don't know what!")
+    except:
+    # except BaseException:
+        print("SystemExit, KeyboardInterrupt, GeneratorExit")
+    else:
+        print('I print only if there is no exception')
+    finally:
+        print('I print whether there an exception occurs or not')
+
+    print("If no exception occured, or all exceptions were caught, we continue on with the program")
+
+
+    // Output
+
+    Enter the Denominator: 1
+    // b
+    // a
+    // I print only if there is no exception
+    // I print whether there an exception occurs or not
+    // If no exception occured, or all exceptions were caught, we continue on with the program
+
+    Enter the Denominator: 0
+    // b
+    // Cannot divide by zero, sorry!
+    // I print whether there an exception occurs or not
+    // If no exception occured, or all exceptions were caught, we continue on with the program
+
+    Enter the Denominator: "3"
+    // You must enter an integer value                    # !! Notice that 'b' does not print here
+    // I print whether there an exception occurs or not
+    // If no exception occured, or all exceptions were caught, we continue on with the program
+
               </pre>
           </details><!--inner-->
           <details><!--inner-->
