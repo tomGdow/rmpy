@@ -451,6 +451,78 @@ div {
 
               </pre>
           </details><!--inner-->
+          <details><!--inner--> <summary><code> exceptions_try_except.py </code></summary>
+              <pre>
+
+    # exception handling - try except
+
+    # * The except branches are searched in the same order in which they appear in the code
+    # * You must not use more than one except branch with a certain exception name
+    # * The number of different except branches is arbitrary - the only condition is that 
+    #   if you use try, you must put at least one except (named or not) after it
+    # * The except keyword must not be used without a preceding try
+    # * If any of the except branches is executed, no other branches will be visited
+    # * If none of the specified except branches matches the raised exception,
+    #   the exception remains unhandled (We'll discuss it soon)
+    # * If an unnamed except branch exists (one without an exception name),
+    #   it has to be specified as the last
+
+    try:
+        x = int(input("Enter the denominator: "))
+        y = 1 / x
+        raise Exception
+        print(y)
+    except ZeroDivisionError:
+        print('Cannot divide by zero, sorry!')
+    except ValueError:
+        print("You must enter an integer value")
+    except:
+        print("oh oh, something went wrong but it don't know what!")
+
+    print('If no exception occured, or all exceptions were caught, we continue with the program.')
+
+
+    // Output
+
+Enter the denominator: 1
+//    oh oh, something went wrong but it don't know what!    # !! Note
+//    If no exception occured, or all exceptions were caught, we continue with the program.
+
+Enter the denominator: 0
+//    Cannot divide by zero, sorry!
+//    If no exception occured, or all exceptions were caught, we continue with the program.
+
+Enter the denominator: "3"
+//    You must enter an integer value
+//    If no exception occured, or all exceptions were caught, we continue with the program.
+
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code></code></summary>
+              <pre>
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code></code></summary>
+              <pre>
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code></code></summary>
+              <pre>
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code></code></summary>
+              <pre>
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code></code></summary>
+              <pre>
+              </pre>
+          </details><!--inner-->
           <details><!--inner-->
             <summary><code></code></summary>
               <pre>
