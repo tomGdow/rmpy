@@ -293,8 +293,68 @@ div {
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code>tgd-functions (All-Ireland attempt)</code></summary>
               <pre>
+              
+    import all_ireland_tgd as ire
+
+    def sort_me(dict):
+        return sorted(dict.keys())
+
+    def winners_in_allie():
+        return sorted(ire.allireland_winners.items(), key=lambda x:x[1])[::-1]
+
+
+    def max_winner():
+        max_key = max(ire.allireland_winners, key= ire.allireland_winners.get)
+        return max_key
+
+    def max_winner_alt():
+        all_values = list(ire.allireland_winners.values()) 
+        max_value = max(all_values)
+        max_value_index= all_values.index(max_value) 
+        all_keys = list(ire.allireland_winners.keys())
+        return (all_keys[max_value_index], max_value)
+
+    def retrieve_by_number(num,dict=ire.allireland_winners):
+        all_values = list(dict.values()) 
+        all_keys = list(dict.keys()) 
+        arr =[]
+        arr2=[]
+        for i in range(0, len(all_values)):
+            if all_values[i]==num:
+                arr.append(i)
+        for x in arr:
+            arr2.append(all_keys[x])
+        return num, arr2, len(arr)
+
+    def how_many_by_province(province,dict=ire.allireland_winners):
+        counter = 0
+        for item in province:
+            counter += dict[item]
+        return counter
+
+
+    if __name__ == '__main__':
+        # print(sort_me(ire.allireland_winners))
+        # for  a, b in winners_in_allie():
+        print(f"{max_winner()} ({ire.allireland_winners[max_winner()]})")
+        print(max_winner_alt())
+        for i in range(1,38):
+            if retrieve_by_number(i)[2] != 0:
+                print(retrieve_by_number(i)) 
+
+
+        print(ire.connaught)
+        print('-')
+        print("Leinster :",how_many_by_province(ire.leinster))
+        print("Ulster:",how_many_by_province(ire.ulster))
+        print("Connaught :",how_many_by_province(ire.connaught))
+        print("Munster:",how_many_by_province(ire.munster))  
+        total =0
+        for item in [ire.leinster, ire.ulster, ire.connaught, ire.munster]:
+                total+=how_many_by_province(item)
+        print(total)
               </pre>
           </details><!--inner-->
           <details><!--inner-->
