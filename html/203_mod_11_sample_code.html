@@ -358,8 +358,47 @@ div {
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code> allireland_main.py</code></summary>
               <pre>
+
+    try:
+        print('a1', end = ' ')
+        x = int(input('Enter the denominator: '))
+        print('b2', end = ' ')
+        y = 1 / x
+        raise Exception
+        print('c3')
+    except ZeroDivisionError:
+        print('dz', end = ' ')
+    except ValueError:
+        print('fv', end = ' ')
+    except:
+        print('ge', end = ' ')
+    else:
+        print('hel', end = ' ')
+    finally:
+        print('if', end = ' ')
+
+    print('jmf', end = ' ')
+
+    #  Output 1: Denominator = 1
+
+    //  a1 
+    //  Enter the denominator: 1
+    //  b2 ge if jmf 
+
+    #  Output 2: Denominator = 0
+
+    //  a1 
+    //  Enter the denominator: 0
+    //  b2 dz if jmf 
+    
+    #  Output 3: Denominator = "3"
+
+    //  a1 
+    //  Enter the denominator: "3"
+    //  fv if jmf 
+
               </pre>
           </details><!--inner-->
           <details><!--inner-->
