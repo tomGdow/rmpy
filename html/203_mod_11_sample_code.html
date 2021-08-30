@@ -545,8 +545,49 @@ Enter the denominator: "3"
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code> exceptions_try_except3.py </code></summary>
               <pre>
+
+    # exception handling - try except
+
+    # You can choose a variable name to store the instance of the
+    # exception and access (among other things) it's message.
+    # This is done with the 'as' keyword
+
+    try:
+        x = int(input("Enter the denominator: "))
+        y = 1 / x
+        raise Exception('** Your own exception message**')
+    except ZeroDivisionError as zde:
+        print(zde)
+    except ValueError as ve:
+        print("You must enter an integer")
+        print(ve)
+    except Exception as e:
+        print("oh oh, something went wront but I don't know what!")
+        print(e)
+    else:
+        print(y)
+
+
+    print("If no exception occurred, or all exceptions were caught, we continue on with the program")
+
+    //  console
+
+    Enter the denominator: 1
+    //    oh oh, something went wront but I don't know what!
+    //    ** Your own exception message**
+    //    If no exception occurred, or all exceptions were caught, we continue on with the program
+
+    Enter the denominator: 0
+    //    division by zero
+    //    If no exception occurred, or all exceptions were caught, we continue on with the program
+
+    Enter the denominator: "3"
+    //    You must enter an integer
+    //    invalid literal for int() with base 10: '"3"'
+    //    If no exception occurred, or all exceptions were caught, we continue on with the program
+
               </pre>
           </details><!--inner-->
           <details><!--inner-->
