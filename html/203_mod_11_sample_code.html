@@ -751,7 +751,24 @@ Enter the denominator: "3"
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code>syntax.py</code></summary>
+
+    # The Python interpreter scans for syntx errors before
+    # executing any code, and does NOT run anything ifa 
+    # syntax error is found
+
+    print("I don't print")
+    print( "Python in easy steps )
+
+    // console
+
+    &gt; python .\syntax_tgd.py
+    //      File ".\syntax_tgd.py", line 6
+    //        print( "Python in easy steps )
+                                     ^
+    //    SyntaxError: EOL while scanning string literal
+
+
               <pre>
               </pre>
           </details><!--inner-->
