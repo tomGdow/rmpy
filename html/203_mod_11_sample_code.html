@@ -32,6 +32,7 @@ div {
       </div>
       <div class="examples">
         <details><!--begin-outer-details-->
+          <summary>Examples</summary>
           <details><!--inner-->
             <summary><code>allireland.py</code></summary>
               <pre>
@@ -451,7 +452,8 @@ div {
 
               </pre>
           </details><!--inner-->
-          <details><!--inner--> <summary><code> exceptions_try_except.py </code></summary>
+          <details><!--inner--> 
+            <summary><code> exceptions_try_except.py </code></summary>
               <pre>
 
     # exception handling - try except
@@ -499,8 +501,47 @@ Enter the denominator: "3"
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code> exceptions_try_except2.py </code></summary>
               <pre>
+              
+    # exception handling - try except
+
+    # putting a  try except structure inside a while loop is
+    # a common way of asking input from a user until they
+    # give you valid input according to your logic
+
+    bad_input = True
+    while(bad_input):
+        try:
+            x = int(input("Enter the denominator: "))
+            y = 1 / x
+            bad_input = False
+        except ZeroDivisionError:
+            print("Cannot divide by zero, sorry")
+        except ValueError:
+            print('You must enter an integer value')
+        except:
+            print("eh oh, something went wrong but I don't know what!")
+        else:
+            print(y)
+
+    print('If no exception occurred, or if all exceptions were caught, we continue on with the program.')
+
+    // Console
+
+    Enter the denominator: 1
+    //    1.0
+    //    If no exception occurred, or if all exceptions were caught, we continue on with the program.
+
+    Enter the denominator: 0
+    //    Cannot divide by zero, sorry
+
+    Enter the denominator: "3"
+    //    You must enter an integer value
+    Enter the denominator: 4
+    //   0.25
+    //   If no exception occurred, or if all exceptions were caught, we continue on with the program.
+
               </pre>
           </details><!--inner-->
           <details><!--inner-->
