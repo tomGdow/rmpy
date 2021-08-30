@@ -725,8 +725,29 @@ Enter the denominator: "3"
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code></code></summary>
+            <summary><code>runtime.py</code></summary>
               <pre>
+
+    # The Python Interpreter does not check the naming of 
+    # identifiers until the program is running.
+    # So the code WILL execute up to the point of hte # unknown identifier. 
+    # Then crash with a NameError
+
+
+    title= 'Python in easy steps'
+    print('I print')
+    print(titel)
+    print("I won't print if an unhandled exception occurs first")
+
+    // console
+
+    //    I print
+    //    Traceback (most recent call last):
+    //      File ".\runtime_tgd.py", line 9, in <module>
+    //        print(titel)
+    //    NameError: name 'titel' is not defined
+
+
               </pre>
           </details><!--inner-->
           <details><!--inner-->
