@@ -116,7 +116,8 @@ div {
     mydict = {1: 'one', 2: 'two'}
     mydict.pop(3) KeyError:           //     3
     mydict.pop(3,100)                 //     100
-    mydict.pop(3,None)                 //    !! Nothing returned if key absent
+    mydict.pop(3,None)                //     !! Nothing returned if key absent
+    mydict.pop()                      //     !! KeyError (must have at least 1 arg)
               </pre>  
 
               </dd>
