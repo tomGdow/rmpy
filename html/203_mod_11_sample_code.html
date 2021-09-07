@@ -359,7 +359,50 @@ div {
               </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary><code> allireland_main.py</code></summary>
+            <summary><code>increment with persistence (All-ireland Winners)</code></summary>
+
+import all_ireland_persistence_data as ire
+
+def increment_numtitles(county):
+    county = county.strip().title()
+    if not ire.allireland_winners:
+        raise AttributeError(f"The module you are writing to does not\
+                have an attribute 'allireland_winners'")
+    elif county not in ire.allireland_winners.keys():
+        raise ValueError('This is not a valid county!')
+    else:
+        before_count = ire.allireland_winners[county]
+        ire.allireland_winners[county] += 1
+        with open(ire.__name__ + ".py",'w') as f:
+            f.write("allireland_winners = " + str(ire.allireland_winners))
+        print("{} has been incremented from {} to {}".format(
+            county, 
+            before_count, 
+            ire.allireland_winners[county]
+            )) 
+
+bad_input = True
+
+while(bad_input):
+    try:
+        user_input = input("Enter a county !> ")
+        increment_numtitles(user_input)
+        bad_input = False
+    except ValueError as e:
+        print(e)
+    except AttributeError as e:
+        print(e)
+    except KeyboardInterrupt as e:
+        print("KeyBoardInterrupt!")
+        print("Bye")
+        bad_input = False
+
+
+              <pre>
+              </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary><code> Know These Game (try/except/else/finally/raise)</code></summary>
               <pre>
 
     try:
