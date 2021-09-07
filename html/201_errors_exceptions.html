@@ -1155,12 +1155,77 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
+            <summary>Example 9. Heads or Tails </summary>
+            <pre>
+
+    import random
+    ''' A game of Heads and Tails
+
+    functions:    user_input
+                  game_logic
+    '''
+
+    def user_input(msg='heads or tails? >',error_message='Not a valid option, earthling'):
+        ''' Check for valid user input
+
+        return:         'h', 't', 'q' (for 'heads', 'tails' or 'quit')
+        input message:  Default message is  'heads or tails? >'
+        invalid input:  Raise a ValueError with the default 
+                        message 'Not a valid option, earthling')
+        arguments:      msg  -- input message
+                        error_message -- message raised (as ValueError) for incorrect
+                                      -- user input
+                        default arguments are given above
+        
+        '''
+        options = 'h', 't', 'q'
+        bad_input = True
+        while bad_input:
+            user_choice = input(msg)
+            if user_choice != '':
+                user_choice = user_choice[0].lower()
+            try:
+                if user_choice not in options:
+                    raise ValueError(error_message)
+            except ValueError as e:
+                print(e)
+            else:
+                bad_input = False
+        return user_choice
+
+    def game_logic(fn):
+        """ Recursively compares user choice to randomly chosen 'heads' or 'tails' 
+
+        argument: a function that must evalate to 'h', 't' or 'q'
+
+        return:   if input function evaluates to 'q', returns None
+                  Otherwise, recursively calls itself
+        """
+
+        mydict = {'h': 'Heads', 't' : 'Tails'}
+        choice = fn()
+        if choice == 'q':
+            return
+        else:
+            computer_choice = random.choice(list(mydict.values()))
+            if computer_choice[0].lower() != choice:
+                print(f"You chose {mydict[choice]} - the computer chose {computer_choice}")
+            else:
+                print("You both chose {}!".format(mydict[choice]))
+        game_logic(fn)
+
+    if __name__ == '__main__':
+        game_logic(user_input)
+
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
             <summary>Example X </summary>
             <pre>
 
             </pre>
           </details><!--inner-->
-
 
 
         </details><!--end-outer-details-->
