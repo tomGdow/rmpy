@@ -25,12 +25,11 @@ div {
           the interpreter and to functions that interact strongly with the 
           interpreter.</dd>
           <dd>It is always available.</dd>
-          <dt>sys.argv</dt>
 
+          <dt>sys.argv</dt>
           <dd>The <em>list</em> of command line arguments passed to a Python script.</dd> 
           <dd><code>argv[0]</code> is the script name (it is operating system
           dependent whether this is a full pathname or not).</dd>
-
           <dd>If the command was executed using the <code>-c</code> command line
           option to the interpreter, <code>argv[0]</code> is set to the string
           <code>'-c'</code>.</dd>
@@ -48,7 +47,11 @@ div {
     sys.argv.remove(sys.argv[0])    // Note "sys.argv.remove"
 
           </pre></dd>   
+
           <dt><code>sys.path</code></dt>
+          <dd>A list of strings that specifies the search path for modules.</dd> 
+          <dd>Initialized from the environment variable <code>PYTHONPATH</code>,
+ plus an installation-dependent default.</dd>
           <dd><pre>
 
     // Keith Wright (Skillsoft and ecollege)
@@ -61,6 +64,21 @@ div {
 
     // not to be confused with os.path.isfile()
 
+          </pre></dd>
+
+          <dd><pre>
+    import os
+    os.environ["PYTHONPATH"]
+    //  'C:\\Users\\...\\Python38\\;C:\\Users\\...\\Python39\\;'   // A String
+    import sys
+    sys.path
+    //    ['', 'C:\\Users\\...\\Python38', ...]                    // A List
+
+          </pre></dd>
+          
+          <dt><code>sys.path.append</code></dt>
+          <dd><pre>
+    sys.path.append("PATH TO MODULE")
           </pre></dd>
 
         </dl>
@@ -96,13 +114,13 @@ div {
     //  script name is: .\cla.py
     //  There are 3 arguments
     //  tom dick harry
-    
+
             </pre>
           </details><!--inner-->
           <details><!--inner-->
             <summary>Example 2 (silly summer) [calculator]</summary>
             <pre>
-            
+
     import sys
     sys.argv.remove(sys.argv[0])
     args = sys.argv
@@ -137,6 +155,24 @@ div {
             <p>
             <a href ="https://docs.python.org/3/library/sys.html">
               sys — System-specific parameters and functions (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+
+            <a href ="https://stackoverflow.com/q/12257747/499167">
+              Permanently adding a file path to sys.path in Python
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/sys.html#sys.path">
+              sys.path (Python Docs)
             </a>
             </p>
             </dd>
