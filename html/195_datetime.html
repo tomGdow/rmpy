@@ -46,9 +46,38 @@ div {
 
           </pre>
           </dd>
+          <dt><code>strftime()</code></dt>
+          <dd>
+          <code>date</code>, 
+          <code>datetime</code>, and <code>time</code> objects all support a
+          <code>strftime(format)</code> method, to create a string representing
+          the time under the control of an explicit <code>format</code> string.</dd>
+
+          <dd>  <pre> 
+    import datetime
+    now=datetime.datetime.now()
+    datetime.datetime(2021, 9, 13, 23, 10, 47, 374108)
+    now.strftime("%Y %B %d (%a)")
+    '2021 September 13 (Mon)'
+          </pre>  <dd>  
+
+          <dt><code>strptime()</code></dt>
+
+          <dd>The <code>datetime.strptime()</code> class method creates a
+          <code>datetime</code> object from a <code>string</code> representing a
+          <code>date</code> and <code>time</code> and a corresponding
+          <code>format</code> string.</dd>
+
+          <dd>  <pre> 
+    now = datetime.datetime.now()
+    nowiso = now.isoformat()
+    //  '2021-09-13T23:10:47.374108'
+    datetime.datetime.strptime(nowiso, "%Y-%m-%dT%H:%M:%S.%f")
+    //  datetime.datetime(2021, 9, 13, 23, 10, 47, 374108)
+          </pre>  <dd>  
           <dt>mnemonic</dt>
-          <dd>a-&gt;day [%a (Mon) %A (Monday)]</dd>
-          <dd>b-&gt;mi  [%b (Jan) %B (January)]</dd>
+          <dd>a --- day [%a (Mon) %A (Monday)]</dd>
+          <dd>b --- mi  [%b (Jan) %B (January)]</dd>
         </dl>
       </main>
       <div class="syntax">
