@@ -77,6 +77,18 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary><code>lambda function</code></summary>
+            <pre>
+
+    import keyword
+    list(map(lambda x: (x,x.isidentifier() and not keyword.iskeyword(x)),
+       ["99_abc","for","abc"]))
+
+    //    [('99_abc', False), ('for', False), ('abc', True)]
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
