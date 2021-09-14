@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[named_tuple]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        named tuple
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>
+          <code>
+            named tuple
+          </code>
+          </dt>
+
+          <dd>A <code>named tuple</code> is exactly like a normal tuple, except
+          that the fields can also be accessed by <code>.fieldname</code>.</dd> 
+
+          <dd>Named tuples are still immutable, you can still index elements with
+          integers, and you can iterate over the elements.</dd> 
+
+          <dd>With a named tuple, you can say <code>record.first_name</code>,
+          <code>record.last_name</code>, as with a class, but without the extra
+          code of a class.</dd>
+
+
+          <dd>[Main text]</dd>
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+
+    from collections import namedtuple
+    Person=namedtuple('Person', 'first_name last_name zip_code')
+    p1=Person('John', 'Doe', '1234')
+    p1.first_name     //   'John'
+    p1[0]             //   'John'
+    len(p1)           //   3
+    type(p1)
+    //  &lt;class '__main__.Person'&gt;
+    p1
+    //  Person(first_name='John', last_name='Doe', zip_code='1234')
+
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/collections.html#collections.namedtuple">
+              collections.namedtuple (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.accelebrate.com/blog/named-tuples-in-python/">
+              Named Tuples in Python (Accelebrate)
+            </a>
+            </p>
+            </dd>
+
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
