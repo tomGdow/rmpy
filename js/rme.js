@@ -35,6 +35,7 @@ let pageData = (function () {
     "15_data_types.html",
     "16_identifiers.html",
     "17_tuples.html",
+    "204_named_tuple.html",
     "18_sets.html",
     "19_dictionary.html",
     "155_compound_statements.html",
