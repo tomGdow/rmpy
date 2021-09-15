@@ -178,6 +178,39 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
+            <summary>Example 1: Three ways to format</summary>
+            <pre>
+          
+    bh=datetime.date(1959,2,3)
+
+    bh.strftime("%A, %B %d, %Y")    //   'Tuesday, February 03, 1959'
+
+    "{:%A, %B %d, %Y}".format(bh)   //   'Tuesday, February 03, 1959'
+
+    f"{bh:%A, %B %d, %Y}"           //   'Tuesday, February 03, 1959'
+    
+    print(bh)                       //   1959-02-03
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: Launch Date (Socratica)</summary>
+            <pre>
+
+    launch_date = datetime.date(2017,3,30)
+    launch_time = datetime.time(22,27,0)
+    launch_datetime = datetime.datetime(2017,3,30,22,17,0)
+
+    print(launch_time)      //   22:27:00
+    print(launch_date)      //   2017-03-30
+    print(launch_datetime)  //   2017-03-30 22:17:00
+
+    launch_date             //   datetime.date(2017, 3, 30)
+    launch_time             //   datetime.time(22, 27)
+    launch_datetime         //   datetime.datetime(2017, 3, 30, 22, 17)
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
             <summary>Example 1</summary>
             <pre>
             [code]
