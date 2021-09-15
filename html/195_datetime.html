@@ -75,6 +75,49 @@ div {
     datetime.datetime.strptime(nowiso, "%Y-%m-%dT%H:%M:%S.%f")
     //  datetime.datetime(2021, 9, 13, 23, 10, 47, 374108)
           </pre>  <dd>  
+
+          <dt><code>time.ctime([secs])</code></dt>
+
+          <dd>Convert a time expressed in seconds since the <code>epoch</code>
+          to a string of a form:</dd>
+          <dd>
+          <pre>  
+    'Sun Jun 20 23:21:05 1993'
+          </pre>
+          </dd>   
+          <dd>representing local time.</dd> 
+          <dd>The day field is two characters long and is space padded if the
+          day is a single digit, eg</dd>
+          <dd>
+          <pre> 
+    'Wed Jun  9 04:26:40 1993'.
+          </pre>
+          </dd>   
+
+          <dd>[cpp] Interprets the value pointed by timer as a
+          <code>calendar time</code> and converts it to a <code>C-string</code>
+          containing a human-readable version of the corresponding time and date,
+          in terms of local time.</dd>
+          <dd>The returned string has the following format:</dd>
+          <dd> <pre>  
+  Www Mmm dd hh:mm:ss yyyy
+          </pre> </dd>    
+          <dd><code>Www</code> is the weekday, <code>Mmm</code>
+          the month (in letters), <code>dd</code> the day of the month,
+          <code>hh:mm:ss</code> the time, and <code>yyyy</code> the year.</dd>
+
+          <dd>The string is followed by a new-line character ('\n') and
+          terminated with a null-character.</dd>
+
+          <dd>This function is equivalent to:</dd>
+          <dd>  <pre> 
+asctime(localtime(timer))
+          </pre>  </dd>   
+
+          <dd>[cpp] Converts given time since <code>epoch</code> to a
+          <code>calendar local time</code> and then to a textual representation,
+          as if by calling <code>asctime(localtime(timer))</code></dd>
+
           <dt>mnemonic</dt>
           <dd>a --- day [%a (Mon) %A (Monday)]</dd>
           <dd>b --- mi  [%b (Jan) %B (January)]</dd>
@@ -101,7 +144,8 @@ div {
 
             <dt><code>date.strftime(format)</code></dt> 
 
-            <dd>Return a string representing the date, controlled by an explicit format string.</dd>
+            <dd>Return a string representing the date, controlled by an explicit
+            format string.</dd>
             <dd>Format codes referring to hours, minutes or seconds will see 0 values.</dd> 
             <dd>For a complete list of formatting directives, see 
             <a href ="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">
@@ -180,7 +224,7 @@ div {
           <details><!--inner-->
             <summary>Example 1: Three ways to format</summary>
             <pre>
-          
+
     bh=datetime.date(1959,2,3)
 
     bh.strftime("%A, %B %d, %Y")    //   'Tuesday, February 03, 1959'
@@ -188,7 +232,7 @@ div {
     "{:%A, %B %d, %Y}".format(bh)   //   'Tuesday, February 03, 1959'
 
     f"{bh:%A, %B %d, %Y}"           //   'Tuesday, February 03, 1959'
-    
+
     print(bh)                       //   1959-02-03
             </pre>
           </details><!--inner-->
@@ -213,7 +257,7 @@ div {
           <details><!--inner-->
             <summary>Example 3: Launch Date 2</summary>
             <pre>
-        
+
     ldt=launch_datetime
 
     ldt.year           //     2017
@@ -270,6 +314,31 @@ div {
             <p>
             <a href ="https://webspace.science.uu.nl/~gent0113/calendar/isocalendar.htm">
               The Mathematics of the ISO 8601 Calendar
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="  https://en.cppreference.com/w/c/chrono/ctime">
+              ctime, ctime_r, ctime_s (cppreference.com)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/54513807/499167">
+              What is the origin of the asctime format? (Stackoverflow)
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://cplusplus.com/reference/ctime/ctime/">
+              ctime (cpp)
             </a>
             </p>
             </dd>
