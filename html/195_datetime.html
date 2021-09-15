@@ -67,6 +67,7 @@ div {
           <code>datetime</code> object from a <code>string</code> representing a
           <code>date</code> and <code>time</code> and a corresponding
           <code>format</code> string.</dd>
+          <dd>(<code>strPtime</code>: string PARSE time)</dd>
 
           <dd>  <pre> 
     now = datetime.datetime.now()
@@ -277,6 +278,19 @@ asctime(localtime(timer))
     ldt                //     datetime.datetime(2017, 3, 30, 22, 17)
 
 
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 4: Moon Landing (Socratica)</summary>
+            <pre>
+
+    moon_landing = "7/20/1970"
+    moon = datetime.datetime.strptime(moon_landing, "%m/%d/%Y")
+    moon
+    datetime.datetime(1970, 7, 20, 0, 0)
+    print(moon)
+    1970-07-20 00:00:00
 
             </pre>
           </details><!--inner-->
