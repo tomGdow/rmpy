@@ -211,9 +211,29 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Example 3: Launch Date 2</summary>
             <pre>
-            [code]
+        
+    ldt=launch_datetime
+
+    ldt.year           //     2017
+    ldt.month          //     3
+    ldt.day            //     30
+    ldt.hour           //     22
+    ldt.minute         //     17
+    ldt.second         //     0
+    ldt.microsecond    //     0
+    ldt.weekday()      //     3
+    ldt.isoweekday()   //     4
+
+    ldt.ctime()        //     'Thu Mar 30 22:17:00 2017'
+    ldt.isoformat()    //     '2017-03-30T22:17:00'
+    ldt.isocalendar()  //     (2017, 13, 4)
+    print(ldt)         //     2017-03-30 22:17:00
+    ldt                //     datetime.datetime(2017, 3, 30, 22, 17)
+
+
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
