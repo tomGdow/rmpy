@@ -109,6 +109,64 @@ div {
 
           </pre>
           </dd> 
+
+          <dt><code>os.walk</code></dt>
+
+          <dd><code>os.walk</code> returns a <code>generator</code>, 
+          that creates a <code>tuple</code> of values (<code>current_path</code>,
+          <code>directories</code> in <code>current_path</code>,
+          <code>files</code> in <code>current_path</code>).</dd>
+          <dd>
+          <pre>
+    #1 Tree
+    rooty&gt; tree /F
+
+    C:.
+    │   f0
+    │
+    ├───d0
+    │   │   d0_f0
+    │   │   d0_f1
+    │   │
+    │   └───d0_d1
+    │           d0_d1_f0
+    │
+    └───d1
+
+    #2 
+
+    for path, dirnames, filenames in os.walk('C:\\Users\\thoma\\temp\\rooty'):
+        print(path, filenames)
+
+    C:\Users\thoma\temp\rooty ['f0']
+    C:\Users\thoma\temp\rooty\d0 ['d0_f0', 'd0_f1']
+    C:\Users\thoma\temp\rooty\d0\d0_d1 ['d0_d1_f0']
+    C:\Users\thoma\temp\rooty\d1 []
+
+    #3 
+    for path, dirnames, filenames in os.walk('C:\\Users\\thoma\\temp\\rooty'):
+        if 'd0_f0' in filenames:
+            print(path)
+
+    // C:\Users\thoma\temp\rooty\d0
+
+    #4
+    g=os.walk('C:\\Users\\thoma\\temp\\rooty')
+    next(g)
+    //    ('C:\\Users\\thoma\\temp\\rooty', ['d0', 'd1'], ['f0'])
+    next(g)
+    //    ('C:\\Users\\thoma\\temp\\rooty\\d0', ['d0_d1'], ['d0_f0', 'd0_f1'])
+    next(g)
+    //    ('C:\\Users\\thoma\\temp\\rooty\\d0\\d0_d1', [], ['d0_d1_f0'])
+    next(g)
+    ('C:\\Users\\thoma\\temp\\rooty\\d1', [], [])
+    next(g)
+    //    Traceback (most recent call last):
+    //      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //    StopIteration
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -173,6 +231,15 @@ div {
             </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/a/10989155/499167">
+              Do I understand os.walk right? (Stackoverflow)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
