@@ -129,6 +129,19 @@ div {
                                 platform=2, 
                                 service_pack='')
           </pre>  </dd>   
+          <dt><code> sys.platform </code></dt>
+          <dd><pre> 
+    import sys
+    sys.platform
+    //  'win32'
+
+    if sys.platform =="win32":
+        import ntpath
+        pathmodule = ntpath
+        print(pathmodule)
+
+    &lt;module 'ntpath' from 'C:\\ProgramData\\Anaconda3\\lib\\ntpath.py'&gt;
+          </pre></dd>   
         </dl>
       </main>
       <div class="syntax">
