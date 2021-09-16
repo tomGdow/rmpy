@@ -142,6 +142,23 @@ div {
 
     &lt;module 'ntpath' from 'C:\\ProgramData\\Anaconda3\\lib\\ntpath.py'&gt;
           </pre></dd>   
+
+          <dt><code> sys.stdout </code></dt>
+          <dd>  <pre> 
+    import sys
+    old = sys.stdout
+    sys.stdout = open('myz.txt', 'w')
+    print('this will be written to myz.txt')
+    sys.stdout = old
+    print('All OK again!')
+    //  All OK again!
+
+    with open('myz.txt') as f:
+        f.read()
+
+    //  'this will be written to myz.txt\n'
+
+          </pre></dd>   
         </dl>
       </main>
       <div class="syntax">
