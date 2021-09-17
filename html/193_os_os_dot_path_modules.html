@@ -165,8 +165,59 @@ div {
     //      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
     //    StopIteration
 
+    #5 
+
+
+    import os
+    import sys
+
+    path=sys.argv[1]
+    for path, dirs, files in os.walk(path):
+        print(path)
+        print()
+        for file in files:
+            print(files)
+
+    console&gt; python walk.py "C:\Users\thoma\temp\rooty"
+
+    //    C:\Users\thoma\temp\rooty
+
+    //    ['f0']
+    //    C:\Users\thoma\temp\rooty\d0
+
+    //    ['d0_f0', 'd0_f1']
+    //    ['d0_f0', 'd0_f1']
+    //    C:\Users\thoma\temp\rooty\d0\d0_d1
+
+    //    ['d0_d1_f0']
+    //    C:\Users\thoma\temp\rooty\d1
+
+
           </pre>
           </dd>
+          <dt><code>get_src()</code></dt>
+
+          <dd><pre> 
+
+    import os
+    import shutil
+
+    from os import path
+
+    def get_src(filename):
+    
+        if path.exists(filename):
+            return path.realpath(filename)
+        else:
+            print(f"{filename} does not exist, earthling!")
+
+    # console
+    import shell_utils_tgd as s
+    src = s.get_src('f0')
+    src    //     'C:\\Users\\thoma\\temp\\rooty\\f0'
+
+          </pre>  </dd>   
+
         </dl>
       </main>
       <div class="syntax">
