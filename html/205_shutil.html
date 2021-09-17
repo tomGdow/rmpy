@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>[shutils]</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        shutils
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>shutils</dt>
+          <dd>The <code>shutil</code> module offers a number of high-level
+          operations on files and collections of files.</dd> 
+          <dd>In particular, functions are provided which support file copying
+          and removal</dd>
+
+          <dt>copy a file</dt>
+          <dd>  <pre> 
+          #Rafiq Wayani 
+          import shutil
+          import os
+          from os import path
+
+          import shell_utils.tgd as s               //  import module
+
+          src=s.get_src('f0')
+          dst=src + '.bak'
+          shutil.copy(src,dst)                      //  copy file
+
+          location, file = path.split(src)          //  split path
+
+          for p,d, files in os.walk(location):      //  walk directory
+          print(files)
+
+          ['f0', 'f0.bak']
+          ['d0_f0', 'd0_f1']
+          ['d0_d1_f0']
+          []
+
+          with open('f0.bak') as f:                 //  read file
+          f.read()
+
+          'I am a file\n'
+          </pre>  </dd>   
+
+          <dt><code> archive a directory </code></dt>
+          <dd>  <pre> 
+    import shutil
+    import os
+    from os import path
+
+    dir()[-3:]
+    //    ['os', 'path', 'shutil']
+
+    archive_name = path.join(path.realpath('.'),'myarchive')
+    archive_name
+    //    'C:\\Users\\xxxx\temp\\myarchive'
+
+    root_dir= path.join(path.realpath('.'), 'rooty')
+    root_dir
+    //    'C:\\Users\\xxxx\\temp\\rooty'
+
+    # from temp directory
+    shutil.make_archive(archive_name, 'gztar', root_dir)
+    //    'C:\\Users\\thoma\\temp\\myarchive.tar.gz'
+          </pre>  </dd>   
+
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/shutil.html">
+              shutil — High-level file operations (Python Docs)
+            </a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
