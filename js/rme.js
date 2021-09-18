@@ -77,6 +77,7 @@ let pageData = (function () {
     "133_x_divmod.html",
     "134_x_float.html",
     "135_x_math.html",
+    "206_builtins.html",
     "136_x_buzzfizz.html",
     "137_x_leapyear.html",
     "138_x_any.html",
