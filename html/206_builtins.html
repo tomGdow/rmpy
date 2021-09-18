@@ -73,7 +73,7 @@ pow(base, exp, mod=None)
 
     round(number, ndigits=None)
         Round a number to a given precision in decimal digits.
-        
+
         The return value is an integer if ndigits is omitted or None. 
         Otherwise the return value has the same type as the number.
         ndigits may be negative.
@@ -87,13 +87,35 @@ pow(base, exp, mod=None)
           </pre></dd>   
 
           <dt><code>abs()</code></dt>
-
+          <dd><pre> 
     abs(x, /)
         Return the absolute value of the argument.
 
     abs(-200)    //    200
     abs(-4)      //    4
     abs(-3.2)    //    3.2
+          </pre></dd>   
+
+          <dt><code>divmod()</code></dt> 
+
+    divmod(x, y, /)
+        Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
+
+        Take two (non complex) numbers as arguments and return a pair of numbers
+        consisting of their quotient and remainder when using integer division.
+
+        For integers, the result is the same as (a // b, a % b).
+
+        For floating point numbers the result is (q, a % b), 
+        where q is usually math.floor(a / b) but may be 1 less than that.
+
+    divmod(22,5)        //    (4, 2)
+    divmod(22.5,5)      //    (4.0, 2.5)
+
+    divmod(22,5)        //    (4, 2)
+    divmod(22.5,5)      //    (4.0, 2.5)
+    divmod(23,5)        //    (4, 3)
+    type(divmod(23,5))  //    &lt;class 'tuple'&gt;
 
         </dl>
       </main>
@@ -125,9 +147,12 @@ pow(base, exp, mod=None)
             <p>Note One</p>
             </dd>
             <dt>References</dt>
+
             <dd>
             <p>
-            <a href="http://google.ie">link-1</a>
+            <a href ="https://docs.python.org/3/library/functions.html">
+              Built-in Functions (Python Docs)
+            </a>
             </p>
             </dd>
           </dl>
