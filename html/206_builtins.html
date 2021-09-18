@@ -47,26 +47,46 @@ pow(base, exp, mod=None)
 
           <dt><code>min(...)</code></dt>
           <dd><pre> 
-min(...)
-    min(iterable, *[, default=obj, key=func]) -&gt; value
-    min(arg1, arg2, *args, *[, key=func]) -&gt; value
+    min(...)
+        min(iterable, *[, default=obj, key=func]) -&gt; value
+        min(arg1, arg2, *args, *[, key=func]) -&gt; value
 
-    With a single iterable argument, return its smallest item. The
-    default keyword-only argument specifies an object to return if
-    the provided iterable is empty.
-    With two or more arguments, return the smallest argument.
+        With a single iterable argument, return its smallest item. The
+        default keyword-only argument specifies an object to return if
+        the provided iterable is empty.
+        With two or more arguments, return the smallest argument.
 
-min("0Aa")   //    '0'
-min("Aa")    //    'A'
+    min("0Aa")   //    '0'
+    min("Aa")    //    'A'
 
-min("Za")    //    'Z'
+    min("Za")    //    'Z'
 
-min("Za", key = lambda x : x.lower())  //  'a'
+    min("Za", key = lambda x : x.lower())  //  'a'
 
-min(1, *[100,-2,3], key=lambda x: pow(x,2))  //  1
+    min(1, *[100,-2,3], key=lambda x: pow(x,2))  //  1
 
-          </pre>  </dd>    
+          </pre></dd>    
 
+          <dt><code>
+         round()
+          </code></dt>
+
+          <dd><pre> 
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+    
+    The return value is an integer if ndigits is omitted or None. 
+    Otherwise the return value has the same type as the number.
+    ndigits may be negative.
+
+    round(333.33,1)       //    333.3
+    round(333.33,0)       //    333.0
+    round(333.33,-1)      //    330.0
+    round(333.33,-2)      //    300.0
+    round(333,-2)         //    300
+
+          </pre></dd>   
         </dl>
       </main>
       <div class="syntax">
