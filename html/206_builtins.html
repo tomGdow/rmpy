@@ -97,7 +97,7 @@ pow(base, exp, mod=None)
           </pre></dd>   
 
           <dt><code>divmod()</code></dt> 
-
+          <dd><pre> 
     divmod(x, y, /)
         Return the tuple (x//y, x%y).  Invariant: div*y + mod == x.
 
@@ -116,6 +116,20 @@ pow(base, exp, mod=None)
     divmod(22.5,5)      //    (4.0, 2.5)
     divmod(23,5)        //    (4, 3)
     type(divmod(23,5))  //    &lt;class 'tuple'&gt;
+          </pre></dd>   
+
+          <dt><code>any()</code></dt>
+    any(iterable, /)
+        Return True if bool(x) is True for any x in the iterable.
+
+        If the iterable is empty, return False.
+        
+    any((0,0,0,0,1,0))        //    True
+    any((0,0,0.0,False))      //    False
+    any(0,False,0,1)
+    //  Traceback (most recent call last):
+    //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //  TypeError: any() takes exactly one argument (4 given)
 
         </dl>
       </main>
