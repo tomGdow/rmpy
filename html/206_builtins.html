@@ -67,26 +67,34 @@ pow(base, exp, mod=None)
 
           </pre></dd>    
 
-          <dt><code>
-         round()
-          </code></dt>
+          <dt><code>round()</code></dt>
 
           <dd><pre> 
 
-round(number, ndigits=None)
-    Round a number to a given precision in decimal digits.
-    
-    The return value is an integer if ndigits is omitted or None. 
-    Otherwise the return value has the same type as the number.
-    ndigits may be negative.
+    round(number, ndigits=None)
+        Round a number to a given precision in decimal digits.
+        
+        The return value is an integer if ndigits is omitted or None. 
+        Otherwise the return value has the same type as the number.
+        ndigits may be negative.
 
-    round(333.33,1)       //    333.3
-    round(333.33,0)       //    333.0
-    round(333.33,-1)      //    330.0
-    round(333.33,-2)      //    300.0
-    round(333,-2)         //    300
+        round(333.33,1)       //    333.3
+        round(333.33,0)       //    333.0
+        round(333.33,-1)      //    330.0
+        round(333.33,-2)      //    300.0
+        round(333,-2)         //    300
 
           </pre></dd>   
+
+          <dt><code>abs()</code></dt>
+
+    abs(x, /)
+        Return the absolute value of the argument.
+
+    abs(-200)    //    200
+    abs(-4)      //    4
+    abs(-3.2)    //    3.2
+
         </dl>
       </main>
       <div class="syntax">
