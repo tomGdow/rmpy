@@ -103,6 +103,7 @@ let pageData = (function () {
     "190__main__and__name__.html",
     "191_sys_module.html",
     "193_os_os_dot_path_modules.html",
+    "205_shutil.html",
     "200_fibonacci.html",
     "201_errors_exceptions.html",
     "202_double_colon_equals_bnf.html",
