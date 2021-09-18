@@ -15,14 +15,58 @@ div {
   <body>
     <div class="container">
       <header>
-     builtins  
+        builtins  
       </header>
       <div class="counter">xx</div>
       <main>
         <dl>
           <dt>builtins</dt>
           <dd>Note the difference between <code>builtin</code> functions and
- those supplied by (for example) the <code>math</code> module</dd>
+          those supplied by (for example) the <code>math</code> module</dd>
+          <dt><code>pow(base, exp, mod=None)</code></dt>
+          <dd><pre> 
+pow(base, exp, mod=None)
+    Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+
+    Some types, such as ints, are able to use a more efficient algorithm when
+    invoked using the three argument form.
+
+    pow(2,4)                //    16
+    pow(2,4,5)              //    1
+    pow(2,4) % 5            //    1
+
+    2**4 % 5                //    1
+
+    2**4**2                 //    65536
+    2**16                   //    65536
+
+    (2**4)**2 == 2**4**2    //    False
+    2**(4**2) == 2**4**2    //    True
+
+          </pre></dd>   
+
+          <dt><code>min(...)</code></dt>
+          <dd><pre> 
+min(...)
+    min(iterable, *[, default=obj, key=func]) -&gt; value
+    min(arg1, arg2, *args, *[, key=func]) -&gt; value
+
+    With a single iterable argument, return its smallest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the smallest argument.
+
+min("0Aa")   //    '0'
+min("Aa")    //    'A'
+
+min("Za")    //    'Z'
+
+min("Za", key = lambda x : x.lower())  //  'a'
+
+min(1, *[100,-2,3], key=lambda x: pow(x,2))  //  1
+
+          </pre>  </dd>    
+
         </dl>
       </main>
       <div class="syntax">
