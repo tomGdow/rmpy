@@ -364,6 +364,26 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
+            <summary>Example 8: datetime (module2)</summary>
+            <pre>
+
+    print(1, type(n))
+    //    1 &lt;class 'datetime.datetime'&gt;
+    print(2, datetime.datetime.now() )
+    //    2 2021-09-19 20:34:42.612668
+    print(3, n.date())
+    //    3 2021-09-19
+    print(4, n.time())
+    //    4 20:34:42.612668
+    print(5, n.year, n.month, n.day, n.hour, n.second, n.microsecond)
+    //    5 2021 9 19 20 42 612668
+    print(6, n.strftime("%a jfdhkls asdf %A %d"))
+    //    6 Sun jfdhkls asdf Sunday 19
+    print(7, n.strftime("%b %B %m"))
+    //    7 Sep September 09
+                               
+            </pre>
+          </details><!--inner-->
             <summary>Example X</summary>
             <pre>
 
