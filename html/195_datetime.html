@@ -112,12 +112,24 @@ div {
 
           <dd>This function is equivalent to:</dd>
           <dd>  <pre> 
-asctime(localtime(timer))
+    asctime(localtime(timer))
           </pre>  </dd>   
 
           <dd>[cpp] Converts given time since <code>epoch</code> to a
           <code>calendar local time</code> and then to a textual representation,
           as if by calling <code>asctime(localtime(timer))</code></dd>
+
+          <dt><code>datetime.now()</code> vs <code>datetime.today()</code></dt>
+
+          <dd><code>datetime.datetime.now()</code> takes <code>tzinfo</code> as
+          keyword argument but <code>datetime.today()</code> does not take any keyword arguments.</dd>
+          <dd>By default, <code>now()</code> executes with
+          <code>datetime.datetime.now(tz=None)</code></dd>
+          <dd><code>datetime.now()</code> return the current local date and time.</dd> 
+          <dd>If optional argument <code>tz</code> is <code>None</code> or
+          not specified, this is like <code>today()</code>, but, if possible,
+          supplies more precision than can be gotten from going through a
+          <code>time.time()</code> timestamp</dd>
 
           <dt>mnemonic</dt>
           <dd>a --- day [%a (Mon) %A (Monday)]</dd>
@@ -407,6 +419,14 @@ asctime(localtime(timer))
             <p>
             <a href ="https://docs.python.org/3/library/time.html">
               time — Time access and conversions (Python Docs)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/32517248/499167">
+              What is the difference between python functions datetime.now() and datetime.today()? (Stackoverflow)
             </a>
             </p>
             </dd>
