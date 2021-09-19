@@ -122,7 +122,8 @@ div {
           <dt><code>datetime.now()</code> vs <code>datetime.today()</code></dt>
 
           <dd><code>datetime.datetime.now()</code> takes <code>tzinfo</code> as
-          keyword argument but <code>datetime.today()</code> does not take any keyword arguments.</dd>
+          keyword argument but <code>datetime.today()</code> does not take any
+ keyword arguments.</dd>
           <dd>By default, <code>now()</code> executes with
           <code>datetime.datetime.now(tz=None)</code></dd>
           <dd><code>datetime.now()</code> return the current local date and time.</dd> 
@@ -335,15 +336,31 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example X</summary>
+            <summary>Example 6: Ways to obtain current date</summary>
             <pre>
+
+    datetime.datetime.now().date()
+    //    datetime.date(2021, 9, 19)
+    print(datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d"))
+    //    2021-09-19
+    print(datetime.datetime.strftime(datetime.datetime.now(), "%Y-%B-%d (%a)"))
+    //    2021-September-19 (Sun)
+    datetime.datetime.strftime(datetime.datetime.now(), "%x")
+    //    '09/19/21'
+    print("{:%Y-%m-%d (%A)}".format(datetime.datetime.now()))
+    //    2021-09-19 (Sunday)
 
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example X</summary>
+            <summary>Example 7: Ways to obain datetime</summary>
             <pre>
-
+    datetime.datetime.now()
+    //    datetime.datetime(2021, 9, 19, 20, 5, 14, 86509)
+    print(datetime.datetime.now())
+    //    2021-09-19 20:05:23.583227
+    print(datetime.datetime.strftime(datetime.datetime.now(), "%c"))
+    //    Sun Sep 19 20:06:39 2021
             </pre>
           </details><!--inner-->
           <details><!--inner-->
