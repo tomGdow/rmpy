@@ -277,8 +277,6 @@ asctime(localtime(timer))
     print(ldt)         //     2017-03-30 22:17:00
     ldt                //     datetime.datetime(2017, 3, 30, 22, 17)
 
-
-
             </pre>
           </details><!--inner-->
           <details><!--inner-->
@@ -291,6 +289,54 @@ asctime(localtime(timer))
     datetime.datetime(1970, 7, 20, 0, 0)
     print(moon)
     1970-07-20 00:00:00
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5: Ways to obtain current time</summary>
+            <pre>
+
+    import datetime
+    datetime.datetime.now().time()          
+    //    datetime.time(16, 48, 38, 978580)
+    print(datetime.datetime.now().time())   
+    //    16:49:01.676949
+    datetime.datetime.strftime(datetime.datetime.now(), "%X")
+    //    '15:01:29'
+    datetime.datetime.strftime(datetime.datetime.now(), "%H:%M:%S")
+    //    '15:02:17'
+    datetime.datetime.strftime(datetime.datetime.today(), "%H:%M:%S")
+    //    '18:38:51'
+    print(datetime.datetime.now(datetime.timezone.utc).time())
+    //    17:33:48.174869
+    print(datetime.datetime.now().time())
+    //    18:33:59.056185
+    print(datetime.datetime.now().time().isoformat())
+    //    18:36:28.883842
+    print("{:%H:%M:%S}".format(datetime.datetime.now()))
+    //    18:42:57
+    print("{:%X}".format(datetime.datetime.now()))
+    //    18:43:25
+    print(f"{datetime.datetime.now():%X}") 
+    //    18:43:54
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X</summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X</summary>
+            <pre>
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X</summary>
+            <pre>
 
             </pre>
           </details><!--inner-->
