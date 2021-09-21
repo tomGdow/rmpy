@@ -132,6 +132,55 @@ div {
           supplies more precision than can be gotten from going through a
           <code>time.time()</code> timestamp</dd>
 
+          <dt>Note on <code>date.today()</code></dt>
+          <dd>Note that <code>datetime.date</code> HAS NO <code>.now()</code> method</dd>
+
+          <dt><code>datetime.timedelta</code></dt>
+        <dd><pre>
+    timedelta(days=0, 
+              seconds=0, 
+              microseconds=0, 
+              milliseconds=0, 
+              minutes=0, 
+              hours=0, 
+              weeks=0)
+         </pre></dd>
+
+    <dd>All arguments are optional and default to 0.</dd>
+    <dd>Arguments may be integers or floats, and may be positive or negative</dd>
+    <dd><pre>
+    import datetime
+    one_year = datetime.timedelta(365)
+    now = datetime.datetime.now()
+    now
+    //    datetime.datetime(2021, 9, 21, 21, 44, 5, 455808)
+    print("One year from now: {}".format(now + one_year))
+    //    One year from now: 2022-09-21 21:44:05.455808
+    </pre></dd>
+    <dt><code>.replace()</code></dt>
+<dd>  <pre> 
+    help(datetime.datetime.replace)
+        replace(...)
+            Return datetime with new specified fields.
+
+    help(datetime.date.replace)
+        replace(...)
+            Return date with new specified fields.
+
+    help(datetime.time.replace)
+        replace(...)
+            Return time with new specified fields.
+
+    help(datetime.timedelta.replace)
+        //  AttributeError: type object 'datetime.timedelta' has no attribute 'replace'
+</pre></dd>   
+<dd><pre>
+    now=datetime.datetime.now()
+    now
+    //   datetime.datetime(2021, 9, 21, 22, 8, 48, 634260)
+    now.replace(now.year +10)
+    //   datetime.datetime(2031, 9, 21, 22, 8, 48, 634260)
+</pre></dd>
           <dt>mnemonic</dt>
           <dd>a --- day [%a (Mon) %A (Monday)]</dd>
           <dd>b --- mi  [%b (Jan) %B (January)]</dd>
