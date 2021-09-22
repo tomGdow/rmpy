@@ -143,13 +143,19 @@ div {
     &lt;module 'ntpath' from 'C:\\ProgramData\\Anaconda3\\lib\\ntpath.py'&gt;
           </pre></dd>   
 
-          <dt><code> sys.stdout </code></dt>
+          <dt><code>sys.stdout</code></dt>
+          <dd>Python seeks to "mimic" this behavior of <code>C</code>.</dd> 
+          <dd>When you <code>print()</code> in Python, your text is written to Python's <code>sys.stdout</code>.</dd> 
+          <dd>When you do input(), it comes from sys.stdin. </dd>   
+          <dd>Exceptions are written to sys.stderr.</dd>
+
+          <dt><code> sys.stdout example</code></dt>
           <dd>  <pre> 
     import sys
     old = sys.stdout
     sys.stdout = open('myz.txt', 'w')
     print('this will be written to myz.txt')
-    sys.stdout = old
+    sys.stdout = old       // OR sys.stdout == sys.__stdout__ 
     print('All OK again!')
     //  All OK again!
 
@@ -159,6 +165,23 @@ div {
     //  'this will be written to myz.txt\n'
 
           </pre></dd>   
+          <dd>Python provides <code>sys.__stdin__</code> and <code>sys.__stdout__</code>,
+          which always hold the original values of <code>sys.stdin</code>
+          and <code>sys.stdout</code>.</dd> 
+          <dd>The above code could be made simpler using:</dd>
+          <dd><code>sys.stdout = sys.__stdout__</code></dd>
+          <dt><code>_sys.stdout. Further examples</code></dt>
+          <dd>  <pre>  
+    print(sys.stdout)
+    //    &lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;
+    print(sys.stdout.name)    //   &lt;stdout&gt;
+    print(sys.stdout.mode)    //   w
+    print(sys.stdout.encoding) // utf-8
+    print(sys.stdin)
+    &lt;_io.TextIOWrapper name='&lt;stdin&gt;' mode='r' encoding='utf-8'&gt;
+    print(sys.stderr)
+    &lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='utf-8'&gt;
+          </pre>  </dd>   
 
         </dl>
       </main>
@@ -256,6 +279,23 @@ div {
             </p>
             </dd>
 
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/a/31420722/499167">
+              how to understand sys.stdout and sys.stderr in python (Stackoverflow)
+
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/sys.html#sys.stdout">
+              sys.stdout (Python Docs)
+            </a>
+            </p>
+            </dd>
 
           </dl>
         </details>
