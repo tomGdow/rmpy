@@ -183,6 +183,18 @@ div {
     &lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='utf-8'&gt;
           </pre>  </dd>   
 
+          <dt><code>exception SystemExit</code></dt>
+          <dd>This exception is raised by the <code>sys.exit()</code>
+          function.</dd> 
+          <dd>It inherits from <code>BaseException</code> instead of
+          <code>Exception</code> so that it is not accidentally caught by code
+          that catches Exception.</dd>
+
+          <dd>When it is not handled, the Python interpreter exits; no stack
+          traceback is printed.</dd>
+          <dd>The constructor accepts the same optional argument passed to
+          <code>sys.exit()</code></dd>
+
         </dl>
       </main>
       <div class="syntax">
