@@ -241,6 +241,17 @@ div {
     os.path.expanduser('~')
     'C:\\Users\\thoma'
           </pre></dd>   
+          <dt>Useful Examples</dt>
+          <dd><pre>
+    import os
+    os.environ['HOMEDRIVE']        //     'C:'
+    os.environ['PROCESSOR_ARCHITECTURE']
+                                   //     'AMD64'
+    os.environ['USERDOMAIN']       //     'LAPTOP-KJDLT506'
+    type(os.environ)               //     &lt;class 'os._Environ'&gt;
+    os.environ.get('HOMEDRIVE')    //     'C:'
+
+          </pre></dd>
         </dl>
       </main>
       <div class="syntax">
