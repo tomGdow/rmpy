@@ -154,22 +154,16 @@ div {
             </pre></dd>
 
             <dt><code>random.sample</code></dt>
-            <dd><pre> 
 
-    help(random.sample)
-
-    sample(population, k) method of random.Random instance
-        Chooses k unique random elements from a population sequence or set.
-        (Returns a new list)
-
-            </pre></dd>
-
+            <dd><code>sample(population, k)</code> method of <code>radom.Random</code> instance</dd>
+            <dd>Chooses <code>k</code> unique random elements from a population sequence or set.</dd>
+            <dd>! returns a new list</dd>
             <dd>The <code>sample()</code> function is used to generate a list of
             desired size containing random numbers between a specified range.</dd> 
             <dd>This function ensures that no number is repeated, that is why it
             requires the range to be bigger than the sample size otherwise an error
             is returned.</dd>
-            <dd><code>
+            <dd><pre>
               random.sample(range(0,10), 5)
               //    [0, 5, 2, 3, 4]
 
@@ -179,7 +173,7 @@ div {
               random.sample(range(0,10), 11)
               //    ValueError: Sample larger than population or is negative
 
-            </code></dd>
+            </pre></dd>
 
             <dd>// NOTE. No repeated elements</dd>
             <dd> The final result in this method is always in a list, even while
