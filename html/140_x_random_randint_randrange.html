@@ -136,17 +136,15 @@ div {
             <dd>
             <pre>
 
-              // From StackOverflow
-              def randint(self, a, b):
-              """Return random integer in range [a, b], including both end points.
-              """
-              return self.randrange(a, b+1)
+    // From StackOverflow
+    def randint(self, a, b):
+    """Return random integer in range [a, b], including both end points.
+    """
+    return self.randrange(a, b+1)
 
             </pre> </dd>
-            <dd><pre>                                               
-    randint(a, b) method of random.Random instance
-        Return random integer in range [a, b], including both end points.
-            </pre></dd>
+            <dd><code>randint(a, b)</code> method of <code>random.Random</code> instance</dd>
+            <dd>Return random integer in <code>range [a, b]</code>, including both end points.</dd>
 
             <dd><pre>
 
@@ -224,21 +222,21 @@ div {
 
             <dt><code>random.normalvariate()</code></dt>
             <dd><code>
-            Help on method normalvariate in module random:
+              Help on method normalvariate in module random:
 
-            normalvariate(mu, sigma) method of random.Random instance
-            Normal distribution.
+              normalvariate(mu, sigma) method of random.Random instance
+              Normal distribution.
 
-            mu is the mean, and sigma is the standard deviation.
+              mu is the mean, and sigma is the standard deviation.
 
-            //  Example 
-            [random.normalvariate(100, 10) for x in range(10)]
+              //  Example 
+              [random.normalvariate(100, 10) for x in range(10)]
 
-            [112.00005113886873, 98.05855229261184,
-            112.44302677106563, 113.48683446662405, 
-            100.59502414387819, 110.33104071738913, 
-            103.16934319739843, 86.89883673976607,
-            112.7451586919411, 111.07842041764081]
+              [112.00005113886873, 98.05855229261184,
+              112.44302677106563, 113.48683446662405, 
+              100.59502414387819, 110.33104071738913, 
+              103.16934319739843, 86.89883673976607,
+              112.7451586919411, 111.07842041764081]
             </code></dd>
 
             <dt><code>random.shuffle</code></dt>
@@ -270,13 +268,13 @@ div {
           <details><!--inner-->
             <summary>Sample Exam Question</summary>
             <dl>  
-            <dt>Kindle book</dt>
-            <dd>You are writing code that generates a random integer with a minimum
-            value of 5 and a maximum value of 11.</dd> 
-            <dd>Which two functions should you use?</dd>
+              <dt>Kindle book</dt>
+              <dd>You are writing code that generates a random integer with a minimum
+              value of 5 and a maximum value of 11.</dd> 
+              <dd>Which two functions should you use?</dd>
 
-            <dd>
-            <pre>
+              <dd>
+              <pre>
 
     import random
     rint =[]
@@ -291,10 +289,10 @@ div {
     [min(rint), max(rang)]    //   [5, 11]
     [min(rang), max(rang)]    //   [5, 11]
 
-            </pre>
-            </dd> 
+              </pre>
+              </dd> 
 
-            <dd>(Introduction to Programming Using Python (98-381) Exam Questions and answers)</dd> 
+              <dd>(Introduction to Programming Using Python (98-381) Exam Questions and answers)</dd> 
             </dl>   
 
           </details><!--inner-->
