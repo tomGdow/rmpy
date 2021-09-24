@@ -131,7 +131,8 @@ div {
 
             <dt><code>random.randint(a, b)</code></dt>
 
-            <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b</code>.</dd>    
+            <dd>Return a random integer <code>N</code> such that
+            <code>a &lt;= N &lt;= b</code>.</dd>    
             <dd>  Alias for <code>randrange(a, b+1)</code>.</dd>
             <dd>
             <pre>
@@ -153,10 +154,11 @@ div {
 
             </pre></dd>
 
-            <dt><code>random.sample</code></dt>
+            <dt><code>random.sample(population,k)</code></dt>
 
-            <dd><code>sample(population, k)</code> method of <code>radom.Random</code> instance</dd>
-            <dd>Chooses <code>k</code> unique random elements from a population sequence or set.</dd>
+            <dd>Method of <code>radom.Random</code> instance</dd>
+            <dd>Chooses <code>k</code> unique random elements from a population
+            sequence or set.</dd>
             <dd>! returns a new list</dd>
             <dd>The <code>sample()</code> function is used to generate a list of
             desired size containing random numbers between a specified range.</dd> 
@@ -164,14 +166,14 @@ div {
             requires the range to be bigger than the sample size otherwise an error
             is returned.</dd>
             <dd><pre>
-              random.sample(range(0,10), 5)
-              //    [0, 5, 2, 3, 4]
+    random.sample(range(0,10), 5)
+    //    [0, 5, 2, 3, 4]
 
-              random.sample(range(0,10), k=4)
-              //    [9, 0, 7, 5]
+    random.sample(range(0,10), k=4)
+    //    [9, 0, 7, 5]
 
-              random.sample(range(0,10), 11)
-              //    ValueError: Sample larger than population or is negative
+    random.sample(range(0,10), 11)
+    //    ValueError: Sample larger than population or is negative
 
             </pre></dd>
 
@@ -181,20 +183,14 @@ div {
             </dd>
 
             <dt><code>random.uniform()</code></dt>
-            <dd>
-            <pre>
 
-    help(random.uniform)
-    Help on method uniform in module random:
+            <dd><code>uniform(a, b)</code> method of <code>random.Random</code> instance</dd>
+            <dd>Get a random number in the <code>range [a, b)</code> or
+            <code>[a, b]</code> depending on rounding.</dd>
 
-    uniform(a, b) method of random.Random instance
-        Get a random number in the range [a, b) or [a, b] depending on rounding.
-            </pre>
-            </dd>
-
-            <dd>The uniform() method can be used if we want to return a random
-            floating number between the provided range. It also includes both the
-            limits.</dd>
+            <dd>The <code>uniform()</code> method can be used if we want to return a random
+            floating number between the provided range. </dd>    
+            <dd>It also includes both the limits.</dd>
 
             <dd>Note that BOTH arguments must be given</dd>
             <dd><pre> 
@@ -215,15 +211,15 @@ div {
             <dd>// See Socratica video</dd>
 
             <dt><code>random.normalvariate()</code></dt>
-            <dd><code>
-              Help on method normalvariate in module random:
 
-              normalvariate(mu, sigma) method of random.Random instance
-              Normal distribution.
+            <dd><code>normalvariate(mu, sigma)</code> method of
+            <code>random.Random</code> instance</dd>
+            <dd>Normal distribution.</dd>
 
-              mu is the mean, and sigma is the standard deviation.
+            <dd><code>mu</code> is the mean, and <code>sigma</code> is the
+            standard deviation.</dd>
 
-              //  Example 
+            <dd><pre>
               [random.normalvariate(100, 10) for x in range(10)]
 
               [112.00005113886873, 98.05855229261184,
@@ -231,17 +227,18 @@ div {
               100.59502414387819, 110.33104071738913, 
               103.16934319739843, 86.89883673976607,
               112.7451586919411, 111.07842041764081]
-            </code></dd>
+            </pre></dd>
 
-            <dt><code>random.shuffle</code></dt>
-            <dd><pre> 
-    shuffle(x, random=None) method of random.Random instance
-        Shuffle list x IN PLACE, and return None.
+            <dt><code>random.shuffle(x, random=None)</code></dt>
+            <dd>Method of random.Random instance</dd>
+            <dd>Shuffle list <code>x</code> IN PLACE, AND return
+            <code>None</code>.</dd>
 
-        Optional argument random is a 0-argument function returning a
-        random float in [0.0, 1.0); if it is the default None, the
-        standard random.random will be used.
-            </pre></dd>   
+            <dd>Optional argument random is a 0-argument function returning a
+            random float in [0.0, 1.0) </dd>     
+
+            <dd>If it is the default <code>None</code>, the standard
+            <code>random.random</code> will be used.</dd>
 
             <dd><pre>
     lst = list(range(1,11))
