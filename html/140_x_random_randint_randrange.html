@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html> 
+<html lang="en">
 
   <head>
     <meta charset="utf-8"/>
@@ -31,10 +32,10 @@ div {
 
           <dd>Almost all module functions depend on the basic function <code>random()</code>, 
           which generates a random float uniformly in the semi-open range [0.0, 1.0).</dd> 
-          
+
           <dd>Both <code>random.random()</code>  and <code>random.uniform()</code>
- are examples of <em>uniform</em>  distributions</dd>
-          Contrast this with the <em>normal distribution</em>
+          are examples of <em>uniform</em>  distributions</dd>
+          <dd>Contrast this with the <em>normal distribution</em></dd>
 
         </dl>
       </main>
@@ -52,13 +53,44 @@ div {
             are used instead of the system time (see the <code>os.urandom()</code> 
             function for details on availability).</dd>
             <dd>If <code>a</code> is an <code>int</code>, it is used directly</dd>
+            <dt><pre>
 
+    random.seed(3)
+    for i in range(1,5):
+        print(random.random())
+
+    0.23796462709189137
+    0.5442292252959519
+    0.36995516654807925
+    0.6039200385961945
+
+    random.seed(3)
+    for i in range(1,5):
+        print(random.random())
+
+    0.23796462709189137
+    0.5442292252959519
+    0.36995516654807925
+    0.6039200385961945
+
+            </pre></dt>
 
             <dt><code>random.random()</code></dt>
 
             <dd>Return the next random <mark>floating point number</mark> in
             the <code>range [0.0, 1.0)</code>.</dd>
 
+            <dd><pre>
+
+    [random.random() for x in range(0,5)]
+
+    //    [0.08594990477972664, 
+           0.07216527482765667, 
+           0.5273843624847196, 
+           0.1937857349282991, 
+           0.8205970629069583]
+
+            </pre></dd>
 
             <dt><code>random.randrange(start, stop[, step])</code></dt>
 
@@ -68,24 +100,41 @@ div {
             This is equivalent to <code>choice(range(start, stop, step))</code>,
             but doesn’t actually build a <code>range</code> object
             </dd>
+            <dd><pre> 
+    [random.randrange(3) for i in range(10)]
+    //    [2, 0, 2, 0, 1, 1, 2, 0, 0, 2]
+    [random.randrange(0,3) for i in range(10)]
+    //    [1, 2, 2, 1, 1, 2, 0, 0, 2, 0]
+            </pre></dd>   
+            <dd>It appears that it is <code>stop</code> that defaults to zero</dd>
 
             <dt><code>random.choice(seq)</code></dt>
 
-            <dd>Return a random element from the non-empty <code>seq</code>uence seq.</dd> 
+            <dd>Return a random element from the non-empty sequence<code>seq</code></dd> 
             <dd>If <code>seq</code> is empty, raises <code>IndexError</code>.</dd>
+            <dd><pre>
+    random.choice([1,2,3])        //     3   //   An integer
+            </pre></dd>
 
             <dt><code>random.choices(population, weights=None, *, cum_weights=None, k=1)</code></dt>
 
             <dd>Return a <code>k</code> sized list of elements chosen from the
             population with replacement. </dd>   
             <dd> If the population is empty, raises <code>IndexError</code>.</dd>
+            <dd> Note that 'k' must be a keyword argument </dd>
+            <dd>
+            <pre>
+    random.choices([1,2,3],k=1)         //    [1]     //    A List 
+    random.choices([1,2,3],k=10)        //    [1, 3, 2, 2, 3, 1, 2, 3, 1, 3]
+            </pre>
+            </dd>
 
             <dt><code>random.randint(a, b)</code></dt>
 
             <dd>Return a random integer <code>N</code> such that <code>a &lt;= N &lt;= b</code>.</dd>    
             <dd>  Alias for <code>randrange(a, b+1)</code>.</dd>
             <dd>
-            <code>
+            <pre>
 
               // From StackOverflow
               def randint(self, a, b):
@@ -93,8 +142,19 @@ div {
               """
               return self.randrange(a, b+1)
 
-            </code>
-            </dd>
+            </pre> </dd>
+            <dd><pre>                                               
+    randint(a, b) method of random.Random instance
+        Return random integer in range [a, b], including both end points.
+            </pre></dd>
+
+            <dd><pre>
+
+    min([random.randint(1,10) for i in range(100)])    //     1
+    max([random.randint(1,10) for i in range(100)])    //     10
+
+            </pre></dd>
+
             <dt><code>random.sample</code></dt>
             <dd><pre> 
 
@@ -104,7 +164,30 @@ div {
         Chooses k unique random elements from a population sequence or set.
         (Returns a new list)
 
-            </dd></pre>
+            </pre></dd>
+
+            <dd>The <code>sample()</code> function is used to generate a list of
+            desired size containing random numbers between a specified range.</dd> 
+            <dd>This function ensures that no number is repeated, that is why it
+            requires the range to be bigger than the sample size otherwise an error
+            is returned.</dd>
+            <dd><code>
+              random.sample(range(0,10), 5)
+              //    [0, 5, 2, 3, 4]
+
+              random.sample(range(0,10), k=4)
+              //    [9, 0, 7, 5]
+
+              random.sample(range(0,10), 11)
+              //    ValueError: Sample larger than population or is negative
+
+            </code></dd>
+
+            <dd>// NOTE. No repeated elements</dd>
+            <dd> The final result in this method is always in a list, even while
+            generating a single number
+            </dd>
+
             <dt><code>random.uniform()</code></dt>
             <dd>
             <pre>
@@ -114,30 +197,69 @@ div {
 
     uniform(a, b) method of random.Random instance
         Get a random number in the range [a, b) or [a, b] depending on rounding.
-
-    // See Socratica video
-
             </pre>
             </dd>
+
+            <dd>The uniform() method can be used if we want to return a random
+            floating number between the provided range. It also includes both the
+            limits.</dd>
+
+            <dd>Note that BOTH arguments must be given</dd>
+            <dd><pre> 
+
+    [random.uniform(1,10) for i in range(1,10)]
+
+    [7.306187371080818, 
+    7.138817274302145, 
+    1.8759941715949968, 
+    4.2817052713203205, 
+    9.773507030097504, 
+    5.291783860354799, 
+    5.403786265943267, 
+    2.0368674108726346, 
+    7.315866085457457]    
+
+            </pre></dd>   
+            <dd>// See Socratica video</dd>
+
             <dt><code>random.normalvariate()</code></dt>
+            <dd><code>
+            Help on method normalvariate in module random:
 
-    Help on method normalvariate in module random:
+            normalvariate(mu, sigma) method of random.Random instance
+            Normal distribution.
 
-    normalvariate(mu, sigma) method of random.Random instance
-        Normal distribution.
+            mu is the mean, and sigma is the standard deviation.
 
-        mu is the mean, and sigma is the standard deviation.
-        
-    //  Example 
-    [random.normalvariate(100, 10) for x in range(10)]
+            //  Example 
+            [random.normalvariate(100, 10) for x in range(10)]
 
-    [112.00005113886873, 98.05855229261184,
-    112.44302677106563, 113.48683446662405, 
-    100.59502414387819, 110.33104071738913, 
-    103.16934319739843, 86.89883673976607,
-    112.7451586919411, 111.07842041764081]
+            [112.00005113886873, 98.05855229261184,
+            112.44302677106563, 113.48683446662405, 
+            100.59502414387819, 110.33104071738913, 
+            103.16934319739843, 86.89883673976607,
+            112.7451586919411, 111.07842041764081]
+            </code></dd>
+
+            <dt><code>random.shuffle</code></dt>
+            <dd><pre> 
+    shuffle(x, random=None) method of random.Random instance
+        Shuffle list x IN PLACE, and return None.
+
+        Optional argument random is a 0-argument function returning a
+        random float in [0.0, 1.0); if it is the default None, the
+        standard random.random will be used.
+            </pre></dd>   
+
+            <dd><pre>
+    lst = list(range(1,11))
+    lst    //    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    random.shuffle(lst)
+    lst    //    [2, 5, 1, 7, 10, 6, 9, 4, 8, 3]
 
 
+            </pre></dd>
           </dl>   
         </details>
       </div>
@@ -147,6 +269,7 @@ div {
           <summary>Examples</summary>
           <details><!--inner-->
             <summary>Sample Exam Question</summary>
+            <dl>  
             <dt>Kindle book</dt>
             <dd>You are writing code that generates a random integer with a minimum
             value of 5 and a maximum value of 11.</dd> 
@@ -172,6 +295,7 @@ div {
             </dd> 
 
             <dd>(Introduction to Programming Using Python (98-381) Exam Questions and answers)</dd> 
+            </dl>   
 
           </details><!--inner-->
           <details><!--inner-->
@@ -241,7 +365,6 @@ div {
           </details><!--inner-->
           <details><!--inner-->
             <summary>Example 4 Random number in range [3,7)</summary>
-            <dd>
             <pre>
             //Socratica video
 
@@ -259,7 +382,14 @@ div {
     //  [(3.000000311195167, 6.99999594079722)]
 
             </pre>
-            </dd>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 5: Comparison</summary>
+            <pre> 
+    random.choice([1,2,3])        //     3   //   An integer
+    random.sample([1,2,3],1)      //    [2]  //   A list
+    random.choices([1,2,3],k=1)   //    [1]  //   A list
+            </pre>  
           </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
@@ -280,7 +410,9 @@ div {
             denoted by mixing the notations for open and closed intervals</dd>
             <dd>For example, (0,1] means greater than 0 and less than or equal to 1,
             while [0,1) means greater than or equal to 0 and less than 1.</dd> 
+
             <dt>References</dt>
+
             <dd>
             <p>
             <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)#Terminology">
@@ -288,6 +420,7 @@ div {
             </a>
             </p>
             </dd>
+
             <dd>
             <p>
             <a href ="https://docs.python.org/3/library/random.html">
@@ -308,6 +441,14 @@ div {
             <p>
             <a href ="https://www.youtube.com/watch?v=zWL3z7NMqAs">
               Socratica on Random (YouTube)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://java2blog.com/random-number-between-1-and-10-in-python/">
+              Generate random number between 1 and 10 in Python (java2blog)
             </a>
             </p>
             </dd>
