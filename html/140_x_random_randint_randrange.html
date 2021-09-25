@@ -30,12 +30,72 @@ div {
           function for random sampling without replacement.</dd>
           <dd>Python uses the Mersenne Twister as the core generator.</dd>
 
-          <dd>Almost all module functions depend on the basic function <code>random()</code>, 
-          which generates a random float uniformly in the semi-open range [0.0, 1.0).</dd> 
+          <dd>Almost all module functions depend on the basic function
+          <code>random()</code>, which generates a random float uniformly in
+          the semi-open range [0.0, 1.0).</dd> 
 
           <dd>Both <code>random.random()</code>  and <code>random.uniform()</code>
           are examples of <em>uniform</em>  distributions</dd>
           <dd>Contrast this with the <em>normal distribution</em></dd>
+
+          <dt>Generate Random number betweeen a and b</dt>
+
+          <dd><pre> 
+    random.random * &Delta; + min 
+          </pre></dd>
+          <dt>Generate random number between 8 and 10</dt>
+          <dd>
+          <pre>
+    delta = 2
+    min = 8
+    random.random() * 2 + 8  //    8.52584613826146
+
+    min([random.random() *2 + 8 for i in range(100000)])
+    //    8.000023620592811
+    max([random.random() *2 + 8 for i in range(100000)])
+    //    9.999992543582561
+
+          </pre>
+          </dd>
+          <dt>Generate Random Integer betweeen a and b</dt>
+
+          <dd><pre> 
+    (1)  int(random.random * (&Delta; + 1)  + min) 
+    (2)  math.float(random.random * (&Delta; + 1)  + min) 
+    (3)  math.float(random.random * (&Delta; + 1)) + min  // 'old' JS way
+    (4)  int(random.random * (&Delta; + 1)) + min         // 'old' JS way
+          </pre></dd>
+
+          <dt>Generate a random integer between 8 and 10</dt>
+          <dd><pre>
+    delta = 2
+    min = 8
+
+    # Method 1 
+    int(random.random() * 3 + 8)    //     9
+    min([int(random.random() * 3 + 8) for i in range(100)])
+    //    8
+    max([int(random.random() * 3 + 8) for i in range(100)])
+    //    10
+
+    # Method 4
+    min([int(random.random() *3) +8 for i in range(1000)])
+    //    8
+    max([int(random.random() *3) +8 for i in range(1000)])
+    //    10
+
+    # Method 2
+    min([math.floor(random.random() * 3 +8) for i in range(1000)])
+    //    8
+    max([math.floor(random.random() * 3 +8) for i in range(1000)])
+    //    10
+
+    # Method 3
+    max([math.floor(random.random() * 3) +8 for i in range(1000)])
+    //    10
+    min([math.floor(random.random() * 3) +8 for i in range(1000)])
+    //    8
+          </pre></dd>
 
         </dl>
       </main>
@@ -110,13 +170,17 @@ div {
 
             <dt><code>random.choice(seq)</code></dt>
 
-            <dd>Return a random element from the non-empty sequence<code>seq</code></dd> 
+            <dd>
+            Return a random element from the non-empty sequence<code>seq</code>
+            </dd> 
             <dd>If <code>seq</code> is empty, raises <code>IndexError</code>.</dd>
             <dd><pre>
     random.choice([1,2,3])        //     3   //   An integer
             </pre></dd>
 
-            <dt><code>random.choices(population, weights=None, *, cum_weights=None, k=1)</code></dt>
+            <dt><code>
+              random.choices(population, weights=None, *, cum_weights=None, k=1)
+            </code></dt>
 
             <dd>Return a <code>k</code> sized list of elements chosen from the
             population with replacement. </dd>   
@@ -144,8 +208,10 @@ div {
     return self.randrange(a, b+1)
 
             </pre> </dd>
-            <dd><code>randint(a, b)</code> method of <code>random.Random</code> instance</dd>
-            <dd>Return random integer in <code>range [a, b]</code>, including both end points.</dd>
+            <dd><code>randint(a, b)</code> method of <code>random.Random</code>
+            instance</dd>
+            <dd>Return random integer in <code>range [a, b]</code>, including both
+            end points.</dd>
 
             <dd><pre>
 
@@ -184,11 +250,14 @@ div {
 
             <dt><code>random.uniform()</code></dt>
 
-            <dd><code>uniform(a, b)</code> method of <code>random.Random</code> instance</dd>
+            <dd>
+            <code>uniform(a, b)</code> method of <code>random.Random</code> instance
+            </dd>
             <dd>Get a random number in the <code>range [a, b)</code> or
             <code>[a, b]</code> depending on rounding.</dd>
 
-            <dd>The <code>uniform()</code> method can be used if we want to return a random
+            <dd>The <code>uniform()</code> method can be used if we want to return
+            a random
             floating number between the provided range. </dd>    
             <dd>It also includes both the limits.</dd>
 
@@ -283,7 +352,8 @@ div {
               </pre>
               </dd> 
 
-              <dd>(Introduction to Programming Using Python (98-381) Exam Questions and answers)</dd> 
+              <dd>(Introduction to Programming Using Python (98-381) Exam Questions
+              and answers)</dd> 
             </dl>   
 
           </details><!--inner-->
@@ -318,7 +388,9 @@ div {
             </pre>
           </details><!--inner-->
           <details><!--inner-->
-            <summary>Example 2 (<code>randint()</code> vs <code>randrange()</code>)</summary>
+            <summary>
+              Example 2 (<code>randint()</code> vs <code>randrange()</code>)
+            </summary>
 
             <pre>
 
