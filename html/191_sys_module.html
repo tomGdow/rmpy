@@ -145,7 +145,8 @@ div {
 
           <dt><code>sys.stdout</code></dt>
           <dd>Python seeks to "mimic" this behavior of <code>C</code>.</dd> 
-          <dd>When you <code>print()</code> in Python, your text is written to Python's <code>sys.stdout</code>.</dd> 
+          <dd>When you <code>print()</code> in Python, your text is written to
+ Python's <code>sys.stdout</code>.</dd> 
           <dd>When you do input(), it comes from sys.stdin. </dd>   
           <dd>Exceptions are written to sys.stderr.</dd>
 
@@ -195,6 +196,26 @@ div {
           <dd>The constructor accepts the same optional argument passed to
           <code>sys.exit()</code></dd>
 
+          <dt><code>sys.exc_info()</code></dt>
+
+    <dd>Return current exception information: 
+    (<code>type</code>, <code>value</code>, <code>traceback</code>).</dd>
+
+    <dd>Return information about the most recent exception caught by an
+ except clause in the current stack frame or in an older stack frame.</dd>  
+    <dd><pre>  
+
+    try:
+        raise ValueError('You have a Value Error, Earthling')
+    except ValueError:
+        print(f"sys.exc_info[0]: {sys.exc_info()[0]}")
+        print(f"sys.exc_info[1]: {sys.exc_info()[1]}")
+        print(f"sys.exc_info[2]: {sys.exc_info()[2]}")
+
+    sys.exc_info[0]: &lt;class 'ValueError'&gt;
+    sys.exc_info[1]: You have a Value Error, Earthling
+    sys.exc_info[2]: &lt;traceback object at 0x000001845A0953C0&gt;
+    </pre></dd>   
         </dl>
       </main>
       <div class="syntax">
