@@ -27,7 +27,25 @@ div {
           <dd>These functions cannot be used with complex numbers;</dd> 
           <dd>use the functions of the same name from the <code>cmath</code>
           module if you require support for complex numbers</dd>
-          <dt>python help(math)</dt>
+          <dt> <code>math.sqrt(x,/)</code> </dt>
+    <dd>Return the square root of x.</dd>
+    <dd><pre> 
+    math.sqrt(4)
+    //  2.0             //  NOTE 2.0, NOT 2 !!  // Returns a float
+
+    math.sqrt(1)    //   1.0
+    math.sqrt(2)    //   1.4142135623730951
+    math.sqrt(0)    //   0.0
+
+    </pre></dd>   
+
+    <dt><code>math.pow(a,b) vs a**b</code></dt>
+    <dd>
+     <pre>
+    math.pow(2,3)    //    8.0      // !! A float
+    2**3             //    8        // !! An integer
+     </pre>
+    </dd>
 
         </dl>
       </main>
