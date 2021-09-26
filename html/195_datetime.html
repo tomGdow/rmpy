@@ -184,6 +184,77 @@ div {
           <dt>mnemonic</dt>
           <dd>a --- day [%a (Mon) %A (Monday)]</dd>
           <dd>b --- mi  [%b (Jan) %B (January)]</dd>
+          <dt>strftime code table</dt>
+          <dd>
+          <pre>
+
+    2021-09-26 15:15:47.260146+00:00    // now
+
+    %a      Sun                         Weekday as locale’s abbreviated name
+    %A      Sunday                      Weekday as locale’s full name
+    %b      Sep                         Month as locale’s abbreviated name
+    %B      September                   Month as locale’s full name
+    %c      Sun Sep 26 15:15:47 2021    Locale’s appropriate date and time representation
+    %d      26                          Day of the month as a zero-padded decimal number
+    %f      260146                      Microsecond as a decimal number, zero-padded on the left
+    %H      15                          Hour (24-hour clock) as a zero-padded decimal number
+    %I      03                          Hour (12-hour clock) as a zero-padded decimal number
+    %j      269                         Day of the year as a zero-padded decimal number
+    %m      09                          Month as a zero-padded decimal number.
+    %M      15                          Minute as a zero-padded decimal number
+    %p      PM                          Locale’s equivalent of either AM or PM
+    %S      47                          Second as a zero-padded decimal number
+    %U      39                          Week number of the year (Sunday first day) as zero padded decimal number
+    %w      0                           Weekday as a decimal number, where 0 is Sunday and 6 is Saturday
+    %W      38                          Week number of the year (Monday as the first day) as a decimal number
+    %x      09/26/21                    Locale’s appropriate date representation
+    %X      15:15:47                    Locale’s appropriate time representation
+    %y      21                          Year without century as a zero-padded decimal number
+    %Y      2021                        Year with century as a decimal number
+    %z      +0000                       UTC offset in the form ±HHMM[SS[.ffffff]]
+    %Z      UTC                         Time zone name (empty string if the object is naive)
+
+          </pre>
+          </dd>
+          <dt>Extended strftime code table</dt>
+          <dd><pre>
+    %a      Sun                         Weekday as locale’s abbreviated name
+    %A      Sunday                      Weekday as locale’s full name
+    %b      Sep                         Month as locale’s abbreviated name
+    %B      September                   Month as locale’s full name
+    %c      Sun Sep 26 15:15:47 2021    Locale’s appropriate date and time representation
+    %C      20                          The century number (year//100) as a 2-digit integer
+    %d      26                          Day of the month as a zero-padded decimal number
+    %D      09/26/21                    Equivalent to %m/%d/%y. (Yecch—for Americans only). Recommended not to use
+    %f      260146                      Microsecond as a decimal number, zero-padded on the left
+    %F      2021-09-26                  Equivalent to %Y-%m-%d (the ISO 8601 date format). (C99)
+    %g      21                          Like %G, but without century, that is, with a 2-digit year
+    %G      2021                        ISO 8601 week-based year with century as a decimal number. Very similar to %Y
+    %h      Sep                         Equivalent to %b
+    %H      15                          Hour (24-hour clock) as a zero-padded decimal number
+    %I      03                          Hour (12-hour clock) as a zero-padded decimal number
+    %j      269                         Day of the year as a zero-padded decimal number
+    %m      09                          Month as a zero-padded decimal number.
+    %M      15                          Minute as a zero-padded decimal number
+    %p      PM                          Locale’s equivalent of either AM or PM
+    %r      03:15:47 PM                 The time in a.m. or p.m. notation.
+    %R      15:15                       The time in 24-hour notation (%H:%M). Include seconds, see %T
+    %S      47                          Second as a zero-padded decimal number
+    %t      '\t'                        A tab character.
+    %T      15:15:47                    The time in 24-hour notation (%H:%M:%S)
+    %u      7                           The day of the week as a decimal, range 1 to 7, Monday is 1. See also %w
+    %U      39                          Week number of the year (Sunday as first day) as a zero padded decimal number
+    %w      0                           Weekday as a decimal number, where 0 is Sunday and 6 is Saturday
+    %W      38                          Week number of the year (Monday as the first day) as a decimal number
+    %x      09/26/21                    Locale’s appropriate date representation
+    %X      15:15:47                    Locale’s appropriate time representation
+    %y      21                          Year without century as a zero-padded decimal number
+    %Y      2021                        Year with century as a decimal number
+    %z      +0000                       UTC offset in the form ±HHMM[SS[.ffffff]]
+    %Z      UTC                         Time zone name (empty string if the object is naive)
+
+
+          </pre></dd>
         </dl>
       </main>
       <div class="syntax">
