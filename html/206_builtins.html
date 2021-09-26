@@ -31,7 +31,7 @@ pow(base, exp, mod=None)
     Some types, such as ints, are able to use a more efficient algorithm when
     invoked using the three argument form.
 
-    pow(2,4)                //    16
+    pow(2,4)                //    16   // Note that math.pow(2,3) gives 16.0
     pow(2,4,5)              //    1
     pow(2,4) % 5            //    1
 
@@ -143,7 +143,7 @@ pow(base, exp, mod=None)
         Return True if bool(x) is True for any x in the iterable.
 
         If the iterable is empty, return False.
-        
+
     any((0,0,0,0,1,0))        //    True
     any((0,0,0.0,False))      //    False
     any([])                   //    False
@@ -151,7 +151,20 @@ pow(base, exp, mod=None)
     //  Traceback (most recent call last):
     //    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
     //  TypeError: any() takes exactly one argument (4 given)
-          </pre></dd>   
+          </pre></dd>
+          <dt><code>getattr()</code></dt> 
+          <dd><code>getattr(object, name[, default]) -&gt; value </code></dd>
+
+          <dd>Get a named attribute from an object</dd>
+          <dd><code>getattr(x, 'y')</code> is equivalent to <code>x.y</code>.</dd>
+          <dd>When a default argument is given, it is returned when the attribute doesn't exist</dd> 
+          <dd>without it, an exception is raised in that case.</dd>
+          <dd><pre>
+
+    getattr(datetime.datetime.now(),'hour') //    21 
+
+          </pre></dd>
+
         </dl>
       </main>
       <div class="syntax">
