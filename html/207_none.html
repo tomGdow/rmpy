@@ -21,8 +21,55 @@ div {
       <main>
         <dl>
           <dt>None</dt>
-          <dd>[Main text]</dd>
-        </dl>
+
+          <dd><code>None</code> is a special constant in Python that represents
+          <em>the absence of a value</em> or a <code>null</code> value.</dd>
+          <dd>It is an object of its own datatype, the <code>NoneType</code>.</dd>   
+          <dd>We cannot create multiple <code>None</code> objects but can assign
+          it to variables.</dd>
+          <dd>These variables will be equal to one another.</dd>
+          <dd>We must take special care that <code>None</code> does not imply
+          <code>False</code>, <code>0</code> or any empty list, dictionary,
+ string etc.</dd>
+
+          <dd>The Python <code>None</code> object, denoting lack of value.</dd> 
+          <dd>This object has no methods.</dd> 
+          <dd>It needs to be treated just like any other object with respect to
+          reference counts.</dd>
+          <dt><code>function that returns None</code></dt>
+          <dd><pre>
+
+    def myfn(a,b):
+        a+b
+
+    myfn(1,2)
+    print(myfn(1,2))
+    //    None            // !! Note
+    type(myfn(1,2))
+    //    &lt;class 'NoneType'&gt;
+
+          </pre></dd>
+          <dt><code> None </code> with <code>True, False</code></dt> </dl>
+        <dd>
+        <pre>
+
+    a = None
+    b = None
+    print(a)       //   None
+    a==b           //   True 
+
+    None==False    //   False
+    None==None     //   True
+
+    None - False
+    //    TypeError: unsupported operand type(s) for -: 'NoneType' and 'bool'
+
+    0 - False    //   0
+    0 + True     //   1
+    0 + None     //   TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+
+        </pre>
+        </dd>
       </main>
       <div class="syntax">
         <details>
@@ -61,13 +108,21 @@ div {
             </p>
             </dd>
 
-<dd>
-<p>
-<a href ="https://www.programiz.com/python-programming/keyword-list">
-List of Keywords in Python (Progamiz)
-</a>
-</p>
-</dd>
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/keyword-list">
+              List of Keywords in Python (Progamiz)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/c-api/none.html">
+              The None Object (Python Docs)
+            </a>
+            </p>
+            </dd>
 
           </dl>
         </details>
