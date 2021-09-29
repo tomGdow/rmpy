@@ -41,6 +41,7 @@ let pageData = (function () {
     "155_compound_statements.html",
     "156_if_elif_else.html",
     "121_x_truthy_falsy.html",
+    "207_none.html",
     "181_nan.html",
     "122_x_bool.html",
     "157_walrus_assignment_expression.html",
