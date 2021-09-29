@@ -14,9 +14,7 @@ div {
 
   <body>
     <div class="container">
-      <header>
-        None
-      </header>
+      <header> None </header>
       <div class="counter">xx</div>
       <main>
         <dl>
@@ -30,7 +28,7 @@ div {
           <dd>These variables will be equal to one another.</dd>
           <dd>We must take special care that <code>None</code> does not imply
           <code>False</code>, <code>0</code> or any empty list, dictionary,
- string etc.</dd>
+          string etc.</dd>
 
           <dd>The Python <code>None</code> object, denoting lack of value.</dd> 
           <dd>This object has no methods.</dd> 
@@ -42,16 +40,17 @@ div {
     def myfn(a,b):
         a+b
 
-    myfn(1,2)
     print(myfn(1,2))
     //    None            // !! Note
     type(myfn(1,2))
     //    &lt;class 'NoneType'&gt;
 
           </pre></dd>
-          <dt><code> None </code> with <code>True, False</code></dt> </dl>
-        <dd>
-        <pre>
+
+          <dt><code> None </code> with <code>True, False</code></dt>
+
+          <dd>
+          <pre>
 
     a = None
     b = None
@@ -68,8 +67,25 @@ div {
     0 + True     //   1
     0 + None     //   TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
 
-        </pre>
-        </dd>
+          </pre>
+          </dd>
+          <dt><code>None</code>is neither <code>True</code>nor 
+          <code>False</code></dt>
+    <dd>Reference: <a href ="https://www.w3schools.com/python/ref_keyword_none.asp">Python None Keyword (W3Schools)</a></dd>
+    <dd>  <pre> 
+
+    if x:
+        print("Do you think None is True?")
+    elif x is False:
+        print("Do you think None is False?")
+    else:
+        print("None is not True, or False, None is just None ...")
+
+    //    None is not True, or False, None is just None ...
+
+    </pre>  </dd>   
+
+        </dl>
       </main>
       <div class="syntax">
         <details>
