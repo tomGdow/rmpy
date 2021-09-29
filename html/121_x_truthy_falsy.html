@@ -60,13 +60,29 @@ ul {
             <li> objects for which <code>obj.__bool__()</code> returns <code>False</code></li>
             <li>objects for which <code>obj.__len__()</code> returns <code>0</code></li>
             <ul>  
-          </ul></ul></dd>   
+            </ul></ul></dd>   
 
-          <dt>truthy</dt>
+            <dt>truthy</dt>
 
-          <dd>Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets).</dd>
-          <dd>Numeric values that are not zero.</dd>
-          <dd>True</dd>
+            <dd>Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets).</dd>
+            <dd>Numeric values that are not zero.</dd>
+            <dd>True</dd>
+
+            <dt>Testing for <code>truthy</code> and <code>falsy</code></dt>
+
+            <dd>Use the <code>bool()</code> function</dd>
+            <dd><code>bool([x])</code> return a Boolean value, i.e. one of
+            <code>True</code> or <code>False</code>.</dd> 
+            <dd><code>x</code> (the argument) is converted using the standard truth testing procedure.</dd> 
+            <dd>If <code>x</code> is <code>False</code> or omitted, this returns<code>False</code></dd>
+            <dd>Otherwise it returns <code>True</code>.</dd>
+            <dd>
+            <pre>
+    bool(None)
+    //  False
+            </pre>
+            </dd>
+
 
         </dl>
       </main>
@@ -149,6 +165,14 @@ ul {
             <p>
             <a href="https://www.w3schools.com/python/python_booleans.asp">
               W3Schools: https://www.w3schools.com/python/python_booleans.asp
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://docs.python.org/3/library/functions.html#bool">
+              bool function (Python docs)
             </a>
             </p>
             </dd>
