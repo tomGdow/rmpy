@@ -21,7 +21,34 @@ div {
       <main>
         <dl>
           <dt>del statement</dt>
-          <dd>[Main text]</dd>
+          <dd>The Python <code>del</code> keyword is used to delete objects.</dd>   
+          <dd>Its syntax is:</dd>
+          <dd>
+          <pre>
+    del obj_name
+            </pre>
+          </dd>
+                       <dd>Here, <code>obj_name</code> can be variables, user-defined objects, lists, items within lists, dictionaries etc.</dd>
+
+          <dd>Deletion is recursively defined very similar to the way assignment
+          is defined.</dd>
+          <dd>Rather than spelling it out in full details, here are some hints.</dd>                                                                             
+          <dd>Deletion of a target list recursively deletes each target, from
+          left to right.</dd>
+
+          <dd>Deletion of a name removes the binding of that name from the local
+          or global namespace, depending on whether the name occurs in a global
+          statement in the same code block.</dd> 
+          <dd>If the name is unbound, a <code>NameError</code> exception will be
+          raised.</dd>
+          <dd><pre>
+
+    a = 4
+    del a
+    del a
+    //    NameError: name 'a' is not defined
+
+          </pre></dd>
         </dl>
       </main>
       <div class="syntax">
@@ -36,9 +63,68 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Example 1: Class</summary>
             <pre>
-            [code]
+    class MyClass:
+        a = 1
+        def func(self):
+           print('hello')
+
+    inst = MyClass()
+    inst.a          //    1
+    inst.func()     //    hello
+    print(MyClass)  //    &lt;class '__main__.MyClass'&gt;
+    del MyClass
+    del MyClass
+    //    Traceback (most recent call last):
+    //      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //    NameError: name 'MyClass' is not defined
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: delete list items</summary>
+            <pre>
+
+    my_list_two              //     [10, 20, 40, 50, 60, 70, 80, 90]
+    del my_list_two[2]
+    my_list_two              //     [10, 20, 50, 60, 70, 80, 90]
+    del my_list_two[0:3]
+    print(my_list_two)       //     [60, 70, 80, 90]
+    del my_list_two[:]
+    my_list_two              //     []
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3: delete tuple </summary>
+            <pre>
+
+    my_tuple=(1,2,3)
+    del my_tuple
+
+    my_tuple=(10,20,30)
+    del my_tuple[0]
+    //    Traceback (most recent call last):
+    //      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    //    TypeError: 'tuple' object doesn't support item deletion
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3: delete from dictionary </summary>
+            <pre>
+
+    mydict = dict(name='john', profession='programmer', age='25')
+    mydict    //     {'name': 'john', 'profession': 'programmer', 'age': '25'}
+
+    del mydict['profession']
+    mydict    //     {'name': 'john', 'age': '25'}
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example X: </summary>
+            <pre>
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
@@ -47,16 +133,32 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
+
             <dd>
             <p>
-            <a href="http://google.ie">link-1</a>
+            <a href ="https://docs.python.org/3/reference/simple_stmts.html#the-del-statement">
+              The del statement (Pyton Docs)
+            </a>
             </p>
             </dd>
+
+            <dd>
+            <p>
+            <a href ="https://stackoverflow.com/q/6146963/499167">
+              When is del useful in Python? (Stack Overflow)
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://www.programiz.com/python-programming/del">
+              Python del Statement (Programiz)
+            </a>
+            </p>
+            </dd>
+
           </dl>
         </details>
       </div>
