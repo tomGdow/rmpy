@@ -15,13 +15,20 @@ div {
   <body>
     <div class="container">
       <header>
-        [Header]
+        Miscellaneous
       </header>
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>Miscellaneous</dt>
-          <dd>[Main text]</dd>
+          <dt>Flatten a nested list</dt>
+          <dd><pre>
+
+    lst=[['a', 'A'], ['b', 'B'], ['c', 'C']]
+
+    [item for sub in lst for item in sub]
+    //    ['a', 'A', 'b', 'B', 'c', 'C']
+
+          </pre></dd>
         </dl>
       </main>
       <div class="syntax">
