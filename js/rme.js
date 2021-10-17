@@ -124,6 +124,7 @@ let pageData = (function () {
     "177_tutorials_teacher_questions.html",
     "208_break_continue.html",
     "209_del_statement.html",
+    "210_misc.html",
     "rmpy_template.html"
 
   ];
