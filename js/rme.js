@@ -5,7 +5,7 @@ let pageData = (function () {
     "152_associativity.html",
     "153_in_not_in_membership_test.html",
     "198_assignment_statement.html",
-    "199_augmented_assignment_statement.html",
+    "199_augmented_assign/yuplesment_statement.html",
     "147_mnemonics_xkcd.html",
     "2_rmpy_history.html",
     "3_print.html",
