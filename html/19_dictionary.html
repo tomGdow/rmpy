@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html> 
+<html lang="en">
 
   <head>
     <meta charset="utf-8"/>
@@ -44,6 +45,8 @@ div {
           <dd>In dictionaries, later values will always override earlier ones:</dd>
           <dd><code>Dictionary</code> higher priority than <code>Set</code></dd> 
           <dd><code>type({})</code> give <code>dictionary</code> // Note</dd>
+
+          <dt>Create a <code>dict</code></dt>
           <dd>Dictionaries can be created by several means:</dd>
           <dd>
           <ol>  
@@ -76,6 +79,22 @@ div {
             </li>
           </ol> 
           </dd> 
+          <dt>Merge a <code>dict</code></dt>
+          <dd>
+          <pre>
+
+    (1)   dict_one.update(dict_two)  // In place
+
+    (2)   dict_one |= dict_two    //  In place
+
+    (3)   dict_three == {**dict_one, **dict_two}
+
+    (4)   dict_three = dict_one | dict_two 
+
+          </pre>
+
+
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -320,6 +339,15 @@ div {
             <p>
             <a href ="https://www.w3schools.com/python/gloss_python_copy_dictionary.asp">
               Python Copy a Dictionary (W3Schools)
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://www.askpython.com/python/dictionary/merge-dictionaries">
+              How to merge dictionaries in Python?(Ask Python)
             </a>
             </p>
             </dd>
