@@ -44,6 +44,26 @@ div {
             <li>tuples.</li>
           </ol>                                         
           </dd>
+          <dt>Strings and interning</dt>
+          <dd>Like integers, some of the strings also get interned.</dd> 
+          <dd>Generally, <mark>any string that satisfies the identifier naming
+            convention will get interned</mark>.</dd> 
+          <dd>Sometimes there will be exceptions. So, don’t rely on it.</dd>
+          <dd>
+          <pre>
+    a="Data"        
+    b="Data"
+    a is b    //    True
+
+    a = "Data Science"
+    b= "Data Science"
+    a is b    //    False
+
+    "Data Science".isidentifier()    //   False
+    "DataScience".isidentifier()     //   True
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -83,6 +103,7 @@ div {
             <p>
             <a href ="https://towardsdatascience.com/python-memory-and-objects-e7bec4a2845">
               Python, Memory, and Objects [Naser Tamimi] [Data Science]
+            </a>
             </p>
             </dd>
 
@@ -90,6 +111,14 @@ div {
             <p>
             <a href ="https://docs.python.org/3.2/library/sys.html?highlight=sys.intern#sys.intern">
               <code>sys.intern</code> (string) [Python Docs]  
+            </a>
+            </p>
+            </dd>
+
+            <dd>
+            <p>
+            <a href ="https://towardsdatascience.com/optimization-in-python-interning-805be5e9fd3e">
+              Optimization in Python — Interning
             </a>
             </p>
             </dd>
