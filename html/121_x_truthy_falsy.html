@@ -35,7 +35,7 @@ ul {
             <li>Empty dictionaries <code>{}</code></li>
             <li>Empty sets <code>set()</code></li>
             <li>Empty strings <code>&quot;&quot;</code></li>
-            <li>Empty ranges<code> range(0)</code></li>
+            <li>Empty ranges<code> range(0)</code>, <code>range(1,1)</code>, <code>range(2,2)</code></li>
           </ul>
           </dd>
           <dd><b>Numbers</b>
@@ -82,8 +82,31 @@ ul {
     //  False
             </pre>
             </dd>
+            <dt>Useful falsies</dt> 
+            <pre>
 
+    for item in [(x,bool(x)) for x in [range(x,x) for x in range(5)]]:
+        print(item)
 
+    //  (range(0, 0), False)
+    //  (range(1, 1), False)
+    //  (range(2, 2), False)
+    //  (range(3, 3), False)
+    //  (range(4, 4), False)
+
+            </pre>
+
+            <dt>Useful truthies</dt>
+            <pre>
+
+    for item in [(x, bool(x)) for x in [[''], [0], ' ', [range(0)]]]:
+       print(item)
+
+    //  ([''], True)
+    //  ([0], True)
+    //  (' ', True)
+
+            </pre>
         </dl>
       </main>
       <div class="syntax">
