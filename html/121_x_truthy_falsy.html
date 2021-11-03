@@ -94,6 +94,8 @@ ul {
     //  (range(3, 3), False)
     //  (range(4, 4), False)
 
+    float('nan') == float('nan')
+    //  False
             </pre>
 
             <dt>Useful truthies</dt>
@@ -105,6 +107,9 @@ ul {
     //  ([''], True)
     //  ([0], True)
     //  (' ', True)
+
+    bool(float('nan'))
+    //  True
 
             </pre>
         </dl>
