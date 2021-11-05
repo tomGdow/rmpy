@@ -37,6 +37,28 @@ div {
           </ol>
           </dd>   
 
+          <dt><code>bytes</code> and <code>bytearray</code> method differences</dt>
+          <dd>
+          <pre>
+
+    for item in set(dir(bytearray)) - set(dir(bytes)):
+        if item.startswith('__'):
+            continue
+        else:
+            print(item)
+
+    \\  copy
+    \\  extend
+    \\  insert
+    \\  append
+    \\  remove
+    \\  clear
+    \\  reverse
+    \\  pop
+
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
