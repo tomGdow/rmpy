@@ -21,9 +21,40 @@ div {
       <main>
         <dl>
           <dt>reduce</dt>
-          <pre>reduce(function, iterable)</pre> 
+          <dd><pre>reduce(function, iterable)</pre></dd> 
           <dd>The reduce function applies two arguments cumulatively to the items
           of iterable, from left to right</dd>
+          <dt><code>funtools</code></dt> 
+          <dd><code>reduce</code> has been demoted to <code>functools </code></dd>
+
+          <dd><pre>
+    import functools
+    help(functools.reduce) 
+          </pre></dd>    
+
+          <dd><code>reduce(...)</code></dd>
+          <dd><code>reduce(function, iterable[, initial]) -&gt; value</code></dd>
+
+          <dd>Apply a function of two arguments cumulatively to the items of a
+          sequence or iterable, from left to right, so as to reduce the iterable to a single value.</dd>  
+          <dd>For example, <code>reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])</code>
+          calculates <code>((((1+2)+3)+4)+5)</code>.</dd>  
+          <dd>If <code>initial</code> is present, it is placed before the items
+          of the iterable in the calculation, and serves as a default when the
+          iterable is empty.</dd>
+          <dt>Socratica on reduce</dt>
+          <dd><code>reduce</code> may be thought of as nesting a function call</dd>
+          <dd>
+          <pre>
+          a = [a,b,c,d] 
+
+          'reduce' returns 
+
+           f(f(f(a,b),c),d)
+
+          </pre>
+          </dd>
+          
         </dl>
       </main>
       <div class="syntax">
@@ -83,6 +114,15 @@ div {
             <p>
             <a href ="https://stackoverflow.com/q/8689184/499167">
               SO: NameError: name 'reduce' is not defined in Python
+            </a>
+            </p>
+            </dd>
+
+
+            <dd>
+            <p>
+            <a href ="https://www.youtube.com/watch?v=hUes6y2b--0">
+              Map, Filter, and Reduce Functions (Socratica)
             </a>
             </p>
             </dd>
