@@ -22,10 +22,21 @@ div {
         <dl>
           <dt><code>int([x], base=10)</code></dt>
 
-          <dd>Return an <code>integer object</code> constructed from a number or string <code>x</code></dd>   
-          <dd>Return 0 if no arguments are given.</dd>
-          <dd><code>x.__trunc__()</code></dd> 
+          <dd>Convert a number or string to an integer, or return 0 if no arguments are given.</dd>
+
+          <dd>If x is a number, return <code>x.__int__()</code>.</dd>  
           <dd>For floating point numbers, this truncates towards zero.</dd>
+
+          <dd>
+          If <code>x</code> is <mark>not a number</mark> or if <mark>base is given</mark>, 
+          then <code>x</code> must be a <code>string</code>,
+          <code>bytes</code>, or <code>bytearray</code> instance <mark>representing an integer literal</mark> in the
+          given base.</dd>   
+          <dd>The literal can be preceded by <code>'+'</code> or <code>'-'</code> and be surrounded
+          by whitespace. </dd>    
+          <dd>The base defaults to 10.</dd>
+          <dd>Valid bases are 0 and 2-36.</dd>
+           <dd>Base 0 means to <mark>interpret the base from the string as an integer literal</mark>.</dd>
           <dd> 
           <pre> 
       int(10.2)        //     10
@@ -63,7 +74,7 @@ div {
           <summary>Notes</summary>
           <dl>
             <dt>hex, binary, octal</dt>
-            <dt> 
+            <dd> 
             <pre> 
   0o10      //    8
   0b1000    //    8
@@ -74,6 +85,7 @@ div {
             <dt>long type</dt>
             <dd>Python 3 no longer has long type (incorporated into
             <code>int</code></dd>
+
             <dt>References</dt>
             <dd>
             <p>
