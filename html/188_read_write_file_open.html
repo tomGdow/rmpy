@@ -382,13 +382,15 @@ div {
 
             from sys import argv
             def main():
-            inputfile = open(argv[1],'rb')
-            outputfile = open(argv[2],'wb')
+                inputfile = open(argv[1],'rb')
+                outputfile = open(argv[2],'wb')
 
-            buffersize = 50000
-            buffer = inputfile.read(buffersize)
-            while len(buffer):
-            outputfile.write(buffer)
+                buffersize = 50000
+                buffer = inputfile.read(buffersize)
+                
+                while len(buffer):
+                    outputfile.write(buffer)
+                    buffer=inputfile.read(buffersize)
 
             print()
             print("Copy Complete")
