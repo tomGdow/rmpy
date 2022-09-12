@@ -301,7 +301,12 @@ div {
     int('a9', 16)               //     169
     'c2' in binary:             //     11000010   // a byte
     'a9' in binary:             //     10101001   // a byte
+    hex(int('11000010',2))      //     '0xc2'
+    hex(int('10101001',2))      //     '0xa9'
 
+    [hex(i) for i in list(b"\xc2\xa9")]
+                                //     ['0xc2', '0xa9']
+     
     MNEMONIC 
         "ccanine", or "c2-a9"
         b"\xc2\xa9".decode      //     '©'
