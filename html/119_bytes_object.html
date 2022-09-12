@@ -297,6 +297,10 @@ div {
     copyright.decode()          //     '©'
     list(copyright)             //     [194, 169]
     bytes([194,169]).decode()   //     '©'
+    int('c2', 16)               //     194
+    int('a9', 16)               //     169
+    'c2' in binary:             //     11000010   // a byte
+    'a9' in binary:             //     10101001   // a byte
 
             </pre>
           </details><!--inner-->
