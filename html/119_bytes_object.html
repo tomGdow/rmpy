@@ -368,6 +368,19 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 11 (encoding/decoding, different methods)</summary>
+            <pre>
+
+    "\u00a9"                                     //   '©'
+    "\u00a9".encode()                            //   b'\xc2\xa9'
+    x ="\u00a9".encode(encoding="utf-16")
+    x                                            //   b'\xff\xfe\xa9\x00' 
+    x.decode(encoding="utf-16")                  //   '©'
+    x.decode(encoding="utf-8",errors="replace")  //   '���\x00'
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
