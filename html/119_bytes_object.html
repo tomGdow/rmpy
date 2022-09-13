@@ -346,6 +346,28 @@ div {
 
             </pre>
           </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 10 (encoding, different methods)</summary>
+            <pre>
+
+    [('A',list('A'.encode(encoding = x)),x) 
+        for x in ['utf-8', 'utf-16', 'utf-32', 'big5']]
+
+    //    [('A', [65], 'utf-8'), 
+           ('A', [255, 254, 65, 0], 'utf-16'), 
+           ('A', [255, 254, 0, 0, 65, 0, 0, 0], 'utf-32'), 
+           ('A', [65], 'big5')]
+
+    [('A', 'A'.encode(encoding = x),x) 
+        for x in ['utf-8', 'utf-16', 'utf-32', 'big5']]
+
+    //    [('A', b'A', 'utf-8'), 
+           ('A', b'\xff\xfeA\x00', 'utf-16'), 
+           ('A', b'\xff\xfe\x00\x00A\x00\x00\x00', 'utf-32'), 
+           ('A', b'A', 'big5')]
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
