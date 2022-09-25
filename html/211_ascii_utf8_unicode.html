@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>ascii unicode</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <style>
+div {
+  color: black;
+}
+.strikethru {
+  text-decoration: line-through;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        ascii unicode utf-8
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>Ascii (Tom Scott, Computerphile)</dt>
+          <dd><code>Ascii</code> is American Standard Code for Information
+            Interchange </dd>
+          <dd><code>Ascii</code> is a 7-bit binary system</dd>
+          <dd>Can code from 0 - 127</dd>
+          <dd>First 32 numbers reserved for control characters</dd>
+          <dd>Then <code>Ascii</code> committee  did something really clever!</dd>
+          <dd>
+            The letter <code>A</code> is <code>65</code> or 
+            <code>1 0 0 0 0 0 1</code>
+          </dd>
+          <dd>
+            The letter <code>B</code> is <code>66</code> or 
+            <code>1 0 0 0 0 1 0</code>
+          </dd>
+          <dd>
+            You can look at a 7-bit binary number, knock off two
+            digits, and determine position of letter in alphabet!
+          </dd>
+          <dd>Even cleverer!</dd> 
+          <dd>They started lowercase <code>32</code> later!</dd>
+          <dd>
+            The letter <code>a</code> is <code>97</code> or 
+            <code>1 1 0 0 0 0 1</code>
+          </dd> 
+          <dd>That was in the days of teleprinters</dd>
+          <dd>But then along came computers (8-bit)</dd>
+          <dd>Now, can code for <code>256</code> characters, but above <code>127</code> 
+            a bit of a free-for-all!</dd>
+
+          <dt>Unicode and UTF-8</dt>
+          <dd>For <code>127</code> and below, same as <code>ascii</code>.</dd>
+          <dd>Characters up to <code>127</code> are coded for with one byte (always with
+            leading zero) in utf-8</dd>    
+          <dd>Above 
+            <code>127</code> 
+            and up to 
+            <code>
+              <span class="strikethru">4096</span>  
+            </code> 
+            (see below) 
+            <code>2047</code>,
+              need two bytes
+          </dd> 
+
+          <dd>
+            <code>1 1 0 x x x x x</code> 
+            AND 
+            <code>1 0 x x x x x x</code>
+          </dd>
+          <dd>Add in binary number and convert to hex</dd>
+          <dd>
+            To revert, strip off 'headers' (<code>110</code>, 
+            <code>10</code>) and convert
+          </dd>
+          <dd>
+            <pre>
+    bin(128) //  '0b10000000'
+
+     -----------------
+    | 1 1 0 0 0 0 1 0 | 
+     -----------------
+         -----------------
+        | 1 0 0 0 0 0 0 0 |
+         -----------------
+
+            </pre>
+          </dd>
+          <dt>UTF-8: Three Types of Bytes ('Elixir and Unicode')</dt>
+          <dd> (1) Solo. Contains the whole codepoint. Starts with '0' (8-bit)</dd> 
+          <dd>  
+            <pre>          
+    bin(int('41',16))
+    '0b1000001'      // 7-bit
+
+     -----------------
+    | 0 1 0 0 0 0 0 1 |     // Solo
+     -----------------
+            </pre>
+          </dd>   
+          <dd> (2) Leading: Starts with '110' or '1110'... </dd> 
+          <dd>The number of leading '1's indicate the number of encoding bytes</dd>
+          <dd>
+            <pre>
+    bin(int('c2',16))
+    //'0b11000010'
+
+     -----------------
+    | 1 1 0 0 0 0 1 0 |    //  Leading
+     -----------------
+            </pre>
+          </dd>
+          <dd> (3) Continuation: Starts with '10' </dd> 
+          <dd>  <pre> 
+    bin(int('a9',16))
+    // '0b10101001'
+
+     -----------------
+    | 1 0 1 0 1 0 0 1 |    //  Continuation
+     -----------------
+          </pre>  </dd>   
+          <dt>Benjamin Peterson (Guts of Python) </dt>
+          <dd>Unicode in python 3:     // 10.44 in YouTube video</dd>
+          <dd>(1) 'str' is now 'unicode' type</dd>
+          <dd>(2) old 'str' becomes 
+            'bytes'
+          </dd>
+          <dd>(3) 'bytes' and 'str' are not implicitly coercible</dd>
+          <dd>(4) Identifiers are unicode</dd>
+          <dd><code>len(str)</code> is always the number of code points</dd>
+          <dd><code>u</code> literal is back in python 3 (since python 3.6?)</dd> 
+          <dt>David Beazley (Python 3 I/O)</dt>
+          <dd>Escape Sequences</dd>
+          <dd>(1) <code>\xhh</code>: byte value (2-digit hex)</dd>
+          <dd>(2) <code>\uhhhh</code>: unicode (4-digit hex)</dd>  
+          <dd>(3) <code>\Uhhhhhhhh</code>unicode (8-digit hex)</dd>   
+          <dd>Example</dd>
+          <dd> 
+            <pre>
+    "\x41\u0041\U00000041"
+    // 'AAA' 
+            </pre>
+          </dd>    
+        </dl>
+      </main>
+      <div class="syntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>                            
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1 (Unicodedata)</summary>
+            <pre>
+
+    import unicode
+
+    data=[(x,chr(x), hex(x), unicodedata.name(chr(x))) for x in range(32,127)]
+
+    (33, '!', '0x21', 'EXCLAMATION MARK')
+    (34, '"', '0x22', 'QUOTATION MARK')
+    (35, '#', '0x23', 'NUMBER SIGN')
+    (36, '$', '0x24', 'DOLLAR SIGN')
+    (37, '%', '0x25', 'PERCENT SIGN')
+    (38, '&amp;', '0x26', 'AMPERSAND')
+    (39, "'", '0x27', 'APOSTROPHE')
+    (40, '(', '0x28', 'LEFT PARENTHESIS')
+    (41, ')', '0x29', 'RIGHT PARENTHESIS')
+    (42, '*', '0x2a', 'ASTERISK')
+    (43, '+', '0x2b', 'PLUS SIGN')
+    (44, ',', '0x2c', 'COMMA')
+    (45, '-', '0x2d', 'HYPHEN-MINUS')
+    (46, '.', '0x2e', 'FULL STOP')
+    (47, '/', '0x2f', 'SOLIDUS')
+    (48, '0', '0x30', 'DIGIT ZERO')
+    (49, '1', '0x31', 'DIGIT ONE')
+    (50, '2', '0x32', 'DIGIT TWO')
+    (51, '3', '0x33', 'DIGIT THREE')
+    (52, '4', '0x34', 'DIGIT FOUR')
+    (53, '5', '0x35', 'DIGIT FIVE')
+    (54, '6', '0x36', 'DIGIT SIX')
+    (55, '7', '0x37', 'DIGIT SEVEN')
+    (56, '8', '0x38', 'DIGIT EIGHT')
+    (57, '9', '0x39', 'DIGIT NINE')
+    (58, ':', '0x3a', 'COLON')
+    (59, ';', '0x3b', 'SEMICOLON')
+    (60, '&lt;', '0x3c', 'LESS-THAN SIGN')
+    (61, '=', '0x3d', 'EQUALS SIGN')
+    (62, '&gt;', '0x3e', 'GREATER-THAN SIGN')
+    (63, '?', '0x3f', 'QUESTION MARK')
+    (64, '@', '0x40', 'COMMERCIAL AT')
+    (65, 'A', '0x41', 'LATIN CAPITAL LETTER A')
+    (66, 'B', '0x42', 'LATIN CAPITAL LETTER B')
+    (67, 'C', '0x43', 'LATIN CAPITAL LETTER C')
+    (68, 'D', '0x44', 'LATIN CAPITAL LETTER D')
+    (69, 'E', '0x45', 'LATIN CAPITAL LETTER E')
+    (70, 'F', '0x46', 'LATIN CAPITAL LETTER F')
+    (71, 'G', '0x47', 'LATIN CAPITAL LETTER G')
+    (72, 'H', '0x48', 'LATIN CAPITAL LETTER H')
+    (73, 'I', '0x49', 'LATIN CAPITAL LETTER I')
+    (74, 'J', '0x4a', 'LATIN CAPITAL LETTER J')
+    (75, 'K', '0x4b', 'LATIN CAPITAL LETTER K')
+    (76, 'L', '0x4c', 'LATIN CAPITAL LETTER L')
+    (77, 'M', '0x4d', 'LATIN CAPITAL LETTER M')
+    (78, 'N', '0x4e', 'LATIN CAPITAL LETTER N')
+    (79, 'O', '0x4f', 'LATIN CAPITAL LETTER O')
+    (80, 'P', '0x50', 'LATIN CAPITAL LETTER P')
+    (81, 'Q', '0x51', 'LATIN CAPITAL LETTER Q')
+    (82, 'R', '0x52', 'LATIN CAPITAL LETTER R')
+    (83, 'S', '0x53', 'LATIN CAPITAL LETTER S')
+    (84, 'T', '0x54', 'LATIN CAPITAL LETTER T')
+    (85, 'U', '0x55', 'LATIN CAPITAL LETTER U')
+    (86, 'V', '0x56', 'LATIN CAPITAL LETTER V')
+    (87, 'W', '0x57', 'LATIN CAPITAL LETTER W')
+    (88, 'X', '0x58', 'LATIN CAPITAL LETTER X')
+    (89, 'Y', '0x59', 'LATIN CAPITAL LETTER Y')
+    (90, 'Z', '0x5a', 'LATIN CAPITAL LETTER Z')
+    (91, '[', '0x5b', 'LEFT SQUARE BRACKET')
+    (92, '\\', '0x5c', 'REVERSE SOLIDUS')
+    (93, ']', '0x5d', 'RIGHT SQUARE BRACKET')
+    (94, '^', '0x5e', 'CIRCUMFLEX ACCENT')
+    (95, '_', '0x5f', 'LOW LINE')
+    (96, '`', '0x60', 'GRAVE ACCENT')
+    (97, 'a', '0x61', 'LATIN SMALL LETTER A')
+    (98, 'b', '0x62', 'LATIN SMALL LETTER B')
+    (99, 'c', '0x63', 'LATIN SMALL LETTER C')
+    (100, 'd', '0x64', 'LATIN SMALL LETTER D')
+    (101, 'e', '0x65', 'LATIN SMALL LETTER E')
+    (102, 'f', '0x66', 'LATIN SMALL LETTER F')
+    (103, 'g', '0x67', 'LATIN SMALL LETTER G')
+    (104, 'h', '0x68', 'LATIN SMALL LETTER H')
+    (105, 'i', '0x69', 'LATIN SMALL LETTER I')
+    (106, 'j', '0x6a', 'LATIN SMALL LETTER J')
+    (107, 'k', '0x6b', 'LATIN SMALL LETTER K')
+    (108, 'l', '0x6c', 'LATIN SMALL LETTER L')
+    (109, 'm', '0x6d', 'LATIN SMALL LETTER M')
+    (110, 'n', '0x6e', 'LATIN SMALL LETTER N')
+    (111, 'o', '0x6f', 'LATIN SMALL LETTER O')
+    (112, 'p', '0x70', 'LATIN SMALL LETTER P')
+    (113, 'q', '0x71', 'LATIN SMALL LETTER Q')
+    (114, 'r', '0x72', 'LATIN SMALL LETTER R')
+    (115, 's', '0x73', 'LATIN SMALL LETTER S')
+    (116, 't', '0x74', 'LATIN SMALL LETTER T')
+    (117, 'u', '0x75', 'LATIN SMALL LETTER U')
+    (118, 'v', '0x76', 'LATIN SMALL LETTER V')
+    (119, 'w', '0x77', 'LATIN SMALL LETTER W')
+    (120, 'x', '0x78', 'LATIN SMALL LETTER X')
+    (121, 'y', '0x79', 'LATIN SMALL LETTER Y')
+    (122, 'z', '0x7a', 'LATIN SMALL LETTER Z')
+    (123, '{', '0x7b', 'LEFT CURLY BRACKET')
+    (124, '|', '0x7c', 'VERTICAL LINE')
+    (125, '}', '0x7d', 'RIGHT CURLY BRACKET')
+    (126, '~', '0x7e', 'TILDE')
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 2: Unicode to UTF-8</summary>
+            <pre>
+    One Byte 
+
+         -------------------
+        | 0 x x x x x x x x |  max = 127, min = 0
+         -------------------
+
+        Max number that can be coded    127   // int("1111111",2) // [1,7]
+        Min number that can be coded     0
+
+        Example
+
+        [(x,len(x), list(x)[0],hex(list(x)[0])) for x in ['\u007f'.encode()]][0]
+
+        //  (b'\x7f', 1, 127, '0x7f')
+
+        Borders
+
+        for x in [[ord(x), hex(ord(x)), x.encode(), len(x.encode())] for x in ["\u007f","\u0080"]]:
+            print(f"{x}\n")
+
+        //  [127, '0x7f', b'\x7f', 1]
+
+        //  [128, '0x80', b'\xc2\x80', 2]
+
+
+    Two Bytes 
+         -----------------
+        | 1 1 0 x x x x x |  max = 223, min = 192
+        -------------------
+              -----------------
+             | 1 0 x x x x x x |  max = 191, min = 128
+              -----------------
+
+        Max number that can be coded  2047  //   int("111111111111",2) // [1,11]
+        Min number that can be coded   128  //   int("1000000",2)  // [0,7]
+
+        Example
+
+        [(ord(x.decode()), hex(ord(x.decode())),x,len(x), list(x),
+             list(map(lambda y: hex(y), list(x)))) for x in ['\u07ff'.encode()]][0]
+
+        //    (2047, '0x7ff', b'\xdf\xbf', 2, [223, 191], ['0xdf', '0xbf'])
+
+        Borders
+        for x in [[ord(x), hex(ord(x)), x.encode(), 
+            len(x.encode())] for x in ["\u07ff","\u0800"]]:
+
+        //  [2047, '0x7ff', b'\xdf\xbf', 2]
+
+        //  [2048, '0x800', b'\xe0\xa0\x80', 3]
+
+    Three Bytes 
+         -----------------
+        | 1 1 1 0 x x x x |  max = 239, min = 224
+        -------------------
+              -----------------
+             | 1 0 x x x x x x |  max = 191, min = 128
+              -----------------
+                      -----------------
+                     | 1 0 x x x x x x |  max = 191, min = 128
+                      -----------------
+
+        Max number that can be coded  65535  //   int("1111111111111111",2) // [1,16]
+        Min number that can be coded   2048  //   int("100000000000",2)  // [0,11]
+
+        Example
+
+        [(ord(x.decode()), hex(ord(x.decode())),x,len(x), list(x),
+            list(map(lambda y: hex(y), list(x)))) for x in ['\uffff'.encode()]][0]
+
+        //  (65535, '0xffff', b'\xef\xbf\xbf', 3, [239, 191, 191], 
+                                                      ['0xef', '0xbf', '0xbf'])
+
+        Borders
+
+        for x in [[ord(x), hex(ord(x)), x.encode(), 
+            len(x.encode())] for x in ["\uffff","\U00010000"]]:
+
+        //  [65535, '0xffff', b'\xef\xbf\xbf', 3]
+        //  [65536, '0x10000', b'\xf0\x90\x80\x80', 4]
+
+    Four Bytes 
+         -----------------
+        | 1 1 1 1 0 x x x |  max = 247, min = 240
+         -----------------
+              -----------------
+             | 1 0 x x x x x x |  max = 191, min = 128
+              -----------------
+                      -----------------
+                     | 1 0 x x x x x x |  max = 191, min = 128
+                      -----------------
+                              -----------------
+                             | 1 0 x x x x x x |  max = 191, min = 128
+                              -----------------
+
+        Max number that can be coded  2097151  //  int("111111111111111111111",2)
+                                               //  [1,21]
+
+        Min number that can be coded  65536    //  int("100000000000",2)  
+                                               //  [0,16]
+
+        Max number that can be coded BY PYTHON: 1114111                  
+                                               int("100001111111111111111",2) 
+                                               // [1+ (0,4) + [1,16]
+        ----Justification
+
+            import sys
+            sys.maxunicode
+            //  1114111
+            "Internally, unicode characters are stored as multibyte integers.
+            (16 bit or 32 bit). You can find out with 
+            sys.maxunicode  // 65535 if 16-bit, 1114111 if 32 bit"
+            (David Beazley, 26.08)
+
+        Example
+
+        [(ord(x.decode()), hex(ord(x.decode())),x,len(x), list(x),
+            list(map(lambda y: hex(y), list(x)))) for x  in ['\U0010ffff'.encode()]][0]
+
+        // (1114111, '0x10ffff', b'\xf4\x8f\xbf\xbf', 4, [244, 143, 191, 191],
+                                                   ['0xf4', '0x8f', '0xbf', '0xbf'])
+
+            </pre>
+          </details><!--inner-->
+
+
+          <details><!--inner-->
+            <summary>Example 3: unicode category</summary>
+            <pre>
+    import unicodedata        
+    unicodedata.category(b"\xc2\xa9".decode())
+    // 'So'  // Other_Symbol //(See <a href="https://www.unicode.org/reports/tr44/#General_Category_Values">
+    General Category Values</a>)
+            </pre>
+          </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example 4: UTF-8 encoded to Unicode code point</summary>
+
+            <pre>
+    b"\xc2\xa9"
+    //  '©'
+
+    bin(int('c2',16))
+    '0b11000010'     // 'Start Byte'  // header is '110' // encoded (utf-8) by TWO bytes
+
+    bin(int('a9',16))
+    '0b10101001'    //  'Continuation Byte' // header is '11'  
+
+         -----------------
+        | 1 1 0 0 0 0 1 0 |  
+        -------------------
+              -----------------
+             | 1 0 1 0 1 0 0 1 |  
+              -----------------
+
+    parta=bin(int('c2',16))[5:]  !! 
+    partb=bin(int('a9',16))[4:]
+    parta + partb // '00010101001' // 11-digit binary number (5 + 6)
+    hex(int(parta+partb,2))    // '0xa9'
+
+            </pre>
+          </details><!--inner-->
+          <details><!--inner-->
+            <summary>Example 3: unicode category</summary>
+            <pre>
+    import unicodedata        
+    unicodedata.category(b"\xc2\xa9".decode())
+    // 'So'  // Other_Symbol //(See <a href="https://www.unicode.org/reports/tr44/#General_Category_Values">
+    General Category Values</a>)
+            </pre>
+          </details><!--inner-->
+
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>References</dt>
+
+            <dd>
+              <p>
+              <a href="https://www.youtube.com/watch?v=MijmeoH9LT4">
+                [YouTube] Characters, Symbols and the Unicode Miracle - Computerphile
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p> 
+              <a href ="https://docs.python.org/3/howto/unicode.html">
+                Unicode HOWTO (Python Docs)</a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">
+                The Absolute Minimum Every Software Developer Absolutely, 
+                Positively Must Know About Unicode and Character Sets (No Excuses) 
+                [Joel Spolsky]
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://nathanmlong.com/2016/11/elixir-and-unicode-part-1-unicode-and-utf8-explained/">
+                Elixir and Unicode, Part 1: Unicode and UTF-8 Explained
+              </a>
+              </p>
+            </dd>
+
+
+            <dd>
+              <p>
+              <a href ="https://pyvideo.org/pycon-us-2013/the-guts-of-unicode-in-python.html">
+                The Guts of Unicode in Python [Benjamin Peterson]
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
+                Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://www.unicode.org/reports/tr44/#General_Category_Values">
+
+                Unicode Database Catalogue: General Category Values
+              </a>
+              </p>
+            </dd>
+            </dl>   
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
