@@ -126,7 +126,7 @@ let pageData = (function () {
     "209_del_statement.html",
     "210_misc.html",
     "211_ascii_utf8_unicode.html",
-.   "212_python_3_issues.html",
+    "212_python_3_issues.html",
     "213_latin_1_encoding.html",
     "rmpy_template.html"
 
