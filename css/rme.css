@@ -346,6 +346,10 @@ dd>ul>li, dd>ol>li{
   margin-right: 2em;
 }
 
+.strikethru {
+  text-decoration: line-through;
+}
+
 sup {
   font-size: smaller;
 }
@@ -353,7 +357,7 @@ sup {
 .metachars {
   margin-left: 2em;
 }
-`
+
 @font-face {
   font-family: 'apl';
   src: url('/font/APL386.ttf') format("truetype");
