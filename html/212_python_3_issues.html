@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿8l.<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -22,23 +22,22 @@ div {
         <dl>
           <dt>Issue: Text Encoding (David Beasley)</dt>
           <dd>(35.46 in video)</dd>
-          <blockquote>
-            The internal representation of characters is now almost never the same
-            as how text is transmitted or stored in files
-          </blockquote>
+          <dd>
+              The internal representation of characters is now almost never the same
+              as how text is transmitted or stored in files
+            
+          </dd>   
           <dd>'Hello World' in a text file may just be stored as a series of ascii</dd>
           <dd>bytes such as the following</dd>
           <dd>
             <pre>
     list(map(lambda x: hex(x)[2:], list("Hello World".encode())))
 
-    //  ['48', '65', '6c', '6c', 
-         '6f', '20', '57', '6f', 
-         '72', '6c', '64']
+    //  ['48', '65', '6c', '6c', '6f', '20', '57', '6f', '72', '6c', '64']
 
             </pre>
           </dd>
-          
+
           <dd>When the file is read into memory, the Python 3 representation</dd> 
           <dd>(32-bit integer UCS-4) will be something like the following:</dd>
           <dd>
