@@ -20,9 +20,55 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>Python 3 Issues</dt>
-          <dd>[Main text]</dd>
-        </dl>
+          <dt>Issue: Text Encoding (David Beasley)</dt>
+          <dd>(35.46 in video)</dd>
+          <blockquote>
+            The internal representation of characters is now almost never the same
+            as how text is transmitted or stored in files
+          </blockquote>
+          <dd>'Hello World' in a text file may just be stored as a series of ascii</dd>
+          <dd>bytes such as the following</dd>
+          <dd>
+            <pre>
+    list(map(lambda x: hex(x)[2:], list("Hello World".encode())))
+
+    //  ['48', '65', '6c', '6c', 
+         '6f', '20', '57', '6f', 
+         '72', '6c', '64']
+
+            </pre>
+          </dd>
+          
+          <dd>When the file is read into memory, the Python 3 representation</dd> 
+          <dd>(32-bit integer UCS-4) will be something like the following:</dd>
+          <dd>
+            <pre> 
+    list(map(lambda x: f"000000{hex(x)[2:]}", list("Hello World".encode())))
+
+    //  ['00000048', '00000065', '0000006c', '0000006c', 
+         '0000006f', '00000020', '00000057', '0000006f', 
+         '00000072', '0000006c', '00000064']
+
+        <pre>
+        </dd>   
+        <dd>Python 3 will use much more memory!</dd>
+        <dt>I/0 Encoding</dt>
+        <dd>(David Bleasley, 37.44)</dd>
+        <dd>All text is now encoded and decoded</dd>
+        <dd>If reading text, it must be decoded from its source format into Python
+        string
+        </dd>
+        <dd>If writing text, it must be encoded into some well-known output formula</dd>
+        <dd>This it the major difference between Python 2 and Python 3.</dd>
+        <dd>In Python 2, you could just write programs that just ignored encoding</dd>
+        <dd>and read text as bytes (Ascii)</dd>
+        <dd>For binary I/O, Python will never implicitly encode unicode strings and</dd>
+        <dd>write them</dd>
+        <dd>You must use a text-mode file or explicitly encode
+        <code>str.encode()</code>
+        </dd> 
+
+        </dl>           
       </main>
       <div class="syntax">
         <details>
@@ -49,7 +95,7 @@ div {
           <dl>
             <dt>note 1 [title]</dt>
             <dd>
-            <p>Note One</p>
+              <p>Note One</p>
             </dd>
             <dt>References</dt>
             <dd>
