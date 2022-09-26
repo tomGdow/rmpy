@@ -23,6 +23,32 @@ div {
           <dt>bytes literal</dt>
           <dd>A prefix of 'b' or 'B' indicates that the literal should become a bytes literal in Python 3</dd>
           <dd>bytes = b'...' literals = a sequence of octets (integers between 0 and 255)</dd>
+          <dt>How to define byte "strings"</dt>
+          <dd>
+            <pre>
+            // David Beazley, SlideShare ref
+
+            a = b"ACME 50 91.10"  // Byte string literal
+                                  // b'ACME 50 90.10'
+
+            b= bytes([1,2,3,4,5]) // From a list of integers
+                                  // b'\x01\x02\x03\x04\x05'
+
+            c = bytes(10)         // An array of 10 zero-bytes
+                                  // b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+            
+            d=bytes('Jalepño', 'utf8') // Encoded from string
+                                       // b'Jalep\xc3\xb1o'
+
+            bytes.fromhex('c2a9ff')  // From a string of hex digits 
+                                     // b'\xa2\xc8\xff'
+
+            // use ascii() to see escapes
+
+            ascii('Jalepño')         // "'Jalep\\xf1o'"
+
+            </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -98,6 +124,22 @@ div {
               PEP 3112 -- Bytes literals in Python 3000
             </a>
             </p></dd>
+
+            <dd>
+              <p>
+              <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
+                Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
+            </dd>
+
+            <dd>                                                        
+              <p>
+              <a href ="https://www.slideshare.net/dabeaz/mastering-python-3-io-version-2">
+                Mastering Python 3 I/O (Version 2) [David Beazley][SlideShare]
+              </a>
+              </p>
+            </dd>
 
           </dl>
         </details>
