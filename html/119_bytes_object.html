@@ -308,6 +308,9 @@ div {
                                 //     ['0xc2', '0xa9']
     '©'.encode()                //     b'\xc2\xa9'
     "\u00A9".encode()           //     b'\xc2\xa9'
+
+    bytes.fromhex('c2a9')       //     b'\xc2\xa9'
+    bytes.fromhex('c2a9').encode()  // '©'
      
     MNEMONIC 
         "ccanine", or "c2-a9"
