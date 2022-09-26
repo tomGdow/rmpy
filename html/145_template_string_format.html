@@ -145,6 +145,25 @@ div {
 
             </pre>
           </details><!--inner-->
+
+          <details><!--inner-->
+            <summary>Example 3 (David Beasley)</summary>
+            <pre>
+    from string import Template
+
+    s="<title>$title</title>"
+    t=Template(s)
+    t.substitute({'title': 'Hello World'})
+    // '<title>Hello World</title>'
+    
+    COMPARE
+
+    s2='<title>{title}</title>'
+    s2.format(title="Hello World")
+    '<title>Hello World</title>'
+
+            </pre>
+          </details><!--inner-->
         </details><!--end-outer-details-->
       </div>
       <div class="notes">
@@ -200,6 +219,14 @@ div {
               Python Template Strings (Ask Python)
             </a>
             </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
+                Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
             </dd>
 
           </dl>
