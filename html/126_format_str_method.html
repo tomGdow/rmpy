@@ -23,22 +23,22 @@ div {
           <dt><code>str.format(*args, **kwargs)</code></dt>
           <dd>Perform a string formatting operation.</dd> 
           <dd>The string on which this method is called can contain literal text 
-          or replacement fields delimited by braces <code>{}</code>.</dd> 
+            or replacement fields delimited by braces <code>{}</code>.</dd> 
           <dd>Each replacement field contains either the numeric index of a 
-          positional argument, or the name of a keyword argument.</dd> 
+            positional argument, or the name of a keyword argument.</dd> 
           <dd>Returns a copy of the string where each replacement field is replaced
-          with the string value of the corresponding argument</dd>
+            with the string value of the corresponding argument</dd>
           <dd>
-          <pre>
+            <pre>
 
     &quot;tho{0}a{1}&quot;.format(*[&quot;m&quot;, &quot;s&quot;])       //     'thomas'
     &quot;The sum of 1 +2 is {}&quot;.format(1+2)    //     'The sum of 1 +2 is 3'
 
-          </pre>
+            </pre>
           </dd>
           <dt>Using a Single Formatter </dt>
           <dd>
-          <pre>
+            <pre>
 
   (1) print(&quot;{}, a computer science  format for geeks&quot;.format(&quot;Geeks for Geeks&quot;))
       //   Geeks for Geeks, a computer science  format for geeks
@@ -47,7 +47,7 @@ div {
       print(str.format(&quot;Python&quot;))    //   This article is written in Python
 
   (3) &quot;Hello, I am {} years old&quot;.format(18) // 'Hello, I am 18 years old'
-          </pre>
+            </pre>
           </dd>
           <dt>Multiple formatters</dt>
           <dd> <pre>
@@ -76,10 +76,10 @@ div {
           <dd>More parameters can be included within the curly braces.</dd> 
           <dd>Use the format code syntax <code>{field_name:conversion}</code></dd>   
           <dd>Where <code>field_name</code> specifies the index number of the
-          argument to the <code>str.format()</code> method</dd>
+            argument to the <code>str.format()</code> method</dd>
           <dd>And <code>conversion</code> refers to the conversion code of the data type.</dd>
           <dd>  
-          <pre>
+            <pre>
   (1) print(&quot;The temperature today is {0:d} degrees outside!&quot;.format(35.567))
       //  ValueError: Unknown format code 'd' for object of type 'float'
 
@@ -95,7 +95,7 @@ div {
   (3) print("The {0} form of 8 is {1:b}".format("binary", 8))
       // The binary form of 8 is 1000
 
-          </pre>
+            </pre>
           </dd>                                 
           <dt>Padding Substitutions or Generating Spaces</dt>
           <dd>By default, strings are left-justified within the field,</dd>
@@ -107,7 +107,7 @@ div {
           <dd><code>&gt;  right-align text in the field</code></dd>
           <dd><code>'='   Forces the padding to be placed after the sign (if any) but before the digits</code></dd>
           <dd>
-          <pre>
+            <pre>
 
   (1) print("{0:^16} was founded in {1:&lt;16}!".format("GeeksforGeeks", 2009))
       print("{0:&lt;16} was founded in {1:&gt;16}!".format("GeeksforGeeks", 2009))
@@ -119,12 +119,12 @@ div {
 
   (2) print("{:*^20s}".format("Geeks"))
         // *******Geeks********
-          </pre>
+            </pre>
           </dd>
 
           <dt>Mnemonic </dt>
           <dd>
-<pre> 
+            <pre> 
    (1)  FILL-ALIGN-SIGN-HASH-[0]-WIDTH-COMMA-DOT-PRECISION-TYPE
    (2)  FAS...
    (3)  FASH[0]...
@@ -135,22 +135,22 @@ div {
 
         You CAN use comma with floats! [Correction!]
 
-</pre>  
+            </pre>  
 
-          <dt>More good examples</dt>
-          <dd>
-          <pre>
+            <dt>More good examples</dt>
+            <dd>
+              <pre>
   (1) print("{:+f}, {:+f}".format(3.14, -3.14))  //  +3.140000, -3.140000
 
   (2) print("{:,}".format(123456789))   //  123,456,789
                                       //  use comma as thousands separator
 
-          </pre>
-          </dd>
-          
-          <dt>format function (David Beasley)</dt>
-          <dd>
-          <pre>
+              </pre>
+            </dd>
+
+            <dt>format function (David Beazley)</dt>
+            <dd>
+              <pre>
 
     [format(65, x) for x in ['b', 'x', 'd', 'o']]
     //  ['1000001', '41', '65', '101']
@@ -165,11 +165,11 @@ div {
     stock = {'name': 'ACME', 'price': 45}
     people = {'name': 'tom'}
     "{0[name]} is owned by {1[name]} and price is {0[price]:0.2f}".format(stock, people)
-    
+
     //  'ACME is owned by tom and price is 45.00'
 
-          </pre>
-          </dd>
+              </pre>
+            </dd>
 
         </dl>
       </main>
@@ -197,38 +197,46 @@ div {
           <dl>
             <dt>note 1 [title]</dt>
             <dd>
-            <p>Note One</p>
+              <p>Note One</p>
             </dd>
             <dt>References</dt>
 
             <dd>
-            <p>
-            <a href="https://docs.python.org/3/library/stdtypes.html#str.format">
-              str.format (String Methods)
-            </a>
-            </p>
+              <p>
+              <a href="https://docs.python.org/3/library/stdtypes.html#str.format">
+                str.format (String Methods)
+              </a>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href="https://docs.python.org/3/library/string.html#formatstrings">
-              Format String Syntax
-            </a>
-            </p>
+              <p>
+              <a href="https://docs.python.org/3/library/string.html#formatstrings">
+                Format String Syntax
+              </a>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href="https://www.geeksforgeeks.org/python-format-function/">
-              Geeks for Geeks: format() function in Python
-            </a>
-            </p>
+              <p>
+              <a href="https://www.geeksforgeeks.org/python-format-function/">
+                Geeks for Geeks: format() function in Python
+              </a>
+              </p>
             </dd>
 
             <dd>
               <p>
               <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
                 Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
+            </dd>
+
+            <dd>                                                        
+              <p>
+              <a href ="https://www.slideshare.net/dabeaz/mastering-python-3-io-version-2">
+                Mastering Python 3 I/O (Version 2) [David Beazley][SlideShare]
               </a>
               </p>
             </dd>

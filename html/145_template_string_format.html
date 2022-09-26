@@ -22,80 +22,80 @@ div {
         <dl>
           <dt>template string</dt>
           <dd>Template strings provide simpler string substitutions as described
-          in PEP 292</dd>
+            in PEP 292</dd>
 
           <dd>Template strings support <code>$</code>-based substitutions,
-          using the following rules:</dd>
+            using the following rules:</dd>
           <dd> 
-          <ol> 
-            <li><code>$$</code> is an escape; it is replaced with a single <code>$</code>.</li>
-            <li><code>$identifier</code> names a substitution placeholder matching
-              a mapping key of <code>"identifier"</code>.</li>
-            <li>By default, <code>"identifier"</code> is restricted to any
-              case-insensitive ASCII alphanumeric string (including underscores) that
-              starts with an underscore or ASCII letter.</li> 
-            <li>The first non-identifier character after the <code>$</code>
-              character terminates this placeholder specification.</li>
+            <ol> 
+              <li><code>$$</code> is an escape; it is replaced with a single <code>$</code>.</li>
+              <li><code>$identifier</code> names a substitution placeholder matching
+                a mapping key of <code>"identifier"</code>.</li>
+              <li>By default, <code>"identifier"</code> is restricted to any
+                case-insensitive ASCII alphanumeric string (including underscores) that
+                starts with an underscore or ASCII letter.</li> 
+              <li>The first non-identifier character after the <code>$</code>
+                character terminates this placeholder specification.</li>
 
-            <li>
-              <p><code>${identifier}</code> is equivalent to <code>$identifier</code>.</p>
-              <p>It is required when valid identifier characters follow the
-              placeholder but are not part of the placeholder, such as
-              <code>"${noun}ification"</code>.
-              </p>  
-            </li>
-            <li>Any other appearance of <code>$</code> in the string will result
-              in a <code>ValueError</code> being raised.</li>
-          </ol>
+              <li>
+                <p><code>${identifier}</code> is equivalent to <code>$identifier</code>.</p>
+                <p>It is required when valid identifier characters follow the
+                placeholder but are not part of the placeholder, such as
+                <code>"${noun}ification"</code>.
+                </p>  
+              </li>
+              <li>Any other appearance of <code>$</code> in the string will result
+                in a <code>ValueError</code> being raised.</li>
+            </ol>
           </dd>   
           <dd>The string module provides a <code>Template</code> class that implements these rules.</dd> 
 
           <dt>The methods of <code>Template</code></dt>              
           <dd><ol>  
 
-          </ol> </dd>   
-          <dd><ol>  
-            <li> 
-              <p><code>substitute(mapping={}, /, **kwds)</code></p>
+            </ol> </dd>   
+            <dd><ol>  
+                <li> 
+                  <p><code>substitute(mapping={}, /, **kwds)</code></p>
 
-              <p>Performs the template substitution, returning a new string.</p> 
-              <p><code>mapping</code> is any dictionary-like object with keys that
-              match the placeholders in the template.</p> 
-              Alternatively, you can provide <code>keyword</code> arguments, where
-              the keywords are the placeholders.
-              When both <code>mapping</code> and <code>kwds</code> are given and
-              there are duplicates, the placeholders from <code>kwds</code> take precedence.
-            </li> 
-            <li>  
-              <p><code>safe_substitute(mapping={}, /, **kwds)</code></p>
+                  <p>Performs the template substitution, returning a new string.</p> 
+                  <p><code>mapping</code> is any dictionary-like object with keys that
+                  match the placeholders in the template.</p> 
+                  Alternatively, you can provide <code>keyword</code> arguments, where
+                  the keywords are the placeholders.
+                  When both <code>mapping</code> and <code>kwds</code> are given and
+                  there are duplicates, the placeholders from <code>kwds</code> take precedence.
+                </li> 
+                <li>  
+                  <p><code>safe_substitute(mapping={}, /, **kwds)</code></p>
 
-              <p>Like <code>substitute()</code>, except that if placeholders are
-              missing from <code>mapping</code> and <code>kwds</code>, instead of
-              raising a <code>KeyError</code> exception, the original placeholder
-              will appear in the resulting string intact.</p> 
-              <p>Also, unlike with <code>substitute()</code>, any other appearances
-              of the <code>$</code> will simply return <code>$</code> instead of
-              raising <code>ValueError</code>.</p>
+                  <p>Like <code>substitute()</code>, except that if placeholders are
+                  missing from <code>mapping</code> and <code>kwds</code>, instead of
+                  raising a <code>KeyError</code> exception, the original placeholder
+                  will appear in the resulting string intact.</p> 
+                  <p>Also, unlike with <code>substitute()</code>, any other appearances
+                  of the <code>$</code> will simply return <code>$</code> instead of
+                  raising <code>ValueError</code>.</p>
 
-              <p>While other exceptions may still occur, this method is called
-              <code>“safe”</code> because it always tries to return a usable string
-              instead of raising an exception.</p> 
-              <p>In another sense, <code>safe_substitute()</code> may be anything
-              other than safe, since it will silently ignore malformed templates
-              containing dangling delimiters, unmatched braces, or placeholders that
-              are not valid Python identifiers.</p>
-            </li> 
-          </ol> </dd>   
-          <dt>template attribute</dt>
-          <dd><code>Template</code> instances also provide one public data attribute</dd>                                            
-          <dd>This is the object passed to the constructor’s template argument.</dd>    
-          <dd>In general, you shouldn’t change it, but read-only access is not
-          enforced.</dd>
-          <dd>
-          <pre> 
+                  <p>While other exceptions may still occur, this method is called
+                  <code>“safe”</code> because it always tries to return a usable string
+                  instead of raising an exception.</p> 
+                  <p>In another sense, <code>safe_substitute()</code> may be anything
+                  other than safe, since it will silently ignore malformed templates
+                  containing dangling delimiters, unmatched braces, or placeholders that
+                  are not valid Python identifiers.</p>
+                </li> 
+              </ol> </dd>   
+              <dt>template attribute</dt>
+              <dd><code>Template</code> instances also provide one public data attribute</dd>                                            
+              <dd>This is the object passed to the constructor’s template argument.</dd>    
+              <dd>In general, you shouldn’t change it, but read-only access is not
+                enforced.</dd>
+              <dd>
+                <pre> 
     mytemplate.template           //  'Hello $name'
-          </pre>  
-          </dd>   
+                </pre>  
+              </dd>   
         </dl>
       </main>
       <div class="syntax">
@@ -147,7 +147,7 @@ div {
           </details><!--inner-->
 
           <details><!--inner-->
-            <summary>Example 3 (David Beasley)</summary>
+            <summary>Example 3 (David Beazley)</summary>
             <pre>
     from string import Template
 
@@ -155,7 +155,7 @@ div {
     t=Template(s)
     t.substitute({'title': 'Hello World'})
     // '<title>Hello World</title>'
-    
+
     COMPARE
 
     s2='<title>{title}</title>'
@@ -185,56 +185,64 @@ div {
             <dd><p>"Python supports multiple ways to format text strings" (from PEP 498)</p></dd> 
 
             <dd>  
-            <a href ="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting">
-              &percnt;-formatting
-            </a>
+              <a href ="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting">
+                &percnt;-formatting
+              </a>
             </dd>
 
             <dd>  
-            <p>
-            <a href ="https://docs.python.org/3/library/string.html#formatstrings">
-              str.format()</a>
-            </p>
+              <p>
+              <a href ="https://docs.python.org/3/library/string.html#formatstrings">
+                str.format()</a>
+              </p>
             </dd>   
 
             <dd>
-            <p>
-            <a href ="https://docs.python.org/3/library/string.html#template-strings">
-              template strings
-            </a>
-            </p>
+              <p>
+              <a href ="https://docs.python.org/3/library/string.html#template-strings">
+                template strings
+              </a>
+              </p>
             </dd>
 
             <dt>References</dt>
 
             <dd>
-            <p>
-            <a href ="https://www.python.org/dev/peps/pep-0292/">
-              PEP 292 -- Simpler String Substitutions ($-substitution)
-            </a>
-            </p>
+              <p>
+              <a href ="https://www.python.org/dev/peps/pep-0292/">
+                PEP 292 -- Simpler String Substitutions ($-substitution)
+              </a>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href ="https://docs.python.org/3/library/string.html#template-strings">
-              Template strings
-            </a>
-            </p>
+              <p>
+              <a href ="https://docs.python.org/3/library/string.html#template-strings">
+                Template strings
+              </a>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href ="https://www.askpython.com/python/string/python-template-strings">
-              Python Template Strings (Ask Python)
-            </a>
-            </p>
+              <p>
+              <a href ="https://www.askpython.com/python/string/python-template-strings">
+                Python Template Strings (Ask Python)
+              </a>
+              </p>
             </dd>
 
             <dd>
               <p>
               <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
                 Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
+            </dd>
+
+            <dd>                                                        
+              <p>
+              <a href ="https://www.slideshare.net/dabeaz/mastering-python-3-io-version-2">
+                Mastering Python 3 I/O (Version 2) [David Beazley][SlideShare]
               </a>
               </p>
             </dd>
