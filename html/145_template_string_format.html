@@ -162,6 +162,16 @@ div {
     s2.format(title="Hello World")
     '<title>Hello World</title>'
 
+    COMPARE 
+
+    class Foo:
+        def __init__(self):
+            self.name = "Tom"
+
+    f=Foo()
+    "{x.name}".format(x=f)
+    //  'Tom'
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
