@@ -133,6 +133,25 @@ div {
           <dd>(3) 'bytes' and 'str' are not implicitly coercible</dd>
           <dd>(4) Identifiers are unicode</dd>
           <dd><code>len(str)</code> is always the number of code points</dd>
+          <dd>
+            <pre>                       
+            // Example from David Beazley (SlideShare ref)
+           s= "Jalape\xf1o"
+           s                       //   'Jalapeño'
+
+           t = "Jalapen\u0303o"
+           t                       //   'Jalapeño'
+
+           s == t                  //   False
+
+           ascii(s)                //   "'Jalape\\xf1o'"       //  8 code points
+           ascii(t)                //   "'Jalapen\\u0303o'"    //  9 code points
+
+           len(s)                  //   8
+           len(t)                  //   9
+
+            </pre>
+          </dd>
           <dd><code>u</code> literal is back in python 3 (since python 3.6?)</dd> 
           <dt>David Beazley (Python 3 I/O)</dt>
           <dd>Escape Sequences</dd>
