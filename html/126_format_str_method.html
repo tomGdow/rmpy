@@ -147,6 +147,29 @@ div {
 
           </pre>
           </dd>
+          
+          <dt>format function (David Beasley)</dt>
+          <dd>
+          <pre>
+
+    [format(65, x) for x in ['b', 'x', 'd', 'o']]
+    //  ['1000001', '41', '65', '101']
+
+    format(1000, ',d')
+    //  '1,000'
+
+    data=('tom', 'doe', 'ireland')
+    format("{d[0]}".format(d=data))
+    //  'tom'
+
+    stock = {'name': 'ACME', 'price': 45}
+    people = {'name': 'tom'}
+    "{0[name]} is owned by {1[name]} and price is {0[price]:0.2f}".format(stock, people)
+    
+    //  'ACME is owned by tom and price is 45.00'
+
+          </pre>
+          </dd>
 
         </dl>
       </main>
@@ -200,6 +223,14 @@ div {
               Geeks for Geeks: format() function in Python
             </a>
             </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
+                Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
             </dd>
 
           </dl>
