@@ -23,21 +23,21 @@ div {
           <dt>generators (python glossary)</dt>
           <dd>A function which returns a generator iterator.</dd> 
           <dd>It looks like a normal function except that it contains 
-          <code>yield</code> expressions</dd>
+            <code>yield</code> expressions</dd>
           <dd>
-          <p>yield produces a series of values usable</p>
-          <ol>
-            <li>in a <code>for-loop</code></li>
-            <li>or that can be retrieved one at a time with the
-              <code>next()</code> function
-            </li>
-          </ol> 
+            <p>yield produces a series of values usable</p>
+            <ol>
+              <li>in a <code>for-loop</code></li>
+              <li>or that can be retrieved one at a time with the
+                <code>next()</code> function
+              </li>
+            </ol> 
           </dd> 
           <dt>generators (David Beazley)</dt>
           <dd>A generator is a function that produces a sequence of results instead
-          of a single value</dd>
+            of a single value</dd>
           <dd>Instead of returning a value, you generate a series of values
-          (using the yield statement)</dd>
+            (using the yield statement)</dd>
           <dd>Typically, you hook it up to a for-loop</dd>
           <dd>Calling a generator function creates an generator object.</dd>  
           <dd>However, it does not start running the function.</dd>
@@ -50,14 +50,14 @@ div {
           <dd>An object created by a generator function.</dd>
 
           <dd>Each yield temporarily suspends processing, remembering the location
-          execution state (including local variables and pending try-statements)</dd>
+            execution state (including local variables and pending try-statements)</dd>
           <dd>When the generator iterator resumes, it picks up where it left off 
-          (in contrast to functions which start fresh on every invocation)</dd>
+            (in contrast to functions which start fresh on every invocation)</dd>
 
 
           <dt>Illustrative Example</dt>
           <dd>
-          <pre>
+            <pre>
     def countdown(n):
         print("counting down from {n}")
         while n &gt; 0:
@@ -74,7 +74,7 @@ div {
     next(x)  // counting down from {n} // 10
     next(x)  // 9
     next(x)  // 8
-          </pre>
+            </pre>
           </dd>
 
         </dl>
@@ -135,54 +135,70 @@ div {
           <dl>
             <dt>yield</dt>
             <dd>
-            <p>Since Python 2.5, can use <code>yield</code> as <em>expression</em> 
-            (David Beazley)</p>
+              <p>Since Python 2.5, can use <code>yield</code> as <em>expression</em> 
+              (David Beazley)</p>
             </dd>
             <dt>References</dt>
             <dd>
-            <p>
+              <p>
 
-            <dd>
-            <p>
-            <a href ="http://www.dabeaz.com/coroutines/">
-              David Beazley: A Curious Course on Coroutines and Concurrency
-            </a>
-            </p>
-            </dd>
-            </p>
-            </dd>
-
-            <dd>
-            <p>
-            <a href ="http://www.dabeaz.com/coroutines/Coroutines.pdf">
-              PDF of David Beazley: A Curious Course on Coroutines and Concurrency
-            </a>
-            </p>
+              <dd>
+                <p>
+                <a href ="http://www.dabeaz.com/coroutines/">
+                  David Beazley: A Curious Course on Coroutines and Concurrency
+                </a>
+                </p>
+              </dd>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href ="https://docs.python.org/3/tutorial/classes.html#generators">
-              Python Tutorial: generators
-            </a>
-            </p>
+              <p>
+              <a href ="http://www.dabeaz.com/coroutines/Coroutines.pdf">
+                PDF of David Beazley: A Curious Course on Coroutines and Concurrency
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://docs.python.org/3/tutorial/classes.html#generators">
+                Python Tutorial: generators
+              </a>
+              </p>
             </dd>
 
 
             <dd>
-            <p>
-            <a href ="https://docs.python.org/3/glossary.html#term-generator">
-              Generators (Python Glossary)
-            </a>
-            </p>
+              <p>
+              <a href ="https://docs.python.org/3/glossary.html#term-generator">
+                Generators (Python Glossary)
+              </a>
+              </p>
             </dd>
 
             <dd>
-            <p>
-            <a href ="https://docs.python.org/3/library/csv.html">
-              csv — CSV File Reading and Writing
-            </a>
-            </p>
+              <p>
+              <a href ="https://docs.python.org/3/library/csv.html">
+                csv — CSV File Reading and Writing
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://www.youtube.com/watch?v=D1twn9kLmYg">
+                David Beazley: Generators: The Final Frontier - PyCon 2014
+                [Video]
+              </a>
+              </p>
+            </dd>
+
+            <dd>
+              <p>
+              <a href ="https://www.slideshare.net/dabeaz/generators-the-final-frontier">
+                Generators: The Final Frontier [David Beazley] [SlideShare]
+                < /a></p>
             </dd>
 
           </dl>
