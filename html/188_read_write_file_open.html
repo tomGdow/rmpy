@@ -58,6 +58,19 @@ div {
     '+'    //    open for updating (reading and writing)
 
           </pre></dd>   
+          <dd><pre> 
+                         r    r+    w    w+    a    a+
+                 read    +    +     -    +     -    +
+                write    -    +     +    +     +    +
+               create    -    -     +    +     +    +
+             truncate    -    -     +    +     -    -
+    position at start    +    +     +    +     -    -
+      position at end    -    -     -    -     +    +
+
+          </pre></dd>   
+          <dd><code>&nbsp;       </code>See <a
+            href="https://mkyong.com/python/python-difference-between-r-w-and-a-in-open/#difference-between-r-r-w-w-a-and-a">here</a>
+          for the source of the above table</dd>
           <dd>Modes <code>'w+'</code> and <code>'w+b'</code> open and
           truncate the file.</dd>
           <dd>Modes <code>'r+'</code> and <code>'r+b'</code> open the file with
