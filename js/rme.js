@@ -129,6 +129,7 @@ let pageData = (function () {
     "212_python_3_issues.html",
     "213_latin_1_encoding.html",
     "214_dbeazley_generator_tips_for_system_prog_notes.html",
+    "215_dbeazley_tips.html",
     "rmpy_template.html"
 
   ];
