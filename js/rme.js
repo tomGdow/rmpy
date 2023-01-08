@@ -128,6 +128,7 @@ let pageData = (function () {
     "211_ascii_utf8_unicode.html",
     "212_python_3_issues.html",
     "213_latin_1_encoding.html",
+    "214_dbeazley_generator_tips_for_system_prog_notes.html",
     "rmpy_template.html"
 
   ];
