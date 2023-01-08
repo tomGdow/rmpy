@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>[TITLE]</title>
+    <title>[D Beazley tips]</title>
     <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
     <style>
 div {
@@ -15,13 +15,23 @@ div {
   <body>
     <div class="container">
       <header>
-        [Header]
+        David Beazley Tips
       </header>
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>[Main Header]</dt>
-          <dd>[Main text]</dd>
+          <dt>timeit</dt>
+          <dd>
+          <pre>
+    import timeit
+    timeit.timeit("txt.upper()", "txt = 'x' * 1000")
+    //    0.7585532000011881
+
+    timeit.timeit("txt[:-1]", "txt = 'x' * 100000")
+    //    2.021718100004364
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -47,15 +57,13 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
             <dd>
-            <p>
-            <a href="http://google.ie">link-1</a>
-            </p>
+              <p>
+              <a href ="https://archive.org/details/pyvideo_289___mastering-python-3-i-o">
+                Mastering Python 3 I/O (part 1)[David Beazley]
+              </a>
+              </p>
             </dd>
           </dl>
         </details>
