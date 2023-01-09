@@ -32,6 +32,32 @@ div {
 
           </pre>
           </dd>
+          <dt>Comment on utf-8 encoding and memory</dt>
+          <dd>
+          The internal representation of characters is almost
+          never the same as how text is stored in files
+          </dd>
+          <dd>Emphasis: text encodings (including <code>utf-8</code> encoding refers to how text is stored <em>in
+            files</em> not in computer memory (RAM)
+          </dd>
+          <dd>Memory and files are two totally different representations of data</dd>
+          <dd>Internally, Unicode character codes are stored as
+          arrays of C integers</dd>
+          <dd>Either 16 bit or 32 bit</dd>
+          <dd>To find out which:</dd>
+          <dd>
+          <pre>
+    import sys
+    sys.maxunicode
+    //    1114111
+    hex(sys.maxunicode)
+    //    '0x10ffff'
+
+    //    "An integer giving the value of the largest Unicode code point"
+    //    D Beazley: value of 1114111 indicates 32-bit
+                     value of 65535 indicates 16-bit
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
