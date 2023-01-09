@@ -130,6 +130,7 @@ let pageData = (function () {
     "213_latin_1_encoding.html",
     "214_dbeazley_generator_tips_for_system_prog_notes.html",
     "215_dbeazley_tips.html",
+    "216_byte_order_mark.html",
     "rmpy_template.html"
 
   ];
