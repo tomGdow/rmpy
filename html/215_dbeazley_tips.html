@@ -58,6 +58,18 @@ div {
                      value of 65535 indicates 16-bit
           </pre>
           </dd>
+          <dt>New <code>format</code> method</dt>
+          <dd>
+          <pre>
+
+    format(x, 'b')
+    //  '1111101000'    // Note not '%b' 
+
+    [format(1000,x) for x in ['b', 'x', 'o']]
+    //  ['1111101000', '3e8', '1750']
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
