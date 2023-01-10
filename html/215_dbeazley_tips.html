@@ -78,7 +78,7 @@ div {
           </dd>
           <dt>Format Specifiers</dt>    
           <dd><code>{what:fmt}</code></dd>
-          <dd>Mnemonic<em>what</em> the <em>fmt</em></dd>   
+          <dd>Mnemonic: <em>what</em> the <em>fmt</em></dd>   
           <dd>"Each <code>{what:fmt}</code> gets replaced 
           by the result of <code>format(what, fmt)</code></dd>    
           <dd>
@@ -91,7 +91,7 @@ div {
           <dt>Index a tuple</dt>
           <dd>
          <pre>
-
+    tup = (10, 100, 1000) 
     f"Entry two in {tup} is {tup[1]:d}"
     
     //    Entry two in (10, 100, 1000) is 100'
@@ -102,6 +102,22 @@ div {
 
          </pre> 
           </dd>
+          <dt><code>format </code> and Class/Object</dt>
+          <dd>    
+          <pre>
+    class Foe:
+        def __init__(self):
+            self.x = 42
+            self.y = 'blah'
+
+    foe=Foe()
+
+    "{o.x},{o.y}".format(o=foe)
+
+    //    '42,blah'
+
+          </pre>
+          </dd>   
         </dl>
       </main>
       <div class="syntax">
