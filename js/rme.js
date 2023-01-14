@@ -91,6 +91,7 @@ let pageData = (function () {
     "172_sorted.html",
     "173_functions.html",
     "106_x_lambda.html",
+    "217_lambda_revisited.html",
     "174_docstring.html",
     "182_triple_quoted_strings.html",
     "196_pydoc.html",
