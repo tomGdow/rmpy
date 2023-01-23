@@ -132,6 +132,7 @@ let pageData = (function () {
     "214_dbeazley_generator_tips_for_system_prog_notes.html",
     "215_dbeazley_tips.html",
     "216_byte_order_mark.html",
+    "218_nonlocal.html",
     "rmpy_template.html"
 
   ];
