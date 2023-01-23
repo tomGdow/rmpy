@@ -2,9 +2,9 @@
 <html lang="en">
 
   <head>
-    <meta charset="utf-8" />
-    <title>[TITLE]</title>
-    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
+    <meta charset="utf-8" >
+    <title>nonlocal</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" >
     <style>
 div {
   color: black;
@@ -15,13 +15,107 @@ div {
   <body>
     <div class="container">
       <header>
-        [Header]
+        nonlocal
       </header>
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>[Main Header]</dt>
-          <dd>[Main text]</dd>
+          <dt><pre>nonlocal</pre></dt>
+
+          <dd><code>nonlocal</code> causes identifiers to refer to previously bound variables in the
+          nearest enclosing scope excluding globals. 
+          </dd>   
+          <dd>The default behavior for binding is to search the local
+          namespace first. </dd>    
+
+          <dd><code>nonlocal</code> allows
+          encapsulated code to rebind variables outside of the local scope besides
+          the global (module) scope.
+          </dd>   
+
+          <dd>Names listed in a nonlocal statement, unlike those listed in a global statement,
+          <br > must refer to pre-existing bindings in an enclosing scope
+          </dd>   
+          <dd>  
+          Names listed in a nonlocal statement must not collide with   
+          pre-existing bindings in the local scope.
+          </dd>
+          <dt>Scopes and Namespaces Example 1</dt>
+          <dd>
+          <pre>
+
+    |spam = "I am at the top"
+    |def scope_test():
+    |
+    |    spam = "test spam"
+    |    def do_local():
+    |        spam = "local spam"      
+    |
+    |    def do_nonlocal():
+    |        nonlocal spam
+    |        spam = "nonlocal spam"   
+    |
+    |    def do_global():
+    |        global spam
+    |        spam = "global spam"     
+    |
+    |    do_local()                                  // No effect
+    |    print("After local assignment:", spam)
+    |
+    |    do_nonlocal()                              //  Binds and reassigns in enclosing scope
+    |    print("After nonlocal assignment:", spam)
+    |
+    |    do_global()
+    |    print("After global reassignment:", spam)  //  Binds in GLOBAL namespace
+    |
+    |scope_test()
+    |print("In global scope:", spam) 
+
+    //  After local assignment: test spam
+    //  After nonlocal assignment: nonlocal spam
+    //  After global reassignment: nonlocal spam
+    //  In global scope: global spam
+
+          </pre>
+          </dd>
+          <dt>Modified Example 1</dt>
+          <dd>
+          <pre>
+    |spam = "I am at the top"
+    |def scope_test():
+    |
+    |    spam = "test spam"
+    |    def do_local():
+    |        spam = "local spam"      
+    |
+    |    def do_nonlocal():
+    |        nonlocal spam
+    |        # spam = "nonlocal spam"    // The DIFFERENCE is here! 
+    |
+    |    def do_global():
+    |        global spam
+    |        spam = "global spam"     
+    |
+    |    do_local()                                  // No effect
+    |    print("After local assignment:", spam)
+    |
+    |    do_nonlocal()                              //  Binds BUT NO REASSIGNMENT
+    |    print("After nonlocal assignment:", spam)
+    |
+    |    do_global()
+    |    print("After global reassignment:", spam)  //  Binds in GLOBAL namespace
+    |
+    |scope_test()
+    |print("In global scope:", spam) 
+
+
+    //     After local assignment: test spam        
+    //     After nonlocal assignment: test spam     // !! As expected
+    //     After global reassignment: test spam     // !! As expected 
+    //     In global scope: global spam
+
+          </pre>
+          </dd>
         </dl>
       </main>
       <div class="syntax">
@@ -47,15 +141,14 @@ div {
         <details>
           <summary>Notes</summary>
           <dl>
-            <dt>note 1 [title]</dt>
-            <dd>
-            <p>Note One</p>
-            </dd>
             <dt>References</dt>
             <dd>
             <p>
-            <a href="http://google.ie">link-1</a>
+
             </p>
+            <a href ="https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example">
+              Python Docs. Classes.  Scopes and Namespaces Example
+            </a>
             </dd>
           </dl>
         </details>
