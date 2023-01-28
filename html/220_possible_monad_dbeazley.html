@@ -24,8 +24,45 @@ div {
           <dd>
           <pre>
 
+    data = {'a': {'b': {'c': 42}}}
 
+    class Perhaps:
+         def __init__(self, value):
+             self.value = value
+         def myfn(self, fn):
+             if self.value is not None:
+                 return Perhaps(fn(self.value))
+             else:
+                 return self
 
+        //   Perhaps(data).myfn(lambda x : x.get('a'))
+                          .myfn(lambda x : x.get('b'))
+                          .myfn(lambda x: x.get('c'))
+                          .value
+        //   42 
+
+        DAVID BEAZLEY VERSION
+
+    class Perhaps:
+        def __init__(self, value):
+            self.value = value
+        def __rshift__(self, fn):
+            if self.value is not None:
+                return Perhaps(fn(self.value))
+            else:
+                return None
+
+        //  Perhaps(data) 
+            >> (lambda x: x.get('a')) 
+            >> (lambda x: x.get('b')) 
+            >> (lambda x: x.get('c'))
+
+        //  <__main__.Perhaps object at 0x0000023B4687BCD0>
+
+        //  _.value
+        //  42
+
+        //  " Perhaps this is a Monad" 
           </pre>
           </dd>
         </dl>
