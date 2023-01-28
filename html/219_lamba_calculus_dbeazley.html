@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" >
+    <title>Lambda Calculus</title>
+    <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" >
+    <style>
+div {
+  color: black;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        Lambda Calculus from the Ground Up (David Beazley)
+      </header>
+      <div class="counter">xx</div>
+      <main>
+        <dl>
+          <dt>lambda calculus</dt>
+          <dd>
+          <pre>
+    (1) True and False
+
+            def TRUE(a):
+                def inner(b):
+                    return a
+                return inner
+   
+            //  TRUE(1)(2)
+            //  1
+
+
+            def FALSE(a):
+                def inner(b):
+                    return b
+                return inner
+   
+            //  FALSE(1)(2)
+            //  2
+
+        LAMBDA
+
+            xTRUE  = lambda a: lambda b: a
+            xFALSE = lambda a: lambda b: b
+
+            //  xTRUE(1)(2)
+            //  1 
+
+    (2)  NOT 
+            def NOT(x):
+                return x(FALSE)(TRUE)
+   
+            //  NOT(TRUE)
+            //  <function FALSE at 0x00000210D7D94D60>
+
+        LAMBDA
+
+            xNOT = lambda x: x(FALSE)(TRUE)
+
+            //  xNOT(TRUE)
+            //  <function FALSE at 0x0000023B46874E00>
+
+    (3)  AND  
+            def AND(x):
+                def inner(y):
+                    return x(y)(x)
+                return inner
+   
+            //  AND(TRUE)(FALSE)
+            //  <function FALSE at 0x00000210D7D94D60>
+
+        LAMBDA
+        
+            xAND = lambda x: lambda y: x(y)(x)
+
+            //  xAND(TRUE)(FALSE)
+            //  <function FALSE at 0x0000023B46874E00>
+
+    (4) OR
+            def OR(x):
+                def inner(y):
+                    return x(x)(y)          // OR is x-x-y
+                return inner
+   
+            //  OR(FALSE)(TRUE)
+            //  <function TRUE at 0x00000210D7D94B80>
+
+        LAMBDA
+
+        xOR = lambda x: lambda y: x(x)(y)
+
+        //  xOR(TRUE)(TRUE)
+        //  <function TRUE at 0x0000023B46875120>
+
+
+     (5)  Integers 
+
+            def incr(x):
+               return x+1
+
+            def ONE(f):
+                def inner(x):
+                    return f(x)
+                return inner
+    
+            //  ONE(incr)(0)
+            //  1
+
+            def TWO(f):
+                  def inner(x):
+                    return f(f(x))
+                return inner
+   
+            def THREE(f):
+               def inner(x):
+                   return f(f(f(x)))
+               return inner
+    
+            //  THREE(incr)(1)
+            //  4
+
+            def FOUR(f):
+                def inner(x):
+                    return f(f(f(f(x))))
+                return inner
+    
+            //  FOUR(incr)(0)
+            //  4
+
+            //  def FIVE(f):
+                    def inner(x):
+                        return f(f(f(f(f(x)))))
+                    return inner
+    
+            //  FIVE(TWO)(incr)(0)
+            //  32                  // 2 to-the-power 5 
+            //  FIVE(THREE)(incr)(0)
+            //  243
+            //  3*3*3*3*3
+            //  243
+
+
+            def ZERO(f):
+                def inner(x):
+                    return x
+                return inner
+    
+            //  ZERO(incr)(0)
+            //  0
+
+        LAMBDA
+
+            xZERO =  lambda f: lambda x: x
+            xONE  =  lambda f: lambda x: f(x)
+            xTWO  =  lambda f: lambda x: f(f(x))
+            xTHREE = lambda f: lambda x: f(f(f(x)))
+            xFOUR =  lambda f: lambda x: f(f(f(f(x))))
+            xFIVE =  lambda f: lambda x: f(f(f(f(f(x)))))
+        
+     (6)  SUCC  (Successor function)
+
+          def SUCC(n):
+              def inner(f):
+                  def center(x):
+                      return f(n(f)(x))
+                  return center
+              return inner
+   
+          //  SUCC(FOUR)(incr)(0)
+          //  5
+
+          def NOSUCC(n):
+              def inner(f):
+                  def center(x):
+                      return n(f)(x)
+                  return center
+              return inner
+   
+          //  NOSUCC(FOUR)(incr)(0)
+          //  4
+          
+          LAMBDA
+
+          xSUCC   = lambda n: lambda f: lambda x: f(n(f)(x))
+          xNOSUCC = lambda n: lambda f: lambda x:   n(f)(x)
+
+     (7)  ADD
+
+          def ADD(x):
+              def inner(y):
+                  return x(SUCC)(y)
+              return inner
+    
+          //  ADD(FOUR)(FIVE)(incr)(0)
+          //  9
+
+          LAMBDA
+
+          xADD = lambda x: lambda y: x(SUCC)(y)
+
+          //  xADD(FOUR)(FIVE)(incr)(0)
+          //  9
+
+          //  FOUR(SUCC)(FIVE)(incr)(0)       // Note this
+          //  9
+
+     (8)  MULTIPLY
+
+          def MUL(x):
+             def inner(y):
+                 def center(z):
+                     return y(x(z))
+                 return center
+             return inner
+
+                                     !! "undefined" z at center 
+   
+          //  MULTIPLY(FIVE)(FOUR)(incr)(0)
+          //  20
+
+          LAMBDA
+
+          xMUL = lambda x: lambda y: lambda f: x(y(f))
+          
+                                     !! "undefined" f at center 
+                                     !! 'f' is coming from outside
+
+          //  xMUL(FOUR)(FIVE)(incr)(0)
+          //  20
+
+          </pre>
+          </dd>
+        </dl>
+      </main>
+      <div class="sbntax">
+        <details>
+          <summary>Syntax</summary>
+          <pre>
+          Syntax One
+          </pre>
+        </details>
+      </div>
+      <div class="examples">
+        <details><!--begin-outer-details-->
+          <summary>Examples</summary>
+          <details><!--inner-->
+            <summary>Example 1</summary>
+            <pre>
+            [code]
+            </pre>
+          </details><!--inner-->
+        </details><!--end-outer-details-->
+      </div>
+      <div class="notes">
+        <details>
+          <summary>Notes</summary>
+          <dl>
+            <dt>note 1 [title]</dt>
+            <dd>
+            <p>Note One</p>
+            </dd>
+            <dt>References</dt>
+            <dd>
+            <p>
+            <a href="http://google.ie">link-1</a>
+            </p>
+            </dd>
+          </dl>
+        </details>
+      </div>
+    </div>
+  </body>
+</html>
