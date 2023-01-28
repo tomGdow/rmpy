@@ -133,6 +133,7 @@ let pageData = (function () {
     "215_dbeazley_tips.html",
     "216_byte_order_mark.html",
     "218_nonlocal.html",
+    "220_possible_monad_dbeazley.html",
     "rmpy_template.html"
 
   ];
