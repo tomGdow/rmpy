@@ -134,6 +134,7 @@ let pageData = (function () {
     "216_byte_order_mark.html",
     "218_nonlocal.html",
     "220_possible_monad_dbeazley.html",
+    "221_monad_in_python_martin_mcbride.html",
     "rmpy_template.html"
 
   ];
