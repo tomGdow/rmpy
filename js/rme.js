@@ -135,6 +135,7 @@ let pageData = (function () {
     "218_nonlocal.html",
     "220_possible_monad_dbeazley.html",
     "221_monad_in_python_martin_mcbride.html",
+    "222_ariel_ortiz_perils_inheritance_composition.html",
     "rmpy_template.html"
 
   ];
