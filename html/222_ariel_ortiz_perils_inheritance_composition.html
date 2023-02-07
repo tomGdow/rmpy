@@ -20,8 +20,51 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>[Main Header]</dt>
-          <dd>[Main text]</dd>
+          <dt>Basic Difference</dt>
+          <dd>
+          <pre>
+
+      # Inheritance
+      class Vehicle:
+          pass
+      class Bicycle(Vehicle):
+          pass
+
+      # Composition
+      class Engine:
+          pass
+      class Car:
+          def __init__(self):
+              self.engine = Engine()
+
+          </pre>
+          </dd>
+
+          <dt>Diagram</dt>
+          <dd>
+
+          <pre>
+
+  (1) Inheritance               (2) Composition
+       _________                   ____________                       
+      |         |                  |           |
+      |  BASE   |                  | COMPOSITE |
+      |_________|                  |___________|
+        &#x25b3;                           &#9671;
+        |                           |
+        | inheritance: "is-a"       | composition: "has-a"
+        |                           |
+       _|_______                   _|__________
+      |         |                 |            |
+      | DERIVED |                 | COMPONENT  |
+      |_________|                 |____________|
+
+
+           </pre>
+          </dd>
+          <dt>White Box/Black Box</dt>
+          <dd>Inheritance is <em>white box inheritance</em></dd>   
+          <dd>Composition is <em>black box inheritance</em></dd>
         </dl>
       </main>
       <div class="syntax">
@@ -36,9 +79,164 @@ div {
         <details><!--begin-outer-details-->
           <summary>Examples</summary>
           <details><!--inner-->
-            <summary>Example 1</summary>
+            <summary>Inheritance (Perils of)</summary>
             <pre>
-            [code]
+
+  # PERILS OF INHERITANCE 
+  # file one (tomlinked.py)
+
+  # SCENARIO ONE 
+
+  class LinkedList:
+
+      def __init__(self):
+          self.arr = [] 
+
+      def insert(self, value):
+           self.arr.append(value) 
+
+      def insert_all(self, iterable):
+          for value in iterable:
+              self.arr.append(value) 
+              # self.insert(value)
+
+  # file two  (inher_tomcount.py) 
+
+
+  from tomlinked import LinkedList
+
+  class InsertCounter(LinkedList):        // INHERITANCE
+      def __init__(self):
+          super().__init__()
+          self.counter_insert = 0
+          self.counter_insert_all = 0
+
+      def insert(self, value):
+          super().insert(value)
+          self.counter_insert += 1
+
+      def insert_all(self, iterable):
+          super().insert_all(iterable)
+          self.counter_insert_all += 1
+
+
+  if __name__ == "__main__":
+      lst = InsertCounter()
+      lst.insert(2)
+      lst.insert(3)
+      lst.insert_all([10,20,30])
+      lst.insert_all([100,200,300]) 
+      print(f"number of single items inserted: {lst.counter_insert}")
+      print(f"number of iterables inserted: {lst.counter_insert_all}")
+
+
+      // number of single items inserted: 2        // As expected 
+      // number of iterables inserted: 2           // As expected 
+
+   # SCENARIO TWO 
+
+   # Code review makes following change to BASE CLASS, but makes
+     NO CHANGE to derived class!! 
+
+    class LinkedList:
+
+        def __init__(self):
+            self.arr = [] 
+
+        def insert(self, value):
+             self.arr.append(value) 
+
+        def insert_all(self, iterable):
+            for value in iterable:
+                # self.arr.append(value) 
+                self.insert(value)           // But this will call the insert 
+                                             // function in the DERIVED class!! 
+
+
+            //  number of single items inserted: 8   // OOPS!!
+            //  number of iterables inserted: 2
+
+
+            </pre>
+          </details><!--inner-->
+          
+          <details><!--inner-->
+            <summary>Composition (Solve above problem)</summary>
+            <pre>
+
+  # COMPOSITION                             
+  # file one (tomlinked.py)  (Same as above) 
+
+  # SCENARIO ONE 
+
+  class LinkedList:
+
+      def __init__(self):
+          self.arr = [] 
+
+      def insert(self, value):
+           self.arr.append(value) 
+
+      def insert_all(self, iterable):
+          for value in iterable:
+              self.arr.append(value) 
+              # self.insert(value)
+
+  # file two  (comp_tomcount.py) 
+
+  from tomlinked import LinkedList
+
+  class InsertCounter:                             // No Inheritance
+      def __init__(self,linked_list):              // Composition
+          # super().__init__()
+          self.linked_list = linked_list           //  
+          self.counter_insert = 0
+          self.counter_insert_all = 0
+
+      def insert(self, value):
+          self.linked_list.insert(value)           //
+          self.counter_insert += 1
+
+      def insert_all(self, iterable):
+          self.linked_list.insert_all(iterable)    //
+          self.counter_insert_all += 1
+
+
+  if __name__ == "__main__":
+      lst = InsertCounter(LinkedList())            //  
+      lst.insert(2)
+      lst.insert(3)
+      lst.insert_all([10,20,30])
+      lst.insert_all([100,200,300]) 
+      print(f"number of single items inserted: {lst.counter_insert}")
+      print(f"number of iterables inserted: {lst.counter_insert_all}")
+
+      //  number of single items inserted: 2       //  As expected
+      //  number of iterables inserted: 2          //  As expected
+
+   # SCENARIO TWO 
+
+   # Code review makes following change to BASE CLASS, but makes
+     NO CHANGE to derived class!! 
+
+    class LinkedList:
+
+        def __init__(self):
+            self.arr = [] 
+
+        def insert(self, value):
+             self.arr.append(value) 
+
+        def insert_all(self, iterable):
+            for value in iterable:
+                # self.arr.append(value)           //
+                self.insert(value)                 //
+
+
+       //  number of single items inserted: 2      //  As expected
+       //  number of iterables inserted: 2         //  As expected
+
+
             </pre>
           </details><!--inner-->
         </details><!--end-outer-details-->
@@ -58,7 +256,7 @@ div {
             <dd>
             <p>
 
-            <a href ="bit.ly/2LpxtF1">
+            <a href ="https://bit.ly/2LpxtF1">
               Ariel Ortis: Slides for above lecture (Pycon 2019)</a>
             </p>
             </dd>
