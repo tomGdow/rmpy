@@ -137,6 +137,7 @@ let pageData = (function () {
     "221_monad_in_python_martin_mcbride.html",
     "222_ariel_ortiz_perils_inheritance_composition.html",
     "223_nina_zakharenko_pycon.html",
+    "224_decorators.html",
     "rmpy_template.html"
 
   ];
