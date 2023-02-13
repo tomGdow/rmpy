@@ -20,8 +20,53 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>[Main Header]</dt>
-          <dd>[Main text]</dd>
+          <dt>Making a class Iterable</dt>
+          <dd>
+          <pre>
+          In order for a class to be iterable, a class needs to implement
+          __iter__()
+
+          __iter__() must return an iterator 
+
+          In order to be an iterator, a class needs to implement
+          __next__() which MUST raise StopIteration when there are
+          no more items to return
+          </pre>
+          </dd>
+          <dt>Basic Example</dt>
+          <dd>
+
+    class TomIter:
+        def __init__(self, start, stop):
+            self.start = start
+            self.stop = stop
+            self.cursor = start
+
+        def __iter__(self):
+            return self
+
+        def __next__(self):
+            if self.cursor >= self.stop:
+                raise StopIteration
+            cursor_at = self.cursor
+            self.cursor += 1
+            return cursor_at
+
+    for x in TomIter(1,10):
+        print(f"{x} -&gt; {x*x}") 
+
+    //  1 -> 1
+    //  2 -> 4
+    //  3 -> 9
+    //  4 -> 16
+    //  5 -> 25
+    //  6 -> 36
+    //  7 -> 49
+    //  8 -> 64
+    //  9 -> 81
+
+
+          </dd>
         </dl>
       </main>
       <div class="syntax">
