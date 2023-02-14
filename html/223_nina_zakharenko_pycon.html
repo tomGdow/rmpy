@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8" />
-  <title>Nina Zakharenko</title>
+    <title>Nina Zakharenko</title>
     <link rel="icon" href="http://xu/tgdfiles/icon/bonnie.ico" />
     <style>
 div {
@@ -35,7 +35,7 @@ div {
           </dd>
           <dt>Basic Example</dt>
           <dd>
-
+          <pre> 
     class TomIter:
         def __init__(self, start, stop):
             self.start = start
@@ -65,8 +65,86 @@ div {
     //  8 -> 64
     //  9 -> 81
 
+          </pre>  
+          </dd>
+          <dt>Use a Generator Instead</dt>
+          <dd>
+          <pre>
+
+      def mygen(start,stop):
+          cursor_at = start
+          while cursor_at < stop:
+           yield cursor_at
+           cursor_at += 1
+
+           g = mygen(10,20)
+
+           for x in g:
+           print(x)
+
+
+           // 10
+           // 11 
+           // 12
+           // 13
+           // 14
+           // 15
+           // 16
+           // 17
+           // 18
+           // 19
+
+          </pre>
+          </dd>
+          <dt>Generator as part of a class</dt>
+          <dd>
+          <pre>
+
+
+      def mygen(start,stop):
+          cursor_at = start
+          while cursor_at < stop:
+              yield cursor_at
+              cursor_at += 1
+
+      g = mygen(10,20)
+
+      # for x in g:
+          # print(x)
+
+      class TomIter:
+          def __init__(self, start, stop):
+              self.start  = start
+              self.stop = stop
+             
+          def mygen(self):
+          
+              cursor_at = self.start
+              while cursor_at < self.stop:
+                  yield cursor_at
+                  cursor_at += 1
+
+      t = TomIter(10,20)
+      x = TomIter(20,30) 
+
+      for (x,y)  in zip(t.mygen(), x.mygen()):
+          print(f"{x} {y}")
+      
+      //  10 20
+      //  11 21
+      //  12 22
+      //  13 23
+      //  14 24
+      //  15 25
+      //  16 26
+      //  17 27
+      //  18 28
+      //  19 29
+
+          </pre>
 
           </dd>
+
         </dl>
       </main>
       <div class="syntax">
