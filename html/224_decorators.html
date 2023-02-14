@@ -20,8 +20,87 @@ div {
       <div class="counter">xx</div>
       <main>
         <dl>
-          <dt>Decorator Examples</dt>
-          <dd>[Main text]</dd>
+          <dt>Decorator (Inheritance) </dt>
+          <dd>
+          <pre>
+
+    class Vehicle:
+        def __init__(self, type):
+            self.type = type
+
+        def addTwo(self, a,b):
+            return a + b
+
+    class Car(Vehicle): 
+        def __init__(self, v):
+            super().__init__(v)
+
+        def fix(func):    
+            def inner(self,a,b):
+                return func(self,int(a), int(b)) 
+            return inner
+        
+        @fix 
+        def addTwo(self,a,b):
+            return super().addTwo(a,b)
+
+
+    mycar = Car('toyota')
+    print(mycar.type)                                       //  toyota
+    print(mycar.addTwo(2,3))                                //  5
+    print(Vehicle.addTwo('xyz', '2', '3'))                  // 23
+    print(mycar.__class__.__mro__[1].addTwo("xyz","2","3")  // 23
+    print(mycar.__class__.__mro__)
+
+                           // (
+                           //  &lt;class '__main__.Car'&gt;, 
+                           //  &lt;class '__main__.Vehicle'&gt;, 
+                           //  &lt;class 'object'&gt;
+                           // )
+
+          </pre>
+          </dd>
+          <dt>Decorator (Composition) </dt>
+          <dd>
+          <pre>
+
+    class Engine:
+        def addTwo(self, a, b):
+            return a + b
+
+
+    class Lorry:
+        def __init__(self, type):
+            self.type = type
+            self.fns=Engine()
+
+        def fix(func):
+            def inner(self, a, b):
+                return func(self, int(a), int(b)) 
+            return inner
+
+        @fix
+        def addTwo(self, a,b):
+            return self.fns.addTwo(a,b)
+
+    mylorry = Lorry('ford')
+    print(mylorry.type)                             //  ford
+    print(mylorry.fns.addTwo(2,3))                  //  5
+    print(mylorry.fns.addTwo('2', '3'))             //  23
+    print(mylorry.addTwo('2', '3'))                 //  5
+
+
+    print(mylorry.__class__) 
+                            //  &lt;class '__main__.Lorry'&gt;
+
+    print(mylorry.__class__.__mro__)
+                           //   (
+                           //     &lt;class '__main__.Lorry'&gt;, 
+                           //     &lt;class 'object'&gt;
+                           //   )
+
+          </pre>  
+          </dd>   
         </dl>
       </main>
       <div class="syntax">
